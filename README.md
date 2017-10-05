@@ -10,8 +10,13 @@ Outline
   a. Overview
   b. Motivation
   c. General Background
-2. Prototype
-3. Validation Experiment
+    i. Similar Virtual Environments
+    ii. Haptics
+2. Rapidly Reconfigurable Research Cockpit
+  a. Requirements
+  b. Technical Approach
+  c. Lessons Learned
+  d. Validation Experiment
 4. Haptics Experiment
 5. Design Feedback Experiment
 6. Conclusion
