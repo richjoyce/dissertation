@@ -3,7 +3,7 @@ before_install:
 - sudo apt-get install texlive-latex-extra texlive-bibtex-extra
 script:
 - mkdir _build
-- pdflatex -output-directory _build ./thesis.tex
+- pdflatex -halt-on-error -output-directory _build ./thesis.tex
 #deploy:
 #  provider: releases
 #  api_key:
