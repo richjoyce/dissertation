@@ -17,7 +17,8 @@ after_success:
 - git config --global user.name ${GIT_NAME}
 - git clone --quiet --branch=gh-pages https://${GITHUB_TOKEN}@github.com/richjoyce/dissertation
 - cd dissertation
-- cp -f $HOME/build/richjoyce/dissertation/_build/thesis.pdf thesis-${TRAVIS_COMMIT}.pdf
-- ln -sfn thesis-${TRAVIS_COMMIT}.pdf thesis-latest.pdf
+- cp -f $HOME/build/richjoyce/dissertation/_build/thesis.pdf thesis-${TRAVIS_COMMIT:0:6}.pdf
+- ln -sfn thesis-${TRAVIS_COMMIT:0:6}.pdf thesis-latest.pdf
+- git add thesis-latest.pdf thesis-${TRAVIS_COMMIT:0:6}.pdf
 - git commit -m "Travis CI autocommit (${TRAVIS_BUILD_NUMBER})"
 - git push -fq origin gh-pages
