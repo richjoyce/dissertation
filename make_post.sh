@@ -1,3 +1,5 @@
+#!/bin/bash
+
 SHA=$1
 TAG=$(git describe --tags ${SHA})
 FILENAME=_posts/$(date +"%Y-%m-%d")-${SHA}.md
