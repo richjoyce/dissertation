@@ -9,36 +9,3 @@ Full versions are built to submission format guidelines, while draft is double s
 <p class="site-intro">
 Stable versions are relatively readable, usually tagged after I complete a section.
 </p>
-
-<div class="build">
-<h2><span>Latest Stable Build</span></h2>
-{% for post in site.categories.stable limit:1 %}
-<div class="meta">
-    <div class="pdf-links">
-        <a href="{{ site.baseurl }}/assets/draft-{{ post.sha }}.pdf">Draft PDF</a>
-        | <a href="{{ site.baseurl }}/assets/thesis-{{ post.sha }}.pdf">Full PDF</a> 
-    </div>
-    <time datetime="{{ post.date | date_to_xmlschema }}">Built on {{ post.date | date: "%b %d, %Y" }}</time>
-    <span class="tag"><a href="https://github.com/richjoyce/dissertation/commit/{{ post.sha }}">{{ post.gittag }}</a></span>
-</div>
-<p class="description">
-{{ post.content }}
-</p>
-{% endfor %}
-</div>
-
-<div class="build">
-<h2><span>Latest Changes Build</span></h2>
-{% for post in site.categories.commit limit:1 %}
-<div class="meta">
-    <div class="pdf-links">
-        <a href="{{ site.baseurl }}/assets/draft-{{ post.sha }}.pdf">Draft PDF</a>
-        | <a href="{{ site.baseurl }}/assets/thesis-{{ post.sha }}.pdf">Full PDF</a> 
-    </div>
-    <time datetime="{{ post.date | date_to_xmlschema }}">Built on {{ post.date | date: "%b %d, %Y" }}</time>
-    <span class="tag"><a href="https://github.com/richjoyce/dissertation/commit/{{ post.sha }}">{{ post.sha }}</a></span>
-<p class="description">
-{{ post.title }}
-</p>
-{% endfor %}
-</div>

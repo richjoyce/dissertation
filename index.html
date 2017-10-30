@@ -6,8 +6,44 @@ layout: default
 		<h1 class="smallcap"><a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
 		{% include intro.html %}
 	</section>
-	<section>
-        <h1>Full Build History</h1>
+
+<div class="build">
+    <h2><span>Latest Stable Build</span></h2>
+    {% for post in site.categories.stable limit:1 %}
+    <div class="meta">
+        <div class="pdf-links">
+            <a href="{{ site.baseurl }}/assets/draft-{{ post.sha }}.pdf">Draft PDF</a>
+            | <a href="{{ site.baseurl }}/assets/thesis-{{ post.sha }}.pdf">Full PDF</a>
+        </div>
+        <time datetime="{{ post.date | date_to_xmlschema }}">Built on {{ post.date | date: "%b %d, %Y" }}</time>
+        <span class="tag"><a href="https://github.com/richjoyce/dissertation/commit/{{ post.sha }}">{{ post.gittag }}</a></span>
+    </div>
+    <p class="description">
+    {{ post.content }}
+    </p>
+    {% endfor %}
+</div>
+
+<div class="build">
+    <h2><span>Most Recent Build</span></h2>
+    {% for post in site.categories.commit limit:1 %}
+    <div class="meta">
+        <div class="pdf-links">
+            <a href="{{ site.baseurl }}/assets/draft-{{ post.sha }}.pdf">Draft PDF</a>
+            | <a href="{{ site.baseurl }}/assets/thesis-{{ post.sha }}.pdf">Full PDF</a>
+        </div>
+        <time datetime="{{ post.date | date_to_xmlschema }}">Built on {{ post.date | date: "%b %d, %Y" }}</time>
+        <span class="tag"><a href="https://github.com/richjoyce/dissertation/commit/{{ post.sha }}">{{ post.sha }}</a></span>
+    </div>
+    <p class="description">
+    {{ post.content }}
+    </p>
+    {% endfor %}
+</div>
+
+	<section class="build">
+        <h2><span>Full Build History</span></h2>
+        <p></p>
 		<ul class="post-list">
 			{% for post in site.posts %}
 			<li>
