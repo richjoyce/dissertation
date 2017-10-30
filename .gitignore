@@ -1,6 +1,7 @@
 # Created by https://www.gitignore.io
 
 ### LaTeX ###
+*.pdf
 *.bcf
 *.run.xml
 *.acn
