@@ -1,10 +1,8 @@
 before_install:
 - sudo apt-get update
-- sudo apt-get install texlive-latex-extra texlive-bibtex-extra
+- sudo apt-get install make texlive-latex-extra texlive-bibtex-extra
 script:
-- mkdir _build
-- pdflatex -halt-on-error -output-directory _build ./thesis.tex
-- pdflatex -halt-on-error -output-directory _build ./draft.tex
+- make
 deploy:
 - provider: releases
   api_key:
@@ -18,8 +16,8 @@ after_success:
 - git config --global user.name ${GIT_NAME}
 - git clone --quiet --branch=gh-pages https://${GITHUB_TOKEN}@github.com/richjoyce/dissertation
 - cd dissertation
-- cp -f $HOME/build/richjoyce/dissertation/_build/thesis.pdf assets/thesis-${TRAVIS_COMMIT:0:7}.pdf
-- cp -f $HOME/build/richjoyce/dissertation/_build/draft.pdf assets/draft-${TRAVIS_COMMIT:0:7}.pdf
+- cp -f $HOME/build/richjoyce/dissertation/thesis.pdf assets/thesis-${TRAVIS_COMMIT:0:7}.pdf
+- cp -f $HOME/build/richjoyce/dissertation/draft.pdf assets/draft-${TRAVIS_COMMIT:0:7}.pdf
 - git add assets/thesis-${TRAVIS_COMMIT:0:7}.pdf assets/draft-${TRAVIS_COMMIT:0:7}.pdf
 - ./make_post.sh ${TRAVIS_COMMIT:0:7}
 - git add _posts/*
