@@ -18,7 +18,7 @@ after_success:
 - cd dissertation
 - cp -f $HOME/build/richjoyce/dissertation/build/thesis.pdf assets/thesis-${TRAVIS_COMMIT:0:7}.pdf
 - cp -f $HOME/build/richjoyce/dissertation/build/draft/draft.pdf assets/draft-${TRAVIS_COMMIT:0:7}.pdf
-- ln -sfn assets/draft-${TRAVIS_COMMIT:0:7}.pdf assets/draft-latest.pdf
+- git describe --tags --exact-match --abbrev=0 ${TRAVIS_COMMIT:0:7} && ln -sfn assets/draft-${TRAVIS_COMMIT:0:7}.pdf assets/draft-latest.pdf
 - git add assets/draft-latest.pdf assets/thesis-${TRAVIS_COMMIT:0:7}.pdf assets/draft-${TRAVIS_COMMIT:0:7}.pdf
 - ./make_post.sh ${TRAVIS_COMMIT:0:7}
 - git add _posts/*
