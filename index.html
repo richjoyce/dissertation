@@ -1,0 +1,31 @@
+---
+layout: default
+---
+<div class="home">
+	<section class="site-header">
+		<h1 class="smallcap"><a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+		{% include intro.html %}
+	</section>
+	<section>
+        <h1>Full Build History</h1>
+		<ul class="post-list">
+			{% for post in site.posts %}
+			<li>
+                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+                <a href="/assets/draft-{{ post.sha }}.pdf">Draft PDF</a>
+                |
+                <a href="/assets/thesis-{{ post.sha }}.pdf">Full PDF</a>
+                |
+                {% if post.categories contains 'stable' %}
+                <code>stable</code>
+                {% endif %}
+                {{ post.title }}
+                |
+                <a href="http://github.com/richjoyce/dissertation/commit/{{ post.sha }}">Changes</a>
+                |
+                <a href="{{ post.url | prepend: site.baseurl }}">More...</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</section>
+</div>
