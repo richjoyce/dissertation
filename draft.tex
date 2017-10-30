@@ -4,9 +4,8 @@
 % modified by Dylan Beaudette, 2006,2010
 % modified  and source uploaded to github by Alex Mandel, 2014
 % Source code available at http://github.com/wildintellect/ucdthesis
-\documentclass[11pt]{ucdthesis}
+\documentclass[12pt,oneside,draft]{ucdthesis}
 %\documentclass[10pt,twoside,final]{ucdthesis}
-% \documentclass[10pt,twoside,draft]{ucdthesis}
 % \documentclass[10pt,oneside,final]{ucdthesis}
 
 % TODO: this makes strange things happen in the header...
@@ -14,13 +13,28 @@
 % \documentclass[11pt,oneside,final]{ucdthesis}
 
 % when we are giving people drafts, use more of the page:
-% \usepackage[letterpaper,left=0.75in,right=0.75in,top=1.25in,bottom=0.5in]{geometry}
+\usepackage[letterpaper,
+    inner=1.0in,
+    outer=2.25in,
+    top=1.25in,
+    bottom=2.0in,
+    marginparsep=0.25in,
+    marginparwidth=1.0in]{geometry}
+
+\setlength{\footskip}{1.25in}
+\setlength{\headsep}{1.25in}
 % need this for the \foreach command
 \usepackage{tikz}
 
 % Turn on single spacing with \ssp.
 % Turn on double spacing with \dsp.
 % By default, your dissertation is double spaced, as is required by UCD.
+\usepackage{setspace}
+\makeatletter
+\let\@currsize\normalsize
+\makeatother
+\setstretch{2.0}
+%\dsp
 
 % spacing in figures and tables and their captions can be
 % changed here (\ssp for single-space, empty for same as surrounding
@@ -34,17 +48,46 @@
 % line numbers:
 % http://www.ctan.org/tex-archive/help/Catalogue/entries/lineno.html
 %
-% \usepackage{lineno}
+\usepackage{lineno}
 
 %
 % SVN integration
 %
 % \usepackage{svnkw}
 
+\usepackage{calc}
+
 % customized headers
 %
 % http://www.ctan.org/tex-archive/help/Catalogue/entries/fancyhdr.html
-% \usepackage{fancyhdr}
+\usepackage{fancyhdr}
+
+\newlength{\myoddoffset}
+\setlength{\myoddoffset}{\marginparwidth + \marginparsep}
+
+\rhead{\input{git-header}}
+\chead{\textbf{---DRAFT---}}
+\lhead{}
+\cfoot{---\thepage---}
+\fancyheadoffset[RE,RO]{\myoddoffset}
+\fancyfootoffset[RE,RO]{\myoddoffset}
+
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \fancyfoot[C]{---\thepage---}
+    \fancyhead[C]{\textbf{---DRAFT---}}
+    \fancyhead[R]{\input{git-header}}
+\fancyheadoffset[RE,RO]{\myoddoffset}
+\fancyfootoffset[RE,RO]{\myoddoffset}
+}
+\fancypagestyle{frontmatterstyle}{%
+    \fancyhf{}
+    \fancyfoot[C]{---\thepage---}
+    \fancyhead[C]{\textbf{---DRAFT---}}
+    \fancyhead[R]{\input{git-header}}
+\fancyheadoffset[RE,RO]{\myoddoffset}
+\fancyfootoffset[RE,RO]{\myoddoffset}
+}
 
 % a better verbatim environment: c/o Pete Dirac
 % use like this:
@@ -88,8 +131,7 @@
 % \usepackage{hyperref}
 
 % nice looking, parenthetical references
-\usepackage[sorting=nyt,natbib=true,citestyle=authoryear,bibstyle=authoryear,maxnames=3,refsection
-=chapter]{biblatex}
+\usepackage[sorting=nyt,natbib=true,citestyle=authoryear,bibstyle=authoryear,maxnames=3,refsection=chapter]{biblatex}
 %\usepackage{chapterbib} % incompatible with biblatex
 \bibliography{proposal}
 \defbibheading{bibliography}{%
@@ -150,7 +192,8 @@
             %pdfcreator={pdflatex, or other tool}
             ]{hyperref}
 \hypersetup{
-	%driver=pdftex,
+    % driver=pdftex,
+    final=true,
 	colorlinks=true,
 	urlcolor=blue,
 	linkcolor=blue,          % color of internal links
@@ -175,7 +218,8 @@
 
 %
 %% Title, Front Matter, and Abstract:
-\input{title_and_frontmatter}
+% Skip for draft
+% \input{title_and_frontmatter}
 
 %
 % the chapters
@@ -188,13 +232,15 @@
 %\renewcommand{\chaptermark}[1]{\markboth{\small{#1}}{}}
 %\renewcommand{\sectionmark}[1]{\markright{\small{#1}}{}}
 
+\pagestyle{fancy}
 
 % TODO: this is only for draft copies !!
 % start line number printing
 %
-% \linenumbers
+\linenumbers
 
 
+\tableofcontents
 
 % chapter 1
 \chapter{Introduction}

@@ -1,6 +1,6 @@
 before_install:
 - sudo apt-get update
-- sudo apt-get install make texlive-latex-extra texlive-bibtex-extra
+- sudo apt-get install make texlive-latex-extra texlive-bibtex-extra texlive-humanities
 script:
 - make
 deploy:
