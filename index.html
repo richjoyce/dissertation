@@ -12,9 +12,9 @@ layout: default
 			{% for post in site.posts %}
 			<li>
                 <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
-                <a href="/assets/draft-{{ post.sha }}.pdf">Draft PDF</a>
+                <a href="{{ site.baseurl }}/assets/draft-{{ post.sha }}.pdf">Draft PDF</a>
                 |
-                <a href="/assets/thesis-{{ post.sha }}.pdf">Full PDF</a>
+                <a href="{{ site.baseurl }}/assets/thesis-{{ post.sha }}.pdf">Full PDF</a>
                 |
                 {% if post.categories contains 'stable' %}
                 <code>stable</code>
