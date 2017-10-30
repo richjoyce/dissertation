@@ -1,11 +1,7 @@
 #!/bin/bash
 
 SHA=$1
-TAG=$(git describe --tags ${SHA})
-echo ${TAG:0:8}
-if [ "${TAG:0:8}" == "untagged" ]; then
-    TAG=""
-fi
+TAG=$(git describe --tags --exact-match --abbrev=0 ${SHA})
 FILENAME=_posts/$(date +"%Y-%m-%d")-${SHA}.md
 SHORT_MESSAGE=`git log -n 1 --pretty=format:%s ${SHA}`
 
