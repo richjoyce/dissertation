@@ -23,6 +23,7 @@
 
 \setlength{\footskip}{1.25in}
 \setlength{\headsep}{1.25in}
+\setlength{\headheight}{15pt}
 % need this for the \foreach command
 \usepackage{tikz}
 
@@ -69,24 +70,24 @@
 \chead{\textbf{---DRAFT---}}
 \lhead{}
 \cfoot{---\thepage---}
-\fancyheadoffset[RE,RO]{\myoddoffset}
-\fancyfootoffset[RE,RO]{\myoddoffset}
+\fancyheadoffset[R]{\myoddoffset}
+\fancyfootoffset[R]{\myoddoffset}
 
 \fancypagestyle{plain}{%
     \fancyhf{}
     \fancyfoot[C]{---\thepage---}
     \fancyhead[C]{\textbf{---DRAFT---}}
     \fancyhead[R]{\input{git-header}}
-\fancyheadoffset[RE,RO]{\myoddoffset}
-\fancyfootoffset[RE,RO]{\myoddoffset}
+\fancyheadoffset[R]{\myoddoffset}
+\fancyfootoffset[R]{\myoddoffset}
 }
 \fancypagestyle{frontmatterstyle}{%
     \fancyhf{}
     \fancyfoot[C]{---\thepage---}
     \fancyhead[C]{\textbf{---DRAFT---}}
     \fancyhead[R]{\input{git-header}}
-\fancyheadoffset[RE,RO]{\myoddoffset}
-\fancyfootoffset[RE,RO]{\myoddoffset}
+\fancyheadoffset[R]{\myoddoffset}
+\fancyfootoffset[R]{\myoddoffset}
 }
 
 % a better verbatim environment: c/o Pete Dirac
