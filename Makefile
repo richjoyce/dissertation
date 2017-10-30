@@ -10,9 +10,9 @@ clean:
 	rm -rf build
 	rm git-header.tex
 
-CHAPTERS = introduction.tex prototype.tex validation.tex haptics.tex design_exp.tex conclusion.tex
+CHAPTERS = introduction.tex prototype.tex validation.tex haptics.tex design_exp.tex conclusion.tex appendix.tex
 CHAPTERS := $(addprefix chapters/, $(CHAPTERS))
-EXTRA = preface.tex title_and_frontmatter.tex abstract.tex appendix.tex
+EXTRA = title_and_frontmatter.tex abstract.tex
 BUILD_DIR = build
 DRAFT_DIR = build/draft
 
