@@ -195,30 +195,12 @@
 % \linenumbers
 
 
-
-% chapter 1
-\chapter{Introduction}
-\input{introduction} %This looks for chapter1.tex
-
-% chapter 2
-\chapter{Real Title Here}
-\input{prototype} %This looks for chapter2.tex
-
-% chapter 3
-\chapter{Real Title Here}
-\input{validation} %This looks for chapter2.tex
-
-% chapter 4
-\chapter{Real Title Here}
-\input{haptics} %This looks for chapter2.tex
-
-% chapter 5
-\chapter{Real Title Here}
-\input{design_exp} %This looks for chapter2.tex
-
-% chapter 6
-\chapter{Real Title Here}
-\input{conclusion} %This looks for chapter2.tex
+\input{chapters/introduction}
+\input{chapters/prototype}
+\input{chapters/validation}
+\input{chapters/haptics}
+\input{chapters/design_exp}
+\input{chapters/conclusion}
 
 
 % note that the 'plainnat' style does not allow URL's in the bibtex entry
@@ -243,7 +225,7 @@
 % reset page style to fancy
 %\pagestyle{fancyplain}
 
- \input{appendix}
+\input{chapters/appendix}
 
 
 \end{document}
