@@ -17,6 +17,8 @@ layout: default
         </div>
         <time datetime="{{ post.date | date_to_xmlschema }}">Built on {{ post.date | date: "%b %d, %Y" }}</time>
         <span class="tag"><a href="https://github.com/richjoyce/dissertation/commit/{{ post.sha }}">{{ post.gittag }}</a></span>
+        <span class="tag"><a href="https://github.com/richjoyce/dissertation/commit/{{ post.sha }}">{{ post.sha }}</a></span>
+        <span class="tag">{{ post.wordcount | default: "N/A" }} words</span>
     </div>
     <p class="description">
     {{ post.content }}
@@ -34,6 +36,7 @@ layout: default
         </div>
         <time datetime="{{ post.date | date_to_xmlschema }}">Built on {{ post.date | date: "%b %d, %Y" }}</time>
         <span class="tag"><a href="https://github.com/richjoyce/dissertation/commit/{{ post.sha }}">{{ post.sha }}</a></span>
+        <span class="tag">{{ post.wordcount | default: "N/A" }} words</span>
     </div>
     <p class="description">
     {{ post.content }}
@@ -48,16 +51,20 @@ layout: default
 			{% for post in site.posts %}
 			<li>
                 <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
-                <a href="{{ site.baseurl }}/assets/draft-{{ post.sha }}.pdf">Draft PDF</a>
+                <a href="{{ site.baseurl }}/assets/draft-{{ post.sha }}.pdf">Draft</a>
                 |
-                <a href="{{ site.baseurl }}/assets/thesis-{{ post.sha }}.pdf">Full PDF</a>
+                <a href="{{ site.baseurl }}/assets/thesis-{{ post.sha }}.pdf">Full</a>
                 |
-                {% if post.categories contains 'stable' %}
-                <span class="stable">stable</span>
-                {% endif %}
+                <span class="words">{{ post.wordcount | default: "N/A" }}</span>
+                |
                 {{ post.title }}
+                {% if post.categories contains 'stable' %}
+                <span class="stable">{{ post.gittag }}</span>
+                {% endif %}
+                {% comment %}
                 |
                 <a href="http://github.com/richjoyce/dissertation/commit/{{ post.sha }}">Changes</a>
+                {% endcomment %}
                 |
                 <a href="{{ post.url | prepend: site.baseurl }}">More...</a>
 			</li>
