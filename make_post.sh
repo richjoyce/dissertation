@@ -10,7 +10,7 @@ mkdir -p _posts
 
 echo "---" > $FILENAME
 echo "layout: post" >> $FILENAME
-echo "title: ${SHORT_MESSAGE}" >> $FILENAME
+echo "title: \"${SHORT_MESSAGE}\"" >> $FILENAME
 echo "date: `git show -s --format=%ci ${SHA}`" >> $FILENAME
 echo "sha: ${SHA}" >> $FILENAME
 echo "wordcount: ${COUNT}" >> $FILENAME

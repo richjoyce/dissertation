@@ -10,6 +10,9 @@ kramdown:
   input: GFM
 permalink: pretty
 
+plugins:
+- jemoji
+
 # Third-party services
 # just leave empty to disable it
 google_analytics:
