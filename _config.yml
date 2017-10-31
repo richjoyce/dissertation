@@ -12,6 +12,7 @@ permalink: pretty
 
 plugins:
 - jemoji
+- jekyll-feed
 
 # Third-party services
 # just leave empty to disable it
