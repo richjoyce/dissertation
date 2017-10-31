@@ -22,7 +22,7 @@ after_success:
 - cp -f $HOME/build/richjoyce/dissertation/build/draft/draft.pdf assets/draft-${TRAVIS_COMMIT:0:7}.pdf
 - git describe --tags --exact-match --abbrev=0 ${TRAVIS_COMMIT:0:7} && cp -f assets/draft-${TRAVIS_COMMIT:0:7}.pdf assets/draft-latest.pdf
 - git add assets/draft-latest.pdf assets/thesis-${TRAVIS_COMMIT:0:7}.pdf assets/draft-${TRAVIS_COMMIT:0:7}.pdf
-- ./make_post.sh ${TRAVIS_COMMIT:0:7}
+- ./make_post.sh ${TRAVIS_COMMIT:0:7} $(cat $HOME/build/richjoyce/dissertation/build/count)
 - git add _posts/*
 - git commit -m "Travis CI autocommit (from build \#${TRAVIS_BUILD_NUMBER})"
 - git push -fq origin gh-pages

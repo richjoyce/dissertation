@@ -1,6 +1,6 @@
 .PHONY: all draft thesis clean
 
-all: thesis draft
+all: thesis draft count
 
 draft: draft.pdf
 
@@ -25,6 +25,9 @@ thesis.pdf: thesis.tex $(BUILD_DIR) $(CHAPTERS) $(EXTRA)
 draft.pdf: draft.tex $(DRAFT_DIR) $(CHAPTERS) git-header.tex
 	TEXINPUTS=$(TEXINPUTS) pdflatex -interaction=nonstopmode -halt-on-error -output-directory $(DRAFT_DIR) draft.tex
 	TEXINPUTS=$(TEXINPUTS) pdflatex -interaction=nonstopmode -halt-on-error -output-directory $(DRAFT_DIR) draft.tex
+
+count: thesis.tex $(CHAPTERS) $(EXTRA) $(BUILD_DIR)
+	texcount -q -inc -sum -1 thesis.tex | grep -o '^[0-9]*$$' > $(BUILD_DIR)/count
 
 git-header.tex: .git/refs/heads/master
 	echo "build \\\texttt{`git log --pretty=format:'%h' -n 1`}" > git-header.tex
