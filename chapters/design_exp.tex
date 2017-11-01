@@ -14,14 +14,78 @@ The task the subjects were to perform had a number of requirements.
     \item Ability to simulate designs for completing task on touchscreen and R3C setup
     \item Tracking task using a standard attitude indicator display controlled with joystick
     \item Second task that requires use of multiple button to button movements on the instrument
-    \item Sufficient workload such that subjects have high but not full workload
+    \item Sufficient workload to such that subjects have high but not full workload
+    \item Simple design yet complex enough task to have sufficient workload
 \end{itemize}
 
 \subsection{Instrument Design}
 
+\subsection{Tracking Task}
+
+%The disturbance phase was randomly seeded for each subject, though precalculated and each subject flew the same disturbance pattern for the different design sessions.
+
+\subsection{VR Group}
+
+\subsection{TS Group}
+
 \section{Methods}
 
 Subjects were divided into the two groups, TS and VR.
+The overall sequence of the experiment started with a training session on the simulator and the task, then an evaluation session for each of the two designs, finally finishing with questionnaires asking about the designs.
+The timeline of the experiment was the same for each subject, except for counterbalancing the order that the designs were evaluated.
+The training portion started with a slide deck explaining the tasks, the simulator that the subject was using, and the functionality two designs they were to evaluate.
+Next, they performed practice trials with just the tracking task and then just the prompting task.
+%After basic familiarity with the technology
+
+For the evaluation sessions with each design, they performed six trials with both tasks.
+The first three were a minute long, and were considered practice trials, and not included in the data analysis.
+The following three were two minutes each, and were the trials used for the results.
+Each evaluation session concluded with a two minute trial of just the tracking task.
+This was included to investigate if the subject had improved or fatigued at the tracking task.
+
+\subsection{Dependent Measures}
+
+The dependent measures were chosen to evaluate the performance of each task individually as well as the workload of the subject.
+For the tracking task, the root-mean square error (RMSE) was calculated for each trial.
+The error in this case is simply the pitch shown to the subject, the output of the flight model described above.
+
+The prompting task has two dependent measures, for speed and accuracy.
+For speed we consider the \textit{response time}, defined as the time between the prompt is first shown to the subject and when they press the first button of their response entry.
+The accuracy is measured by how many prompts they complete correctly.
+Twelve prompts are shown to the subject within each trial, and these measures are meaned per trial and then per design for each subject.
+
+For workload, a NASA Task Load Index (TLX) survey was administered after they completed each design.
+The TLX survey asks for a rating of their workload between 0-100 for the following subscales: Mental Demand, Physical Demand, Temporal Demand, Performance, Effort, and Frustration.
+Our implementation allowed selection of the ratings within increments of 5, and included anchors of "Low" and "High" at the extrema of 0 and 100, respectively (except for Performance, which uses "Good" and "Bad").
+The midpoint (50) was also visually indicated with a larger tick.
+The ranked pairs modification was used and completed for both times the subject took the survey.
+This modification asks the subject, for each of the combinations of pairs of subscales, which of the two they felt contributed more to their workload.
+The number of times they select each subscale is used a weight to calculate a weighted mean for the total TLX score.
+
+Finally, the subjects were given a questionnaire asking for their feedback on each instrument design.
+For each design, the subjects were asked the following questions:
+\begin{itemize}
+    \item Please comment on any difficulties you had performing the prompting task with this design especially in contrast to the other design.
+    \item Please comment on anything you liked in this design.
+    \item Please comment on anything you did not like in this design.
+    \item Any other comments?
+\end{itemize}
+Additionally, the following questions were asked:
+\begin{itemize}
+    \item Which instrument design did you prefer? Why?
+    \item Did you experience any physical fatigue during the experiment? Where?
+    \item Any other comments?
+\end{itemize}
+
+
+\subsection{Statistical Tests}
+
+The quantitative dependent measures are tested with a two-way ANOVA, with one within subjects factor (Design) and one between subjects factor (Group).
+The Design factor contains two levels, the two designs each subject tested, Edgekey and Keypad.
+The Group factor also contains two levels, the VR group and the TS group.
+When the ANOVA showed significance in the interaction test, post-hoc repeated measured t-tests were undertaken to determine the significance of Design within each Group.
+All effects were considered statistically significant at the 0.0125 level.
+Statistical significance level was corrected using the Bonferroni correction considering the 4 different dependent measures being tested ($\alpha = 0.05/4 = 0.0125$).
 
 \section{Results}
 
@@ -31,16 +95,7 @@ Twenty-three subjects were recruited from the UC Davis engineering undergraduate
 Twelve subjects were placed in the VR group, and the remaining eleven in the TS group.
 The mean age was $21.0 (\sigma = 3.14)$, with 19 male and 4 female subjects.
 The female subjects were balanced between the two groups.
-Most subjects had no flight experience (two were student pilots), and all of the VR group subjects indicated that they had less than one hour of experience using virutal reality headsets.
-
-\subsection{Statistical Tests}
-
-The quantitative dependent measures are tested with a two-way ANOVA, with one within subjects factor (Design) and one between subjects factor (Group).
-The Design factor contains two levels, the two designs each subject tested, Edgekey and Keypad.
-The Group factor also contains two levels, the VR group and the TS group.
-When the ANOVA showed signifigance in the interaction test, post-hoc repeated measured t-tests were undertaken to determine the signifigance of Design within each Group.
-All effects were considered statistically significant at the 0.0125 level.
-Statistical signifigance level was corrected using the Bonferroni correction considering the 4 different dependent measures being tested ($\alpha = 0.05/4 = 0.0125$).
+Most subjects had no flight experience (two were student pilots), and all of the VR group subjects indicated that they had less than one hour of experience using virtual reality headsets.
 
 \subsection{Performance Measures}
 
@@ -68,9 +123,12 @@ The interaction effect was significant as well ($F(1, 21) = 8.25, p < 0.001$).
 The post hoc tests indicated signifigance between designs for the VR group ($t(11) = -4.20, p = 0.001$) between the Keypad design ($M = 54.4, \sigma = 20.4$) and the Edgekey ($M = 85.6, \sigma = 11.2$)
 The post hoc tests indicated no signifigant difference between designs for the TS group ($t(10) = -2.72, p = 0.02$) between the Keypad design ($M = 61.5, \sigma = 4.46$) and the Edgekey ($M = 69.2, \sigma = 10.1$)
 
-
 \subsection{Design Feedback}
 
 \section{Discussion}
+
+% A blind evaluation of the feedback may have been better
+
+% A more extensive interview may have been more standard, not done here due to the subject population
 
 \section{Conclusion}
