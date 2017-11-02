@@ -8,6 +8,7 @@
 %\documentclass[10pt,twoside,final]{ucdthesis}
 % \documentclass[10pt,oneside,final]{ucdthesis}
 
+\usepackage[final]{graphicx}
 % TODO: this makes strange things happen in the header...
 % this is the version that grad studies wants
 % \documentclass[11pt,oneside,final]{ucdthesis}
@@ -212,6 +213,10 @@
 \usepackage{color}
 \usepackage{rotating}
 \AtEveryBibitem{\clearfield{month}} %Cleaner references without month being printed
+
+\graphicspath{{./figures/}}
+
+\usepackage{todonotes}
 
 %%% Document Portion:
 \begin{document}
