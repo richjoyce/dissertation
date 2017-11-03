@@ -14,19 +14,56 @@ The task the subjects were to perform had a number of requirements.
     \item Ability to simulate designs for completing task on touchscreen and R3C setup
     \item Tracking task using a standard attitude indicator display controlled with joystick
     \item Second task that requires use of multiple button to button movements on the instrument
-    \item Sufficient workload to such that subjects have high but not full workload
+    \item Sufficient workload such that subjects have a high workload but are not high but not full workload
     \item Simple design yet complex enough task to have sufficient workload
+    \item Operationally relevant, or analogous to tasks required in a cockpit
 \end{itemize}
 
-\subsection{Instrument Design}
+
+\subsection{Instrument Designs}
+
 
 \subsection{Tracking Task}
 
+The tracking task display was a standard attitude indicator display, shown in Figure \ref{fig:de_ai_display}.
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{ai_display.png}
+    \caption{Attitude Indicator Display}
+    \label{fig:de_ai_display}
+\end{figure}
+
+Subjects controlled the one-dimensional (pitch only) task using a joystick with their left hand.
+The joystick is pictured in Figure \ref{fig:de_ts_setup}.
+
+The flight dynamics model of the simulator was a stability derivative based mode for a Boeing 747 in a low altitude landing configuration.
+\todo{Include all the info on the FDM}
+
+The disturbance model is based off the model developed in SweetRef.
+\todo{Explain the disturbance}
+
 %The disturbance phase was randomly seeded for each subject, though precalculated and each subject flew the same disturbance pattern for the different design sessions.
+
+\subsection{Prompting Task}
+
+The prompting task was designed to be a distraction from the tracking task.
+
+The prompts were seperated into 10 second ``windows''.
+The prompt would appear between 2 and 3 seconds of the start of the window.
+From the time of appearance, a seven (7) second timer will start until timeout.
+When the subject presses the first button of the prompt, the prompt itself was cleared and asterisk symbols (*) were shown after each button entry by the subject.
+After the subject has entered 4 buttons or the timeout occurs, whichever comes first, the prompt or entry so far would clear.
+This process is then repeated every 10 seconds.
 
 \subsection{VR Group}
 
 \subsection{TS Group}
+
+The Touchscreen (TS) group used a 10.1 inch capacitive touch screen with resolution of 1024x768.
+The two instruments were drawn in a web browser, using standard HTML elements for the buttons.
+The visuals of the tracker were rendered on top with the same OpenGL rendering code from the VR group.
+
+%Waveshare 11280
 
 \section{Methods}
 
@@ -77,6 +114,8 @@ Additionally, the following questions were asked:
     \item Any other comments?
 \end{itemize}
 
+In a standard design evaluation study, the feedback received from the users in this questionnaire (and other debriefing interviews) would often be the main source for carrying out re-design.
+The goal of this experiment is to determine and document in which ways does this feedback differ, e quest
 
 \subsection{Statistical Tests}
 
