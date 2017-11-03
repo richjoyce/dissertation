@@ -4,6 +4,8 @@ all: thesis draft count
 
 CHAPTERS = introduction.tex prototype.tex validation.tex haptics.tex design_exp.tex conclusion.tex appendix.tex
 CHAPTERS := $(addprefix chapters/, $(CHAPTERS))
+TABLES = $(shell find tables -type f)
+FIGURES = $(shell find figures -type f)
 EXTRA = title_and_frontmatter.tex abstract.tex
 BUILD_DIR = build
 DRAFT_DIR = $(BUILD_DIR)/draft
@@ -20,15 +22,15 @@ clean:
 	rm -rf $(DRAFT_DIR)
 	rm -rf $(BUILD_DIR)
 
-$(BUILD_DIR)/thesis.pdf: thesis.tex $(BUILD_DIR) $(CHAPTERS) $(EXTRA)
+$(BUILD_DIR)/thesis.pdf: thesis.tex $(BUILD_DIR) $(CHAPTERS) $(TABLES) $(FIGURES) $(EXTRA)
 	TEXINPUTS=$(TEXINPUTS) pdflatex -interaction=nonstopmode -halt-on-error -output-directory $(BUILD_DIR) thesis.tex
 	TEXINPUTS=$(TEXINPUTS) pdflatex -interaction=nonstopmode -halt-on-error -output-directory $(BUILD_DIR) thesis.tex
 
-$(DRAFT_DIR)/draft.pdf: draft.tex $(DRAFT_DIR) $(CHAPTERS) $(DRAFT_DIR)/git-header.tex
+$(DRAFT_DIR)/draft.pdf: draft.tex $(DRAFT_DIR) $(CHAPTERS) $(TABLES) $(FIGURES) $(DRAFT_DIR)/git-header.tex
 	TEXINPUTS=$(TEXINPUTS) pdflatex -interaction=nonstopmode -halt-on-error -output-directory $(DRAFT_DIR) draft.tex
 	TEXINPUTS=$(TEXINPUTS) pdflatex -interaction=nonstopmode -halt-on-error -output-directory $(DRAFT_DIR) draft.tex
 
-$(BUILD_DIR)/count: thesis.tex $(BUILD_DIR) $(CHAPTERS) $(EXTRA)
+$(BUILD_DIR)/count: thesis.tex $(BUILD_DIR) $(CHAPTERS) $(TABLES) $(FIGURES) $(EXTRA)
 	texcount -q -inc -sum -1 thesis.tex | grep -o '^[0-9]*$$' > $(BUILD_DIR)/count
 
 $(DRAFT_DIR)/git-header.tex: .git/refs/heads/master

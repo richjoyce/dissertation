@@ -216,6 +216,24 @@
 
 \graphicspath{{./figures/}}
 
+\newcommand{\tablepath}{./tables/}
+
+\makeatletter
+\newcommand{\includetable}[1]{%
+  \@ifundefined{tablepath}{%
+    \InputIfFileExists{#1}{}{}%
+  }{%
+    \InputIfFileExists{\tablepath/#1}{}{\InputIfFileExists{#1}{}{}}%
+  }
+}
+\makeatother
+
+\usepackage{booktabs}
+% more space between table rows
+\renewcommand{\arraystretch}{1.2}
+
+\usepackage{csquotes}
+
 \usepackage{todonotes}
 
 %%% Document Portion:
