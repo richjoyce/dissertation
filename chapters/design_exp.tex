@@ -36,8 +36,34 @@ The tracking task display was a standard attitude indicator display, shown in Fi
 Subjects controlled the one-dimensional (pitch only) task using a joystick with their left hand.
 The joystick is pictured in Figure \ref{fig:de_ts_setup}.
 
-The flight dynamics model of the simulator was a stability derivative based mode for a Boeing 747 in a low altitude landing configuration.
+The flight dynamics model of the simulator was a stability derivative based model for a Boeing 747 in a low altitude landing configuration.
 \todo{Include all the info on the FDM}
+
+\begin{figure}
+    \tikzstyle{block} = [draw, rectangle, minimum height=3em, minimum width=6em]
+    \tikzstyle{smallblock} = [draw, rectangle, minimum height=3em, minimum width=3em]
+    \tikzstyle{sum} = [draw, circle, node distance=1cm]
+    \tikzstyle{input} = [coordinate]
+    \tikzstyle{output} = [coordinate]
+    \begin{tikzpicture}[auto, node distance=2cm,>=latex']
+        \ssp
+        \node[input, name=input] {};
+        \node[smallblock, right=of input] (K) {$10$};
+        \node[sum, right=of K] (sum) {};
+        \node[block, node distance=1.5cm, above=of sum] (disturbance) {Disturbance};
+        \node[block, right=of sum, text width=5em, align=center] (aircraft) {Aircraft Dynamics};
+        \node [output, right=of aircraft] (output) {};
+
+        \draw [draw,->] (input) -- node {$r_{js}$} (K);
+        \draw [->] (K) -- (sum);
+        \draw [->] (disturbance) -- node {$\theta_D$} (sum);
+        \draw [->] (sum) -- node {$\theta_{el}$} (aircraft);
+        \draw [->] (aircraft) -- node {$\theta$} (output);
+    \end{tikzpicture}
+    \caption{Tracking Task Dynamics Block Diagram}
+    \label{fig:de_block_diagram}
+\end{figure}
+
 
 The disturbance model is based off the model developed in SweetRef.
 \todo{Explain the disturbance}
