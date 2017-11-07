@@ -5,27 +5,53 @@
 After investigating the technical approach and the benefit to including the passive haptics layer, we seek to investigate the use of the Rapidly Reconfigurable Research Cockpit in a more realistic design evaluation study.
 The advantages of using the R3C system would not be useful if it masked defects in a design study.
 
-\section{Experimental Design}
+\section{Methods}
+
+In order to perform a design evaluation study, it was first needed to have a task that the subjects would be doing using the designs.
+
+\subsection{Simulator Setup}
+
+The simulator workstation as configured for each group is \todo{\linespread{1}this is not done yet\par}shown and annotated in Figure \ref{fig:de_sim_groups}.
+It was our goal to have as much as possible to be the same between the two configurations.
+The joystick and instrument were positioned in the same location for each group.
+Neither group had out the window visuals, relying only on the attitude indicator on the instrument.
+For the Virtual Reality (VR) group, the visuals showed a plain interior of a cockpit, but the out the window view was black.
+Both groups had an aural indication (a click noise of a button being pressed) when a button was activated on the instrument, using the speakers mounted behind the instrument panel.
+
+The main difference between the two groups, beyond the VR group wearing a virtual reality headset, \todo{\linespread{1}terrible sentence\par}was the way the instrument was interacted with.
+The VR group used the hand tracker activated system previously described in Chapter \ref{todo fixme}.
+For this experiment, the buttons were configured to highlight a blue color when the hand tracker registered a finger within the zone \todo{\linespread{1}Find the size of the zone\par}.
+After the 150 msec delay when the button was activated, the highlight would disappear and the button in the virtual world would move inwards as if it were being pushed in (of course, the physical button could not and did not move).
+It is also at this time that the press sound would play, as well as any response on the instrument associated with pressing that button.
+When the finger left the zone after a successful press, a seperate release sound would play and the button would move back to its starting position.
+
+The Touchscreen (TS) group used a 10.1 inch capacitive touch screen with resolution of 1024x768.
+The two instruments were drawn in a web browser, using standard HTML elements for the buttons.
+Javascript press and release events were used to simulate the same behavior as described for the VR group, except for the highlighting before a button press.
+The visuals of the tracker were rendered on top of the browser window with the same OpenGL rendering code used for the VR group.
+
+%Waveshare 11280
 
 \subsection{Task Design}
 
-The task the subjects were to perform had a number of requirements.
+With this simulator setup base and the goals of the study, a number of requirements were created to design the task that the subjects would perform.
+
 \begin{itemize}
-    \item Ability to simulate designs for completing task on touchscreen and R3C setup
-    \item Tracking task using a standard attitude indicator display controlled with joystick
-    \item Second task that requires use of multiple button to button movements on the instrument
-    \item Sufficient workload such that subjects have a high workload but are not high but not full workload
+    \item Flight task using a standard joystick
+    \item Second task that requires use of multiple buttons on the instrument
+    \item Able to develop simulator for both touchscreen and R3C setup \todo{\linespread{1}could explain what this limits\par}
+    \item Able to design two different layouts with one design having distinct flaws
     \item Simple design yet complex enough task to have sufficient workload
     \item Operationally relevant, or analogous to tasks required in a cockpit
 \end{itemize}
 
+Ultimately, we designed a task that required number and letter inputs using the buttons, while simultaneously flying a pitch disturbance profile.
 
-\subsection{Instrument Designs}
-
-
-\subsection{Tracking Task}
+\subsubsection{Tracking Task}
 
 The tracking task display was a standard attitude indicator display, shown in Figure \ref{fig:de_ai_display}.
+Each tick corresponds to 1 degree in the dynamics simulation, with the major ticks at intervals of 5 degrees.
+The attitude indicator was X.X inches square on the instrument. \todo{Thats not a real dimension}
 
 \begin{figure}
     \includegraphics[width=\textwidth]{ai_display.png}
@@ -64,34 +90,68 @@ The flight dynamics model of the simulator was a stability derivative based mode
     \label{fig:de_block_diagram}
 \end{figure}
 
+The output of the joystick, $r_{js}$, varies from $-1.0$ to $1.0$, and the gain of $10^{\circ}$ was chosen to ensure the pilot had enough control authority to complete the task.
+
+The transfer function of the aircraft dynamics is given as:
+\begin{align}
+    \mathclap{ % This ignores align for this equation
+        \frac{\theta}{\theta_{el}}
+        =
+        \frac{
+            -0.572 (s+0.553) (s+0.0396)
+        }{
+            (s^2 + 2\zeta_1 \omega_1 + {\omega_1}^2)
+            (s^2 + 2\zeta_2 \omega_2 + {\omega_2}^2)
+        }
+    }\\
+    \omega_1 &= 0.0578 & \zeta_1 &= 0.0160 \nonumber \\
+    \omega_2 &= 1.12 & \zeta_2 &= 0.798 \nonumber
+\end{align}
 
 The disturbance model is based off the model developed in SweetRef.
-\todo{Explain the disturbance}
+It is designed to provide a broad spectrum of frequencies that the human controller needs to respond to.
 
-%The disturbance phase was randomly seeded for each subject, though precalculated and each subject flew the same disturbance pattern for the different design sessions.
+\begin{align}
+    \theta_D = K\sum\limits_{i=1}^{12} \left[ a_i \left(\frac{2\pi k_i}{240} \right) \sin\left( \frac{2\pi k_i}{240}t + \phi_i \right) \right]
+\end{align}
 
-\subsection{Prompting Task}
+The $k_i$ terms are given as,
+\begin{align*}
+    k_1 &= 7, & k_2 &= 11, & k_3 &= 16 \\
+    k_4 &= 25, & k_5 &= 38, & k_6 &= 61 \\
+    k_7 &= 103, & k_8 &= 131, & k_9 &= 151 \\
+    k_{10} &= 181, & k_{11} &= 313, & k_{12} &= 523
+\end{align*}
+The amplitude terms is $a_i=0.5$ for $i <= 6$ and $a_i=0.005$ otherwise.
+The phase terms, $\phi_i$, were randomly selected on the $(-\pi, \pi)$ interval ensuring a uniform distribution.
+This random selection was precalculated for each trial, however the order was repeated for each subject so there was no between subjects variance in the disturbance signal.
+Furthermore, each subject received the same sequence of disturbance signals for each design, eliminating within subject variance as well.
+The disturbance amplitude, $K$, was chosen such that the root-mean square (RMS) of the signal was $3.5$ degrees.
 
-The prompting task was designed to be a distraction from the tracking task.
+\subsubsection{Prompting Task}
 
-The prompts were seperated into 10 second ``windows''.
+The prompting task was designed to be both a realistic task as well as demanding to create a high workload.
+
+The sequencing of the prompts seperated into 10 second ``windows''.
 The prompt would appear between 2 and 3 seconds of the start of the window.
 From the time of appearance, a seven (7) second timer will start until timeout.
 When the subject presses the first button of the prompt, the prompt itself was cleared and asterisk symbols (*) were shown after each button entry by the subject.
 After the subject has entered 4 buttons or the timeout occurs, whichever comes first, the prompt or entry so far would clear.
 This process is then repeated every 10 seconds.
 
-\subsection{VR Group}
+The prompts themselves were composed of three numbers followed by a letter or three letters followed by a number.
+This structure was decided upon to provide a consistent pattern.
+The prompts were randomly chosen but were not allowed to have repeat numbers or letters, and for the prompts with three letters, common words or acronyms were filtered out (e.g.\ ``BAD'', ``FDA'').
+The selection of letters or numbers as the first three characters was randomly chosen as well.
 
-\subsection{TS Group}
+\subsection{Instrument Designs}
 
-The Touchscreen (TS) group used a 10.1 inch capacitive touch screen with resolution of 1024x768.
-The two instruments were drawn in a web browser, using standard HTML elements for the buttons.
-The visuals of the tracker were rendered on top with the same OpenGL rendering code from the VR group.
+The two different designs used were developed to be both realistic and believable as a cockpit instrument design that would be under consideration, but still have one design with a flaw that would be found in a design evaluation.
 
-%Waveshare 11280
+\subsubsection{Keypad}
+\subsubsection{Edgekey}
 
-\section{Methods}
+\subsection{Experiment Design}
 
 Subjects were divided into the two groups, TS and VR.
 The overall sequence of the experiment started with a training session on the simulator and the task, then an evaluation session for each of the two designs, finally finishing with questionnaires asking about the designs.
