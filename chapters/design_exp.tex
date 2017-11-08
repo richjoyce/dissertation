@@ -131,6 +131,8 @@ The disturbance amplitude, $K$, was chosen such that the root-mean square (RMS) 
 \subsubsection{Prompting Task}
 
 The prompting task was designed to be both a realistic task as well as demanding to create a high workload.
+The task would require the subjects to read and memorize a short string of characters and enter it using buttons on the instrument.
+To reduce the number of buttons needed, the characters were limited to 1 through 6 and A through F.
 
 The sequencing of the prompts seperated into 10 second ``windows''.
 The prompt would appear between 2 and 3 seconds of the start of the window.
@@ -146,10 +148,37 @@ The selection of letters or numbers as the first three characters was randomly c
 
 \subsection{Instrument Designs}
 
-The two different designs used were developed to be both realistic and believable as a cockpit instrument design that would be under consideration, but still have one design with a flaw that would be found in a design evaluation.
+The two different designs used were developed to be both realistic and believable as a cockpit instrument design that would be under consideration, yet still have one design with flaws that would be found in a design evaluation.
+We developed a `Keypad' design with the prompting task button keys on the right side and the tracking task on the left, and an `Edgekey' design with the prompt buttons split on either side of the tracking task display.
+For both designs the tracking task display was the same size on the display.
+The prompting task text is also placed below the tracking task display, and the same font, size and color is used for both designs.
+These were kept consistent to limit the number of possible variables between the two designs.
 
-\subsubsection{Keypad}
-\subsubsection{Edgekey}
+The Keypad design is pictured in Figure \ref{fig:todo}.
+The buttons are 1in by 0.75in, with about 0.26in between buttons horizontally and 0.38in vertically.
+Each button has the label directly on the top of the button.
+For the VR group, the 3D printed instrument had the button labels raised to provide a tactile feedback.
+The font was approximately 0.36in in height, and the labels were raised 0.05in.
+
+The Edgekey design is pictured in Figure \ref{fig:todo}.
+In this design, there is not a single button for every number and letter.
+Instead, the bottom button on either would switch the behavior (and labels) of the remaning six buttons from showing 1 through 6 to showing A through F.
+The labels were placed offset from the button on the ``screen'' portion of the instrument, allowing them to change dynamically.
+The buttons are slightly smaller in this design, at 0.76in by 0.55in.
+The spacing between buttons vertically is the same as the Keypad design at 0.38in.
+The center to center distance between the two sides of the button is 7.3in.
+For the VR group, the 3D printed instrument had raised nubs on each button covering half the width, 0.08in tall and raised 0.05in.
+
+While some of the more subtle differences were expected to possibly be noted by the evaluation study (e.g.\ having smaller buttons, different position of the flight task), the major flaw we designed into the Edgekey design was the switching key to change from letters to numbers and back.
+This additional action fundamentally changed the demands of the task, as the subjects now had to press this additional button to change labels at least once per prompt.
+Pressing the switch key was always required between pressing the third and fourth button, and would be required before the first button press if the last state of the buttons did not match the start of the new prompt.
+Since there was no gaurentee that the next prompt would start with the instrument on the correct setting, there was an additional cognitive load in determining whether a switch was neccessary at the beginning of the prompting window.
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{ai_display.png}
+    \caption{Attitude Indicator Display}
+    \label{fig:de_ai_display}
+\end{figure}
 
 \subsection{Experiment Design}
 
@@ -286,7 +315,7 @@ The interaction effect was significant as well ($F(1, 21) = 8.25, p < 0.001$).
 The post-hoc tests indicated significance between designs for the VR group ($t(11) = -4.20, p = 0.001$) between the Keypad design ($M = 54.4, \sigma = 20.4$) and the Edgekey ($M = 85.6, \sigma = 11.2$)
 The post-hoc tests indicated no significant difference between designs for the TS group ($t(10) = -2.72, p = 0.02$) between the Keypad design ($M = 61.5, \sigma = 4.46$) and the Edgekey ($M = 69.2, \sigma = 10.1$)
 
-\subsubsection{summary}
+\subsubsection{Summary}
 
 A summary of the signifigance results from the ANOVA and post-hoc t-tests for all the performance measures are shown in Table \ref{tab:de_anova}.
 The signifigance is indicated by `$*$' for $p<0.0125$, `+' for $0.0125<p<0.05$, and `-' for no signifigance.
@@ -360,7 +389,7 @@ When the hand tracker was having registration issues it would sometimes place th
 \begin{displayquote}[VR Subject]
     There's more unintended register since other fingers might trigger the buttons
 \end{displayquote}
-Although only one subject noted this, it was observed happening to many subjects.
+Although only one subject noted this, it was observed happening to many subjects\footnote{For the VR group, eight of the twelve subjects had the wrong button register within 200msec of the last button in the Keypad. In the other designs and groups this happened to only one or two subjects.}.
 
 
 \section{Discussion}
