@@ -221,6 +221,7 @@ The Group factor also contains two levels, the VR group and the TS group.
 When the ANOVA showed significance in the interaction test, post-hoc repeated measured t-tests were undertaken to determine the significance of Design within each Group.
 All effects were considered statistically significant at the 0.0125 level.
 Statistical significance level was corrected using the Bonferroni correction considering the 4 different dependent measures being tested ($\alpha = 0.05/4 = 0.0125$).
+Effects which have a signifigance level between $0.05<p<0.0125$ are considered to be marginally significant.
 
 \section{Results}
 
@@ -234,24 +235,41 @@ Most subjects had no flight experience (two were student pilots), and all of the
 
 \subsection{Performance Measures}
 
-A summary of the signifigance results from the ANOVA tests are shown in Table \ref{tab:de_anova}.
+\subsubsection{Tracking Task RMSE}
 
-\begin{table}
-    \centering
-    \includetable{de_anova_summary.tex}
-    \caption{ANOVA Signifigance Results.}
-    \label{tab:de_anova}
-\end{table}
-
-The performance of the tracking task was measured using the root-mean square average (RMSE) of the error.
-The effect of group yielded an $F$ ratio of $F(1, 21) = 21.4, p < 0.001$ indicating a significant difference between VR ($M=1.28\mathrm{deg}, \sigma=0.38\mathrm{deg}$) and TS ($M=1.97\mathrm{deg}, \sigma=0.38\mathrm{deg}$).
-The effect of design indicated no significant difference ($F(1, 21) = 5.94, p=0.024$) between Keypad ($M=1.57\mathrm{deg}, \sigma=0.51\mathrm{deg}$) and Edgekey ($M=1.70\mathrm{deg}, \sigma=0.52\mathrm{deg}$).
+The performance of the tracking task was measured using the root-mean square average (RMSE) of the pitch.
+The effect of Group yielded an $F$ ratio of $F(1, 21) = 21.4, p < 0.001$ indicating a significant difference between VR ($M=1.28\mathrm{deg}, \sigma=0.38\mathrm{deg}$) and TS ($M=1.97\mathrm{deg}, \sigma=0.38\mathrm{deg}$).
+In both groups, subjects were performing the tracking task using the same joystick.
+The most direct factor that could contribute to the decreased performance in the tracking task for the VR group is that the visuals of the tracking are the loss of visual acuity in the tracking.
+Indirectly, the additional workload of the prompting task could be taking attention away from the tracking task.
+The effect of Design indicated a marginally significant difference ($F(1, 21) = 5.94, p=0.024$) for the tracking task RMSE between Keypad ($M=1.57\mathrm{deg}, \sigma=0.51\mathrm{deg}$) and Edgekey ($M=1.70\mathrm{deg}, \sigma=0.52\mathrm{deg}$).
+The only change in the tracking task display between the two instrument designs is the position moves from being on the left side for the Keypad and the middle for the Edgekey.
+This suggests that any difference on the tracking task performance between the groups would be related to additional workload from the prompting task.
 The interaction effect was not significant ($F(1, 21) = 0.17, p=0.69$).
+%No interaction effect indicates that even if the VR group had lower performance, the same factors are likely affecting the difference between the designs
+
+To further investigate the change in performance between the two groups, we can investigate the trials where the subjects were only doing the tracking task.
+At the end of each evaluation session, the subjects ran a single trial that was just the tracking task.
+These trials were included to be used as a test of the assumption that the subjects were no longer learning, but can also be used as a test of the Group factor on the tracking task performance.
+For this statistical test, an additional between subjects factor was included, the order in which they performed the two tracking trials.
+The effect of group on RMSE for the tracking-only trials yielded a marginially significant difference ($F(1, 19) = 4.69, p = 0.043$) between the VR Group ($M=x.x, \sigma=x.x$) and the TS Group ($M=x.x, \sigma=x.x$).
+There was no signifigant difference for the effect of design ($F(1,19) = 0.077, p=0.78$), nor for the effect of Trial order ($F(1, 19) = 3.55, p = 0.075$).
+None of the various interaction effects yielded any statistical significance.
+
+Although the tracking only trials found a marginally significant difference for the group, the difference was much more distinct for the trials with both tasks.
+This indicates that when the subjects were focused on the single task, they were able to mitigate most of the visual resolution differences between using a touchscreen and the virtual reality screen.
+Additionally, the marginally significant difference between the designs for the trials with both tasks was reduced to no signifigance when the second prompting task was removed.
+This also points to the additional workload of the prompting task causing a performance drop on the tracking task.
+The factors leading to the added workload of the prompting task are investigated in the other performance measures.
+
+\subsubsection{Prompt Response Time}
 
 Response time.
 The effect of group yielded an $F$ ratio of $F(1, 21) = 1.61, p = 0.22$ indicating no significant difference between VR ($M = 2983\mathrm{msec}, \sigma = 439\mathrm{msec}$) and TS ($M = 2737\mathrm{msec}, \sigma = 566\mathrm{msec}$).
 The effect of design indicated a significant difference ($F(1, 21) = 13.9, p = 0.001$) between Keypad ($M=2728\mathrm{msec}, \sigma=512\mathrm{msec}$) and Edgekey ($M=3002, \sigma=488\mathrm{msec}$).
 The interaction effect was not significant ($F(1, 21) = 0.17, p = 0.69$).
+
+\subsubsection{Prompts Correct}
 
 Number of prompts correct.
 The effect of group yielded an $F$ ratio of $F(1, 21) = 43.9, p < 0.001$ indicating a significant difference between VR ($M = 6.06, \sigma = 2.90$) and TS ($M = 10.2, \sigma = 1.23$).
@@ -260,12 +278,28 @@ The interaction effect was significant as well ($F(1, 21) = 27.8, p < 0.001$).
 The post-hoc tests indicated significance between designs for the VR group ($t(11) = 8.0, p < 0.001$) between the Keypad design ($M = 8.11, \sigma = 1.62$) and the Edgekey ($M = 4.00, \sigma = 2.37$)
 The post-hoc tests indicated no significant difference between designs for the TS group ($t(10) = 2.3, p = 0.05$) between the Keypad design ($M = 9.82, \sigma = 1.38$) and the Edgekey ($M = 10.6, \sigma = 0.96$)
 
+\subsubsection{NASA TLX}
+
 NASA TLX scores.
 The effect of group yielded an $F$ ratio of $F(1, 21) = 1.69, p = 0.21$ indicating a significant difference between VR ($M = 70.0, \sigma = 22.6$) and TS ($M = 65.3, \sigma = 8.53$).
 The effect of design indicated a significant difference ($F(1, 21) = 23.6, p < 0.001$) between Keypad ($M = 57.8, \sigma=15.2$) and Edgekey ($M=77.7, \sigma=13.4$).
 The interaction effect was significant as well ($F(1, 21) = 8.25, p < 0.001$).
 The post-hoc tests indicated significance between designs for the VR group ($t(11) = -4.20, p = 0.001$) between the Keypad design ($M = 54.4, \sigma = 20.4$) and the Edgekey ($M = 85.6, \sigma = 11.2$)
 The post-hoc tests indicated no significant difference between designs for the TS group ($t(10) = -2.72, p = 0.02$) between the Keypad design ($M = 61.5, \sigma = 4.46$) and the Edgekey ($M = 69.2, \sigma = 10.1$)
+
+\subsubsection{summary}
+
+A summary of the signifigance results from the ANOVA and post-hoc t-tests for all the performance measures are shown in Table \ref{tab:de_anova}.
+The signifigance is indicated by `$*$' for $p<0.0125$, `+' for $0.0125<p<0.05$, and `-' for no signifigance.
+The interaction effect is indicated by the ``Group:Design'' column.
+For the measures with significant interaction effect, the post-hoc t-tests are shown per group.
+
+\begin{table}
+    \centering
+    \includetable{de_anova_summary.tex}
+    \caption{Statistical Signifigance Test Results. `$*$' indicates signifigance at the $p<0.0125$ level, `+' indicates marginally significant ($0.0125<p<0.05$), and `-' indicates no signifigance. Group:Design is the interaction effect between Group and Design.}
+    \label{tab:de_anova}
+\end{table}
 
 \subsection{Design Feedback}
 
