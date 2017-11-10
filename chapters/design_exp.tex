@@ -11,16 +11,16 @@ In order to perform a design evaluation study, it was first needed to have a tas
 
 \subsection{Simulator Setup}
 
-The simulator workstation as configured for each group is \todo{\linespread{1}this is not done yet\par}shown and annotated in Figure \ref{fig:de_sim_groups}.
+The simulator workstation as configured for each group is \tinytodo{this is not done yet}shown and annotated in Figure \ref{fig:de_sim_groups}.
 It was our goal to have as much as possible to be the same between the two configurations.
 The joystick and instrument were positioned in the same location for each group.
 Neither group had out the window visuals, relying only on the attitude indicator on the instrument.
 For the Virtual Reality (VR) group, the visuals showed a plain interior of a cockpit, but the out the window view was black.
 Both groups had an aural indication (a click noise of a button being pressed) when a button was activated on the instrument, using the speakers mounted behind the instrument panel.
 
-The main difference between the two groups, beyond the VR group wearing a virtual reality headset, \todo{\linespread{1}terrible sentence\par}was the way the instrument was interacted with.
+The main difference between the two groups, beyond the VR group wearing a virtual reality headset, \tinytodo{terrible sentence} was the way the instrument was interacted with.
 The VR group used the hand tracker activated system previously described in Chapter \ref{todo fixme}.
-For this experiment, the buttons were configured to highlight a blue color when the hand tracker registered a finger within the zone \todo{\linespread{1}Find the size of the zone\par}.
+For this experiment, the buttons were configured to highlight a blue color when the hand tracker registered a finger within the zone \tinytodo{Find the size of the zone}.
 After the 150 msec delay when the button was activated, the highlight would disappear and the button in the virtual world would move inwards as if it were being pushed in (of course, the physical button could not and did not move).
 It is also at this time that the press sound would play, as well as any response on the instrument associated with pressing that button.
 When the finger left the zone after a successful press, a seperate release sound would play and the button would move back to its starting position.
@@ -39,7 +39,7 @@ With this simulator setup base and the goals of the study, a number of requireme
 \begin{itemize}
     \item Flight task using a standard joystick
     \item Second task that requires use of multiple buttons on the instrument
-    \item Able to develop simulator for both touchscreen and R3C setup \todo{\linespread{1}could explain what this limits\par}
+    \item Able to develop simulator for both touchscreen and R3C setup \tinytodo{could explain what this limits}
     \item Able to design two different layouts with one design having distinct flaws
     \item Simple design yet complex enough task to have sufficient workload
     \item Operationally relevant, or analogous to tasks required in a cockpit
@@ -51,7 +51,7 @@ Ultimately, we designed a task that required number and letter inputs using the 
 
 The tracking task display was a standard attitude indicator display, shown in Figure \ref{fig:de_ai_display}.
 Each tick corresponds to 1 degree in the dynamics simulation, with the major ticks at intervals of 5 degrees.
-The attitude indicator was X.X inches square on the instrument. \todo{Thats not a real dimension}
+The attitude indicator was X.X inches square on the instrument. \tinytodo{Thats not a real dimension}
 
 \begin{figure}
     \includegraphics[width=\textwidth]{ai_display.png}
@@ -63,7 +63,7 @@ Subjects controlled the one-dimensional (pitch only) task using a joystick with 
 The joystick is pictured in Figure \ref{fig:de_ts_setup}.
 
 The flight dynamics model of the simulator was a stability derivative based model for a Boeing 747 in a low altitude landing configuration.
-\todo{Include all the info on the FDM}
+\tinytodo{Include all the info on the FDM}
 The dynamics model was updated and recorded at a rate of 125Hz.
 
 \begin{figure}
@@ -303,7 +303,7 @@ For this reason, the prompts which required the subject to start with the switch
 
 The response time was unique among the dependent measures, as all tests were insignificant.
 The effect of group yielded an $F$ ratio of $F(1, 21) = 1.19, p = 0.29$ indicating no significant difference between VR ($M = 2812\mathrm{msec}, \sigma = 383\mathrm{msec}$) and TS ($M = 2594\mathrm{msec}, \sigma = 567\mathrm{msec}$).
-One factor that could influence the response time between groups is the additional time to activate a button in the VR environment versus the touchscreen.\todo{explain this?}
+One factor that could influence the response time between groups is the additional time to activate a button in the VR environment versus the touchscreen.\tinytodo{explain this?}
 However, a large portion of the response time for the subject is their cognitive processing of the prompt -- recognizing the new prompt has appeared, reading it, then memorizing it.
 Beyond potentially differences in the visual environment, the cognitive portion should not take more time for one group or the other.
 A potential reason that there could be a lower than expected difference between the group means is that some VR subjects learned to keep their hand closer to the instrument so that the hand tracker could keep it in view.
@@ -329,20 +329,24 @@ The number of correct prompts had a significant interaction effect between group
 Both main effects were significant, the effect of group yielded an $F$ ratio of $F(1, 21) = 43.9, p < 0.001$ while the effect of design yielded an $F$ ratio of $F(1, 21) = 64.1, p < 0.001$.
 
 For the effect of design on the VR group, the repeated measured t-test indicated a significant difference ($t(11) = 8.0, p < 0.001$) between the Keypad ($M = 8.11, \sigma = 1.62$) and the Edgekey ($M = 4.00, \sigma = 2.37$)
-The TS group had a marginally significant difference ($t(10) = 2.28, p = 0.045$) between Keypad ($M = 9.82, \sigma = 1.38$) and the Edgekey ($M = 10.6, \sigma = 0.96$).\todo{these are backward}
+The TS group had a marginally significant difference ($t(10) = 2.28, p = 0.045$) between Keypad ($M = 9.82, \sigma = 1.38$) and the Edgekey ($M = 10.6, \sigma = 0.96$).\tinytodo{these are backward}
 Both groups had trouble with the additional time pressure caused by the Edgekey design requiring the use of the switch key.
 The TS group performed a lot closer to their performance in the Keypad design, only getting approximately 1 fewer prompt correct.
 The VR group had much more difficulty in the Edgekey design, correctly completing about half as many as they completed in the Keypad design.
-However, it appears that they had difficulty in both designs compared to the TS group.
+However, it appears that they had more difficulty in both designs compared to the TS group.
 
 This agrees with the post-hoc tests for differences in design between groups.
-These had significant effects for both the Keypad design ($t(21) = 4.44, p < 0.001$) between the VR group and the TS group, and the Edgekey design ($t(21) = 7.05, p < 0.001$) between the VR group and the TS group.
-The main effect of group clearly has a meaningful effect, as the VR group ($M = 6.05, \sigma = 2.88)$) had significantly fewer correct prompts than the TS group ($M = 10.2, \sigma = 1.2$).
-The variance of the means was also much larger in in the VR group, which is likely caused by the unfamiliar nature of the VR environment compared to a touchscreen.
-Figure \ref{fig:de_correct_stacked} shows the breakdown of the mean result of the prompts for each group and design.
-
+These tests had significant effects for both the Keypad design ($t(21) = 4.44, p < 0.001$) between the VR group and the TS group, and the Edgekey design ($t(21) = 7.05, p < 0.001$) between the VR group and the TS group.
+The main effect of group clearly has a meaningful effect, which found the VR group ($M = 6.05, \sigma = 2.88)$) had significantly fewer correct prompts than the TS group ($M = 10.2, \sigma = 1.2$).
 This difference is largely due to subjects not being able to complete the prompt.
-Across all groups and designs, very few prompts were completed that were incorrect.
+Figure \ref{fig:de_correct_stacked} shows the breakdown of the mean result of each trial for each group and design.
+Across all groups and designs, very few prompts were completed that were incorrect, and most of the differences in number completed correctly is due to the incomplete prompts.
+A contributing factor for this would be the method of button activation used for the VR group combined with the time pressure.
+Another contribution would be the limitations of the hand tracker.
+When the hand tracker lost tracking or gave bad information, it became hard or impossible for the subject to activate a button until the hand tracker returned to normal.
+When this happened in the middle of a prompt, the amount of time it took to recover from the bad tracking would lead to a timeout on the prompt entry, causing an incomplete prompt.
+The variance of number correct was also much larger in in the VR group, which could be caused by the unfamiliar nature of the VR environment compared to a touchscreen.
+
 
 \subsubsection{NASA TLX}
 
@@ -411,7 +415,6 @@ It is possible that the reason the VR Group subjects did not note this as often 
 \end{displayquote}
 \begin{displayquote}[VR Subject]
     I like that the flight control was centred, so you could see it even when you were looking at the buttons.
-    (VR Subject)
 \end{displayquote}
 
 The most notable exceptions to providing similar feedback between groups are the categories that relate to fatigue issues.
@@ -421,20 +424,22 @@ This fatigue seemed to be caused by the additional effort needed to have the han
 For example, one subject wrote:
 \begin{displayquote}[VR Subject]
     My right wrist was somewhat fatigued.  Though I think this is mostly from positioning my hand for the simulator to recognize my input.
-    (VR Subject)
 \end{displayquote}
+Some of this additional effort was due to subjects learning to hold their prompting task hand ``hovering'' while waiting for the next prompt.
+This was done to keep the hand in view of the hand tracker as when the hand leaves the field of view, the reacquisition will slow down the entry of first button.
+Many subjects organically learned this, and kept their arm in front of the instrument.
 
 Similarly to the fatigue issues being different, there were some comments that were due to the technology being used moreso than the designs themselves.
 The obvious ones are the subjects who noted difficulty using the hand tracker, but some of the other categories had comments that may have been caused by this.
 For example, the keypad design was noted as causing more mistakes for some subjects.
 For the TS Group, this was due to the touchscreen being so quick to use:
 \begin{displayquote}[TS Subject]
-    since I was able to go more quickly with this layout, I had more mistakes in the entry.
+    \textins{S}ince I was able to go more quickly with this layout, I had more mistakes in the entry.
 \end{displayquote}
 One subject in VR noted a common problem caused by the hand tracker which caused more mistakes in the Keypad design.
 When the hand tracker was having registration issues it would sometimes place the other fingers mistakenly in the activation zone of the buttons underneath the one being targeted, causing multiple buttons to be pressed in a short period of time.
 \begin{displayquote}[VR Subject]
-    There's more unintended register since other fingers might trigger the buttons
+    There's more unintended register since other fingers might trigger the buttons.
 \end{displayquote}
 Although only one subject noted this, it was observed happening to many subjects\footnote{For the VR group, eight of the twelve subjects had the wrong button register within 200msec of the last button in the Keypad. In the other designs and groups this happened to only one or two subjects.}.
 

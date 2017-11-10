@@ -170,7 +170,7 @@
 \usepackage{rotating}
 \AtEveryBibitem{\clearfield{month}} %Cleaner references without month being printed
 
-\graphicspath{{./figures/}}
+\graphicspath{{./figures/}{./plots/}}
 
 \newcommand{\tablepath}{./tables/}
 
@@ -190,7 +190,14 @@
 
 \usepackage{csquotes}
 
-\usepackage{todonotes}
+% Disable todonotes for not draft
+\usepackage[obeyDraft]{todonotes}
+\newcommand{\tinytodo}[1]
+{\todo[size=\small]{\linespread{1.0}%
+\selectfont%
+#1%
+\par
+}}
 
 \usepackage{mathtools}
 
