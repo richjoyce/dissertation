@@ -64,6 +64,7 @@ The joystick is pictured in Figure \ref{fig:de_ts_setup}.
 
 The flight dynamics model of the simulator was a stability derivative based model for a Boeing 747 in a low altitude landing configuration.
 \todo{Include all the info on the FDM}
+The dynamics model was updated and recorded at a rate of 125Hz.
 
 \begin{figure}
     \tikzstyle{block} = [draw, rectangle, minimum height=3em, minimum width=6em]
@@ -248,6 +249,7 @@ The quantitative dependent measures are tested with a two-way ANOVA, with one wi
 The Design factor contains two levels, the two designs each subject tested, Edgekey and Keypad.
 The Group factor also contains two levels, the VR group and the TS group.
 When the ANOVA showed significance in the interaction test, post-hoc repeated measured t-tests were undertaken to determine the significance of Design within each Group.
+An independent samples t-test was used to test the signifinace of Group within each Design.
 All effects were considered statistically significant at the 0.0125 level.
 Statistical significance level was corrected using the Bonferroni correction considering the 4 different dependent measures being tested ($\alpha = 0.05/4 = 0.0125$).
 Effects which have a signifigance level between $0.05<p<0.0125$ are considered to be marginally significant.
@@ -292,28 +294,73 @@ The factors leading to the added workload of the prompting task are investigated
 
 \subsubsection{Prompt Response Time}
 
-Response time.
-The effect of group yielded an $F$ ratio of $F(1, 21) = 1.61, p = 0.22$ indicating no significant difference between VR ($M = 2983\mathrm{msec}, \sigma = 439\mathrm{msec}$) and TS ($M = 2737\mathrm{msec}, \sigma = 566\mathrm{msec}$).
-The effect of design indicated a significant difference ($F(1, 21) = 13.9, p = 0.001$) between Keypad ($M=2728\mathrm{msec}, \sigma=512\mathrm{msec}$) and Edgekey ($M=3002, \sigma=488\mathrm{msec}$).
-The interaction effect was not significant ($F(1, 21) = 0.17, p = 0.69$).
+The first measure of the prompting task is the response time of the subject.
+The response time is defined as the time from the prompt is shown to each subject until they press the first button of the prompt.
+For the Edgekey design, it would be possible that the subject had to start with the switching button if the new prompt did not start with the same mode (letters or numbers) as the previous prompt.
+Since this button would not clear the prompt when it was pressed, it is not considered the first button of their entry.
+However, this would still require an additional movement of the subject, adding additional time.
+For this reason, the prompts which required the subject to start with the switch key are filtered out of this analysis.
+
+The response time was unique among the dependent measures, as all tests were insignificant.
+The effect of group yielded an $F$ ratio of $F(1, 21) = 1.19, p = 0.29$ indicating no significant difference between VR ($M = 2812\mathrm{msec}, \sigma = 383\mathrm{msec}$) and TS ($M = 2594\mathrm{msec}, \sigma = 567\mathrm{msec}$).
+One factor that could influence the response time between groups is the additional time to activate a button in the VR environment versus the touchscreen.\todo{explain this?}
+However, a large portion of the response time for the subject is their cognitive processing of the prompt -- recognizing the new prompt has appeared, reading it, then memorizing it.
+Beyond potentially differences in the visual environment, the cognitive portion should not take more time for one group or the other.
+A potential reason that there could be a lower than expected difference between the group means is that some VR subjects learned to keep their hand closer to the instrument so that the hand tracker could keep it in view.
+When the hand tracker lost view of the hand, the reacquisition time could be significant, so holding it close to the instrument would prevent this from happening.
+This issue comes up again when looking at the subjects' response to questions about fatigue.
+The effect of design was also insignificant ($F(1, 21) = 0.68, p = 0.42$) between Keypad ($M=2728\mathrm{msec}, \sigma=512\mathrm{msec}$) and Edgekey ($M=2687, \sigma=471\mathrm{msec}$).
+The biggest difference between the two designs is the switching key on the Edgekey design.
+As described above, the need for an additional switch press before the first prompt button was filtered out, so we are only comparing prompts where the first button was available right away to the subject.
+Since the Edgekey design had more time pressure due to the need for the switch key, subjects could have learned to respond quicker to adapt for this.
+However, these differences in the design did not appear to have a significant effect on the response time.
+Finally, the interaction effect was not significant ($F(1, 21) = 0.001, p = 0.96$).
 
 \subsubsection{Prompts Correct}
 
-Number of prompts correct.
-The effect of group yielded an $F$ ratio of $F(1, 21) = 43.9, p < 0.001$ indicating a significant difference between VR ($M = 6.06, \sigma = 2.90$) and TS ($M = 10.2, \sigma = 1.23$).
-The effect of design indicated a significant difference ($F(1, 21) = 64.1, p < 0.001$) between Keypad ($M = 9.30, \sigma=1.83$) and Edgekey ($M=6.78, \sigma=3.54$).
-The interaction effect was significant as well ($F(1, 21) = 27.8, p < 0.001$).
-The post-hoc tests indicated significance between designs for the VR group ($t(11) = 8.0, p < 0.001$) between the Keypad design ($M = 8.11, \sigma = 1.62$) and the Edgekey ($M = 4.00, \sigma = 2.37$)
-The post-hoc tests indicated no significant difference between designs for the TS group ($t(10) = 2.3, p = 0.05$) between the Keypad design ($M = 9.82, \sigma = 1.38$) and the Edgekey ($M = 10.6, \sigma = 0.96$)
+The second measure of the prompting task is the accuracy of the subjects in correctly completing the prompt.
+To get the prompt correct includes two important components for the subject.
+First, they must remember the prompt as they enter it, and second, they must be able to physically press the buttons within the seven second response window.
+For the statistical test we are using hte count of how many prompts each subject completed successfully per trial.
+Among the incorrect prompts, we can differentiate between whether the subject entered the prompt incorrectly (failure to remember the prompt) or whether the subject ran out of time (failure to physically press the buttons).
+There were 12 prompts per trial, and every subject completed three trials for each design.
+
+The number of correct prompts had a significant interaction effect between group and design ($F(1, 21) = 27.8, p < 0.001$), meaning the main effects must be intrepreted with the post-hoc tests as well.
+Both main effects were significant, the effect of group yielded an $F$ ratio of $F(1, 21) = 43.9, p < 0.001$ while the effect of design yielded an $F$ ratio of $F(1, 21) = 64.1, p < 0.001$.
+
+For the effect of design on the VR group, the repeated measured t-test indicated a significant difference ($t(11) = 8.0, p < 0.001$) between the Keypad ($M = 8.11, \sigma = 1.62$) and the Edgekey ($M = 4.00, \sigma = 2.37$)
+The TS group had a marginally significant difference ($t(10) = 2.28, p = 0.045$) between Keypad ($M = 9.82, \sigma = 1.38$) and the Edgekey ($M = 10.6, \sigma = 0.96$).\todo{these are backward}
+Both groups had trouble with the additional time pressure caused by the Edgekey design requiring the use of the switch key.
+The TS group performed a lot closer to their performance in the Keypad design, only getting approximately 1 fewer prompt correct.
+The VR group had much more difficulty in the Edgekey design, correctly completing about half as many as they completed in the Keypad design.
+However, it appears that they had difficulty in both designs compared to the TS group.
+
+This agrees with the post-hoc tests for differences in design between groups.
+These had significant effects for both the Keypad design ($t(21) = 4.44, p < 0.001$) between the VR group and the TS group, and the Edgekey design ($t(21) = 7.05, p < 0.001$) between the VR group and the TS group.
+The main effect of group clearly has a meaningful effect, as the VR group ($M = 6.05, \sigma = 2.88)$) had significantly fewer correct prompts than the TS group ($M = 10.2, \sigma = 1.2$).
+The variance of the means was also much larger in in the VR group, which is likely caused by the unfamiliar nature of the VR environment compared to a touchscreen.
+Figure \ref{fig:de_correct_stacked} shows the breakdown of the mean result of the prompts for each group and design.
+
+This difference is largely due to subjects not being able to complete the prompt.
+Across all groups and designs, very few prompts were completed that were incorrect.
 
 \subsubsection{NASA TLX}
 
-NASA TLX scores.
-The effect of group yielded an $F$ ratio of $F(1, 21) = 1.69, p = 0.21$ indicating a significant difference between VR ($M = 70.0, \sigma = 22.6$) and TS ($M = 65.3, \sigma = 8.53$).
-The effect of design indicated a significant difference ($F(1, 21) = 23.6, p < 0.001$) between Keypad ($M = 57.8, \sigma=15.2$) and Edgekey ($M=77.7, \sigma=13.4$).
-The interaction effect was significant as well ($F(1, 21) = 8.25, p < 0.001$).
-The post-hoc tests indicated significance between designs for the VR group ($t(11) = -4.20, p = 0.001$) between the Keypad design ($M = 54.4, \sigma = 20.4$) and the Edgekey ($M = 85.6, \sigma = 11.2$)
-The post-hoc tests indicated no significant difference between designs for the TS group ($t(10) = -2.72, p = 0.02$) between the Keypad design ($M = 61.5, \sigma = 4.46$) and the Edgekey ($M = 69.2, \sigma = 10.1$)
+After the subject completed their trials on each design, they completed a NASA TLX workload survey.
+Their weighted scores are used here as a measure of their self-reported workload.
+The interaction effect between group and design was found to be significant ($F(1, 21) = 8.25, p < 0.001$).
+The main effects showed a significant differene in design ($F(1, 21) = 23.6, p < 0.001$), but not in group ($F(1, 21) = 1.69, p = 0.21$).
+This could mean that the group did not affect the TLX score, but in the presence of an interaction effect, the post-hoc tests will guide the interpetation.
+
+The repeated measures t-tests indicated significance between designs for the VR group ($t(11) = -4.20, p = 0.001$) between the Keypad design ($M = 54.4, \sigma = 20.4$) and the Edgekey ($M = 85.6, \sigma = 11.2$)
+There was a marginally significant difference between designs for the TS group ($t(10) = -2.72, p = 0.02$) between the Keypad design ($M = 61.5, \sigma = 4.46$) and the Edgekey ($M = 69.2, \sigma = 10.1$).
+The effect of design was much stronger in the VR group, but both groups indicated higher workload on the TLX scores for the Edgekey design.
+This follows from experimental design which hypothesized that the Edgekey design would be more difficult.
+One factor that could have contributed to a larger difference in scores for the VR group could be the increased difficulty subjects had in completing the prompt, as seen in the results of the number of incorrect and incomplete prompts for the VR group using the Edgekey design.
+The effect of group was not shown to be significant in the ANOVA analysis, but the independent samples t-test showed a signifigance for the Edgekey design ($t(21) = 3.69, p < 0.01$) between the VR Group ($M = 85.6, \sigma = 11.2$) and the TS Group ($M = 69.2, \sigma = 10.1$).
+With the Keypad design, The effect of group was not significant ($t(21) = -1.13, p=0.27$) between VR ($M = 54.4, \sigma = 20.4$) and TS ($M = 61.5, \sigma = 4.46$).
+These tests further illustrate that the VR group found a higher workload for the Edgekey design specifically, as both groups rated the workload in the Keypad design similarly.
+%Furthermore, although the VR group did have a larger effect on design, the TS group had a marginally significant effect, indicating that the main effect of design was a meaningful result.
 
 \subsubsection{Summary}
 
