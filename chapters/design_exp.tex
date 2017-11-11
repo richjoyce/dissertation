@@ -18,6 +18,12 @@ Neither group had out the window visuals, relying only on the attitude indicator
 For the Virtual Reality (VR) group, the visuals showed a plain interior of a cockpit, but the out the window view was black.
 Both groups had an aural indication (a click noise of a button being pressed) when a button was activated on the instrument, using the speakers mounted behind the instrument panel.
 
+\begin{figure}
+    \missingfigure{annotated photograph}
+    \caption{Simulator Workstation}
+    \label{fig:de_simgroups}
+\end{figure}
+
 The main difference between the two groups, beyond the VR group wearing a virtual reality headset, \tinytodo{terrible sentence} was the way the instrument was interacted with.
 The VR group used the hand tracker activated system previously described in Chapter \ref{todo fixme}.
 For this experiment, the buttons were configured to highlight a blue color when the hand tracker registered a finger within the zone \tinytodo{Find the size of the zone}.
@@ -60,8 +66,7 @@ The attitude indicator was X.X inches square on the instrument. \tinytodo{Thats 
 \end{figure}
 
 Subjects controlled the one-dimensional (pitch only) task using a joystick with their left hand.
-The joystick is pictured in Figure \ref{fig:de_ts_setup}.
-
+The joystick is pictured in Figure \ref{fig:de_simgroups}.
 The flight dynamics model of the simulator was a stability derivative based model for a Boeing 747 in a low altitude landing configuration.
 \tinytodo{Include all the info on the FDM}
 The dynamics model was updated and recorded at a rate of 125Hz.
@@ -155,13 +160,25 @@ For both designs the tracking task display was the same size on the display.
 The prompting task text is also placed below the tracking task display, and the same font, size and color is used for both designs.
 These were kept consistent to limit the number of possible variables between the two designs.
 
-The Keypad design is pictured in Figure \ref{fig:todo}.
+The Keypad design is pictured in Figure \ref{fig:de_keypad_design}.
 The buttons are 1in by 0.75in, with about 0.26in between buttons horizontally and 0.38in vertically.
 Each button has the label directly on the top of the button.
 For the VR group, the 3D printed instrument had the button labels raised to provide a tactile feedback.
 The font was approximately 0.36in in height, and the labels were raised 0.05in.
 
-The Edgekey design is pictured in Figure \ref{fig:todo}.
+\begin{figure}
+    \missingfigure{picture of keypad}
+    \caption{Keypad Design}
+    \label{fig:de_keypad_design}
+\end{figure}
+
+\begin{figure}
+    \missingfigure{picture of edgekey}
+    \caption{Edgekey Design}
+    \label{fig:de_edgekey_design}
+\end{figure}
+
+The Edgekey design is pictured in Figure \ref{fig:de_edgekey_design}.
 In this design, there is not a single button for every number and letter.
 Instead, the bottom button on either would switch the behavior (and labels) of the remaning six buttons from showing 1 through 6 to showing A through F.
 The labels were placed offset from the button on the ``screen'' portion of the instrument, allowing them to change dynamically.
@@ -175,11 +192,7 @@ This additional action fundamentally changed the demands of the task, as the sub
 Pressing the switch key was always required between pressing the third and fourth button, and would be required before the first button press if the last state of the buttons did not match the start of the new prompt.
 Since there was no gaurentee that the next prompt would start with the instrument on the correct setting, there was an additional cognitive load in determining whether a switch was neccessary at the beginning of the prompting window.
 
-\begin{figure}
-    \includegraphics[width=\textwidth]{ai_display.png}
-    \caption{Attitude Indicator Display}
-    \label{fig:de_ai_display}
-\end{figure}
+
 
 \subsection{Experiment Design}
 
@@ -268,6 +281,12 @@ Most subjects had no flight experience (two were student pilots), and all of the
 
 \subsubsection{Tracking Task RMSE}
 
+\begin{figure}
+    \includegraphics[width=4.0in]{{rmse.4.0x4.0}.png}
+    \caption{Factor Plot of RMSE}
+    \label{fig:de_factor_rmse}
+\end{figure}
+
 The performance of the tracking task was measured using the root-mean square average (RMSE) of the pitch.
 The effect of Group yielded an $F$ ratio of $F(1, 21) = 21.4, p < 0.001$ indicating a significant difference between VR ($M=1.28\mathrm{deg}, \sigma=0.38\mathrm{deg}$) and TS ($M=1.97\mathrm{deg}, \sigma=0.38\mathrm{deg}$).
 In both groups, subjects were performing the tracking task using the same joystick.
@@ -294,6 +313,12 @@ The factors leading to the added workload of the prompting task are investigated
 
 \subsubsection{Prompt Response Time}
 
+\begin{figure}
+    \includegraphics[width=4.0in]{{reaction_time.4.0x4.0}.png}
+    \caption{Factor Plot of Response Time}
+    \label{fig:de_factor_response}
+\end{figure}
+
 The first measure of the prompting task is the response time of the subject.
 The response time is defined as the time from the prompt is shown to each subject until they press the first button of the prompt.
 For the Edgekey design, it would be possible that the subject had to start with the switching button if the new prompt did not start with the same mode (letters or numbers) as the previous prompt.
@@ -318,6 +343,12 @@ Finally, the interaction effect was not significant ($F(1, 21) = 0.001, p = 0.96
 
 \subsubsection{Prompts Correct}
 
+\begin{figure}
+    \includegraphics[width=4.0in]{{correct_prompts.4.0x4.0}.png}
+    \caption{Factor Plot of Correct Prompts}
+    \label{fig:de_factor_correct}
+\end{figure}
+
 The second measure of the prompting task is the accuracy of the subjects in correctly completing the prompt.
 To get the prompt correct includes two important components for the subject.
 First, they must remember the prompt as they enter it, and second, they must be able to physically press the buttons within the seven second response window.
@@ -335,6 +366,12 @@ The TS group performed a lot closer to their performance in the Keypad design, o
 The VR group had much more difficulty in the Edgekey design, correctly completing about half as many as they completed in the Keypad design.
 However, it appears that they had more difficulty in both designs compared to the TS group.
 
+\begin{figure}
+    \includegraphics[width=6.0in]{{prompts_stacked.6.0x4.0}.png}
+    \caption{Result of prompts}
+    \label{fig:de_correct_stacked}
+\end{figure}
+
 This agrees with the post-hoc tests for differences in design between groups.
 These tests had significant effects for both the Keypad design ($t(21) = 4.44, p < 0.001$) between the VR group and the TS group, and the Edgekey design ($t(21) = 7.05, p < 0.001$) between the VR group and the TS group.
 The main effect of group clearly has a meaningful effect, which found the VR group ($M = 6.05, \sigma = 2.88)$) had significantly fewer correct prompts than the TS group ($M = 10.2, \sigma = 1.2$).
@@ -349,6 +386,12 @@ The variance of number correct was also much larger in in the VR group, which co
 
 
 \subsubsection{NASA TLX}
+
+\begin{figure}
+    \includegraphics[width=4.0in]{{tlx.4.0x4.0}.png}
+    \caption{Factor Plot of NASA TLX}
+    \label{fig:de_factor_tlx}
+\end{figure}
 
 After the subject completed their trials on each design, they completed a NASA TLX workload survey.
 Their weighted scores are used here as a measure of their self-reported workload.
