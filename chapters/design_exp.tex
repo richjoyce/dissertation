@@ -516,34 +516,52 @@ In the other designs and groups this happened to only one or two subjects.
 
 \section{Discussion}
 
-\subsection{Design Feedback}
+The motivation of this experiment is to determine the differences between using an R3C simulator system and a traditional simulator system to perform a design evaluation experiment.
+We had two groups of subjects perform the same evaluation task on two different designs of a cockpit instrument, one group using the R3C system and the other a touchscreen system.
+The evaluation task included a pitch disturbance tracking task and a call and response prompting task.
+In addition to the quantative performance measures of the task, subjects were asked for their feedback on the two designs at the conclusion of the experiment.
 
-\todo[inline]{major points were noted by both groups. nothing that group 1 mentioned that group 2 didn't, but numbers are different}
+The results are summarized using their two independent variables: Group and Design.
+Group, a between subjects factor, refers to the technology the subject used: either Virtual Reality/R3C (VR) or Touchscreen (TS).
+Design is a within subjects factor, and is the instrument design the subject was evaluation: Edgekey or Keypad.
 
-\todo[inline]{flaws of the system are more evident in the VR group}
+The RMSE of the tracking task was found to be higher (worse performance) for the VR Group, but only marginally affected by Design, with subjects performing worse with the Edgekey design.
+It was also shown that on control trials that had only the tracking task (no prompting task), the effect of Group was reduced to marginally significant.
+The response time of the prompting task had no significant effect based on Group nor Design.
+Neither of these two previous measures had interaction effects between Group and Design.
+The number of correct prompts had a significant interaction effect.
+While the TS Group was able to complete significantly more prompts correctly overall than the VR group (10.2 vs.\ 6.1, respectively) the VR group had a significant effect with the Design and the TS group only had marginal significance.
+This interaction can be clearly seen in the factor plot of correct prompts (Figure \ref{fig:de_factor_correct}).
+The NASA TLX workload scores also had an interaction effect between Group and Design.
+The TLX scores for the VR group had a significant effect in Design, with subjects rating the Edgekey design over 30 points higher than the Keypad design (54.4 to 85.6, respectively).
+However, like the number of prompts correct measure, the TLX score was found to be only marginally significant for the TS group, rating the Keypad at 61.5 to the Edgekey's 69.2.
 
-\todo[inline]{time pressured tasks propvide different results.}
+%The effect of Group on the tracking task performance was expected as the visual resolution of the tracking display was diminished in the VR head-mounted display.
 
-\todo[inline]{time measurement may not be accurate unless .}
+Our results suggest that tasks or performance measures which are dominated by a cognitive portion, such as the prompt response time, provide similar results.
+Tasks which rely on visual resolution or time pressured responses may not produce the same results between designs using the R3C system.
+However, none of the effects reversed slope between designs, the only change is in magnitude of the effect.
+In fact, for both the number of prompts correct and the workload ratings, which had significant interaction effects, the use of the VR system amplified the effect of design within the groups from a marginally significant effect to a significant effect.
 
-\todo[inline]{visual acuity of the display does not affect the task as strongly when time measurement may not be accurate unless .}
+The results of the subjective feedback analysis found that no major feedback items on the design of the two instruemnts from either group was omitted by the other group.
+The only feedback comments that did not transfer were the fatigue issues, and of course technology-specific issues.
+We did discover that some issues were mentioned at differing frequencies, which is to say, one group would have more subjects mention it than the other.
+These results suggest that the use of the R3C system for receiving feedback from a design would be appropriate.
 
-\todo[inline]{subjects are not domain experts, however task was simple}
+Many design evaluation studies would be concluded with both paper questionnaires as well as open interviews to receive the feedback from the subject.
+Our experimental design avoided the use of the interview for two reasons.
+First, since our subjects were not subject domain experts or experienced evaluators, we wanted to make sure the prompting of the questions were consistent.
+Second, the primary goal of the design feedback for this experiment was not to actually evaluate the designs, but rather to compare evaluations.
+The use of a proctor interviewing the subjects could introduce accidental bias into the responses of the subjects.
+This can often be useful when evaluating a new interface, for example, an interviewer could ask subjects about a flaw they had not mentioned yet to determine if they did not notice it or did not care about it.
+However, in our case, we forgoed this additional information to ensure no bias was introduced in the collection of their opinions.
 
-\todo[inline]{evaluation of feedback could have been done blind}
-% A blind evaluation of the feedback may have been better
+\todo[inline]{Compare to other literature}
+%\todo[inline]{Consider alternative explanations}
 
-\todo[inline]{interview was not undertaken for two reasons, one was the subject population, the other was that rigidity removed bias}
-% A more extensive interview may have been more standard, not done here due to the subject population
-% Also due to the goal of the experiment -- leading questions in the interview could have caused a bias, by leaving it proctor-free and rigid for each subject, it removed such a bias
-
-\todo[inline]{hand tracker based input may prove chalelnging for motor constrained tasks, howeber for cognitive based tasks it is more valid}
-
-\todo[inline]{performance based measures using other modalities of input may be valid.}
-
-\todo[inline]{would this hold if had better simulation quality on VR ie. out the windows}
-
-\subsection{Effects of Training}
-
+This was a limited study of the utility of VR/R3C for design evaluation purposes.
+The task and instrument design was kept simple in nature for this study in order to limit the amount of confounding variables as well as keep it easy to learn for the subject population.
+Future studies could investigate this system in a more involved design study, with multiple instruments or designs, or more complex behavior in the cockpit.
+At this point, it would become more essential to use subject domain experts (i.e.\ experienced pilots) in order to validate these results.
 
 \section{Conclusion}
