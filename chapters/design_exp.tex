@@ -3,15 +3,20 @@
 
 \section{Introduction}
 
-After investigating the technical approach (Chapter \autoref{chap:techapp}) and the benefit to including the passive haptics layer (Chapter \autoref{chap:ph_exp}), we seek to investigate the use of the Rapidly Reconfigurable Research Cockpit (R3C) in a design evaluation study.
+The final experiment combines the lessons of the previous experiment to investigate the use of the Rapidly Reconfigurable Research Cockpit (R3C) in a design evaluation study.
 The goal of this experiment is to determine if the R3C system can be used in the place of a more traditional evaluation tool.
 As previous chapters have discussed, there are a number of self-evident advantages to using the R3C system.
-However, there remain some technical limitations to the technology that could hinder adoption (such as the speed decrease using the R3C input method).
-The purpose in undergoing a design evaluation study is to understand if these limitations would interfere with the metrics that might be used in evaluating a new cockpit design.
+However, there remain some technical limitations to the technology that could hinder adoption.
+We found that a button targetting task took more time in our virtual environment than in the real world (Chapter \ref{chap:techapp}).
+The following experiment (Chapter \ref{chap:ph_exp}) found that a Fitts' Law task produced a higher throughput using a passive haptics layer, mitigating some of the time increase of targeting buttons in a cirtual environment.
+In the experiment described in this chapter, we used the R3C system as the simulation tool for a design evaluation study of a cockpit instrument.
+The purpose in undergoing this evaluation study is to understand if these limitations would interfere with the metrics that might be used in evaluating a new cockpit design.
 
-In order to compare the R3C system to a traditional evaluation, we designed an experiment to ask subjects to provide feedback on different designs of a cockpit instrument.
-The subjects were divided into two groups: one group used an R3C setup to operate the instruments, while the other used a more traditional setup: a touchscreen simulator of the instruments.
+We designed an experiment which asks for feedback from subjects who take the role of design evaluators for a cockpit instrument.
+The subjects were divided into two groups: one group used an R3C setup to operate the instrument, while the other used a more traditional setup: a touchscreen simulator of the instrument.
+This seperation of groups will allow a comparison of the feedback from subjects between groups.
 Both groups evaluated the same two instrument designs, and subjects were asked to provide feedback using the same questionnaires.
+We hypothesize that the R3C system could be used in place of a traditional simulator if the two groups provide similar responses to the designs.
 Additionally, we utilized common quantitative metrics to evaluate performance to determine if the conclusions that would be drawn from these change between groups.
 
 \section{Methods}
@@ -360,7 +365,7 @@ Additionally, the two tracking only trials performed at the end of each evaluati
 The concern if subjects became more trained in the tracking task is that it could lower their attentual needs to that portion of the task, causing a change in performance on the prompting task that was not due to the design change.
 These hypotheses are enumerated here:
 
-\begin{enumerate}[label=H*]
+\begin{enumerate}[label={H\arabic*.}]
     \item The tracking task RMSE will have no interaction effect between Group and Design
     \item The prompt response time will have no interaction effect between Group and Design
     \item The number of correct prompts will have no interaction effect between Group and Design
