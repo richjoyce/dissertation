@@ -17,7 +17,7 @@
 % \usepackage[letterpaper,left=0.75in,right=0.75in,top=1.25in,bottom=0.5in]{geometry}
 % need this for the \foreach command
 \usepackage{tikz}
-\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{shapes,arrows,positioning}
 
 % Turn on single spacing with \ssp.
 % Turn on double spacing with \dsp.
@@ -189,6 +189,9 @@
 \renewcommand{\arraystretch}{1.2}
 
 \usepackage{csquotes}
+\renewcommand\mkbegdispquote[2]{\leavevmode\llap{``}}
+\renewcommand\mkenddispquote[2]{#1''#2}
+
 
 % Disable todonotes for not draft
 \usepackage[obeyDraft]{todonotes}
@@ -200,6 +203,8 @@
 }}
 
 \usepackage{mathtools}
+
+\usepackage{enumitem}
 
 
 %%% Document Portion:
