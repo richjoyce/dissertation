@@ -226,8 +226,6 @@ Since there was no guarantee that the next prompt would start with the instrumen
 
 \begin{figure}
     \centering
-    %\centering
-    % Define block styles
     \tikzstyle{decision} = [diamond, draw, fill=blue!20, text width=7em, text badly centered, inner sep=0pt]
     \tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=8em, text centered, rounded corners, minimum height=2em]
     \tikzstyle{line} = [draw, -latex']
@@ -237,39 +235,46 @@ Since there was no guarantee that the next prompt would start with the instrumen
         \node [block, below=of read] (memorize) {Memorize Prompt};
         \node [block, below=of memorize] (recall) {Recall $n^{\mathrm{th}}$ Character};
 
-        \node [cloud, below=of recall] (Keypad) {Keypad};
+        \node [decision, below=of recall] (design) {Design};
+        %\node [cloud, below=of recall] (Keypad) {Keypad};
 
-        \node [draw=none, text width=7em, below=3cm of Keypad] (targetjoin) {};
+        \node [draw=none, text width=7em, below=2cm of design] (targetjoin) {};
         \node [block, below=1cm of targetjoin] (target) {Find \& Target $n^{\mathrm{th}}$ Button};
         \node [block, below=of target] (press) {Press $n^{\mathrm{th}}$ Button};
-        \node [draw=none, left=of target] (nloop1) {};
-        \node [draw=none, above=2cm of nloop1, text width=6em, text centered] (nloop) {Repeat for 4 Characters};
+        %\node [draw=none, left=of target] (nloop1) {};
+        \node [draw=none, below=0.5cm of design] (keypadlabel) {Keypad};
+        \node [draw=none, left=of keypadlabel, text width=6em, text centered] (nloop) {Repeat for 4 Characters};
 
         \node [decision, right=1.5cm of targetjoin] (decide) {Are labels for $n^{\mathrm{th}}$ character shown?};
-        \node [cloud] (Edgekey) at (Keypad -| decide) {Edgekey};
+        %\node [cloud] (Edgekey) at (design -| decide) {Edgekey};
         \node [block, below=of decide] (targetswitch) {Find \& Target Switching Button};
         \node [block, below=of targetswitch] (pressswitch) {Press Switching Button};
         \node [block, below=of pressswitch] (recall2) {Recall $n^{\mathrm{th}}$ Character};
 
         \path [line] (read) -- (memorize);
         \path [line] (memorize) -- (recall);
-        \path [line] (recall) -- (Keypad);
-        \path [line] (Keypad) -- (target);
+        \path [line] (recall) -- (design);
+        %\path [line] (design) -- node [fill=white, near start, center] {Keypad} (target);
+        \path [line,-] (design) -- (keypadlabel);
+        \path [line] (keypadlabel) -- (target);
         \path [line] (target) -- (press);
         \path [line,-] (press) -| (nloop);
         \path [line] (nloop) |- (recall);
 
-        \path [line, dashed] (recall.south) ++(0,-0.5cm) -| (Edgekey);
-        \path [line, dashed] (Edgekey) -- (decide);
-        \path [line, dashed] (decide) -- node [above] {Yes} (targetjoin.center);
-        \path [line, dashed] (decide) -- node {No} (targetswitch);
-        \path [line, dashed] (targetswitch) -- (pressswitch);
-        \path [line, dashed] (pressswitch) -- (recall2);
-        \path [line, dashed] (recall2.east) -- ++(1.5cm,0) |- (decide.east);
+        %\path [line, dashed] (recall.south) ++(0,-0.5cm) -| (Edgekey);
+        \path [line] (design) -| node [near start, above] {Edgekey} (decide);
+        \path [line] (decide) -- node [above] {Yes} (targetjoin.center);
+        \path [line] (decide) -- node {No} (targetswitch);
+        \path [line] (targetswitch) -- (pressswitch);
+        \path [line] (pressswitch) -- (recall2);
+        \path [line] (recall2.east) -- ++(1.0cm,0) |- (decide.east);
+
+        \draw[thick, dashed] ($(design.east)+(0.8,1.0)$) rectangle ($(recall2.south east)+(1.6,-0.6)$);
+        %\draw[thick, dashed] ($(decide.north west)+(-1.8,3.3)$) rectangle ($(recall2.south east)+(1.3,-0.6)$);
 
     \end{tikzpicture}
     \medskip
-    \caption{Prompting Task Flowchart of Cognitive Work for Each Design. Extra work of Edgekey design shown with dashed lines.}
+    \caption{Prompting Task Flowchart of Cognitive Work for Each Design. Extra work of Edgekey design encolsed in dashed line box.}
     \label{fig:de_flowchart}
 \end{figure}
 
