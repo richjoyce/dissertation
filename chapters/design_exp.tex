@@ -23,7 +23,7 @@ Additionally, we utilized common quantitative metrics to evaluate performance to
 
 \subsection{Simulator Setup}
 
-The simulator workstation as configured for each group is \tinytodo{this is not done yet}shown and annotated in Figure \ref{fig:de_sim_groups}.
+The simulator workstation as configured for each group is \tinytodo{this is not done yet}shown and annotated in Figure \ref{fig:de_simgroups}.
 It was designed to have as much as possible to be the same between the two configurations.
 The joystick and instrument were positioned in the same location for each group.
 Neither group had out the window visuals, relying only on the attitude indicator on the instrument.
@@ -39,10 +39,10 @@ Both groups had an aural indication (a click noise of a button being pressed) wh
 
 Beyond the VR group using a virtual reality headset for the visuals, the main difference between the two groups was the method for pressing the buttons on the instruments.
 The VR group used the hand tracker activated system previously described in Chapter \autoref{chap:prototype}.
-\todo[inline]{Include a short overview of this}
+\todo[inline]{Include a short overview of the hand tracker system}
 For this experiment, the buttons were configured to highlight a blue color when the hand tracker registered a finger within the zone.
 The zones were extended 0.1in around the border of the button, raised a height of 0.5in above the surface of the button.
-When the button was activated after the 150 millisecond delay, the highlight would disappear and the button in the virtual world would move inwards as if it were being pushed in\footnote{Of course, the physical button could not and did not move}, the press sound would play, and the behavior on the instrument associated with pressing that button would occur.
+When the button was activated after the 150 millisecond delay, the highlight would disappear and the button in the virtual world would move inwards as if it were being pushed in\footnote{Of course, the physical button could not and did not move.}, the press sound would play, and the behavior on the instrument associated with pressing that button would occur.
 A separate release sound would play when the finger left the zone after a successful press, and for the VR group the button would move back to its starting position.
 
 The Touchscreen (TS) group used a 10.1 inch capacitive touch screen with resolution of 1024x600.
@@ -61,7 +61,7 @@ The instrument and task required:
 \begin{itemize}
     \item Flight task using a standard joystick
     \item Additional task that requires use of multiple buttons on the instrument
-    \item Able to develop simulator for both touchscreen and R3C setup \tinytodo{could explain what this limits}
+    \item Able to develop simulator for both touchscreen and R3C setup %\tinytodo{could explain what this limits}
     \item Able to design two different layouts with one design having distinct flaws
     \item Simple design, yet complex enough task to have sufficient workload
     \item Operationally relevant tasks analogous to those required in a cockpit
@@ -244,7 +244,7 @@ There was no guarantee that the next prompt would start with the instrument in t
         \node [block, below=of read] (memorize) {Memorize Prompt};
         \node [block, below=of memorize] (recall) {Recall $n^{\mathrm{th}}$ Character};
 
-        \node [decision, below=of recall] (design) {Design};
+        \node [decision, below=of recall] (design) {Design?};
         %\node [cloud, below=of recall] (Keypad) {Keypad};
 
         \node [draw=none, text width=7em, below=2cm of design] (targetjoin) {};
@@ -304,7 +304,9 @@ The following three trials were two minutes each, and were used for the analysis
 Each evaluation session concluded with a two minute trial of just the tracking task without the prompting task.
 This was included to investigate if the subject had improved or fatigued at the tracking task throughout the experiment.
 
-The independent variables of the experiment are Group: either TS or VR, and Design: either Edgekey or Keypad.
+The independent variables of the experiment are Group and Design.
+The Group is the simulator the subject used, a between subjects factor, and either TS or VR.
+The Design is a within subjects factor, the two instrument designs that every subject evaluated --- Edgekey and Keypad.
 
 \subsection{Dependent Measures}
 \label{sec:de_dependent}
@@ -459,7 +461,8 @@ After filtering, 885 of the total 1700 prompts recorded for the Edgekey design w
 
 The response time was unique among the dependent measures, as all tests were insignificant.
 The effect of group yielded an $F$ ratio of $F(1, 21) = 1.19, p = 0.29$ indicating no significant difference between VR ($M = 2812\mathrm{msec}, \sigma = 383\mathrm{msec}$) and TS ($M = 2594\mathrm{msec}, \sigma = 567\mathrm{msec}$).
-One factor that could influence the response time between groups is the additional time to activate a button in the VR environment versus the touchscreen.\tinytodo{explain this?}
+One factor that could influence the response time between groups is the additional time to activate a button in the VR environment versus the touchscreen.
+The touchscreen subjects were using a familiar interface for activating the buttons, while the VR subjects needed to activate the button with the virtual hand.
 However, a large portion of the response time for the subject is their cognitive processing of the prompt -- recognizing the new prompt has appeared, reading it, then memorizing it.
 Beyond potential differences in the visual environment, the cognitive portion should not take more time for one group or the other.
 A potential reason that there could be a lower than expected difference between the group means is that some VR subjects learned to keep their hand closer to the instrument so that the hand tracker could keep it in view.
@@ -564,7 +567,7 @@ Since the visual environment of the tracking task was quite different for each g
 The two-way ANOVA found Group to be a marginally significant factor ($F(1, 21) = 4.94, p=0.37$) between the VR Group ($M=1.36, \sigma=0.51$) and the TS Group ($M=0.94, \sigma=0.43$).
 The effect of group on the tracking task was already established, so the marginal significance found here is not unexpected.
 Trial number was found to have no significant effect ($F(1, 21)=3.65, p=0.069$) between the three trials.
-The means of the three trials, in order, are $M=1.23, \sigma=0.54$, $M=1.18, \sigma=0.51$, and $M=1.07, \sigma=0.51$.
+The means of the three trials, in order, are $1.23^{circ} (\sigma=0.54^{circ})$, $1.18^{circ} (\sigma=0.51^{circ})$, and $1.07^{circ} (\sigma=0.51^{circ})$.
 Even though the statistical test indicates no significance, the means do decrease as trial number increases.
 This combined with the large variance suggest that some subjects were experiencing some training effects, but overall the effect of training is not significant.
 The interaction effect of Group and trial number had no significance ($F(1, 21) = 0.16, p=0.69$).
@@ -702,4 +705,4 @@ The task and instrument design was kept simple in nature for this study in order
 Future studies could investigate this system in a more involved design study, with multiple instruments or designs, or more complex behavior in the cockpit.
 At this point, it would become more essential to use subject domain experts (i.e.\ experienced pilots) in order to validate these results.
 
-\section{Conclusion}
+%\section{Conclusion}
