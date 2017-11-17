@@ -90,6 +90,8 @@ The block diagram of the dynamics is shown in Figure \ref{fig:de_block diagram}.
 The dynamics model was updated and recorded at a rate of 125Hz.
 The output of the joystick, $r_{js}$, varies from $-1.0$ to $1.0$, and the gain of $10^{\circ}$ was chosen to ensure the pilot had enough control authority to complete the task.
 The flight condition is listed as ``Flight Condition 2'' in NASA CR-2044\cite{NASACR}\tinytodo{reference}.
+This dynamics model was chosen due to availability.
+The specifics of the dynamical model were not important other than providing a response similar to an aircraft in flight.
 The model was linearized from sea-level flight at an airspeed of 335 ft/s.
 The configuration of the airplane had the gear up, no flaps, total weight of 654,000 lbs, and an angle of attack of 7.3$^{\circ}$.
 The transfer function of the aircraft dynamics is given as:
@@ -226,8 +228,10 @@ As with the Keypad design, the buttons had the same height of 0.31in from the su
 
 While some of the more subtle differences were expected to be noted by the evaluation study (e.g.\ having smaller buttons, different position of the flight task), the major flaw designed into the Edgekey design was the switching key to change from letters to numbers and back.
 This additional action fundamentally changed the demands of the task, as the subjects now had to press this additional button to change labels at least once per prompt.
-Pressing the switch key was always required between pressing the third and fourth button, and would be required before the first button press if the state of the buttons did not match the start of the new prompt.
-Since there was no guarantee that the next prompt would start with the instrument on the correct setting, there was an additional cognitive load in determining whether a switch was necessary at the beginning of the prompting window.
+The cognitive workflow of the subject is diagrammed in Figure \ref{fig:de_flowchart}.
+The additional mental effort of the Edgekey design is shown in the dashed box, where the subject has to verify the state of the instrument and possibly press the switch button before they press the buttons of the prompt.
+Since the prompts were kept as a consistent format of three of the same type and fourth of the other, this extra work was easily skipped for most buttons, and anticipated between the third and fourth button.
+There was no guarantee that the next prompt would start with the instrument in the correct state for the new prompt, so there was always an additional cognitive load in determining whether a switch was necessary at the beginning of the prompting window, which would be accompanied with the physical effort if the switch was needed.
 
 \begin{figure}
     \centering
@@ -381,6 +385,10 @@ The Design factor contains two levels, the two designs each subject tested, Edge
 The Group factor also contains two levels, the VR (Virtual Reality) group and the TS (Touchscreen) group.
 When the ANOVA showed significance in the interaction test, post-hoc repeated measured t-tests were undertaken to determine the significance of Design within each Group.
 Independent samples t-tests were used to test the significance of Group within each Design.
+The last hypothesis testing the effects of learning on the trials with only the tracking task will be tested with a two-way ANOVA, with the Group as a between subjects factor, and the trial number as a within subjects factor.
+The trial number is chronological in the order the subjects performed them.
+The first trial was the last tracking only training trial, and the next two were tracking only trials at the end of each design evaluation.
+
 Statistical significance level was corrected using the Bonferroni correction considering the 5 hypotheses being tested.
 All effects were considered statistically significant at the 0.01 level ($\alpha = 0.05/5 = 0.01$).
 Effects which have a significance level between $0.05<p<0.01$ are considered to be marginally significant.
@@ -443,11 +451,11 @@ The factors leading to the added workload of the prompting task are investigated
 
 The first measure of the prompting task is the response time of the subject.
 The response time is defined as the time from the prompt is shown to each subject until they press the first button of the prompt.
-For the Edgekey design, it would be possible that the subject had to start with the switching button if the new prompt did not start with the same mode (letters or numbers) as the previous prompt.
+For the Edgekey design, it would be possible that the subject had to start with the switching button if the new prompt did not start with the same mode (letters or numbers) as the previous prompt (see Figure \ref{fig:de_flowchart}).
 Since this button would not clear the prompt when it was pressed, it is not considered the first button of their entry.
 However, this would still require an additional movement of the subject, adding additional time.
 For this reason, the prompts which required the subject to start with the switch key are filtered out of this analysis.
-This consisted of 885 of the total 1700 prompts recorded for the Edgekey design.
+After filtering, 885 of the total 1700 prompts recorded for the Edgekey design were kept.
 
 The response time was unique among the dependent measures, as all tests were insignificant.
 The effect of group yielded an $F$ ratio of $F(1, 21) = 1.19, p = 0.29$ indicating no significant difference between VR ($M = 2812\mathrm{msec}, \sigma = 383\mathrm{msec}$) and TS ($M = 2594\mathrm{msec}, \sigma = 567\mathrm{msec}$).
@@ -461,6 +469,7 @@ This issue comes up again when looking at the subjects' response to questions ab
 The effect of design was also insignificant ($F(1, 21) = 0.68, p = 0.42$) between Keypad ($M=2728\mathrm{msec}, \sigma=512\mathrm{msec}$) and Edgekey ($M=2687, \sigma=471\mathrm{msec}$).
 The biggest difference between the two designs is the switching key on the Edgekey design.
 As described above, the need for an additional switch press before the first prompt button was filtered out, so we are only comparing prompts where the first button was available right away to the subject.
+Even though the physical requirements were filtered out, subjects still need to verify that the labels are in the correct state for starting entry.
 Since the Edgekey design had more time pressure due to the need for the switch key, subjects could have learned to respond quicker to adapt for this.
 However, these differences in the design did not appear to have a significant effect on the response time.
 Finally, the interaction effect was not significant ($F(1, 21) = 0.001, p = 0.96$).
@@ -538,8 +547,27 @@ These tests further illustrate that the VR group found a higher workload for the
 
 \subsubsection{Tracking Task Learning}
 
-%The significant interaction effect frollow from the VR group indicatin
-%Furthermore, although the VR group did have a larger effect on design, the TS group had a marginally significant effect, indicating that the main effect of design was a meaningful result.
+Throughout the experiment the subjects did trials with only the tracking task, instead of both the tracking task and the prompting task.
+Initially, they performed a number of training trials at the beginning with only the tracking task, and then after each evaluation session there was a single trial of just the tracking task.
+In this section we will test the RMSE of their final training trial and the two after-evaluation trials for any significant learning effects.
+The trial number is chronological throughout the timeline of the experiment for each subject.
+This means that due to the counterbalancing, the second and third trial are done with different designs based on the subject.
+Since the visual environment of the tracking task was quite different for each group, the Group factor is included as a between subjects factor.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=4.0in]{{training_rmse.4.0x4.0}.png}
+    \caption{Factor Plot of RMSE for Tracking Only Trials}
+    \label{fig:de_factor_training}
+\end{figure}
+
+The two-way ANOVA found Group to be a marginally significant factor ($F(1, 21) = 4.94, p=0.37$) between the VR Group ($M=1.36, \sigma=0.51$) and the TS Group ($M=0.94, \sigma=0.43$).
+The effect of group on the tracking task was already established, so the marginal significance found here is not unexpected.
+Trial number was found to have no significant effect ($F(1, 21)=3.65, p=0.069$) between the three trials.
+The means of the three trials, in order, are $M=1.23, \sigma=0.54$, $M=1.18, \sigma=0.51$, and $M=1.07, \sigma=0.51$.
+Even though the statistical test indicates no significance, the means do decrease as trial number increases.
+This combined with the large variance suggest that some subjects were experiencing some training effects, but overall the effect of training is not significant.
+The interaction effect of Group and trial number had no significance ($F(1, 21) = 0.16, p=0.69$).
 
 \subsubsection{Summary}
 
