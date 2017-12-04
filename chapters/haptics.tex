@@ -29,15 +29,15 @@ Their performance on the Fitts' task was recorded as well as their responses to 
 \subsection{Haptics}
 
 Passive haptics has been a topic of research since the early immersive virtual environments.
-Robotic passive haptics were used to ameloriate the inflexibility of a proxy object by utilizing a robotic arm to position the proxy object in the bvirtual environment wher ethe user was reaching.[cite]
-Insko found increased presence using passive haptics for a maze, and also found that subjects trained with the passive haptics performed better after they were removed than the group that never used them.
-Another track of work combined active haptics with passive haptics, using a haptic glove with a physical panel to create mixed haptics.
+Robotic passive haptics were used to ameloriate the inflexibility of a proxy object by utilizing a robotic arm to position the proxy object in the virtual environment where the user was reaching\cite{tachi_construction_1994,mcneely_robotic_1993}.
+Insko\cite{insko_passive_2001} found increased presence using passive haptics for a maze, and also found that subjects trained with the passive haptics performed better after they were removed than the group that never used them.
+Another track of work combined active haptics with passive haptics, using a haptic glove with a physical panel to create mixed haptics \cite{borst_evaluation_2005}.
 Again, performance was increased with the haptics, but minimal differences were found between using the mixed haptics and the passive haptics alone.
-Similar to our motivation and work, Schiefele et al. replaced a cockpit panel with a flat panel in an immersive head-mounted virtual environment, and found that users could activate buttons and switches in less time with the panel present than without.
+Similar to our motivation and work, Schiefele et al.\cite{schiefele_simple_1998} replaced a cockpit panel with a flat panel in an immersive head-mounted virtual environment, and found that users could activate buttons and switches in less time with the panel present than without.
 We build on this previous work by investigating the effects of passive haptics with the lastest virtual enviroment technology, as well as performing a complete Fitts' Law characterization between no haptics and passive haptics.
 
 While much of the research involving passive haptics indicates an increase in the presence of the user, some have questioned whether active haptics provides benefits.
-Pontonnier et al. discovered that subjects had decreased presence ratings in a virtual assembly task when using a haptic glove, versus both a real environment and a virtual environment without haptics.
+Pontonnier et al.\cite{pontonnier_designing_2014} discovered that subjects had decreased presence ratings in a virtual assembly task when using a haptic glove, versus both a real environment and a virtual environment without haptics.
 
 \subsection{Fitts' Law}
 
@@ -49,7 +49,7 @@ This has since become known as Fitts' Law, and later work has refined the index 
     \label{index_of_difficulty}
 \end{equation}
 where $D$ is the distance to the target from the starting location and $W$ is the width of the target.
-This formula for index of difficulty is known as the Shannons' formulation.
+This formula for index of difficulty is known as the Shannons' formulation\cite{mackenzie_note_1989}.
 
 Commonly, the index of difficulty is related to movement time (${MT}$) through a linear regression.
 However, in this work we are concerned with the measurement known as throughput (${TP}$).
@@ -61,28 +61,41 @@ It is defined as the index of difficulty over the movement time, and has the uni
     {TP}=\frac{ID}{MT}
 \end{equation}
 
-The use of Fitts' Law as a tool for human-computer interface research began with the research of Card et al. and has continued
-The ISO 9241-9 standard was published with guidance on using Fitts' Law as an evaluation of pointing devices.
-There have been efforts to standardize the use of Fitts' Law so that results can be compared across literature.
-For a 2-dimensional task (where all the buttons exist on a single plane), it is reccomended to use the circle layout as shown in Figure \#.
+The use of Fitts' Law as a tool for human-computer interface research began with the research of Card et al.\cite{card_evaluation_1978} for the evaluation of different input devices for text entry.
+In 2000, The ISO 9241-9 standard was published with guidance on using Fitts' Law as an evaluation of pointing devices\cite{international_organization_for_standardization_iso_2000}.
+Along with the ISO standard, there have been calls to standardize the use of Fitts' Law so that results can be compared across literature\cite{soukoreff_towards_2001}.
+For a 2-dimensional task (where all the buttons exist on a single plane), it is reccomended to use the circle layout as shown in Figure \ref{fig:ph_fitts_circle}.
 This layout is referred to as the ``Fitts' circle'' within this article.
 
-\rule{0.75\textwidth}{1pt}
-\begin{itemize}
-  \item effective width
-\end{itemize}
-Soukereff et al., among others, recommend the use of the end point location data to calculate the effective width, which is defined as:
+\begin{figure}
+    \centering
+    \missingfigure{fitts circle diagram}
+    \caption{Simulator Workstation}
+    \label{fig:ph_fitts_circle}
+\end{figure}
+
+In this work, we will use the effective width for the targets, which is defined as:
 \begin{equation}
     W_e = 4.133\sigma
 \end{equation}
 where $\sigma$ is the standard deviation of the end point positions.
 This correction accounts for the performance of the subject, especially on lower index of difficulty conditions where they may aim for the inside edge of a target.
 Hence, the use of the effective width provides the index of difficulty for the task that the subject performed, not the task presented to them.
-The effective width is calculated per subject per distance and width configuration, and subsquently used in the index of difficultly equation.
+The effective width is calculated per subject per distance and width configuration, and subsquently used in the index of difficulty equation.
 
 \begin{equation}
     {ID}_e=\log_2\left(\frac{D}{W_e}+1\right)
 \end{equation}
+
+Fitts’ Law has been used in evaluating virtual environments and their input devices.
+Most of the work has been focused on 3D stereo displays\cite{chun_2004,}.
+Chun et al. (2004) evaluated a set of 3D stereo displays with a single haptic-enabled stylus using a Fitts’ tapping task.
+They did not have well-fit regressions, but this could have been due to a small range of ID values used (2-3), targets being placed in 3D space (a 3D task with 3D movement) with random order, and averaging across subjects before completing the regression.
+%Teather & Stuerzlinger (2011) performed a similar task and also found an underperformance of the regression in the fully 3D task.
+One condition performed a mid-air 2D planar task with 3D movement, and no significant difference in throughput was found compared to the same task with constrained 2D motion.
+%Liu et al. (Liu, Van Liere, Nieuwenhuizen, & Martens, 2009) performed a planar multi-directional Fitts’ task with a stereoscopic display, and compared virtual world to real world results, finding movement time twice as long in the virtual condition.
+The trajectories were analyzed to determine where the extra movement time was spent, which is discussed in a later section (Trajectories in Virtual Environments).
+
 
 \rule{0.75\textwidth}{1pt}
 \begin{itemize}
@@ -120,8 +133,17 @@ The arm fatigue scale used within this experiment is a Borg Rating of Perceived 
 
 \section{Methods}
 
-\subsection{Experimental Setup}
+The purpose of the experiment described within this paper is to test the following hypotheses:
 
+\begin{enumerate}[label={H\arabic*.}]
+    \item Throughput will be higher with passive haptics
+    \item Subjects will learn the task more quickly with passive haptics
+    \item Subjects will spend less time in the corrective phase of their trajectory with passive haptics
+    \item Arm fatigue will be lower with passive haptics
+    \item Subject will feel greater presence with passive haptics
+\end{enumerate}
+
+\subsection{Experimental Setup}
 \begin{itemize}
   \item system objectives and requirements
   \item lightweight HMD
@@ -169,48 +191,59 @@ It is worth noting that this is a naive algorithm for the detection of pressing 
 
 \subsection{Experimental Task}
 
-The subjects were seated at a desk for the experimental task.
+The experimental task was a Fitts' circle in the virtual environment, performed by subjects in two haptic conditions.
+The subjects were seated at a desk for the experimental task, and the circle was located on a panel mounted on the desk.
+The two haptic conditions were ``No Haptics (NH)'' and ``Passive Haptics (PH).''
+These conditions are pictured in Figure \ref{fig:ph_conditions}.
+For the ``Passive Haptics'' condition a physical panel was co-located with the panel in the virtual world, which was removed for the ``No Haptics'' condition.
 
-The task was performed with two haptic conditions for each subject: ``No Haptics (NH)'' and ``Passive Haptics (PH).''
+\begin{figure}
+    \centering
+    \missingfigure{picture of two conditions}
+    \caption{Missing caption}
+    \label{fig:ph_conditions}
+\end{figure}
 
 There were no differences to the task itself or the method of button activation.
 The only difference between the conditions was the removal of the physical panel.
-The hand tracker remained in the same location, preserving the location of the buttons.
-Aside from the variations due to the task, the dimensions of the virtual world were no different for either condition.
+The hand tracker remained in the same location, preserving the location of the buttons in the virtual environment.
+The dimensions of the virtual world were no different for either condition.
+In fact, there was no change to the software was between the conditions.
 
 \begin{itemize}
   \item room setup, dimensions of table/panel
-  \item explain physical differences, no VR differences
 \end{itemize}
 
-Subjects performed the ISO-1234 circle for three different distances (20cm, 30cm, 40cm) and five different button widths (5mm, 10mm, 15mm, 20mm, and 25mm).
+Subjects performed the Fitts' circle for three different distances (20cm, 30cm, 40cm) and five different button widths (5mm, 10mm, 15mm, 20mm, and 25mm).
 These configurations were chosen to span a wide range of indices of difficulty (3.2---6.4).
 For each configuration of distance and width, subjects had to complete the full pattern of 11 buttons three times consecutively.
-Additionally, the distance was kept constant until they had seen all five button widths.
+This set of 33 movements for a single configuration is referred to as a single trial for a subject.
+The distance was kept constant for the consecutive trial until all five button widths were complete.
 The distances were presented in either smallest to largest or vice versa, which was counterbalanced among subjects.
-This set of 15 configurations was repeated for each haptics condition and the order was kept the same within subjects.
+
+This set of 15 trials was repeated for each haptics condition and the order was kept the same within subjects.
 The sequence that the two conditions were presented to each subject was also counterbalanced.
 
 \subsection{Experimental Design}
 
-\begin{itemize}
-  \item within subjects design
-  \item counterbalancing: condition order creates two groups
-  \item counterbalancing: order of distances, widths
-  \item purposefully did not wait for learned state
-\end{itemize}
+As described in the previous section, the experiment was performed with a within-subjects design.
+Subjects were asked to complete the same experimental task for both conditions of haptics: Passive Haptics (PH) and No Haptics (NH).
+The two different haptic conditions are the main independent variables.
 
-\subsection{Participants}
+It was expected we would find a large amount of skill transfer between the two conditions, so the order in which subjects performed the two conditions was counterbalanced.
+This created a second independent variable that is between subjects.
+The subjects who performed the conditions with the PH being their first condition were one group, and the subjects who performed NH as their first condition were a second group.
+We call this variable ``sequence'' and refer to the two groups as ``PH First'' and ``NH First''.
 
-Twenty (20) subjects were recruited from the UC Davis engineering student population, both undergraduate and graduate students.
-The age range was 19---29 ($M$=22.95, $SD$=3.0) with 16 males and 4 females.
-The genders were balanced amongst the counterbalanced groups.
-All subjects indicated either less than one hour or no prior experience with virtual reality.
+For a Fitts' Law evaluation, it is often recommended that the data collection only begins when the subject is fully trained on the task.
+However, one of the goals of the experiment is to investigate the learning rate of the subjects.
+For that reason, the subjects were given no seperate training time for the task or virtual environment.
+
+In lieu of collecting the data from fully trained subjects, the throughput analysis will be carried out on movements that are determined to be composed of mostly ballistic motion.
+This filtering
 
 \subsection{Dependent Measures}
 
-The main quantitative measure of performance is the Fitts' Law throughput.
-Time of the button presses were recorded as well the entire trajectory data for each movement performed by the subjects.
 
 \begin{itemize}
   \item time of each button press
@@ -220,20 +253,43 @@ Time of the button presses were recorded as well the entire trajectory data for 
   \item condition comparison questionnaire at end of experiment
 \end{itemize}
 
+To determine the arm fatigue, subjects were asked to rate their arm fatigue on the Borg scale from 6 to 20.
+The scale was presented with anchors as shown in Table \ref{tab:ph_borg_scale}.
+The arm fatigue rating was collected at the beginning of each condition, and then after every other configuration of distance and width combination (and after the final trial, since it was an odd number of trials).
+
+At the completion of each condition the subject was given a presence questionnaire.
+
 \subsection{Statistical Methods}
 
-For all of the dependent measures except for the final questionnaire, data was recorded for both haptics conditions for every subject.
-To reduce within subject variability, these measures were statistically tested as related samples.
-That is to say, the difference between the scores of each condition were used.
-The reported condition difference is positive when the measure was higher with Passive Haptics.
-For ease of comparison to other literature, the means of each condition are still reported.
-
-Since this is a task with high transfer of skills between conditions, we will also test the sequence for a possible interaction effect with the dependent measures.
-
+The throughput, arm fatigue rating and presence score were all statistically tested using a two-way ANOVA with one within-subjects factor (Haptics) and one between subjects factor (Sequence).
+When the ANOVA showed an interaction effect, the two Sequence groups were seperated and a repeated measures t-test was performed for the Haptics factor with each group.
+The statisitical significance level was corrected using the Bonferroni correction given the three dependent measures being tested.
+This leads to effects being considered statistically significant at the 0.0167 level ($\alpha=0.05/3=0.167$).
+Effects between $0.05 < p < 0.0167$ are noted as marginally significant.
+Additionally, the presence questionnaire was tested using Cronbach's alpha for internal consistency.
 
 \section{Results}
 
+\subsection{Participants}
+
+Twenty (20) subjects were recruited from the UC Davis engineering student population, both undergraduate and graduate students.
+The age range was 19---29 ($M=22.95, \sigma=3.0$) with 16 males and 4 females.
+The genders were balanced amongst the counterbalanced groups.
+All subjects indicated either less than one hour or no prior experience with virtual reality.
+
+\subsection{Ballistic Filtering}
+
 \subsection{Throughput}
+
+Haptics was found to have a significant effect on the throughput ($F(1,18)=35.53, p<0.001$) between the PH condition ($M=4.16, \sigma=0.41$) and the NH condition ($M=3.71, \sigma=0.38$).
+There was no significant effect of Sequence ($F(1,18)=0.5297, p=0.47$) between the subjects who performed PH first versus the subjects who performed the NH condition first.
+There does exist an interaction effect between Haptics and Sequence ($F(1,18)=9.06, p<0.01$).
+The post-hoc repeated measures ttest for the subjects who performed PH first was marginally significant ($t(9)=2.55, p=0.03$), with the PH condition ($M=4.10, \sigma=0.33$) having an average throughput 0.22 higher than the NH condition ($M=3.88, \sigma=0.39$).
+The subjects who performed NH first had a significant effect between Haptics conditions ($t(9)=5.50, p<0.001$), improving an average of 0.67 between the NH condition ($M=3.54, \sigma=0.30$) and the PH condition ($M=4.21, \sigma=0.49$).
+
+% Factors causing this.
+
+% Counts of the filters
 
 An independent ttest was performed on the throughput differences for sequence of conditions.
 There was a significant difference (t(18)=-2.9, p=0.008) in the throughput condition difference for the group that performed Passive Haptics as their first condition (PH First, M=0.48, SD=0.36) than the No Haptics First group (M=1.03, SD=0.46).
@@ -241,18 +297,47 @@ Post-hoc repeated measures ttests show signifigance in each group between condit
 PH First had a signifigant effect (t(9)=4.16, p=0.002) between Passive Haptics (M=4.70, SD=0.51) and No Haptics (M=4.22, SD=0.53).
 NH First had a signifigant effect (t(9)=7.04, p<0.001) between Passive Haptics (M=4.84, SD=0.63) and No Haptics (M=3.81, SD=0.36).
 
-\subsection{Presence}
-Presence scores showed no signifigant difference (t(18)=0.85, p=0.408) for the sequence between PH First (M=9.0, SD=12.69) and NH First (M=4.4, SD=11.59).
-The repeated measures ttest between conditions was marginally significant (t(19)=2.48, p=0.022) showing an increase in score for Passive Haptics (M=77.7, SD=9.56) and No Haptics (M=71.0, SD=9.70).
+\subsection{Trajectory Phases}
 
 \subsection{Arm Fatigue}
-Self-reported arm fatigue scores were takend from the maximum of the last two in each condition.
-There was a significant difference (t(18)=-4.01, p=0.001) in the arm fatigue condition difference for the group that performed Passive Haptics as their first condition (PH First, M=-3.50, SD=2.12) than the No Haptics First group (M=-0.05, SD=1.71).
-PH First had a signifigant effect (t(9)=-5.22, p=0.001) between Passive Haptics (M=12.10, SD=3.51) and No Haptics (M=15.60, SD=2.46).
-NH First had no effect (t(9)=-0.09, p=0.93) between Passive Haptics (M=15.20, SD=3.26) and No Haptics (M=15.25, SD=2.66).
+
+The arm fatigue scores had a significant effect for Haptics ($F(1,18)=9.72, p<0.01$) between the Passive Haptics condition ($M=13.45, \sigma=3.76$) and the No Haptics condition ($M=14.72, \sigma=2.85$).
+There was no effect due to Sequence ($F(1,18)=2.12, p=0.16$).
+However, the interaction effect between the two effects was significant ($F(1,18)=13.9, p<0.01$).
+The post-hoc repeated measures ttest for the PH First group showed a significant effect ($t(9)=-4.58, p<0.07$) between arm fatigue scores in the PH condition ($M=11.7, \sigma=3.01$) and the NH condition ($M=14.5, \sigma=3.53$).
+The NH First group showed no significant difference between the means in the same ttest ($t(9)=0.45, p=0.66$), with the NH condition ($M=15.0, \sigma=2.78$) having a very similar mean to the PH condition ($M=15.2, \sigma=3.26$).
+
+\subsection{Presence}
+
+The presence scores had a marginally significant effect between Haptics conditions ($F(1,18)=6.08, p=0.024$), with Passive Haptics having a slightly higher mean ($M=77.7, \sigma=9.56$) than No Haptics ($M=71.0, \sigma=9.70$).
+There was no significant effect of Sequence ($F(1,18)=4.01, p=0.58$) nor for the interaction effect between Sequence and Haptics ($F(1,18)=0.71, p=0.41$).
+
+The internal consistency of the presence questionnaire was found to be ...
 
 \subsection{Condition Comparison}
-The condition comparison.
+
+\begin{table}
+    \centering
+    \includetable{ph_comparison.tex}
+    \caption{Condition comparison survey summary of results.}
+    \label{tab:ph_comparison}
+\end{table}
+
+The condition comparison survey asked the subjects five questions directly comparing the two conditions.
+A summary of their answers are shown in Table \ref{tab:ph_comparison}.
+The subjects overwhelmingly responded that they preferred the Passive Haptics (PH) condition (Q5), with all but two subjects choosing it.
+In fact, no subject preferred the No Haptics (NH) condition, the two subjects who did not choose PH responded that neither was more preferred.
+
+The other questions had responses similar to the results from the other sections.
+The majority of subjects responded that they were more accurate and faster in the PH condition (Q1 and Q2), which agrees with the throughput results.
+The subjects who chose Neither or NH were usually not actually faster or more accurate in the NH condition.
+In fact, only two subjects had a throughput that was higher in the NH condition, and neither subject chose NH as the condition they performed faster in, though one did say they performed more accurately in the NH condition.
+
+Question 4 asked subjects directly about their feeling of presence, and 13 subjects chose PH, with the remaining split between 4 saying neither and 3 saying NH.
+The results of the presence questionnaire suggested that subjects felt more present with the passive haptics, which this agrees with.
+The arm fatigue question (Q3) was worded to ask which condition they felt provided more or quicker arm fatigue, and 13 subjects felt this was the case with the NH condition.
+The remaining were split between neither (3) and PH (4).
+The results of the arm fatigue questionnaire during the experiment found a similar result as the condition comparison survey.
 
 \section{Discussion}
 
