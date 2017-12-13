@@ -292,75 +292,12 @@ To perform the filtering, the data was first resampled to a fixed rate of 100Hz.
 The filter used is a fourth-order Butterworth filter with a cut-off frequency of 5Hz.
 The cut-off frequency was chosen as voluntary hand movements have been shown to be below such a rate.
 
-\subsection{Ballistic Movement Filtering}
-
-Before they could be used for the Fitts' Law analysis the trajectories were filtered so that only direct to target movements were included.
-A well-learned movement appropriate for Fitts' Law would move directly towards the target and not have much extranous movement or idle time beyond what is required to complete the task.
-A number of deviations from these well learned movements were observed in the dataset which we aimed to filter out for the throughput calculations.
-The common deviations are described
-
-%An inordinate amount of time was spent either in the reaction phase before the ballistic, or more typically, after the ballistic movement in the corrective phase.
-%There were two common causes of a long time spent in the corrective phase, the first was that the subject had trouble finding the activation zone or holding it there for the 160 msec required.
-%The second cause was that the subject would have a false start and move towards the next target before their button press was activated.
-%For the former, this led to a increase in time for the corrective phase, but not neccesarily a large path distance increase.
-
-To perform the filtering, three metrics were developed.
-The first was the ratio of distance travelled in the ballistic phase to the distance between the targets for that movement (i.e. 20cm, 30cm or 40cm).
-Ideally, the ballistic portion would encompass the majority of the required distance.
-A sample movement that gets flagged by this filter is shown in Figure \ref{TODO}, which has a ratio of 1.37.
-This is an example of a movement that does have a direct movement toward the target, but includes a large deviation perpindicular to the movement axis.
-The limits for this filter were chosen as having a ratio between 0.90 and 1.10, i.e.\ within 10\% of the target distance.
-This filtered out 4577 of the 17970 movements.
-
-The second filtering metric was also based on the ballistic phase path distance.
-For this metric it was compared to the total path distance the subject travelled for the movement.
-This filter targetted the movements where the ballistic phase may have covered the distance well, but then the subject moved away from the target, or had a movement before the main ballistic movement.
-For example, Figure \ref{TODO} shows a movement where the ballistic phase distance ratio to the target distance was 1.02, but the ballistic movement was only 0.50 for the total distance travelled.
-This was a common problem where a subject would have a false start and move towards the next target before their button press was activated.
-The threshold was set at 0.80 which has 4264 movements lower than the threshold, though only 1675 were unique from the target distance filter.
-
-Finally, the last filter took a time based approach, and looked a the ratio of the time spent in the ballistic phase over the total movement time.
-This filter removed movements where the subject spent an inordinate amount of time either before or after the ballistic phase.
-If they were not moving very much during the non-ballistic phases, it would not have been caught by the distance based filters.
-The threshold of 0.40 meant that 4496 movements were filtered, however only 873 of those are unique of the other two filters.
-Figure \ref{TODO} illustrates a movement where the subject waited before initiating the ballistic movement.
-
-The combination of these three filters led to 7125 movements being filtered out, leaving 60\% of the movements.
-For each of the metrics, the threshold was determined by investigating the distribution and look at sample movements on either end of the threshold to determine if it was an approriate value.
-
-Furthermore, to ensure that enough data existed for the adjustment for accuracy calculation, a trial was only included if at least half (15 of 30) movements were considered to be good movements by the ballistic filters.
-This means that movements from a trial that did not have enough good movements were also filtered out from the Fitts' calculation.
-On average, 11 of 15 trials per condition from each subject ($M=10.98, \sigma=3.25$) had enough good movements to be included.
-This left 9218 movements, just over half of the total movements (51.3\%).
-Slightly more movements were filtered from the No Haptics condition, with 47.1\% of NH movements left after the filtering, compared to 55.5\% of the PH movements.
-
 
 \subsection{Throughput}
 
-\begin{figure}
-    \centering
-    \includegraphics{{throughput.4.0x4.0}.png}
-    \caption{Throughput factorplot.}
-    \label{fig:ph_throughput}
-\end{figure}
+The throughput is calculated per movement using Equation \ref{eq:throughput} and meaned per trial before being meaned per subject and condition.
 
-Haptics was found to have a significant effect on the throughput ($F(1,18)=35.53, p<0.001$) between the PH condition ($M=4.16, \sigma=0.41$) and the NH condition ($M=3.71, \sigma=0.38$).
-There was no significant effect of Sequence ($F(1,18)=0.5297, p=0.47$) between the subjects who performed PH first versus the subjects who performed the NH condition first.
-There does exist an interaction effect between Haptics and Sequence ($F(1,18)=9.06, p<0.01$).
-The post-hoc repeated measures ttest for the subjects who performed PH first was marginally significant ($t(9)=2.55, p=0.03$), with the PH condition ($M=4.10, \sigma=0.33$) having an average throughput 0.22 higher than the NH condition ($M=3.88, \sigma=0.39$).
-The subjects who performed NH first had a significant effect between Haptics conditions ($t(9)=5.50, p<0.001$), improving an average of 0.67 between the NH condition ($M=3.54, \sigma=0.30$) and the PH condition ($M=4.21, \sigma=0.49$).
-
-% Factors causing this.
-
-% Counts of the filters
-
-%An independent ttest was performed on the throughput differences for sequence of conditions.
-%There was a significant difference (t(18)=-2.9, p=0.008) in the throughput condition difference for the group that performed Passive Haptics as their first condition (PH First, M=0.48, SD=0.36) than the No Haptics First group (M=1.03, SD=0.46).
-%Post-hoc repeated measures ttests show signifigance in each group between condition.
-%PH First had a signifigant effect (t(9)=4.16, p=0.002) between Passive Haptics (M=4.70, SD=0.51) and No Haptics (M=4.22, SD=0.53).
-%NH First had a signifigant effect (t(9)=7.04, p<0.001) between Passive Haptics (M=4.84, SD=0.63) and No Haptics (M=3.81, SD=0.36).
-
-\subsection{Effects of Learning}
+\subsubsection{Rate of Learning}
 
 \begin{figure}
     \centering
@@ -370,7 +307,6 @@ The subjects who performed NH first had a significant effect between Haptics con
 \end{figure}
 
 The average throughput for each trial, seperated by haptics condition, is shown in Figure \ref{fig:ph_throughput_trials}.
-For this section, the throughput calculations used all the movements of the subjects and was not filtered by the ballistic parameters.
 
 \begin{equation}
     {TP}(T) = {TP}_{f} - A\exp^{\frac{-T}{T_0}}
@@ -378,6 +314,79 @@ For this section, the throughput calculations used all the movements of the subj
 \end{equation}
 
 The parameters of the fit for each condition is shown in Table \ref{tab:ph_tp_regression}.
+
+
+\subsubsection{Ballistic Movement Filtering}
+
+Before they could be used for the Fitts' Law analysis the trajectories were filtered so that only movements which were direct to target were included.
+A well-learned movement appropriate for Fitts' Law would move directly towards the target and not have much extranous movement or idle time beyond what is required to complete the task.
+A number of deviations from these well learned movements were observed in the dataset which we aimed to filter out for the throughput calculations.
+We describe in this section the three metrics developed that aided in determining whether a movement was direct to target.
+
+%An inordinate amount of time was spent either in the reaction phase before the ballistic, or more typically, after the ballistic movement in the corrective phase.
+%There were two common causes of a long time spent in the corrective phase, the first was that the subject had trouble finding the activation zone or holding it there for the 160 msec required.
+%The second cause was that the subject would have a false start and move towards the next target before their button press was activated.
+%For the former, this led to a increase in time for the corrective phase, but not neccesarily a large path distance increase.
+
+%To perform the filtering, three metrics were developed.
+The first metric was the ratio of path distance travelled in the ballistic phase to the distance between the targets for that movement (i.e. 20cm, 30cm or 40cm).
+Ideally, the ballistic portion would cover a nearly equal amount of the distance between the targets.
+A movement which covered too little of the target distance could mean the subject slowed or stopped in the middle of movement, and one that covered more could mean the subject overshot or had an indirect trajectory.
+A sample movement that gets flagged by this filter is shown in Figure \ref{TODO}, which has a ratio of 1.37.
+This is an example of a movement that does seemingly have a direct movement toward the target, but includes a large deviation perpindicular to the movement axis.
+This deviation could mean the subject initially aimed their ballistic portion in the wrong direction but performed a correction during the movement.
+The limits for this filter were chosen as having a ratio between 0.90 and 1.10, i.e.\ within 10\% of the target distance.
+This filtered out 4577 of the 17970 movements.
+
+The second filtering metric was also based on the ballistic phase path distance.
+For this metric it was compared to the total path distance the subject travelled for their entire movement.
+This filter targetted movements where after the ballistic phase the subject moved away from the target, or had a smaller but significant movement before the main ballistic movement.
+An example is shown in Figure \ref{TODO} which shows a movement which passed the first metric (the ballistic phase distance ratio to the target distance was 1.02), but the ballistic phase was only 0.50 of the total distance travelled during that movement.
+This was a common problem where a subject would have a false start and move towards the next target before their button press was activated.
+The threshold was set at 0.80 which has 4264 movements lower than the threshold, though only 1675 were unique from the target distance filter.
+
+The last filter took a time based approach, and looked a the ratio of the time spent in the ballistic phase over the total movement time.
+This filter removed movements where the subject spent an inordinate amount of time either before or after the ballistic phase.
+If they were not moving very much during the non-ballistic phases, it would not have been caught by the distance based filters.
+The threshold of 0.40 meant that 4496 movements were filtered, however only 873 of those are unique of the other two filters.
+Figure \ref{TODO} illustrates a movement where the subject waited before initiating the ballistic movement.
+Since the subject did not move during this idle time, the other two filters did not flag this movement.
+
+The combination of these three filters led to 7125 movements being filtered out, leaving 60\% of the movements.
+For each of the metrics, the threshold was determined by investigating the distribution and look at sample movements on either end of the threshold to determine if it was an approriate value.
+
+The final check before performing the Fitts' calculation was to ensure that each trial had enough data for the adjustment for accuracy calculation.
+The adjustment for accuracy is based on the distribution of endpoint data from a single trial (which is one distance and width configuration).
+One trial consists of 30 consectutive movements, but the ballistic filtering could diminish the amount remaining in each, so a trial was only included if at least half (15 of 30) movements were considered to be good movements by the ballistic filters.
+This means that movements from a trial that did not have enough good movements were also filtered out from the Fitts' calculation.
+Not only is this important to make sure the adjusted width is valid, it also removes trials where the subject likely did not reach a fully learned state, as most of their movements were not primarily ballistic movements direct to target.
+On average, 11 of 15 trials per condition from each subject ($M=10.98, \sigma=3.25$) had enough good movements to be included.
+This left 9218 movements for the Fitts' calculation, just over half of the total movements (51.3\%).
+Slightly more movements were filtered from the No Haptics condition, with 47.1\% of NH movements left after the filtering, compared to 55.5\% of the PH movements.
+
+\subsubsection{Throughput}
+
+The throughput was found to be higher in the PH condition, at 4.25 bps compared to the 3.77 bps of the NH condition.
+
+A two-way mixed ANOVA was performed to determine the effect of haptics condition as the within subjects factor and the sequence that the subjects performed the conditions as the between subjects factor.
+The effect of haptics was found to have a significant effect on the throughput ($F(1,18)=35.59, p<0.001$) between the PH condition ($M=4.25, \sigma=0.44$) and the NH condition ($M=3.77, \sigma=0.38$).
+There was no effect on throughput based solely on sequence group ($F(1,18)=0.53, p=0.47$), but there was a marginally significant interaction effect between the sequence and haptics ($F=(1,18)=4.48, p=0.048$).
+As can be seen in Figure \ref{fig:throughput}, this marginal interaction effect appears to indicate that both groups had improved performance but the PH First group performed better at the NH condition.
+The post-hoc repeated measures ttest between haptic conditions for the subjects who performed PH First was significant ($t(9)=4.62, p<0.001$), with the PH condition ($M=4.23, \sigma=0.34$) outperforming the NH condition ($M=3.91, \sigma=0.40$).
+The mean of the differences between subjects was 0.32 bps.
+The group of subjects who performed NH first also had a significant effect ($t(9)=3.96, p<0.001$) the PH condition ($M=4.28, \sigma=0.54$) and the NH condition ($M=3.62, \sigma=0.32$), with a higher mean of differences of 0.66 bps.
+These post-hoc tests confirm that both groups had a significant effect of haptics, though the NH First group had a larger difference between the conditions.
+
+\begin{figure}
+    \centering
+    \includegraphics{{throughput.4.0x4.0}.png}
+    \caption{Throughput factorplot.}
+    \label{fig:ph_throughput}
+\end{figure}
+
+% Factors causing this.
+
+% Counts of the filters
 
 \subsection{Trajectory Phases}
 
@@ -395,11 +404,11 @@ Both groups have a similar rate of recovery, but the second condition quickly co
 The final arm fatigue rating of each condition is used for the statistical test to perform a statistical test on these results.
 The two-way ANOVA for the haptics and sequence factors showed a significant interaction effect between the two effects ($F(1,18)=13.9, p<0.01$).
 The main effects did show a significance for haptics ($F(1,18)=9.72, p<0.01$) between the PH condition ($M=13.45, \sigma=3.76$) and the NH condition ($M=14.72, \sigma=2.85$), but no significance of sequence ($F(1,18)=2.12, p=0.16$).
+% Connect back to the first trial based restuls
 %An interaction effect between the final ratings of each condition should be expected given the differences in Figure \ref{fig:ph_armfatigue_trials}.
 
-%The post-hoc ttests will investigate the differences betw
-The post-hoc repeated measures ttest between haptics conditions for the PH First group showed a significant effect ($t(9)=-4.58, p<0.05$) between arm fatigue scores in the PH condition ($M=11.7, \sigma=3.01$) and the NH condition ($M=14.5, \sigma=3.53$).
-The NH First group showed no significant difference between the means in the same ttest ($t(9)=0.45, p=0.66$), with the NH condition ($M=15.0, \sigma=2.78$) having a very similar mean to the PH condition ($M=15.2, \sigma=3.26$).
+The post-hoc repeated measures ttest between haptics conditions for the PH First group showed a significant effect ($t(9)=4.58, p=0.001$) between arm fatigue scores in the PH condition ($M=11.7, \sigma=3.01$) and the NH condition ($M=14.5, \sigma=3.53$).
+The NH First group showed no significant difference between the means in the same ttest ($t(9)=-0.45, p=0.66$), with the NH condition ($M=15.0, \sigma=2.78$) having a very similar mean to the PH condition ($M=15.2, \sigma=3.26$).
 An independent samples ttest of the arm fatigue rating for the first condition only showed a significant effect ($t(18)=-2.29, p<0.05$) between the PH subjects ($M=11.7$) and the NH subjects ($M=15.0$).
 
 These post-hoc tests show that the subjects only had reduced arm fatigue using the passive haptics for the first condition.
