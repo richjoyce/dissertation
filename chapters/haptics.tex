@@ -314,21 +314,43 @@ The throughput is calculated per movement using Equation \ref{eq:throughput} and
 \end{figure}
 
 The average throughput for each trial, seperated by haptics condition, is shown in Figure \ref{fig:ph_throughput_trials}.
-
+An exponential rise to a learned state can be fit to each haptics condition to model the learning rate of the subjects.
+The equation used is given as:
 \begin{equation}
-    \mathrm{TP}(T) = \mathrm{TP}_{\infty} - (\mathrm{TP}_{\infty}-\mathrm{TP}_0)\exp^{\frac{-T}{\tau}}
+    \mathrm{TP}_T = \mathrm{TP}_{\infty} - (\mathrm{TP}_{\infty}-\mathrm{TP}_0)e^{\left( -T / \tau \right)}
     \label{eq:ph_learning}
 \end{equation}
+where $T$ is the trial number, $\mathrm{TP}_{\infty}$ is the asymptotic learned value of throughput, $\mathrm{TP}_0$ is the initial value at $T=0$ and $\tau$ is the time constant.
+The time constant is the amount of trials for the throughput to rise 36\% of the difference between the fully learned throughput ($\mathrm{TP}_{\infty}$) and the initial throughput ($\mathrm{TP}_0$).
+The parameters of the fit for each condition is shown in Table \ref{tab:ph_tp_regression}, as well as the standard error of the estimate (SEE).
+The value of throughput from the regression fit as a percentage of $\mathrm{TP}_{\infty}$ for key trials are listed in Table \ref{tab:ph_tp_regression_values}.
 
-where $T$ is the trial number, ${TP}_{\infty}$ is the asymptotic learned value of throughput, ${TP}_0$ is the initial value at $T=0$ and $\tau$ is the time constant.
-The parameters of the fit for each condition is shown in Table \ref{tab:ph_tp_regression}.
+The rate of learning is very similar amongst for both groups in the first condition.
+By the time constants, it can appear that for the first condition learning curves the subjects performing NH learned quicker than their counterparts performing PH.
+However, as the values in Table \ref{tab:ph_tp_regression_values} show, the NH First group started their first trial at a lower percentage of their learned state.
+The learning curves are quite different for the second condition.
+The NH condition does not have a learning curve, with a straight line being a better fit than the exponential function.
+This indicates the transfer of training from the PH condition allowed the group who did PH first to immediately perform in NH at the same level as the subjects who learned NH in their first condition.
+This transfer of training to the second condition did not occur as strongly for the group who did NH first.
+Their initial performance of PH did start out at a slightly higher level than the subjects who did PH first (2.8 bps vs 2.4 bps), but after 5 trials this difference had converged (3.6 bps vs 3.7 bps).
 
 \begin{table}
     \centering
-    \includetable{throughput_regression.tex}
+    \includetable{throughput_regressions.tex}
     \caption{Exponential fit parameters of Eqn. \ref{eq:ph_learning}.}
     \label{tab:ph_tp_regression}
 \end{table}
+
+\begin{table}
+    \centering
+    \includetable{throughput_regression_values.tex}
+    \caption{Exponential fit parameters of Eqn. \ref{eq:ph_learning}.}
+    \label{tab:ph_tp_regression_values}
+\end{table}
+
+These results indicate that subjects did not learn faster with Passive Haptics.
+The only differences between learning rates is the positive transfer of training from performing Passive Haptics first and No Haptics second.
+However, it does appear that the fully learned state is different between the haptic conditions, which is investigated further in the next sections.
 
 \subsubsection{Ballistic Movement Filtering}
 
