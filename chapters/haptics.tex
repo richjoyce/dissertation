@@ -261,6 +261,13 @@ The ``ballistic phase'' is then classified as the submovement which contains the
 The various submovements after the ballistic phase are classified as the ``corrective phase''.
 Any movement before the ballistic phase is classified as a ``reaction time''.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{{trajectory_velocity.ballistic}.png}
+    \caption{}
+    \label{fig:ph_trajectory_ballistic}
+\end{figure}
+
 This mathematical definition does break down for certain cases where a subject might have two submovements in the ballistic phase due to a mid-course correction or similar, however one of the main purposes of this classification was to find movements which are appropriate to use for the Fitts' Law calculations.
 For Fitts' Law, the movements should be well learned and direct to the target.
 This describes movements which have a single distinct ballistic phase.
@@ -318,7 +325,7 @@ The parameters of the fit for each condition is shown in Table \ref{tab:ph_tp_re
 
 \begin{table}
     \centering
-    \includetable{ph_throughput_regression.tex}
+    \includetable{throughput_regression.tex}
     \caption{Exponential fit parameters of Eqn. \ref{eq:ph_learning}.}
     \label{tab:ph_tp_regression}
 \end{table}
@@ -328,7 +335,7 @@ The parameters of the fit for each condition is shown in Table \ref{tab:ph_tp_re
 Before they could be used for the Fitts' Law analysis the trajectories were filtered so that only movements which were direct to target were included.
 A well-learned movement appropriate for Fitts' Law would move directly towards the target and not have much extranous movement or idle time beyond what is required to complete the task.
 A number of deviations from these well learned movements were observed in the dataset which we aimed to filter out for the throughput calculations.
-We describe in this section the three metrics developed that aided in determining whether a movement was direct to target.
+We describe in this section the three metrics developed that were used to determine whether a movement was direct to target.
 
 %An inordinate amount of time was spent either in the reaction phase before the ballistic, or more typically, after the ballistic movement in the corrective phase.
 %There were two common causes of a long time spent in the corrective phase, the first was that the subject had trouble finding the activation zone or holding it there for the 160 msec required.
@@ -339,25 +346,47 @@ We describe in this section the three metrics developed that aided in determinin
 The first metric was the ratio of path distance travelled in the ballistic phase to the distance between the targets for that movement (i.e. 20cm, 30cm or 40cm).
 Ideally, the ballistic portion would cover a nearly equal amount of the distance between the targets.
 A movement which covered too little of the target distance could mean the subject slowed or stopped in the middle of movement, and one that covered more could mean the subject overshot or had an indirect trajectory.
-A sample movement that gets flagged by this filter is shown in Figure \ref{TODO}, which has a ratio of 1.37.
+A sample movement that gets flagged by this filter is shown in Figure \ref{fig:ph_traj_filter_target}, which has a ratio of 1.49.
 This is an example of a movement that does seemingly have a direct movement toward the target, but includes a large deviation perpindicular to the movement axis.
 This deviation could mean the subject initially aimed their ballistic portion in the wrong direction but performed a correction during the movement.
 The limits for this filter were chosen as having a ratio between 0.90 and 1.10, i.e.\ within 10\% of the target distance.
 This filtered out 4577 of the 17970 movements.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{{trajectory_both.bad_target_filter}.png}
+    \caption{TODO}
+    \label{fig:ph_traj_filter_target}
+\end{figure}
+
 The second filtering metric was also based on the ballistic phase path distance.
 For this metric it was compared to the total path distance the subject travelled for their entire movement.
 This filter targetted movements where after the ballistic phase the subject moved away from the target, or had a smaller but significant movement before the main ballistic movement.
-An example is shown in Figure \ref{TODO} which shows a movement which passed the first metric (the ballistic phase distance ratio to the target distance was 1.02), but the ballistic phase was only 0.50 of the total distance travelled during that movement.
+An example is shown in Figure \ref{fig:ph_traj_filter_distance} which shows a movement which passed the first metric (the ballistic phase distance ratio to the target distance was 1.02), but the ballistic phase was only 0.50 of the total distance travelled during that movement.
 This was a common problem where a subject would have a false start and move towards the next target before their button press was activated.
 The threshold was set at 0.80 which has 4264 movements lower than the threshold, though only 1675 were unique from the target distance filter.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{{trajectory_both.bad_distance_filter}.png}
+    \caption{TODO}
+    \label{fig:ph_traj_filter_distance}
+\end{figure}
+
 
 The last filter took a time based approach, and looked a the ratio of the time spent in the ballistic phase over the total movement time.
 This filter removed movements where the subject spent an inordinate amount of time either before or after the ballistic phase.
 If they were not moving very much during the non-ballistic phases, it would not have been caught by the distance based filters.
 The threshold of 0.40 meant that 4496 movements were filtered, however only 873 of those are unique of the other two filters.
-Figure \ref{TODO} illustrates a movement where the subject waited before initiating the ballistic movement.
+Figure \ref{fig:ph_traj_filter_time} illustrates a movement where the subject waited before initiating the ballistic movement.
 Since the subject did not move during this idle time, the other two filters did not flag this movement.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{{trajectory_both.bad_time_filter}.png}
+    \caption{TODO}
+    \label{fig:ph_traj_filter_time}
+\end{figure}
 
 The combination of these three filters led to 7125 movements being filtered out, leaving 60\% of the movements.
 For each of the metrics, the threshold was determined by investigating the distribution and look at sample movements on either end of the threshold to determine if it was an approriate value.
@@ -406,6 +435,13 @@ The subjects were asked for a rating of their arm fatigue every other trial, as 
 One trial lasted for 30 movements and consisted of a single distance and width configuration.
 The scale ranged from 6 to 20, and subjects were allowed to record decimal ratings.
 The average rating at each trial, seperated by haptics condition is show in Figure \ref{fig:ph_armfatigue_trials}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{{armfatigue_trials.8.0x4.0}.png}
+    \caption{Arm Fatigue by Trial.}
+    \label{fig:ph_armfatigue_trials}
+\end{figure}
 
 There is an evident difference between the two haptic conditions for the first condition performed, with the NH condition subjects accumulating more fatigue throughout the trials.
 At the end of the first condition, the subjects who performed the PH condition rated their arm fatigue 3.25 points lower on average than the NH condition subjects.
