@@ -424,12 +424,11 @@ Slightly more movements were filtered from the No Haptics condition, with 47.1\%
 
 \subsubsection{Throughput}
 
-The throughput was found to be higher in the PH condition, at 4.25 bps compared to the 3.77 bps of the NH condition.
-
+The throughput was found to be higher in the PH condition, at 4.25 bps compared to the 3.76 bps of the NH condition.
 A two-way mixed ANOVA was performed to determine the effect of haptics condition as the within subjects factor and the sequence that the subjects performed the conditions as the between subjects factor.
-The effect of haptics was found to have a significant effect on the throughput ($F(1,18)=35.59, p<0.001$) between the PH condition ($M=4.25, \sigma=0.44$) and the NH condition ($M=3.77, \sigma=0.38$).
+The effect of haptics was found to have a significant effect on the throughput ($F(1,18)=35.59, p<0.001$) between the PH condition ($M=4.25, \sigma=0.44$) and the NH condition ($M=3.76, \sigma=0.38$).
 There was no effect on throughput based solely on sequence group ($F(1,18)=0.53, p=0.47$), but there was a marginally significant interaction effect between the sequence and haptics ($F=(1,18)=4.48, p=0.048$).
-As can be seen in Figure \ref{fig:throughput}, this marginal interaction effect appears to indicate that both groups had improved performance but the PH First group performed better at the NH condition.
+As can be seen in Figure \ref{fig:ph_throughput}, this marginal interaction effect appears to indicate that both groups had improved performance but the PH First group performed better at the NH condition.
 The post-hoc repeated measures ttest between haptic conditions for the subjects who performed PH First was significant ($t(9)=4.62, p<0.001$), with the PH condition ($M=4.23, \sigma=0.34$) outperforming the NH condition ($M=3.91, \sigma=0.40$).
 The mean of the differences between subjects was 0.32 bps.
 The group of subjects who performed NH first also had a significant effect ($t(9)=3.96, p<0.001$) the PH condition ($M=4.28, \sigma=0.54$) and the NH condition ($M=3.62, \sigma=0.32$), with a higher mean of differences of 0.66 bps.
@@ -442,14 +441,38 @@ These post-hoc tests confirm that both groups had a significant effect of haptic
     \label{fig:ph_throughput}
 \end{figure}
 
-It is worth noting that without using the filter, the major conclusions found do not change.
+It is worth noting that without using the ballistic filter, the major conclusions found do not change.
 The only major difference is the magnitude of the throughput and size of the differences.
+The statistical tests have the same results as well.
+The results by haptics for both filtered and unfiltered are shown in Table \ref{tab:ph_throughput_fulltable}.
+
+\begin{table}
+    \centering
+    \includetable{throughput_fulltable.tex}
+    \caption{Throughput scores by haptics condition.}
+    \label{tab:ph_throughput_fulltable}
+\end{table}
 
 % Factors causing this.
 
 % Counts of the filters
 
 \subsection{Trajectory Phases}
+
+As described in Section \ref{}, each movement of the subjects can be dissected into three distinct phases: reaction time, ballistic phase, and corrective phase.
+We have already seen that, overall, the subjects took more time to complete a movement without the passive haptics in place with the results of throughput.
+In this section we investigate the differences in time spent in the three phases.
+We report here the means of time spent in each of the three phases.
+Times reported are all milliseconds.
+The results also include the filtered and unfiltered results, where the filtered results only include movements that were deemed purely ballistic by the filtering methods in Section \ref{sec:ph_ballistic_filter}.
+The summary of the means is listed in Table \ref{tab:ph_phases}
+
+\begin{table}
+    \centering
+    \includetable{phases_fulltable.tex}
+    \caption{Time in each movement phase by haptics conditions.}
+    \label{tab:ph_phases}
+\end{table}
 
 \subsection{Arm Fatigue}
 
