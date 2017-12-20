@@ -133,16 +133,16 @@
 % \usepackage{hyperref}
 
 % nice looking, parenthetical references
-\usepackage[sorting=nyt,natbib=true,citestyle=authoryear,bibstyle=authoryear,maxnames=3,refsection=chapter]{biblatex}
-%\usepackage{chapterbib} % incompatible with biblatex
-\bibliography{proposal}
-\defbibheading{bibliography}{%
-	\section{References}
-	}
-	
-% bibliography can be single-spaced for UC thesis format
-\appto{\bibsetup}{\ssp}
-	
+%\usepackage[sorting=nyt,natbib=true,citestyle=authoryear,bibstyle=authoryear,maxnames=3,refsection=chapter]{biblatex}
+%%\usepackage{chapterbib} % incompatible with biblatex
+%\bibliography{dissertation}
+%\defbibheading{bibliography}{%
+%	\section{References}
+%	}
+%	
+%% bibliography can be single-spaced for UC thesis format
+%\appto{\bibsetup}{\ssp}
+%	
 
 %make the index
 % \usepackage{makeidx}
@@ -212,7 +212,7 @@
 \usepackage{varwidth}
 \usepackage{color}
 \usepackage{rotating}
-\AtEveryBibitem{\clearfield{month}} %Cleaner references without month being printed
+%\AtEveryBibitem{\clearfield{month}} %Cleaner references without month being printed
 
 \graphicspath{{./figures/}{./plots/}}
 
@@ -281,7 +281,7 @@
 
 %\input{chapters/introduction}
 \input{chapters/prototype}
-\input{chapters/validation}
+\input{chapters/pointing}
 \input{chapters/haptics}
 \input{chapters/design_exp}
 \input{chapters/conclusion}
@@ -298,7 +298,12 @@
 
 
 % To enable this it will need to be added to toc so it's not in a chapter
-%\printbibliography[heading=bibliography]
+\pagestyle{plain}
+
+\ssp
+\renewcommand\bibname{References}
+\bibliographystyle{abbrv}
+\bibliography{dissertation}
 
 % the appendix:
 % there are several sections, that don't really fit into the main chapters

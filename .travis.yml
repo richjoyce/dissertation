@@ -3,7 +3,7 @@ branches:
   - master
 before_install:
 - sudo apt-get update
-- sudo apt-get install make texlive-latex-extra texlive-bibtex-extra texlive-humanities
+- sudo apt-get install make texlive-latex-extra texlive-bibtex-extra texlive-humanities latexmk
 script:
 - make
 deploy:
@@ -22,7 +22,7 @@ after_success:
 - git clone --quiet --branch=gh-pages https://${GITHUB_TOKEN}@github.com/richjoyce/dissertation
 - cd dissertation
 - cp -f $HOME/build/richjoyce/dissertation/build/thesis.pdf assets/thesis-${TRAVIS_COMMIT:0:7}.pdf
-- cp -f $HOME/build/richjoyce/dissertation/build/draft/draft.pdf assets/draft-${TRAVIS_COMMIT:0:7}.pdf
+- cp -f $HOME/build/richjoyce/dissertation/build/draft.pdf assets/draft-${TRAVIS_COMMIT:0:7}.pdf
 - git describe --tags --exact-match --abbrev=0 ${TRAVIS_COMMIT:0:7} && cp -f assets/draft-${TRAVIS_COMMIT:0:7}.pdf assets/draft-latest.pdf
 - git add assets/draft-latest.pdf assets/thesis-${TRAVIS_COMMIT:0:7}.pdf assets/draft-${TRAVIS_COMMIT:0:7}.pdf
 - ./make_post.sh ${TRAVIS_COMMIT:0:7} $(cat $HOME/build/richjoyce/dissertation/build/count)

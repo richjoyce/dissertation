@@ -89,16 +89,16 @@
 % \usepackage{hyperref}
 
 % nice looking, parenthetical references
-\usepackage[sorting=nyt,natbib=true,citestyle=authoryear,bibstyle=authoryear,maxnames=3,refsection
-=chapter]{biblatex}
+%\usepackage[sorting=nyt,natbib=true,citestyle=authoryear,bibstyle=authoryear,maxnames=3,refsection=chapter,backend=biber]{biblatex}
 %\usepackage{chapterbib} % incompatible with biblatex
-\bibliography{proposal}
-\defbibheading{bibliography}{%
-	\section{References}
-	}
+%\bibliography{dissertation}
+%\addbibresource{dissertation.bib}
+%\defbibheading{bibliography}{%
+%	\section{References}
+%	}
 	
 % bibliography can be single-spaced for UC thesis format
-\appto{\bibsetup}{\ssp}
+%\appto{\bibsetup}{\ssp}
 	
 
 %make the index
@@ -168,11 +168,10 @@
 \usepackage{varwidth}
 \usepackage{color}
 \usepackage{rotating}
-\AtEveryBibitem{\clearfield{month}} %Cleaner references without month being printed
 
 \graphicspath{{./figures/}{./plots/}}
 
-\newcommand{\tablepath}{./tables/}
+\newcommand{\tablepath}{./tables}
 
 \makeatletter
 \newcommand{\includetable}[1]{%
@@ -208,6 +207,7 @@
 
 \usepackage{multirow}
 
+\renewcommand\bibname{References}
 
 %%% Document Portion:
 \begin{document}
@@ -250,11 +250,16 @@
 %
 
 % reset the page style
-%\pagestyle{plain}
+\pagestyle{plain}
+
+\ssp
+\bibliographystyle{abbrv}
+\bibliography{dissertation}
 
 
 % To enable this it will need to be added to toc so it's not in a chapter
-%\printbibliography[heading=bibliography]
+%\nocite{*}
+%\printbibliography %[heading=bibliography]
 
 % the appendix:
 % there are several sections, that don't really fit into the main chapters
