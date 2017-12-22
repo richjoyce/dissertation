@@ -24,7 +24,7 @@ Using a head-mounted display and a hand tracker, the subjects performed the same
 The passive haptics was a flat surface placed at an angle on a desk in front of their seating area.
 Their performance on the Fitts' task was recorded as well as their responses to a presence survey, a self reported arm fatigue score and a general questionnaire.
 
-%\subsection{Related Work}
+\section{Background}
 
 \subsection{Haptics}
 
@@ -34,16 +34,14 @@ Insko\cite{insko_passive_2001} found increased presence using passive haptics fo
 Another track of work combined active haptics with passive haptics, using a haptic glove with a physical panel to create mixed haptics \cite{borst_evaluation_2005}.
 Again, performance was increased with the haptics, but minimal differences were found between using the mixed haptics and the passive haptics alone.
 Similar to our motivation and work, Schiefele et al.\cite{schiefele_simple_1998} replaced a cockpit panel with a flat panel in an immersive head-mounted virtual environment, and found that users could activate buttons and switches in less time with the panel present than without.
-We build on this previous work by investigating the effects of passive haptics with the lastest virtual enviroment technology, as well as performing a complete Fitts' Law characterization between no haptics and passive haptics.
-
 While much of the research involving passive haptics indicates an increase in the presence of the user, some have questioned whether active haptics provides benefits.
 Pontonnier et al.\cite{pontonnier_designing_2014} discovered that subjects had decreased presence ratings in a virtual assembly task when using a haptic glove, versus both a real environment and a virtual environment without haptics.
+We build on this previous work by investigating the effects of passive haptics with the lastest virtual enviroment technology, as well as performing a complete Fitts' Law characterization between no haptics and passive haptics.
 
 \subsection{Fitts' Law}
 
-Fitts' originally devised a relationship between movement time and the distance and size of targets for a human performing rapid aimed movements.
+Fitts' originally devised a relationship between movement time and the distance and size of targets for a human performing rapid aimed movements\cite{fitts_information_1954}.
 This has since become known as Fitts' Law, and later work has refined the index of difficulty (${ID}$) as:
-
 \begin{equation}
     {ID}=\log_2\left(\frac{D}{W}+1\right)
     \label{eq:index_of_difficulty}
@@ -53,10 +51,9 @@ This formula for index of difficulty is known as the Shannons' formulation\cite{
 
 Commonly, the index of difficulty is related to movement time (${MT}$) through a linear regression.
 However, in this work we are concerned with the measurement known as throughput (${TP}$).
-Throughput has been recommended as the dependent measures for comparisons between experimental conditions.
+Throughput has been recommended as the dependent measures for comparisons between experimental conditions\cite{soukoreff_towards_2004}.
 As the name suggests, it can be thought of as the rate of information the human can input with the particular experimental setup or input device.
 It is defined as the index of difficulty over the movement time, and has the units of ``bits per second.''
-
 \begin{equation}
     {TP}=\frac{ID}{MT}
     \label{eq:throughput}
@@ -70,26 +67,26 @@ This layout is referred to as the ``Fitts' circle'' within this article.
 
 \begin{figure}
     \centering
-    \missingfigure{fitts circle diagram}
-    \caption{Simulator Workstation}
+    \includegraphics{fitts_circle.png}
+    \caption{Fitts' Circle diagram. $D$ is the distance between targets and $W$ is the width of the targets.}
     \label{fig:ph_fitts_circle}
 \end{figure}
 
-In this work, we will use the effective width for the targets, which is defined as:
+In this work, we use the effective width for the targets, which is defined as:
 \begin{equation}
     W_e = 4.133\sigma
 \end{equation}
 where $\sigma$ is the standard deviation of the end point positions.
+This is known as the adjustment for accuracy\cite{welford_fundamentals_1968}.
 This correction accounts for the performance of the subject, especially on lower index of difficulty conditions where they may aim for the inside edge of a target.
 Hence, the use of the effective width provides the index of difficulty for the task that the subject performed, not the task presented to them.
-The effective width is calculated per subject per distance and width configuration, and subsquently used in the index of difficulty equation.
-
+The effective width is calculated per subject per distance and width configuration, and subsequently used in the index of difficulty equation.
 \begin{equation}
     {ID}_e=\log_2\left(\frac{D}{W_e}+1\right)
 \end{equation}
 
-Fitts’ Law has been used in evaluating virtual environments and their input devices.
-Most of the work has been focused on 3D stereo displays\cite{chun_evaluating_2004}.
+Fitts' Law has been used in evaluating virtual environments and their input devices.
+Most of the work has been focused on 3D stereo displays\cite{liu_comparing_2009} or .
 Chun et al. (2004) evaluated a set of 3D stereo displays with a single haptic-enabled stylus using a Fitts’ tapping task.
 They did not have well-fit regressions, but this could have been due to a small range of ID values used (2-3), targets being placed in 3D space (a 3D task with 3D movement) with random order, and averaging across subjects before completing the regression.
 %Teather & Stuerzlinger (2011) performed a similar task and also found an underperformance of the regression in the fully 3D task.
@@ -97,13 +94,7 @@ One condition performed a mid-air 2D planar task with 3D movement, and no signif
 %Liu et al. (Liu, Van Liere, Nieuwenhuizen, & Martens, 2009) performed a planar multi-directional Fitts’ task with a stereoscopic display, and compared virtual world to real world results, finding movement time twice as long in the virtual condition.
 The trajectories were analyzed to determine where the extra movement time was spent, which is discussed in a later section (Trajectories in Virtual Environments).
 
-
-\rule{0.75\textwidth}{1pt}
-\begin{itemize}
-  \item fitts law in virtual environments
-  \item collect references
-\end{itemize}
-
+The use of Fitts' Law with haptics has mostly focused on active haptics\cite{chun_evaluating_2004}.
 \rule{0.75\textwidth}{1pt}
 \begin{itemize}
   \item fitts law with haptics
@@ -112,25 +103,20 @@ The trajectories were analyzed to determine where the extra movement time was sp
 
 \subsection{Presence}
 
-\begin{itemize}
-  \item define presence from reference
-  \item collect references
-\end{itemize}
+The feeling of presence is often specified as a goal of a virtual environment.
+A definition from Witmer and Singer\cite{witmer_measuring_1994} reads:
+\begin{displayquote}
+\textit{Presence} is defined as the subjective experience of being in one place or environment, even when one is physically situated in another.
+\end{displayquote}
+Increased presence can lead to increased performance in a virtual environment task\cite{youngblut_relationship_2003}.
 
 \subsection{Arm Fatigue}
 
-Despite the ...
-Since fatigue exists only as a subjective measure, it can be hard to measure it between subjects, and sometimes even within.
+Despite the concern of arm fatigue in virtual environments\cite{burdea_virtual_2004}, it was surprising that most results in literature were anecdotal or for mitigations without quantification of the fatigue.
+Since fatigue is a subjective quantity, it can be hard to measure it between subjects, and sometimes even within.
 The negative impact of arm fatigue on using virtual environments makes it worth investigating.
-The arm fatigue scale used within this experiment is a Borg Rating of Perceived Exertion (RPE) scale that ranges from 6-20.
-
-\begin{itemize}
-  \item not much previous work measuring arm fatigue in VE
-  \item hard to measure arm fatigue
-  \item references to physiology research with scales
-  \item mention how we present our results in hope for further investigation in literature
-  \item (this sets up discussion point about arm fatigue measure maybe not being reliable)
-\end{itemize}
+The arm fatigue scale used within this experiment is a Borg Rating of Perceived Exertion (RPE) scale that ranges from 6-20\cite{borg_borg_1998}.
+Hincapie-Ramos et al.\cite{hincapie_consumed_2014} proposed a model for quantifying and predicting the amount of arm fatigue that correlated well with a Borg scale.
 
 \section{Methods}
 
@@ -145,46 +131,27 @@ The purpose of the experiment described within this paper is to answer the follo
 \end{enumerate}
 
 \subsection{Experimental Setup}
-\begin{itemize}
-  \item system objectives and requirements
-  \item lightweight HMD
-  \item markerless tracking
-  \item low cost?
-\end{itemize}
 
-The equipment used consists of an Oculus Rift DK2 and a LeapMotion handtracker.
-The LeapMotion handtracker was mounted above the working area and pointed down.
-Pilot studies indicated that hand tracking from the LeapMotion was improved utilizing the head mounted configuration of the software.
+For the experimental setup, subjects were seated at a desk with a blank panel mounted on an angle in front of them.
+The plywood panel (45cm x 45cm) was used to provide only the backstop of the virtual buttons for the ``Passive Haptics'' condition.
+The button selection is registered by the subject moving their index finger into a hover zone (cylinder for the circle buttons) in front of the button that extends outward 0.5in.
+Their entrance into the hover zone is indicated to them by the button changing color.
+A successful button press is registered after 150ms, and is indicated by the color turning off and a button click noise being played over speakers.
 
-A custom calibration scheme was developed for the hand tracker as the initial registration between physical and virtual worlds was not accurate.
-However, the LeapMotion software was very precise, so after performing the calibration the registration was kept stable.
-The calibration performed a least squares claculation to solve for a transformation matrix between known real world locations and the reported lcoation from the LeapMotion.
+The equipment used consists of an Oculus Rift DK2 (Development Kit 2) head-mounted display (HMD) and a LeapMotion hand tracker.
+The low-persistence OLED display has a resolution of 1920x1080, with a referesh rate of 75Hz.
+The field of view is approximately 100$^\circ$.
+It utilizes internal trackers and an external infrared camera for head tracking.
 
-\rule{0.75\textwidth}{1pt}
-\begin{itemize}
-  \item describe technology used
-  \item Oculus Rift DK2, specs of screens, capabilities, etc
-  \item LeapMotion, specs, mounted rigidly pointed down
-  \item Rendering engine, rendering Hz
-  \item Recording of hand trajectories
-\end{itemize}
+The LeapMotion is a markerless hand tracker which utilizes dual infrared cameras to provide a skelatal level position of hands and fingers in view.
+This position is used to provide an image of the hand position in the virtual environment, as well as for determining when a button is pressed.
+Instead of using the LeapMotion in its original face-up configuration, it was mounted above the working area and pointed down.
+Our pilot studies indicated that hand tracking from the LeapMotion was improved utilizing this face-down setup with the software using the head mounted configuration.
+However, the hand tracker could not be mounted on the head mounted display as it required a fixed position relative to the passive haptics to maintain appropriate registration between the virtual world and the passive haptics.
 
-The buttons registered a button press when the user moved into a zone around the button.
-The circular buttons used in the experiment had a cylindrical zone, projected X in outward from the panel, and X in inward (which was to help with any misalignment).
-When a finger was detected to enter the zone, the color of the button would change to indicate to the user that they were in the correct position.
-The finger would then have to remain in the zone for 160 milliseconds to register the button press.
-This delay is used to inhibit false positivies, as well as simulate the time it takes to physically depress a button.
-Once the button press was registered, a clicking sound would be played and the button would restore to its original color.
-It is worth noting that this is a naive algorithm for the detection of pressing a button using a hand tracker.
-
-\rule{0.75\textwidth}{1pt}
-\begin{itemize}
-  \item technical limitiations
-  \item leapmotion tracking is not as flawless as marker/magnetic tracking
-  \item note some of our workarounds:
-  \item low IR environment, minimize reflections
-  \item mounted facing down set in VR mode
-\end{itemize}
+A custom calibration scheme was developed for the hand tracker as the initial registration between physical and virtual worlds was not very accurate.
+Despite the inaccuracy, the LeapMotion software was very precise, so after performing the calibration the registration was kept stable.
+The calibration performed a least squares claculation to solve for a transformation matrix between known real world locations and the reported location from the LeapMotion.
 
 \subsection{Experimental Task}
 
@@ -196,8 +163,25 @@ For the ``Passive Haptics'' condition a physical panel was co-located with the p
 
 \begin{figure}
     \centering
-    \missingfigure{picture of two conditions}
-    \caption{Missing caption}
+    \begin{subfigure}[t]{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{ph_ph_condition.jpg}
+        \caption{Passive Haptics condition}
+        \label{fig:ph_conditions:ph_condition}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{ph_nh_condition.jpg}
+        \caption{No Haptics condition}
+        \label{fig:ph_conditions:nh_condition}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{ph_virtualview.png}
+        \caption{View of virtual world}
+        \label{fig:ph_conditions:virtual}
+    \end{subfigure}
+    \caption{Experimental conditions and view of virtual environment.}
     \label{fig:ph_conditions}
 \end{figure}
 
@@ -205,7 +189,7 @@ There were no differences to the task itself or the method of button activation.
 The only difference between the conditions was the removal of the physical panel.
 The hand tracker remained in the same location, preserving the location of the buttons in the virtual environment.
 The dimensions of the virtual world were no different for either condition.
-In fact, there was no change to the software was between the conditions.
+In fact, there was no change to the software between the conditions.
 
 Subjects performed the Fitts' circle for three different distances (20cm, 30cm, 40cm) and five different button widths (5mm, 10mm, 15mm, 20mm, and 25mm).
 These configurations were chosen to span a wide range of indices of difficulty (3.2---6.4).
@@ -226,7 +210,7 @@ The two different haptic conditions are the main independent variables.
 It was expected we would find a large amount of skill transfer between the two conditions, so the order in which subjects performed the two conditions was counterbalanced.
 This created a second independent variable that is between subjects.
 The subjects who performed the conditions with the PH being their first condition were one group, and the subjects who performed NH as their first condition were a second group.
-We call this variable ``sequence'' and refer to the two groups as ``PH First'' and ``NH First''.
+We call this grouping ``sequence'' and refer to the two groups as ``PH First'' and ``NH First''.
 
 For a Fitts' Law evaluation, it is often recommended that the data collection only begins when the subject is fully trained on the task.
 However, one of the goals of the experiment is to investigate the learning rate of the subjects.
@@ -238,41 +222,32 @@ Their development and parameter selection are discussed in the Results section.
 
 \subsection{Dependent Measures}
 
-\begin{itemize}
-  \item time of each button press
-  \item trajectory information for filtering
-  \item arm fatigue rating every other circle
-  \item presence questionnaire after each condition
-  \item condition comparison questionnaire at end of experiment
-\end{itemize}
-
+The main dependent measure is the Fitts' throughput, measured through the movement time between button presses.
+Additionally, the trajectory of each movement is recorded from the hand tracker for analysis.
 To determine the arm fatigue, subjects were asked to rate their arm fatigue on the Borg scale from 6 to 20.
 The scale was presented with anchors as shown in Table \ref{tab:ph_borg_scale}.
-The arm fatigue rating was collected at the beginning of each condition, and then after every other configuration of distance and width combination (and after the final trial, since it was an odd number of trials).
-
+The arm fatigue rating was collected at the beginning of each condition, and then after every other configuration of distance and width combination (and after the final trial, due to an odd number of trials).
 At the completion of each condition the subject was given a presence questionnaire.
+At the end of the experiment, an additional condition comparison survey was given to ask for opinions on the two haptic conditions.
 
 \subsection{Trajectory Phases}
 \label{sec:ph_traj_phases}
 
 Human reaching movements have long been known to consist of two distinct phases\cite{woodworth_accuracy_1899}.
-
-To seperate the trajectories into the various pha
+To seperate the trajectories into the various phases, a simple algorithm was developed.
 First, the local minima are found throughout the velocity profile of the movement to seperate the movement into various submovements.
 The ``ballistic phase'' is then classified as the submovement which contains the peak velocity of the entire movement.
 The various submovements after the ballistic phase are classified as the ``corrective phase''.
 Any movement before the ballistic phase is classified as a ``reaction time''.
+An example of the results of this classification is shown in Figure \ref{fig:ph_trajectory_ballistic}.
+This mathematical definition does break down for certain cases where a subject might have two submovements in the ballistic phase due to a mid-course correction or similar, however one of the main purposes of this classification was to find movements which are appropriate to use for the Fitts' Law calculations.
 
 \begin{figure}
     \centering
     \includegraphics[width=4.0in]{{trajectory_velocity.ballistic}.png}
-    \caption{}
+    \caption{Example trajectory with three phases indicated.}
     \label{fig:ph_trajectory_ballistic}
 \end{figure}
-
-This mathematical definition does break down for certain cases where a subject might have two submovements in the ballistic phase due to a mid-course correction or similar, however one of the main purposes of this classification was to find movements which are appropriate to use for the Fitts' Law calculations.
-For Fitts' Law, the movements should be well learned and direct to the target.
-This describes movements which have a single distinct ballistic phase.
 
 \subsection{Trajectory Filtering}
 
@@ -494,11 +469,13 @@ The ballistic phase time had a significant effect of haptics ($F(1, 18)=24.14, p
 There was no effect of sequence or the interaction effect between haptics and sequence.
 Since the ballistic phase should be mostly independent of the use of passive haptics, it was not expected to see the ballistic phase have an effect of haptics.
 It is unclear the exact mechanism that led to this, but it could likely be an artifact of the passive haptics causing the subjects to learn the movement, and thus allowing them to move quicker.
-There is little difference between the filtered movements and unfiltered movements results.
+There is little difference between the filtered movements and unfiltered movements results, the difference of the means were within a few milliseconds.
 
-The corrective phase time also had a significant effect of haptics ($F(1, 18)=22.46, p<0.001$) between PH ($M=256.6, \sigma=42.1$) and NH ($M=199.1, \sigma=48.1$).
+The corrective phase time also had a significant effect of haptics ($F(1, 18)=22.46, p<0.001$) between NH ($M=256.6, \sigma=42.1$) and PH ($M=199.1, \sigma=48.1$).
 There was no effect of sequence or the interaction effect between haptics and sequence.
 This result was expected as one of the main benefits of the passive haptics is that the subject does not have to `find' the target along one dimension.
+There was a more noticeable difference between the results of the unfiltered and filtered movements for the corrective phase.
+The corrective phase time was much higher in both conditions, with PH having a mean of $564.7$ ($\sigma=253.6$) and NH having a mean of $837.2$ ($\sigma=293.2$).
 
 \begin{table}
     \centering
@@ -604,6 +581,8 @@ The results of the arm fatigue questionnaire during the experiment found a simil
   \item arm fatigue rating every other circle
   \item presence questionnaire after each condition
   \item condition comparison questionnaire at end of experiment
+  \item naive button registration
+  \item arm fatigue not validated
 \end{itemize}
 
 \section{Conclusion}
