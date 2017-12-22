@@ -1,6 +1,6 @@
 # Created by https://www.gitignore.io
 build/
-git-header.tex
+fullbiblio.bib
 
 .bundle/
 .sass-cache/

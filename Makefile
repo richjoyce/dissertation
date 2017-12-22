@@ -1,4 +1,4 @@
-.PHONY: all draft thesis count clean
+.PHONY: all draft thesis count bib clean
 
 all: thesis draft count
 
@@ -8,6 +8,7 @@ TABLES = $(shell find tables -type f)
 FIGURES = $(shell find figures -type f)
 EXTRA = title_and_frontmatter.tex abstract.tex
 BUILD_DIR = build
+SOURCE_BIB = $(wildcard fullbiblio.bib)
 
 TEXINPUTS = ".:./style/:./$(BUILD_DIR)/:"
 
@@ -34,3 +35,9 @@ $(BUILD_DIR)/git-header.tex: .git/refs/heads/master $(BUILD_DIR)
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
+
+bib: dissertation.bib
+
+dissertation.bib: $(SOURCE_BIB)
+	if [ -n "$(SOURCE_BIB)" ]; then grep -v "^\s*\(file\|keywords\|url\)" $(SOURCE_BIB) > dissertation.bib; fi
+	[ -f dissertation.bib ]
