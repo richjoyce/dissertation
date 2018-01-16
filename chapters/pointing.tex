@@ -57,7 +57,7 @@ By using the geometrically accurate instruments at the correct cockpit locations
 
 \subsection{EDGE Rendering Engine}
 
-We are using a NASA developed rendering engine named EDGE8 to provide the visuals for the virtual scene rendered in the head-mounted display (HMD).
+We are using a NASA developed rendering engine named EDGE to provide the visuals for the virtual scene rendered in the head-mounted display (HMD).
 EDGE is highly customizable and extendable through C/C++ plugins, Tcl scripts, or networking functions.
 Existing dynamic simulations (e.g. Matlab) can also be integrated.
 
@@ -67,7 +67,7 @@ The Oculus Rift virtual reality head mount display is currently only available a
 The lightweight headset provides an immersive virtual reality experience by combining a wide field-of-view scene with accurate head tracking, giving a stable virtual world.
 The small display (cell phone sized) is viewed through a single set of lenses, and the barrel distortion of the lens is corrected for in the rendering engine by a pincushion distortion of the rendered scene.
 The orientation of the head is tracked using internal sensors as well as an infrared camera to give an accurate pose for rendering the scene.
-The software developer’s kit9 (SDK) exposes the head position and orientation and provides the appropriate distortion for a rendered scene (which is done for each eye), and this has been developed into an EDGE plugin.
+The software developer’s kit (SDK) exposes the head position and orientation and provides the appropriate distortion for a rendered scene (which is done for each eye), and this has been developed into an EDGE plugin.
 The technology of these head mounted displays is improving rapidly, driven by technology developed for the cell phone and demand from the gaming industry.
 
 The head tracking provided in the newest development kit version gives a significant improvement over the original Oculus Rift in the registration between the real world and the virtual world.
@@ -79,7 +79,7 @@ The virtual world can then be rendered relative to the location of the camera.
 
 The LeapMotion hand tracker is a small, consumer orientated optical hand tracker.
 It uses two infrared cameras as the source of its proprietary tracking algorithm.
-As of version 2.0 of their SDK10, they expose to the application developer the positions of all the joints and bone positions of the hand.
+As of version 2.0 of their SDK, they expose to the application developer the positions of all the joints and bone positions of the hand.
 An EDGE plugin was developed in-house at UC Davis to position the nodes in the scene from this information, which is the source for rendering the virtual hand as well as the button detection algorithm.
 
 We decided to use the LeapMotion as it provides logistical simplicity compared to professional motion capture devices that require multi-camera setups with lengthy calibrations as well as high cost.
