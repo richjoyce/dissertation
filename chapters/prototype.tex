@@ -3,45 +3,54 @@
 
 \section{Overview}
 
-In this chapter the progression of the Rapidly Reconfigurable Research Cockpit prototype is described.
-Three major versions of the prototype are outlined here and explained how they evolved from each other.
-The first prototype was not used in a formal experiment, but two versions based on the second prototype were used for Experiment 1 (Chapter \ref{chap:pointing}) and 2 (Chapter \ref{chap:ph_exp}).
+Throughout the course of this dissertation work, the Rapidly Reconfigurable Research Cockpit (R3C) prototype underwent many changes and improvements at a technical level.
+Our underlying motivation and goals of the technical approach of the prototype remained as described in the previous Chapter, but as technology evolved and our experience and feedback grew, a number of improvements and revisions were developed.
+In this chapter, three major versions of the prototype are outlined here, and the evolution of the technical approach is described.
+The first prototype was not used in a formal experiment, but two versions based on the second prototype were used for the first two research studies (Chapter \ref{chap:pointing} and \ref{chap:ph_exp}).
 The final prototype was used in the third experiment (Chapter \ref{chap:de_exp}).
 
 \section{Requirements}
 
-In this section, the requirements we developed for the Rapidly Reconfigurable Research Cockpit (R3C) prototype are outlined.
+The motivations described in the previous chapter lead to a few requirements for the Rapidly Reconfigurable Research Cockpit (R3C) prototype.
 These requirements guided the development of the prototypes, based on the technology available.
 
 \begin{description}
     \item [Rapid prototyping of physical mockup.]
-        The main motivation for this system is that it enables rapid redesign of cockpit systems undergoing design evaluations.
-        To permit this, the R3C system should allow for rapid changes in the physical world without needed to reconfigure the software heavily, or reconfigure any hardware for interaction.
+        Based on the motivation of enabling more rapid redesign iterations, the R3C system should allow for rapid changes in the physical world without needed to reconfigure the software heavily, or reconfigure any hardware for interaction.
     \item [Minimal setup and calibration.]
-        Another goal of the system is that it can be used ``on top'' of existing mockup systems.
+        Our motivation to use this system in early design stages means that we require it be able to be used ``on top'' of existing mockup systems.
         One consequence of this means that as much as possible, the hardware used must be easy to set up and able to use in constrained spaces.
         This eliminates some of the high-end head mounted displays that use complicated head tracker systems requiring precise calibration.
         Additionally, this eliminates many of the past approaches to hand tracking which use multiple cameras precisely calibrated, or magnetic sensors in a well-defined magnetic field.
         The minimal setup also leads to the need for hand tracking, as the recognition of the user input must be done without outfitting the mockup with working input actuators (i.e.\ buttons).
     \item [Immersive head mounted display.]
-        The visual system needed.
+        The need for an immersive HMD with a large field of view is based on the need to use the system as a design evaluation tool.
+        %Current augmented reality or mixed reality goggles do not
+        %Without a immersion
+        %The visual system needed.
+        % No hands visible?
     \item [Unobtrusive hand tracking.]
-        The hand tracking.
+        For a realistic design evaluation, it is important that the hand tracker does not modify the users behavior.
+        Many hand trackers use a glove or other marker worn on the hand to provide the tracking ability.
+        Newer optical-based hand trackers allow this requirement to be fulfilled.
+
 \end{description}
 
 \section{Prototype Development}
 
 \subsection{First Prototype}
 
-The first prototype was the proof of concept of the system, and before it could be used for research studies, it was quickly outdated with new technology and software updates.
-It utilized the first generation Oculus Rift Development Kit and the first generation of software for the LeapMotion hand tracker.
-The basis of the software developed during this prototype phase continued throughout all of the prototypes.
+The first prototype was the proof of concept of the system, and before it could be used for a formal research study, it was quickly outdated with new technology and software updates.
+However, many informal feedback sessions did help highligh the usability and technical issues that led to the next prototype.
+The software developed during this prototype also provided a significant base for the software used throughout all the prototypes.
+The hardware used for this prototype was the first generation Oculus Rift Development Kit and the first generation of software for the LeapMotion hand tracker.
 
 \subsubsection{Rendering Engine}
 
 We are using a NASA developed rendering engine named EDGE to provide the visuals for the virtual scene rendered in the head-mounted display (HMD).
 EDGE is highly customizable and extendable through C/C++ plugins, Tcl scripts, or networking functions.
 Many of the integrations described in the prototypes were created as EDGE plugins.
+This rendering engine was used in all subsequent prototypes and research studies.
 
 \subsubsection{Virtual Reality Headset}
 
@@ -49,26 +58,33 @@ The head-mounted display (HMD) we used for the first prototype was an Oculus Rif
 The lightweight headset provides an immersive virtual reality experience by combining a wide field-of-view scene with accurate head tracking, giving a stable virtual world.
 The small display (cell phone sized) is viewed through a single set of lenses, and the barrel distortion of the lens is corrected for in the rendering engine by a pincushion distortion of the rendered scene.
 The orientation of the head is tracked using internal sensors (accelerometer, gyroscope and magnetometer).
-The software developer’s kit (SDK) exposes the head orientation and provides the appropriate distortion for a rendered scene (which is done for each eye), and this has been developed into an EDGE plugin.
+The software developer’s kit (SDK) exposes the head orientation and provides the appropriate distortion for a rendered scene (which is done for each eye), and this was developed into an EDGE plugin.
 The first generation Oculus Rift Development Kit has a 1280x800 LCD screen (with 640x800 for each eye) with a refresh rate of 60Hz.
-The head orientation sensors do not support position, and experienced drift after a few minutes.
+The field of view is approximately $110^{\circ}$.
 
 \subsubsection{3D Printed Instruments}
 
 A central tenant of our technical approach is to use physical, geometrically accurate instrument shapes that provide no functionality (i.e.\ no screens, no working buttons, etc.).
-This is intended to imitate the fidelity of a typical early design stage mockup.
+This is due to the motivation of being able to be used in an early design stage mockup.
 In order to achieve this we have produced 3D-printed ``instruments'' that can be easily rearranged on a panel mount (pegboard).
 Since the devices are rapidly prototyped, they can be redesigned in a much smaller time frame than typical simulator instruments.
 By using the geometrically accurate instruments at the correct cockpit locations, the user is provided with accurate tactile and proprioceptive feedback without the need for entering the challenging field of virtual haptic feedback.
 
 To use an instrument in the R3C system, it needs two versions of the 3D model.
-The first is the version for the rendering engine, which requires textures and possibly work to reduce the number of polygons so that rendering is not slowed down by the model.
-The second is for the 3D printing, which depending on the 3D printer used, will often require small changes to allow for a successful print.
+The first is the version for the rendering engine, which requires textures and possible work to reduce the number of polygons so that rendering is not slowed down by the model.
+The second model is for the 3D printing, which depending on the 3D printer used, will often require small changes to allow for a successful print.
 Both of these require a surface mesh model.
-Often, the original version exists as a CAD (Computer-Aided Design) model which typically does not describe the surface mesh directly but the ...
+Often, the original version exists as a CAD (Computer-Aided Design) model which typically does not describe the surface mesh directly but the geometric models that define the part.
 The difficulty of the conversion from CAD to 3D model mesh can depend on the model, and the requirements of the rendering engine.
 
-Our demo instrument was developed based on a large multi-function display with edge keys.
+For this initial prototype, a demo instrument was developed based on a large multi-function display with edge keys.
+The instrument model as viewed in the rendering engine is shown in Figure \ref{fig:proto_mfd_render}.
+The 3D-printed version is shown pictured in Figure \ref{fig:proto_mfd_print}.
+Notice that since it is only used for the tactile feel, it can have a plain asthetic.
+It was also printed in segments due to the limitations of the printer used.
+The instrument mounted on a panel and being used is shown in Figure \ref{fig:proto_first_panel}.
+This instrument provided a base for the demos, though it the specific design did not end up being used in a research study.
+The workflow learned to create this demo instrument was also used for future instruments utilized in the research studies.
 
 \begin{figure}
     \centering
@@ -81,11 +97,18 @@ Our demo instrument was developed based on a large multi-function display with e
 \subsubsection{Hand Tracking}
 
 The LeapMotion hand tracker was selected as it provided an unobtrusive method for hand tracking.
+The device itself is small (3 in x 1.2 in x 0.5 in), allowing it to be used in constrained environments (pictured in Figure \ref{fig:proto_leap_device}.
+It uses two infrared cameras as the source of its proprietary tracking algorithm, and requires no special gloves for the user.
+The tracking volume extends about 2 feet above the controller, and about 2 feet about the center on the other two axes.
+This large field of view is shown in Figure \ref{fig:proto_leap_fov} can easily cover the working area of a cockpit panel.
 The original version of the software, used in this prototype, provided information on the location and orientation of each fingertip.
 It also gave the position and orientation of the palm, but did not provide any details on the joints or which finger of the hand the fingertip belonged to.
+The tracking rate is approximately 120Hz, with an advertised latency of milliseconds.
 
-\subsubsection{Button Recognition}
+\subsubsection{Button Input Recognition}
 
+As part of the motivation and requirements of our approach, the hand tracker data needs to be used to determine when a user is pushing a button.
+The goal is to be able to use this system on top of a non-functioning mockup, thus all interactivity must be performed with the hand tracker.
 With a working hand tracking system, the next step was to develop a method to determine when users were pushing a button.
 The button recognition system was developed within the EDGE engine agnostic to the hand tracker, so that future prototypes could use a different hand tracker if a new device were released.
 
@@ -107,8 +130,10 @@ Since the hand tracking was not very reliable, many users would almost completel
 This then led to confusion as the button would not register a button press but the strong tactile feedback meant they would not leave the physical button to hunt for the virtual button location.
 
 Another challenging portion of the registration was that since the Oculus Rift did not have head positioning, the head position would have to be set manually.
-If a subject were taller, shorter or sat further forward or back, then the visuals would not appear with the correct depth perspective as the panel actually was positioned at.\tinytodo{rewrite}
-This caused subjects to initially reach too short or too far for the panel.
+Depending on the actual position of the user, the panel would not appear with the correct scale and at the correct distance in the virtual world.
+This caused users to initially reach too short or too far for the panel, or decreased the realism as the panel seemed too small or large compared to the real world object.
+Since the head tracking sensors were all internal to the headset, it also experience drift after a few minutes.
+Most noticeable in the yaw, it would cause the panel to become misaligned and require a software reset every so often.
 
 \subsection{Second Prototype}
 
@@ -117,14 +142,16 @@ Due to software upgrades, the hand tracking became more robust and provided more
 The visuals were upgraded to the second Development Kit of the Oculus Rift, which provided improved visual resolution but more importantly an external head tracker (camera) which enabled head movement and virtually eliminated drift of the internal sensors.
 A major focus of this version of the development work for this prototype was to improve reliability and registration.
 The reliability was partially improved with the new hand tracking software, but other countermeasures developed are described as well.
-Registration refers to the alignment between the physical world and the virtual world.
-%An important aspect of our system is that the physical world is providing an overlay 
+Registration, which refers to the alignment between the physical world and the virtual world, was improved with the use of a new calibration mechanism described in this section.
 
 \subsubsection{Virtual Reality Headset}
 
 The head tracking provided in the newest development kit version gives a significant improvement over the original Oculus Rift in the registration between the real world and the virtual world.
-The head-tracking camera is mounted on a known location on the panel (see Figure \ref{fig:pe_prototype}), and the tracking software provides a measurement of the relative location between the head and the camera.
-The virtual world can then be rendered relative to the location of the camera.
+This allowed the user to lean and gain additional perspective on the virtual world that was not possible with the first version.
+The position and orientation is reported relative to the tracking camera which is placed facing the user.
+For our application, with a well known location of the camera relative to the panel, the head position can be placed in the virtual world at the exact location of the user's actual head position.
+Unlike with the first version, the virtual components are now always rendered at the correct distance and with proper scale.
+The head-tracking camera is shown mounted on the instrument panel in Figure \ref{fig:pe_prototype}.
 
 \subsubsection{Hand Tracking}
 
@@ -144,7 +171,10 @@ However, using it mounted to the head-mounted display caused a larger disconnect
 The registration relies on a known, rigid connection between the hand tracker and the location of the instruments.
 When the tracker was mounted on the head-mounted display, the transformation between LeapMotion coordinates and panel coordinates relied on knowing the location of the head.
 Although this information could be obtained from the newer model HMD which included head tracking, it was simply not precise or stable enough to use as the base for the hand tracking coordinates.
-This led us to develop a mount that would hold the LeapMotion upside down over the panel and instruments.
+For example, if a hand was placed resting on the panel and kept still, the virtual hand would appear to move relative to the virtual panel if the head were moved at even a moderate pace.
+The additional latency introduced by relying on the head tracking sensors simply would not keep accurate registration.
+This led us to develop a mount that would hold the LeapMotion upside down over the panel and instruments (Figure \ref{fig:proto_leap_mount}).
+The software could still be configured saying it was mounted to a virtual-reality headset, optimizing for face down tracking.
 This provided the best of both worlds, with the reliability of the face-down tracking and the rigid connection to the panel and instrument location.
 
 \subsubsection{Button Recognition Countermeasures}
@@ -161,17 +191,20 @@ The visual feedback of the highlighted button went away at the press event too, 
 
 \subsubsection{Capacitive Touch Sensors}
 
+In order to be able to activate the buttons reliably when the hand tracking was degraded or dropping out, it was decided to investigate capacitive touch sensors.
 The capacitive touch sensors were initially developed as a countermeasure to the problems encountered with the hand tracking from the original prototype.
 As the hand tracking became more robust with the new software from the manufacturer, the countermeasure was not as important, but the sensors played a new role in the prototyping: validating the accuracy and providing calibration for the hand tracker.
 
-In order to be able to activate the buttons reliably when the hand tracking was degraded or dropping out, it was decided to investigate capacitive touch sensors.
 To stay with the goal of minimal setup, the original capacitive touch sensors were developed with copper tape electrodes placed on the top of the 3D printed instrument buttons.
 These electrodes are shown in Figure \ref{fig:proto_notsure}.
 A Freescale MPR121 capactive touch sensor was used to read the electrodes and communicate with an Arduino which sent touch events over a serial communication line to the computer.
 These serial events were read by the rendering engine to trigger events when a copper pad was touched.
+These simple, single electrode per button sensors provided a reliable method for determining when the user had actually touched a button.
+The main use of these sensors evolved to be for the calibration mechanism described in the next section.
+However, as the registration improved, a research question was developed around how accurate the user could be on the physical device while immersed visually in the virtual world.
+This led to the development of a second generation of capactive touch buttons, used in the Pointing Experiment (Chapter \ref{chap:pointing_exp}).
 
-Since touch accuracy can be important in safety-critical applications, we also desired the ability to record where on the button the finger press was located.
-This would help to determine if we had any registration biases in our system.
+Since touch accuracy can be important in safety-critical applications, we developed the ability to record where on the button the finger press was located.
 To accomplish this, a custom printed circuit board was developed that provides an electrode array of 5 rows and 5 columns over a 1-inch by 1-inch square.
 This board is show in Figure \ref{fig:pe_capacitive}, where it is mounted in a 3D printed instrument.
 The capacitive state of each row and column can provide a measurement of the center of the finger press on the grid created by the rows and columns.
@@ -289,15 +322,25 @@ They are shown here, dropping the subscripts to $k$ and $m$ for known and measur
 \end{gather*}
 
 At least 4 points are needed to solve this system, and it has been found that a calibration with small least squares residuals can be achieved with 10-20 well chosen points.
-The calibration matrix is then used to find the offset of the tip of the index finger for each hand, and this offset is used to move the entire hand.
+Provided no changes to the lighting or the position of components, the calibration setup can be performed once for the setup and is valid across users.
+Instead of using the calibration matrix, $\mathbf{T_m}$, as a transformation of all points in the hand, the index finger was used as the datum for the calibration.
+This means that the offset of the index finger between the measured and calibrated positions was calculated and then the entire hand was offset by this vector.
+This was done as significant and unrealistic warping would occur with the virtual hand if all points were simply transformed.
+This kept the relative position of each joint in the hand, while calibrating against the point that was used for button targetting.
 
-\subsubsection{Capacitive Touch Arrays}
+\subsubsection{Lessons Learned}
 
+The capacitive touch countermeasures were found to be effective, but with proper training or time to learn the system combined with more accurate registration led them to be not needed.
+This hypothesis was investigated in the first research study, detailed in Chapter \ref{chap:pointing_exp}.
+In terms of training or experts using the system being beneficial, the observations made were that new users were fixated on placing their finger where the physical feedback indicated the button was and did not adjust for misalignments with the hand tracker, while expert users learned to ignore the physical feedback and activated the hand tracker by finding the misaligned location.
+Additionally, we discovered that hand pose and speed can influence the performance of the hand tracker, such that expert users can perform in the system quicker and with greater accuracy.
 
-\begin{itemize}
-    \item second generation Oculus prototype
-    \item Big upgrade due to head tracking
-\end{itemize}
+Not all of the input interactions with a cockpit may be appropriate or possible with just optical tracking.
+Some interactions which require a fast reaction time or dynamic input (i.e.\ flight controls) may not be suitable with the current technology.
+These insights also get further investigation throughout the research studies, which help quantify which tasks may be appropriate for this system.
+
+Finally, the motivation for the changes of the third prototype were guided more from research goals than a need for technical improvements of the system.
+\tinytodo{more transition}
 
 \subsection{Third Prototype}
 
