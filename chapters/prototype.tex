@@ -25,15 +25,12 @@ These requirements guided the development of the prototypes, based on the techno
         The minimal setup also leads to the need for hand tracking, as the recognition of the user input must be done without outfitting the mockup with working input actuators (i.e.\ buttons).
     \item [Immersive head mounted display.]
         The need for an immersive HMD with a large field of view is based on the need to use the system as a design evaluation tool.
-        %Current augmented reality or mixed reality goggles do not
-        %Without a immersion
-        %The visual system needed.
-        % No hands visible?
+        Without the ability to place visuals on the screens or create out-the-window views, design evaluations may not be as useful.
+        Current augmented reality or mixed reality goggles do not provide the same level of immersion that a fully virtual display provide.
     \item [Unobtrusive hand tracking.]
         For a realistic design evaluation, it is important that the hand tracker does not modify the users behavior.
         Many hand trackers use a glove or other marker worn on the hand to provide the tracking ability.
         Newer optical-based hand trackers allow this requirement to be fulfilled.
-
 \end{description}
 
 \section{Prototype Development}
@@ -202,11 +199,11 @@ These serial events were read by the rendering engine to trigger events when a c
 These simple, single electrode per button sensors provided a reliable method for determining when the user had actually touched a button.
 The main use of these sensors evolved to be for the calibration mechanism described in the next section.
 However, as the registration improved, a research question was developed around how accurate the user could be on the physical device while immersed visually in the virtual world.
-This led to the development of a second generation of capactive touch buttons, used in the Pointing Experiment (Chapter \ref{chap:pointing_exp}).
+This led to the development of a second generation of capactive touch buttons, used in the Pointing Experiment (Chapter \ref{chap:pointing}).
 
 Since touch accuracy can be important in safety-critical applications, we developed the ability to record where on the button the finger press was located.
 To accomplish this, a custom printed circuit board was developed that provides an electrode array of 5 rows and 5 columns over a 1-inch by 1-inch square.
-This board is show in Figure \ref{fig:pe_capacitive}, where it is mounted in a 3D printed instrument.
+This board is show in Figure \ref{fig:proto_capacitive_array}, where it is mounted in a 3D printed instrument.
 The capacitive state of each row and column can provide a measurement of the center of the finger press on the grid created by the rows and columns.
 With this configuration finger-location accuracy of under 0.1-inch can be achieved.
 The location of the finger press can help provide a measure of the accuracy of the registration between the optical sensors and the real world location.
@@ -215,7 +212,7 @@ The location of the finger press can help provide a measure of the accuracy of t
     \centering
     \includegraphics[width=1.25in]{pe_capacitive.jpg}
     \caption{Capacitive touch array button. Each row and column of diamond pads are connected as one electrode each and together can provide location information of where the user presses.}
-    \label{fig:pe_capacitive}
+    \label{fig:proto_capacitive_array}
 \end{figure}
 
 \subsubsection{Calibration}
@@ -331,7 +328,7 @@ This kept the relative position of each joint in the hand, while calibrating aga
 \subsubsection{Lessons Learned}
 
 The capacitive touch countermeasures were found to be effective, but with proper training or time to learn the system combined with more accurate registration led them to be not needed.
-This hypothesis was investigated in the first research study, detailed in Chapter \ref{chap:pointing_exp}.
+This hypothesis was investigated in the first research study, detailed in Chapter \ref{chap:pointing}.
 In terms of training or experts using the system being beneficial, the observations made were that new users were fixated on placing their finger where the physical feedback indicated the button was and did not adjust for misalignments with the hand tracker, while expert users learned to ignore the physical feedback and activated the hand tracker by finding the misaligned location.
 Additionally, we discovered that hand pose and speed can influence the performance of the hand tracker, such that expert users can perform in the system quicker and with greater accuracy.
 
@@ -339,25 +336,38 @@ Not all of the input interactions with a cockpit may be appropriate or possible 
 Some interactions which require a fast reaction time or dynamic input (i.e.\ flight controls) may not be suitable with the current technology.
 These insights also get further investigation throughout the research studies, which help quantify which tasks may be appropriate for this system.
 
-Finally, the motivation for the changes of the third prototype were guided more from research goals than a need for technical improvements of the system.
+We also initially found tracking performance degradation when the finger approached the instrument panel that was due to optical interference with the panel objects (i.e.\ it was happening only when the panel was present).
+This was improved when we moved the LeapMotion to the top looking down, but the larger effect was found when looking at the image captured by the LeapMotion infrared cameras, discovering our black 3D printed instruments were highly reflective in infrared and showing up the same color as the hand.
+Applying a matte paint finish improved this, and for future prototypes and configurations the reflections in infrared were monitored.
+We have also found better results when controlling entire backdrop of the LeapMotion field of view with a dark matte material, as this helps provide a greater contrast between the hand and the background.
+
 \tinytodo{more transition}
 
 \subsection{Third Prototype}
 
-The third prototype was developed for the design evaluation experiment (Chapter \ref{chap:design_exp}).
-With the improvements of .
+The third prototype was developed for the design evaluation experiment.
+The motivation for the changes of the third prototype were guided more from research goals than a need for technical improvements of the system.
+It is explained in more detail in Chapter \ref{chap:de_exp}, a summary is given here only to describe the technical changes to the prototype.
+This premise of this experiment was to understand the utility of the R3C prototype in a design evaluation study.
+For this reason, two instruments were designed, modelled and 3D printed.
+Additionally, the experiment required some subjects to use a touchscreen instead of the 3D printed instruments and hand tracker.
+The touchscreen was mounted at the same location as the instruments would be (they used the same mounting plate).
+The two setups (touchscreen and 3D printed) were interchangeable, and are pictured in Figure \ref{fig:proto_design_exp}.
 
-\begin{itemize}
-    \item Return to pure 3d printed instruments
-    \item Calibration with touchscreen
-    \item Calibration on a single plane problem
-\end{itemize}
+With the improvements developed from the previous prototypes, the third prototype was designed to use only the hand tracker to perform input on the 3D printed cockpit instrument buttons.
+The hand tracker was mounted above the instrument and pointed towards the area in front of the instrument.
+For a more realistic simulation, the task also involved using a joystick, which was mounted to the left of subjects at desk height.
+To maintain realism, the joystick was modeled in the virtual environment, and moved with the movement of the joystick in the real world.
 
-\section{Lessons Learned and Future Work}
+\subsubsection{Calibration}
 
-\begin{itemize}
-    \item IR interference
-    \item Small amounts of training make a big difference
-    \item Conversely, not explaining fully how it works can lead to good performance/feedback
-    \item hand tracking difficulties can be very frustrating
-\end{itemize}
+The calibration logic was modified for this setup to calibrate based off the position of the touchscreen.
+This provided a very accurate and easy way to calibrate the hand tracker.
+Instead of using the buttons on the instrument, requiring a capacitive touch sensor, the calibration was performed by switching to the touchscreen and pressing points on the screen.
+
+One problem that was introduced with the calibration using a touchscreen was that all the points were on a single plane.
+The solution to the calibration becomes squashed down to the plane, with the axis out of the plane being severly limited.
+To alleviate this, an artificial point was added at 1 inch outward from the middle of the sensor datum.
+The same point was added as a known and measured point, forcing the calibration matrix to fit the entire tracking volume instead of just the plane.
+This technique came from previous observations which have noticed the accuracy of the sensor was better as the hand was close to it.
+With this in effect, the calibration became very accurate with the touchscreen as the data source for known positions.
