@@ -84,7 +84,7 @@ The difficulty of the conversion from CAD to 3D model mesh can depend on the mod
 For this initial prototype, a demo instrument was developed based on a large multi-function display with edge keys.
 The instrument model as viewed in the rendering engine is shown in Figure \ref{fig:proto_mfd_render}.
 The 3D-printed version is shown pictured in Figure \ref{fig:proto_mfd_print}.
-Notice that since it is only used for the tactile feel, it can have a plain asthetic.
+Notice that since it is only used for the tactile feel, it can have a plain aesthetic.
 It was also printed in segments due to the limitations of the printer used.
 The instrument mounted on a panel and being used is shown in Figure \ref{fig:proto_first_panel}.
 This instrument provided a base for the demos, though it the specific design did not end up being used in a research study.
@@ -154,7 +154,7 @@ If the user interactions with the panel can be determined solely by tracking his
 \subsubsection{Challenges}
 
 The hand tracking caused two issues with the use of the prototype.
-The first was simply that the reliability of the tracking caused many instances of dropped tracking, causing fingers to dissappear unexpectedly.
+The first was simply that the reliability of the tracking caused many instances of dropped tracking, causing fingers to disappear unexpectedly.
 The second was the conversion between hand tracker coordinates and instrument coordinates.
 The registration between the virtual and physical worlds was difficult to get right with this configuration.
 Even with precise alignment of the hand tracker, the fingertip positions did not always align properly with the buttons in the virtual world when a subject had their finger on and felt a physical button.
@@ -240,8 +240,8 @@ This was typically implemented with the button itself being highlighted or chang
 With this crucial feedback, new users were able to learn the tolerances of the button zone and understand when the button was going to be `pressed'.
 For experienced users, the feedback provided confirmation that they were in the zone and were not waiting for it to register incorrectly.
 The second countermeasure was the addition of an aural feedback upon the button press being registered.
-A simple ``click'' noise was played when the button press event occured, confirming the button press to the user on a quicker cognitive channel than processing if the expected change on the instrument occured.
-At the same time, the button highligh was restored to the original non-highlighted state, providing feedback in both visual and aural channels.
+A simple ``click'' noise was played when the button press event occurred, confirming the button press to the user on a quicker cognitive channel than processing if the expected change on the instrument occurred.
+At the same time, the button highlight was restored to the original non-highlighted state, providing feedback in both visual and aural channels.
 These countermeasures were observed as being very helpful to new users, and were included in all of the research studies.
 
 \subsubsection{Capacitive Touch Sensors}
@@ -252,12 +252,12 @@ As the hand tracking became more robust with the new software from the manufactu
 
 With the goal of minimal setup, the original capacitive touch sensors were developed with copper tape electrodes placed on the top of the 3D printed instrument buttons.
 These electrodes are shown in Figure \ref{fig:proto_mfd_capacitive}.
-A Freescale MPR121 capactive touch sensor was used to read the electrodes and communicate with an Arduino which sent touch events over a serial communication line to the computer.
+A Freescale MPR121 capacitive touch sensor was used to read the electrodes and communicate with an Arduino which sent touch events over a serial communication line to the computer.
 These serial events were read by the rendering engine to trigger events when a copper pad was touched.
 These simple, single electrode per button sensors provided a reliable method for determining when the user had actually touched a button.
 The main use of these sensors evolved to be for the calibration mechanism described in the next section.
 However, as the registration improved, a research question was developed around how accurate the user could be on the physical device while immersed visually in the virtual world.
-This led to the development of a second generation of capactive touch buttons, used in the Pointing Experiment (Chapter \ref{chap:pointing}).
+This led to the development of a second generation of capacitive touch buttons, used in the Pointing Experiment (Chapter \ref{chap:pointing}).
 
 \begin{figure}
     \centering
@@ -301,7 +301,7 @@ The $\vec{x}_{known}$ and $\vec{x}_{measured}$ correspond to the known location 
 Since we know those two vectors, it is only required to solve for the transformation matrix itself.
 
 A simple least squares approach is used to find the coefficients of the matrix. % the registration between the virtual and physical worlds is vastly improved.
-The transformation matrix is not constrained to a simple rotation (i.e.\ not assumed orthogonality or other special properties) so the solution is found by expanding and solving the general homogenous coordinates transformation matrix.
+The transformation matrix is not constrained to a simple rotation (i.e.\ not assumed orthogonality or other special properties) so the solution is found by expanding and solving the general homogeneous coordinates transformation matrix.
 \begin{equation}
     \begin{bmatrix}
         x_{known} \\
@@ -384,8 +384,8 @@ They are shown here, dropping the subscripts to $k$ and $m$ for known and measur
 \end{gather*}
 
 Now the problem is stated with a known matrix and one unknown vector (per each of the three equations).
-Once we have collected more than 4 points, it becomes an overdetermined linear system, and a least squares calculation is used to find the solution.
-From the solution of the three seperate equations, the original $\mathbf{T}$ matrix is reconstructed.
+Once we have collected more than 4 points, it becomes an over-determined linear system, and a least squares calculation is used to find the solution.
+From the solution of the three separate equations, the original $\mathbf{T}$ matrix is reconstructed.
 
 At least 4 points are needed to solve this system, and it has been found that a calibration with small least squares residuals can be achieved with 10-20 well chosen points.
 Provided no changes to the lighting or the position of components, the calibration setup can be performed once for the setup and is valid across users.
@@ -393,14 +393,14 @@ Provided no changes to the lighting or the position of components, the calibrati
 Instead of using the calibration matrix, $\mathbf{T}$, to transform all of the points in the hand, the index finger was used as the datum for the calibration.
 The offset of the index finger between the measured and calibrated positions was calculated and then the entire hand was offset by this vector.
 This was done as significant and unrealistic warping would occur with the virtual hand if all points were simply transformed.
-This kept the relative position of each joint in the hand as reported by the LepMotion while calibrating against the point that was most frequently used for button targetting\footnote{Subjects in all research studies were instructed to use their index finger.}.
+This kept the relative position of each joint in the hand as reported by the LeapMotion while calibrating against the point that was most frequently used for button targeting\footnote{Subjects in all research studies were instructed to use their index finger.}.
 
 \subsubsection{Lessons Learned}
 
 The capacitive touch countermeasures were found to be effective, but the visual and aural countermeasures combined with more accurate registration led them to be not needed.
 This hypothesis was investigated in the first research study, detailed in Chapter \ref{chap:pointing}.
 We often found that a small amount of training time would improve performance.
-The observations made were that new users were fixated on placing their finger where the physical feedback indicated the button was and did not adjust for misalignments with the hand tracker, while expert users learned to ignore the physical feedback and activated the hand tracker by finding the misaligned location.
+The observations made were that new users were fixated on placing their finger where the physical feedback indicated the button was and did not adjust for misalignment with the hand tracker, while expert users learned to ignore the physical feedback and activated the hand tracker by finding the misaligned location.
 Additionally, we discovered that hand pose and speed can influence the performance of the hand tracker, such that expert users can perform in the system quicker and with greater accuracy.
 
 Not all of the input interactions with a cockpit may be appropriate or possible with just optical tracking.
@@ -420,7 +420,7 @@ The third prototype was developed for the design evaluation experiment.
 The motivation for the changes of the third prototype were guided more from research goals than a need for technical improvements of the system.
 It is explained in more detail in Chapter \ref{chap:de_exp}, a summary is given here only to describe the technical changes to the prototype.
 This premise of this experiment was to understand the utility of the R3C prototype in a design evaluation study.
-For this reason, two instruments were designed, modelled, and 3D printed.
+For this reason, two instruments were designed, modeled, and 3D printed.
 Additionally, the experiment required some subjects to use a touchscreen instead of the 3D printed instruments and hand tracker.
 The touchscreen was mounted at the same location as the instruments would be (they used the same mounting plate).
 The two setups (touchscreen and 3D printed) were interchangeable, and are pictured in Figure \ref{fig:proto_design_exp}.
@@ -444,7 +444,7 @@ This provided a very accurate and easy way to calibrate the hand tracker.
 Instead of using the buttons on the instrument, requiring capacitive touch sensors on the buttons, the calibration was performed by switching to the touchscreen and pressing points on the screen.
 
 One problem that was introduced with the calibration using a touchscreen was that all the points were on a single plane.
-The solution to the calibration least squares problem becomes overfit to the plane, and causes any movement perpindicular to be scaled down near to the plane, causing the hand to appear to be `stuck' to the calibration plane.
+The solution to the calibration least squares problem becomes over-fit to the plane, and causes any movement perpendicular to be scaled down near to the plane, causing the hand to appear to be `stuck' to the calibration plane.
 To alleviate this, an artificial point was added at 1 inch outward from the middle of the sensor datum.
 The same point was added as a known and measured point, forcing the calibration matrix to fit the entire tracking volume instead of just the plane.
 This technique came from previous observations which have noticed the accuracy of the sensor was better as the hand was near the tracker.
@@ -453,7 +453,7 @@ After solving this issue, the calibration became very accurate with the touchscr
 \section{Summary}
 
 An overview of the technical approach of the evolving Rapidly Reconfigurable Research Cockpit was presented.
-The final prototype acheived many of the goals set out by the motivations and requirements.
+The final prototype achieved many of the goals set out by the motivations and requirements.
 Developments that were outside the scope of this research work and could be undertaken as future work are discussed in Chapter \ref{chap:conclusion}.
 The specific configurations used in each experiment are described in detail within their respective chapter.
 Some of the experiments required additional technology development that was not described here as the focus was on the R3C prototype itself.
