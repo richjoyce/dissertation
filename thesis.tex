@@ -90,6 +90,12 @@
 
 % nice looking, parenthetical references
 %\usepackage[sorting=nyt,natbib=true,citestyle=authoryear,bibstyle=authoryear,maxnames=3,refsection=chapter,backend=biber]{biblatex}
+%\usepackage[sorting=nyt,natbib=true,citestyle=authoryear,bibstyle=authoryear,maxnames=3,refsection=chapter]{biblatex}
+\usepackage{natbib}
+\renewcommand\bibname{References}
+\def\newblock{\hskip .11em plus.33em minus.07em}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authoryear, open={(},close={)}}
 %\usepackage{chapterbib} % incompatible with biblatex
 %\bibliography{dissertation}
 %\addbibresource{dissertation.bib}
@@ -255,7 +261,6 @@
 \pagestyle{plain}
 
 \ssp
-\bibliographystyle{abbrv}
 \bibliography{dissertation}
 
 

@@ -92,23 +92,24 @@ The workflow learned to create this demo instrument was also used for future ins
 
 \begin{figure}
     \centering
-    \missingfigure{proto mfd render jpg}
-    \caption{The demo multifunction display instrument rendered in the virtual world.}
-    \label{fig:proto_mfd_render}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \missingfigure{proto mfd print jpg}
-    \caption{The 3D printed version of the demo multifunction display instrument.}
-    \label{fig:proto_mfd_print}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=3in]{proto_first_panel.jpg}
-    \caption{The demo multifunction display instrument mounted on a panel.}
-    \label{fig:proto_first_panel}
+    \begin{subfigure}[t]{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{proto_mfd_render.jpg}
+        \caption{The demo multifunction display instrument rendered in the virtual world.}
+        \label{fig:proto_mfd_render}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{proto_mfd_print.jpg}
+        \caption{The 3D printed version of the demo multifunction display instrument.}
+        \label{fig:proto_mfd_print}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{proto_first_panel.jpg}
+        \caption{The demo multifunction display instrument mounted on a panel.}
+        \label{fig:proto_first_panel}
+    \end{subfigure}
 \end{figure}
 
 
@@ -125,16 +126,20 @@ The tracking rate is approximately 120Hz, with an advertised latency of millisec
 
 \begin{figure}
     \centering
-    \includegraphics[width=3in]{leapmotion.png}
-    \caption{The LeapMotion device. Image by LeapMotion.}
-    \label{fig:proto_leap_device}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=3in]{leapmotion_fov.png}
-    \caption{The LeapMotion field of view. Image by LeapMotion.}
-    \label{fig:proto_leap_fov}
+    \begin{subfigure}[t]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{leapmotion.png}
+        \caption{LeapMotion device.}
+        \label{fig:proto_leap_device}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{leapmotion_fov.png}
+        \caption{LeapMotion field of view.}
+        \label{fig:proto_leap_fov}
+    \end{subfigure}
+    \caption{The LeapMotion device and field of view. Images by LeapMotion.}
+    \label{fig:proto_leap}
 \end{figure}
 
 \subsubsection{Button Input Recognition}
@@ -177,6 +182,13 @@ A major focus of this version of the development work for this prototype was to 
 The reliability was partially improved with the new hand tracking software, but other countermeasures developed are described as well.
 Registration, which refers to the alignment between the physical world and the virtual world, was improved with the use of a new calibration mechanism described in this section.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{r3c_callout.jpg}
+    \caption{A version of the second prototype with major components noted.}
+    \label{fig:r3c_callout}
+\end{figure}
+
 \subsubsection{Virtual Reality Headset}
 
 The head tracking provided in the newest development kit version gives a significant improvement over the original Oculus Rift in the registration between the real world and the virtual world.
@@ -184,14 +196,7 @@ This allowed the user to lean and gain additional perspective on the virtual wor
 The position and orientation is reported relative to the tracking camera which is placed facing the user.
 For our application, with a well known location of the camera relative to the panel, the head position can be placed in the virtual world at the exact location of the user's actual head position.
 Unlike with the first version, the virtual components are now always rendered at the correct distance and with proper scale.
-The head-tracking camera is shown mounted on the instrument panel in Figure \ref{fig:proto_camera}.
-
-\begin{figure}
-    \centering
-    \missingfigure{proto camera jpg}
-    \caption{The head tracking camera mounted on the corner of the panel.}
-    \label{fig:proto_camera}
-\end{figure}
+The head-tracking camera is shown mounted on the instrument panel in Figure \ref{fig:r3c_callout}.
 
 
 \subsubsection{Hand Tracking}
@@ -207,7 +212,7 @@ This provided a more immersive feeling than the floating fingers of the original
 
 \begin{figure}
     \centering
-    \missingfigure{leap skeleton png}
+    \includegraphics[width=\linewidth]{leap_skeleton.png}
     \caption{The complete hand tracking of the LeapMotion v2 software.}
     \label{fig:proto_skeleton}
 \end{figure}
@@ -227,7 +232,7 @@ This provided the best of both worlds: reliability of the face-down tracking wit
 
 \begin{figure}
     \centering
-    \missingfigure{leap mount jpg}
+    \includegraphics[width=\linewidth]{leap_mount.jpg}
     \caption{The LeapMotion mount, holding the sensor above the panel and looking down.}
     \label{fig:proto_leap_mount}
 \end{figure}
@@ -253,7 +258,7 @@ The capacitive touch sensors were initially developed as a countermeasure to the
 As the hand tracking became more robust with the new software from the manufacturer, the countermeasure was not as important, but the sensors played a new role in the prototype: validating the accuracy, and providing calibration for the hand tracker.
 
 With the goal of minimal setup, the original capacitive touch sensors were developed with copper tape electrodes placed on the top of the 3D printed instrument buttons.
-These electrodes are shown in Figure \ref{fig:proto_mfd_capacitive}.
+These electrodes are shown on the demo multifunction instrument in Figure \ref{fig:copper_pads}.
 A Freescale MPR121 capacitive touch sensor was used to read the electrodes and communicate with an Arduino which sent touch events over a serial communication line to the computer.
 These serial events were read by the rendering engine to trigger events when a copper pad was touched.
 These simple, single electrode per button sensors provided a reliable method for determining when the user had actually touched a button.
@@ -263,21 +268,31 @@ This led to the development of a second generation of capacitive touch buttons, 
 
 \begin{figure}
     \centering
-    \missingfigure{proto mfd capacitive jpg}
-    \caption{The capacitive touch sensors (copper tape on select buttons) on an instrument.}
-    \label{fig:proto_mfd_capacitive}
+    \includegraphics[width=0.5\linewidth]{copper_pads.jpg}
+    \caption{The copper tape electrodes for capacitive touch sensings on the demo multifunction instrument.}
+    \label{fig:copper_pads}
 \end{figure}
 
 Since touch accuracy can be important in safety-critical applications, we developed the ability to record where on the button the finger press was located using a capacitive touch sensor.
 To accomplish this, a custom printed circuit board was developed that provides an electrode array of 5 rows and 5 columns over a 1-inch by 1-inch square.
-This board is show in Figure \ref{fig:proto_capacitive_array}, where it is mounted in a 3D printed instrument.
+This board is show in Figure \ref{fig:proto_capacitive_array}.%, where it is mounted in a 3D printed instrument.
 The capacitive state of each row and column can provide a measurement of the center of the finger press on the grid created by the rows and columns.
 Finger location accuracy of under 0.1-inch can be achieved with this configuration.
 The location of the finger press can help provide a measure of the accuracy of the registration between the optical sensors and the real world location, as well as any bias introduced from using the VR headset and hand tracker.
 
 \begin{figure}
+    \begin{subfigure}[t]{0.32\linewidth}
     \centering
-    \includegraphics[width=1.25in]{pe_capacitive.jpg}
+    \includegraphics[width=1.5in]{pe_capacitive.jpg}
+    \caption{Capactive array mounted in a 3D printed button.}
+    \label{fig:proto_capacitive_array:mounted}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.64\linewidth}
+    \centering
+        \includegraphics[width=\linewidth]{proto_cap_board.jpg}
+    \caption{Bare PCB showing back and front.}
+    \label{fig:proto_capacitive_array:pcb}
+    \end{subfigure}
     \caption{Capacitive touch array button. Each row and column of diamond pads are connected as one electrode each and together can provide location information of where the user presses.}
     \label{fig:proto_capacitive_array}
 \end{figure}

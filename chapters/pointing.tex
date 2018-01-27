@@ -1,7 +1,7 @@
 \chapter{Pointing Experiment}
 \label{chap:pointing}
 
-Portions of this chapter were originally published in the conference proceedings for AIAA Modeling and Simulation Technologies 2015\cite{joyce_rapidly_2015}.
+Portions of this chapter were originally published in the conference proceedings for AIAA Modeling and Simulation Technologies 2015\citep{joyce_rapidly_2015}.
 This initial experiment aimed to provide our first quantitative look at how the use of passive haptics and virtual reality affected reaching movements.
 
 \section{Introduction}
@@ -17,11 +17,11 @@ The camera mounted above the panel is an infrared camera that senses the positio
 The display on the screen can be configured as desired; it is currently showing an external camera view.
 The behaviors of each button are controlled in software, and can be easily reconfigured.
 
-The use of virtual or augmented reality in aerospace has been extensive, starting with the first flight simulators, and even in the cockpit in research studies\cite{foyle_taxiway_1996, bachelder_fused_2013}.
-Significant recent work investigates virtual reality tools in a simulator\cite{h._wan_mrstudio:_2011, i._yavrucuk_low_2011, t._aslandere_virtual_2015}.
+The use of virtual or augmented reality in aerospace has been extensive, starting with the first flight simulators, and even in the cockpit in research studies\citep{foyle_taxiway_1996, bachelder_fused_2013}.
+Significant recent work investigates virtual reality tools in a simulator\citep{h._wan_mrstudio:_2011, i._yavrucuk_low_2011, t._aslandere_virtual_2015}.
 However, our concept of merging an accurate but low-cost tactile environment with the high-fidelity virtual view is so far untested.
 Accurate haptic feedback has been a goal of virtual reality (VR) researchers since the emergence of VR.
-Providing dynamic haptic feedback, however, still proves challenging to date\cite{stone_haptic_2001,lecuyer_simulating_2009}.
+Providing dynamic haptic feedback, however, still proves challenging to date\citep{stone_haptic_2001,lecuyer_simulating_2009}.
 Our approach allows accurate haptic feedback for the case of a static workstation, such as found in a real cockpit.
 Combined with 3D printing and our virtual simulator overlay, this provides an inexpensive platform to create a functioning simulator, able to adapt quickly to large-scale design changes.
 
@@ -31,7 +31,7 @@ Combined with 3D printing and our virtual simulator overlay, this provides an in
 
 For the experiment described below, the collision detection box was set to extend 0.5 inches inward and outward from the button, including a 0.1-inch tolerance on all dimensions.
 Somethign about 50mseccs.
-Aslandere \cite{t._aslandere_virtual_2015} found no significant effect with button selection ability based on changing this volume in a purely virtual environment, so we did not change the collision detection box size for this first test of the R3C (although it is easily modified in software).
+\citet{t._aslandere_virtual_2015} found no significant effect with button selection ability based on changing this volume in a purely virtual environment, so we did not change the collision detection box size for this first test of the R3C (although it is easily modified in software).
 
 \subsection{Capacitive Touch Sensors}
 
@@ -75,7 +75,7 @@ We were concerned about the effect of both touch-selection accuracy and movement
 Previous research in targeting tasks in virtual environments has not always reported on success rates, indicating incorrect trials were re-performed.
 We did not do this, as we wanted to ensure we recorded the success rate.
 
-Previous work has investigated various 3D pointing tasks in the real and virtual world without tactile feedback\cite{liu_comparing_2009}, or with tactile feedback but no immersive virtual reality\cite{teather_evaluating_2010}, or with virtual haptic feedback\cite{chun_evaluating_2004}, or pure virtual worlds\cite{bruder_touch_2013,grossman_pointing_2004}.
+Previous work has investigated various 3D pointing tasks in the real and virtual world without tactile feedback\citep{liu_comparing_2009}, or with tactile feedback but no immersive virtual reality\citep{teather_evaluating_2010}, or with virtual haptic feedback\citep{chun_evaluating_2004}, or pure virtual worlds\citep{bruder_touch_2013,grossman_pointing_2004}.
 Our work differs in the use of the tactile feedback provided by the panel combined with an immersive virtual world.
 
 \subsection{Experiment Design}
@@ -164,10 +164,10 @@ The time for each trial was corrected for the varying distances of the movements
 The results for each condition are summarized in Table \ref{tab:pe_results}, and Figure \ref{fig:pe_effects} illustrates the three main effects with respect to corrected time.
 
 The significance of the effects were determined using a two sample t-test on the corrected time measure between the appropriate conditions.
-The effect of the use of the HMD on corrected movement time was significant ($p < 0.01$) between condition 1 (HMD, Panel, Capacitive: $M=1.88$ seconds) and 4 (No HMD, Panel, Capacitive: $M=0.59$ seconds).
-On average, using the HMD caused the corrected movement time to be 1.31 seconds longer.
-The button detection sensor also has a significant effect on corrected time ($p < 0.01$), comparing conditions 1 (HMD, Panel, Capacitive: $M=1.88$ seconds) and 2 (HMD, Panel, Optical: $M=x.xx$), but the drop in performance was only 0.55 seconds.
-The effect of the panel was found to be not significant ($p=0.67$) between condition 2 (HMD, Panel, Optical: $M=x.xx$) and condition 3 (HMD, No Panel, Optical: $M=x.xx$).
+The effect of the use of the HMD on corrected movement time was significant ($t(7)=-5.1, p < 0.01$) between condition 1 (HMD, Panel, Capacitive: $M=3.15$ seconds) and 4 (No HMD, Panel, Capacitive: $M=1.57$ seconds).
+On average, using the HMD caused the corrected movement time to be 1.72 seconds longer.
+The button detection sensor also has a significant effect on corrected time ($t(7)=3.6, p < 0.01$), comparing conditions 1 (HMD, Panel, Capacitive: $M=3.15$ seconds) and 2 (HMD, Panel, Optical: $M=3.78$), but the drop in performance was only 0.63 seconds.
+The effect of the panel was found to be not significant ($t(7)=-0.5, p=0.66$) between condition 2 (HMD, Panel, Optical: $M=3.78$) and condition 3 (HMD, No Panel, Optical: $M=3.70$).
 
 \begin{figure}
     \centering
@@ -203,7 +203,7 @@ It should be noted again here that in the HMD condition, subjects had to rely on
 
 A Fitts’ law analysis of the data was not the goal with the experiment design, and since we did not vary the button width a Fitts’ analysis could only be performed with varying distance.
 The index of difficulty would only range from 4.0 to 4.5, providing an insufficient range for a proper Fitts’ analysis.
-Including extra parameters for the 3D nature of the task \cite{murata_extending_2001, cha_extended_2013} did not improve the fit, especially considering the symmetry of the setup.
+Including extra parameters for the 3D nature of the task \citep{murata_extending_2001, cha_extended_2013} did not improve the fit, especially considering the symmetry of the setup.
 Furthermore the time recorded of the tasks were typically more than in a Fitts' task, since many subjects spent time honing based on the accuracy instructions.
 
 %The hand tracker was recording the trajectory in every condition.
