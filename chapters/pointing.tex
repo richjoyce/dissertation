@@ -27,38 +27,6 @@ Combined with 3D printing and our virtual simulator overlay, this provides an in
 
 \section{Experimental Methods}
 
-\subsection{Button Detection Algorithm}
-
-For the experiment described below, the collision detection box was set to extend 0.5 inches inward and outward from the button, including a 0.1-inch tolerance on all dimensions.
-Somethign about 50mseccs.
-\citet{t._aslandere_virtual_2015} found no significant effect with button selection ability based on changing this volume in a purely virtual environment, so we did not change the collision detection box size for this first test of the R3C (although it is easily modified in software).
-
-\subsection{Capacitive Touch Sensors}
-
-For this early research phase, we needed a baseline method to determine if a button was touched, for comparison with the LeapMotion IR camera hand tracking method.
-A simple method was first developed using copper tape electrodes on top of certain buttons (as can be seen in Figure \ref{fig:pe_prototype}).
-These electrodes are connected to a Freescale MPR121 capacitive touch controller that registers when a finger touches them.
-The capacitive touch controller is connected to an Arduino, acting as a serial communicator between the microchip and the computer.
-This setup provides a binary state of whether a finger is touching the button.
-This is used to help determine whether the button detection algorithm using the hand tracker is working correctly.
-
-Since touch accuracy can be important in safety-critical applications, we also desired the ability to record where on the button the finger press was located.
-This would help to determine if we had any registration biases in our system.
-To accomplish this, a custom printed circuit board was developed that provides an electrode array of 5 rows and 5 columns over a 1-inch by 1-inch square.
-This board is show in Figure \ref{fig:pe_capacitive}, where it is mounted in a 3D printed instrument.
-The capacitive state of each row and column can provide a measurement of the center of the finger press on the grid created by the rows and columns.
-With this configuration finger-location accuracy of under 0.1-inch can be achieved.
-The location of the finger press can help provide a measure of the accuracy of the registration between the optical sensors and the real world location.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1.25in]{pe_capacitive.jpg}
-    \caption{Capacitive touch array button. Each row and column of diamond pads are connected as one electrode each and together can provide location information of where the user presses.}
-    \label{fig:pe_capacitive}
-\end{figure}
-
-\section{Experimental Methods}
-
 \subsection{Experiment Goals and Motivation}
 
 We performed a study to validate our technical approach and measure the effects of using the R3C system on subject reaching motions.
@@ -78,7 +46,7 @@ We did not do this, as we wanted to ensure we recorded the success rate.
 Previous work has investigated various 3D pointing tasks in the real and virtual world without tactile feedback \citep{liu_comparing_2009}, or with tactile feedback but no immersive virtual reality \citep{teather_evaluating_2010}, or with virtual haptic feedback \citep{chun_evaluating_2004}, or pure virtual worlds \citep{bruder_touch_2013,grossman_pointing_2004}.
 Our work differs in the use of the tactile feedback provided by the panel combined with an immersive virtual world.
 
-\subsection{Experiment Design}
+\subsection{Experiment Setup}
 
 Figure \ref{fig:pe_diagram} shows a diagram of the experimental setup.
 A picture of the setup and the view of the virtual world is show in Figure \ref{fig:p_setup}.
@@ -90,6 +58,24 @@ These sensors have an electrode array of 5 rows and columns over the $1^{\prime\
 This provides a position accuracy of under 0.1-inch when a user contacts the button.
 A view of this circuit board mounted on the button is shown in Figure \ref{fig:pe_capacitive}.
 The start pads were capacitive touch copper tape electrodes, also $1^{\prime\prime} \times 1^{\prime\prime}$, but had no position detection capability.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1.25in]{pe_capacitive.jpg}
+    \caption{Capacitive touch array button. Each row and column of diamond pads are connected as one electrode each and together can provide location information of where the user presses.}
+    \label{fig:pe_capacitive}
+\end{figure}
+
+As previously described (Chapter \ref{sec:proto_button_detection}), the hand tracker mounted above the panel enables detection of when the user presses a button without need for a touch sensor.
+For this experiment, both sensors were utilized to compare the performance of subjects with both.
+The optical tracking button detection uses a simple collision detection box to determine when a subject has pressed a button.
+When the finger of the user enters the detection box and remains inside for 50 milliseconds, the button press even is activated.
+The purpose of the small delay is to reject false positives if a user moves quickly through the detection box of a button they are not pressing.
+The color of the button changes when they enter this detection box to indicate to the user that they are about to register a button press.
+For this experiment, the collision detection box was set to extend 0.5 inches inward and outward from the button, including a 0.1-inch tolerance on all dimensions.
+\citet{t._aslandere_virtual_2015} found no significant effect with button selection ability based on changing this volume in a purely virtual environment, so we determined an approriate size in pilot studies and did not include the size of the detection box as a variable.
+
+\subsection{Experiment Task}
 
 The participants were asked to start with their index finger on the proper start pad and then target the correct button on the panel.
 Audio prompts were given through headphones, which indicated the starting pad and panel button goal before each task.
@@ -106,7 +92,6 @@ Each participant performed 48 targeting tasks under each of the four different c
 Before each condition the subjects were given one set of 12 trials for familiarization of that particular condition which were not included in the results.
 During the ``no panel'' condition, the hand tracker remained mounted at the same point, but the panel was moved out of the way, such that the subjects were targeting the buttons in the virtual world only.
 The button selection in every condition was indicated by a sound played in the headphones when the appropriate sensor measured a button press.
-In addition, during the optical sensor trials, the button color changed color to indicate they had entered the selection zone (as described in Chapter \ref{sec:proto_button_input}).
 The tasks would time out after 10 seconds.
 The task was not repeated for an incorrect button selection or timing out, instead the subject moved on to the next task.
 The condition order was randomized for each subject, and the tasks were performed in a pseudo-random order.
@@ -136,20 +121,21 @@ The condition order was randomized for each subject, and the tasks were performe
     \label{fig:p_setup}
 \end{figure}
 
-
 The subjects were all briefed on the technology from a prewritten speech explaining how to activate each of the sensors.
 Subjects were instructed to target the center of the correct button, but were given no instructions on speed.
 Subjects targeted the button using their index finger of their dominant hand, which was the right hand for all subjects.
 No information was given on how to best perform the task or advice on working with the various sensors.
 
-The dependent variables measured were:
-\begin{itemize}
-    \item time from starting pad to trial goal button
-    \item accuracy measured on the capacitive touch sensors (for conditions with the panel present)
-    \item success rate (selected the correct button within 10 seconds)
-\end{itemize}
+The dependent variables measured were time from starting pad to trial goal button, accuracy measured on the capacitive touch sensors (for conditions with the panel present), and success rate (selected the correct button within 10 seconds).
 
-\subsection{Subject Pool}
+%The dependent variables measured were:
+%\begin{itemize}
+%    \item time from starting pad to trial goal button
+%    \item accuracy measured on the capacitive touch sensors (for conditions with the panel present)
+%    \item success rate (selected the correct button within 10 seconds)
+%\end{itemize}
+
+\subsection{Subjects}
 The experiment was performed with 8 subjects, recruited from the university student population, all with no or limited previous exposure to the R3C setup.
 All subjects indicated they had either never used a virtual reality headset or briefly tried them once or twice.
 Ages ranged from 18-31 with 6 male, 2 female.
@@ -242,14 +228,11 @@ Another variable that was not measured was fatigue.
 Having the panel as a backstop likely decreases the amount of fatigue for a repeated targeting task, as floating the arm in free space to target a button in a purely virtual environment with no panel can cause a buildup of arm fatigue.
 If the virtual world and physical world are correctly aligned, then the finger can rest on the button while the hand tracker works to detect a button press.
 
-Overall, the lack of an effect of having the panel there could also be interpreted as a positive result.
+Overall, the lack of an effect of the panel could also be interpreted as a positive result.
 As discussed before, a significant problem we've been working on is the improvement of tracking performance when the hand nears the panel.
 The results indicate that this problem has been mitigated at least as much to provide performance on par with the purely virtual world.
 
 \section{Conclusion}
-
-Although this initial application of the R3C system is to aviation/space vehicle cockpits, any sufficiently complex human-system interface could be designed with this system, such as telerobotics, air traffic control, robotic surgery, etc.
-The technology that supports our proof of concept system is rapidly improving, and further iterations of our technology integration will provide higher fidelity and an easier user experience.
 
 %\begin{figure}
 %    \centering
@@ -263,4 +246,3 @@ All of our measured effects showed no significance on correct button selection.
 The use of the head mounted display to provide visuals of hand position provides a small time penalty in button selection.
 The use of the physical panel provided no significant effect in time compared to having the subjects target purely virtual buttons.
 Our optical tracking algorithm had a slight negative effect in time compared to using the capacitive touch sensors.
-We are hopeful that training and improvements in the technology will reduce the performance gap.

@@ -2,13 +2,15 @@
 \label{chap:ph_exp}
 
 The first experiment, described in the previous chapter, provided validation that the technology could be used for interacting with a non-functioning mockup.
-The effect of the panel on movement time was insignificant, which we felt could have been due to the task assigned.
-In this experiment, the main focus is on the difference between the use of the panel and no panel.
+We found that subjects had a near-perfect success rate using the hand tracking sensor to activate buttons, with accuracy comparable to their performance in a non-virtual environment.
+One of the unanswered questions was the effects of the panel as passive haptics on the movement time and accuracy.
+The difference in movement time between the subjects using the passive haptics and those without were insignificant.
+In this experiment, the main focus is on this independent variable of passive haptics.
 The experimental conditions are reduced from the last experiment to just two: one with passive haptics and one without.
 Both conditions are performed with the use of the head-mounted display and the hand tracker.
-A more thorough examination of movement time and accuracy is performed with the use of Fitts' Law, and additional dependent measures are also investigated, such as presence, learning rate, and trajectory metrics.
-This experiment aims to provide a better understanding how the use of passive haptics affects the interaction of a subject with a virtual cockpit panel.
-A version of this chapter was presented at the 2017 AIAA Modeling and Simulation Technologies\citep{joyce_passive_2017}.
+A more thorough examination of movement time and accuracy is performed with the use of Fitts' Law, and additional dependent measures are also investigated, including presence, learning rate, and trajectory metrics.
+This experiment aims to provide a more complete understanding on how the use of passive haptics affects the interaction of a subject with a virtual cockpit panel.
+A version of this chapter was presented at the 2017 AIAA Modeling and Simulation Technologies \citep{joyce_passive_2017}.
 
 \section{Introduction}
 
@@ -49,18 +51,18 @@ We build on this previous work by investigating the effects of passive haptics w
 
 \subsection{Fitts' Law}
 
-Fitts' originally devised a relationship between movement time and the distance and size of targets for a human performing rapid aimed movements\citep{fitts_information_1954}.
+Fitts' originally devised a relationship between movement time and the distance and size of targets for a human performing rapid aimed movements \citep{fitts_information_1954}.
 This has since become known as Fitts' Law, and later work has refined the index of difficulty ($\mathrm{ID}$) as:
 \begin{equation}
     \mathrm{ID}=\log_2\left(\frac{D}{W}+1\right)
     \label{eq:index_of_difficulty}
 \end{equation}
 where $D$ is the distance to the target from the starting location and $W$ is the width of the target.
-This formula for index of difficulty is known as the Shannons' formulation\citep{mackenzie_note_1989}.
+This formula for index of difficulty is known as the Shannons' formulation \citep{mackenzie_note_1989}.
 
 Commonly, the index of difficulty is related to movement time ($\mathrm{MT}$) through a linear regression.
 However, in this work we are concerned with the measurement known as throughput ($\mathrm{TP}$).
-Throughput has been recommended as the dependent measure for comparisons between experimental conditions\citep{soukoreff_towards_2004}.
+Throughput has been recommended as the dependent measure for comparisons between experimental conditions \citep{soukoreff_towards_2004}.
 It can be thought of theoritically as the rate of information the human can input with the particular experimental setup or input device.
 It is defined mathematically as the index of difficulty over the movement time, and has the units of ``bits per second'' (bps).
 \begin{equation}
@@ -69,8 +71,8 @@ It is defined mathematically as the index of difficulty over the movement time, 
 \end{equation}
 
 The use of Fitts' Law as a tool for human-computer interface research began with the research of \citet{card_evaluation_1978} for the evaluation of different input devices for text entry.
-The ISO 9241-9 standard was published in 2000 with guidance on using Fitts' Law as an evaluation of pointing devices\citep{international_organization_for_standardization_iso_2000}.
-Along with the ISO standard, there have been calls to standardize the use of Fitts' Law so that results can be compared across literature\citep{soukoreff_towards_2004}.
+The ISO 9241-9 standard was published in 2000 with guidance on using Fitts' Law as an evaluation of pointing devices \citep{international_organization_for_standardization_iso_2000}.
+Along with the ISO standard, there have been calls to standardize the use of Fitts' Law so that results can be compared across literature \citep{soukoreff_towards_2004}.
 For a 2-dimensional task (where all the buttons exist on a single plane), it is reccomended to use the circle layout as shown in Figure \ref{fig:ph_fitts_circle}.
 This layout is referred to as the ``Fitts' circle'' within this article.
 
@@ -86,7 +88,7 @@ In this work, we use the effective width for the targets, which is defined as:
     W_e = 4.133\sigma
 \end{equation}
 where $\sigma$ is the standard deviation of the end point positions.
-This is known as the adjustment for accuracy\citep{welford_fundamentals_1968}.
+This is known as the adjustment for accuracy \citep{welford_fundamentals_1968}.
 This correction accounts for the performance of the subject, especially on lower index of difficulty conditions where they may aim for the inside edge of a target.
 Hence, the use of the effective width provides the index of difficulty for the task that the subject performed, not the task presented to them.
 The effective width is calculated per subject per distance and width configuration, and subsequently used in the index of difficulty equation.
@@ -106,17 +108,17 @@ A definition from \citet{witmer_measuring_1998} reads:
 \textit{Presence} is defined as the subjective experience of being in one place or environment, even when one is physically situated in another.
 \end{displayquote}
 \citet{sheridan_musings_1992} argued that presence is a subjective sensation that necessitates a subjective measure.
-Increased presence has been shown to lead to increased performance in a virtual environment task\citep{youngblut_relationship_2003}.
+Increased presence has been shown to lead to increased performance in a virtual environment task \citep{youngblut_relationship_2003}.
 We use a version of the Presence Questionnaire (PQ) proposed by \citet{witmer_measuring_1998}.
 The post-questionnaire consists of 16 questions with a seven-point Likert scale.
 \citet{nystad_comparison_2004} found the PQ to be sensitive to technology and interaction methods, so it was chosen to investigate the differences between the two conditions.
 
 \subsection{Arm Fatigue}
 
-Despite the concern of arm fatigue in virtual environments\citep{burdea_virtual_2003}, it was surprising that most results in literature were anecdotal or for mitigations without quantification of the fatigue.
+Despite the concern of arm fatigue in virtual environments \citep{burdea_virtual_2003}, it was surprising that most results in literature were anecdotal or for mitigations without quantification of the fatigue.
 Since fatigue is a subjective quantity, it can be hard to measure it between subjects, and sometimes even within.
 The negative impact of arm fatigue on using virtual environments makes it worth investigating.
-The arm fatigue scale used within this experiment is a Borg Rating of Perceived Exertion (RPE) scale that ranges from 6-20\citep{borg_borgs_1998}.
+The arm fatigue scale used within this experiment is a Borg Rating of Perceived Exertion (RPE) scale that ranges from 6-20 \citep{borg_borgs_1998}.
 \citet{hincapie-ramos_consumed_2014} proposed a model for quantifying and predicting the amount of arm fatigue that correlated well with a Borg scale.
 Although there does not exist a standard for arm fatigue measurements in virtual environemnts, we hope that future researchers will consider including arm fatigue ratings in their experiemnts.
 
@@ -235,7 +237,7 @@ At the end of the experiment, an additional condition comparison survey was give
 \subsection{Trajectory Phases}
 \label{sec:ph_traj_phases}
 
-Human reaching movements have long been known to consist of two distinct phases\citep{woodworth_accuracy_1899}: a ballistic phase and a corrective phase.
+Human reaching movements have long been known to consist of two distinct phases \citep{woodworth_accuracy_1899}: a ballistic phase and a corrective phase.
 The ballistic phase is an open-loop, gross adjustment towards the target, while the corrective phase is more refined movement honing in on the target.
 To seperate the trajectories into the various phases, a simple algorithm was developed.
 First, the local minima are found throughout the velocity profile of the movement to seperate the movement into various submovements.
@@ -261,7 +263,7 @@ The LeapMotion processes data at a variable frequency, thus creating a variable 
 The frequency typically varies from about 100Hz to 120Hz.
 To perform the filtering, the data was first resampled to a fixed rate of 100Hz.
 The filter used is a fourth-order Butterworth filter with a cut-off frequency of 5Hz.
-The cut-off frequency was chosen as voluntary hand movements have been shown to be below such a rate\citep{c._n._riviere_toward_2003}.
+The cut-off frequency was chosen as voluntary hand movements have been shown to be below such a rate \citep{c._n._riviere_toward_2003}.
 
 \section{Results}
 
@@ -456,7 +458,7 @@ The reaction time had no effect by haptics ($F(1,18)=0.32, p=0.58$) or sequence 
 However, for the interaction between the two a significant effect was found ($F(1,18)=18.56, p<0.001$).
 The interpretation of this interaction effect without main effect significance is that the first and second condition had a different reaction time, without dependence on the haptics condition or group.
 The mean reaction time in the first condition for both groups was 130.9 milliseconds ($\sigma=41.0$), but in the second condition it was just over 20 milliseconds faster, with an average of 109.1 milliseconds ($\sigma=36.6$).
-The reaction time for both conditions was lower than generally accepted values for reaction time to a visual or aural stimulus\citep{teichner_recent_1954}.
+The reaction time for both conditions was lower than generally accepted values for reaction time to a visual or aural stimulus \citep{teichner_recent_1954}.
 This is not surprising, as the task was a serial task which the subjects would learn the pacing of throughout the experiment.
 It would be expected that they were able to learn to anticipate the activation of a button (which was also the start of the next movement) as it would activate 160 msec after the subject entered the zone of the previous button.
 This interaction effect indicates that subjects did learn how to anticipate the activation event independent of the haptics or the order they performed the conditions.

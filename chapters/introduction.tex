@@ -7,23 +7,30 @@ The motivation for the research presented stems from the design of complex human
 A common problem is that the design (or modernization) of a cockpit will go into flight before evaluation pilots are completely satisfied with the design process, due to time and budget concerns.
 The remaining deficiencies of the cockpit design are expected to be overcome through additional crew training.
 These deficiencies represent a cost throughout the lifetime of the vehicle in training, and ``unknown'' deficiencies of the human-machine system are often discovered too late in accident reports.
-To address these issues, we have designed and prototyped a virtual environemnt which allow pilot evaluations to occur earlier and more frequently in the design process.
-The aim of our system is to add the immersion and interactivity benefits of a more functionaly simulator to the non-functioning geometric mockup.
-The mockup, which is used in the early stage of the design process, can now be used for more extensive cockpit evaluations with this system installed on top.
-This brings the accompanying benefits of a simulator with the benefits of early stage design mockups: faster and more drastic redesign iterations.
-Additionally, the use of the hand tracker allows for a more thorough examination of the movement of evaluation pilots than is typically possible.
+To address these issues, we have designed and prototyped a virtual environemnt which allows pilot evaluations to occur earlier and more frequently in the design process.
+The aim of our virtual environment is to add the immersion and interactivity benefits of a more functional simulator to a non-functioning geometric mockup.
+Mockups are typically used in the early stages of a design process, where large scale changes are more frequent and exact sizing of components are not complete.
+With this system, an evaluator can wear a head-mounted display while seated in the mockup to provide an immersive visual layer registered with the physical world that can be touched and felt.
+The mockup can then be used for more extensive and realistic cockpit evaluations.
+This brings the accompanying benefits of a full simulator with the benefits of early stage design mockups: faster and more drastic redesign iterations.
+
+\tinytodo{pp on mockups,design cycle}
 
 The prototype system, called the ``Rapidly Reconfigurable Research Cockpit'', consists of a virtual reality (VR) headset, an optical hand tracking device, and 3D printed cockpit surfaces (Figure \ref{fig:intro_r3c}).
-The VR head-mounted display (HMD) provides a virtual view of the cockpit environment.
+The VR head-mounted display (HMD) provides a virtual-visual view of the cockpit environment.
 A challenging aspect of immersive VR simulations, however, is to provide a sense of touch.
 %an appropriate tactile feel of the objects being interacted with (in our case, the instruments of a cockpit).
-We provide this by using 3D-printed instruments co-located with the virtual environment, a technique commonly called ``passive haptics''.
+We solve this by using 3D-printed instruments co-located with the virtual environment, a technique commonly called ``passive haptics''.
 The instruments remain inert and non-functioning in the real world, but appear fully functional in the virtual world presented to the user.
 They can be modelled to the exact shape of a cockpit instrument being designed, and printed within a matter of hours.
-The user can interact with the virtual cockpit (i.e.\ pressing buttons) with the use of an optical based hand tracker, which measures the position of the pilots' hand.
-Their hand position is used to determine if the user is activating a button, as well as to display the hand in the virtual world.
-Normally, the use of an HMD blocks the view of one's own limbs, so not only does the hand tracker provide the input of the button presses, but provides the user with visual feedback of their hand.
+Instead of requiring the mockup instruments to have functioning buttons, the input of the pilot is read using the hand tracker to provide the interaction with the cockpit.
+The optical based hand tracker measures the real-time position of the pilots' hand which is used to determine if the user is touching a button.
+The hand tracker also displays the hand in the virtual world for the user, as the use of an HMD blocks the view of one's own limbs.
+Additionally, the use of the hand tracker allows for a more thorough examination of the hand movement of evaluation pilots in a new cockpit design than is typically possible.
 %Measurements from the hand tracker are used to display the essential visual feedback of hand position in the virtual world, as normally the use of an HMD blocks the view of one's own body.
+
+The combination of these technologies allow an existing mockup to be used as a functioning simulator with visuals overlaid on top of screens and/or out-the-window views, and with functioning buttons on the instrument.
+\tinytodo{pp on r3c benefits}
 
 \begin{figure}
     \centering
@@ -41,8 +48,8 @@ The three main tracks of the research can be summarized in these aims:
     \item Validate the technical approach and evaluate the performance of subjects in the virtual reality environment with passive haptics (Chapter \ref{chap:pointing} and \ref{chap:ph_exp}).
     \item Evaluate the use of the prototype in a mock design evaluation study to determine the differences in standard performance metrics and subject feedback from using our system (Chapter \ref{chap:de_exp})
 \end{enumerate}
-
-Three experiments with human subjects have been performed and are reported on to support these aims.
+The technical approach and development of the prototype is described in Chapter \ref{chap:prototype}.
+Three experiments with human subjects have been performed and are reported on to support these aims in Chapters \ref{chap:pointing}, \ref{chap:ph_exp}, \ref{chap:de_exp}.
 The first experiment (Chapter \ref{chap:pointing}) asked subjects to repeatedly target one of four buttons on the panel under different conditions, testing differences between real versus virtual world as well as passive haptics versus no passive haptics (mid-air reaching).
 We recorded time to completion and accuracy to the button center.
 %It was found that the virtual world caused a slight but significant degradation in time for the reaching movement, but no significant change in accuracy.
@@ -175,7 +182,7 @@ The data is then fit to a linear regression.
 Since its original formulation, refinements to the model have focused on the formula for index of difficulty, \(\text{ID}\), and the definition of its dependencies, width and distance.
 \citet{crossman_speed_1957} suggested a very important refinement called the adjustment for accuracy.
 This provides a correction to the \(\text{ID}\) to compensate for the task which is actually performed by the subject as opposed to the task that was asked to be performed.
-For example, if a subject is presented with two large targets close together (\emph{D} \textless{}\textless{} \emph{W}), then he/she tends to aim towards the inner edges of the targets instead of the center, effectively using a much smaller target width.
+For example, if a subject is presented with two large targets close together ($D << W$), then he/she tends to aim towards the inner edges of the targets instead of the center, effectively using a much smaller target width.
 The adjustment for accuracy replaces the width, \(W\), with the \emph{effective width}, \(W_{e}\).
 The basis for this adjustment is that the information theory basis for Fitts' Law expects that the ``noise'' of the target width induces a 4\% error rate \citep{mackenzie_fitts_1992}.
 If more or less than 96\% of the target hits are successfully within the target, then the target width is adjusted with the adjustment for accuracy to fit the target error rate of 4\%.
@@ -266,7 +273,7 @@ They did not have well-fit regressions, but this could have been due to a small 
 \citet{teather_evaluating_2010} performed a similar task and also found an underperformance of the regression in the fully 3D task.
 One condition performed a mid-air 2D planar task with 3D movement, and no significant difference in throughput was found compared to the same task with constrained 2D motion.
 \citet{liu_comparing_2009} performed a planar multi-directional Fitts' task with a stereoscopic display, and compared virtual world to real world results, finding movement time twice as long in the virtual condition.
-The trajectories were analyzed to determine where the extra movement time was spent, which is discussed in a later section (Trajectories in Virtual Environments)\tinytodo{make this ref work}.
+The trajectories were analyzed to determine where the extra movement time was spent, which is discussed in the next section (\nameref{human-targeting-motion}).
 
 One of the few experiments that utilize Fitts' Law in an immersive HMD was performed by \citet{kohli_redirected_2012} who were focused on evaluating discrepant (warped virtual space) virtual environments to fool the user of the nature of the physical world.
 They had the subjects perform an ISO-9241 Fitts' circle on a panel placed in front of them, and in some conditions the panel was rotated in the virtual world but not in the real world to create the discrepancy.
@@ -277,7 +284,7 @@ The subjects' hand movement was warped to compensate for this.
 Their goal was to compare a gesture based selection technique, and they provide a Fitts' throughput comparison between that and direct mid-air selection.
 
 \subsection{Human Targeting Motion}
-\label{human-targeting-motion-trajectories}
+\label{human-targeting-motion}
 %
 %\subsubsection{Trajectory Models}\label{trajectory-models}
 %
@@ -372,6 +379,8 @@ They were developed to compliment a Fitts' input device evaluation.
 The measures are named target re-entry, task axis crossing, movement direction change, orthogonal direction change, movement variability, movement error, and movement offset.
 They quantify types of movement that are not along the ideal straight-line path from start to goal.
 
+\tinytodo{ve evaluation environments}
+
 \subsection{Summary}
 \label{summary}
 
@@ -379,17 +388,13 @@ The combination of immersive virtual reality simulator with an inert passive hap
 Other approaches at immersive haptics have focused on creating a dynamic environment, but our application of a static cockpit does not need to change geometrically during the simulation (not to be confused with our re-configurability between simulations).
 The integration of new hand tracking technologies is a further innovation, allowing us to provide interactivity with the passive haptics.
 
-To evaluate this new virtual environment, we will use two validated measures -- presence and Fitts' Law.
+To evaluate this new virtual environment, we aim to use two validated measures -- presence and Fitts' Law.
 Fitts' Law is a well validated and actively used model for evaluating both input devices and interfaces.
 To date there have been only a few uses of Fitts' Law in immersive head-mounted display virtual environments.
-As of our knowledge, no one has performed a Fitts' Law experiment in a virtual environment using the new generation optical hand trackers (i.e.
-like the LeapMotion we are using).
+As of our knowledge, no one has performed a Fitts' Law experiment in a virtual environment using the new generation optical hand trackers (i.e.\ the LeapMotion we are using).
 A Fitts' Law characterization is an important step to take to evaluate the system we have created, and provides a standard means of comparison across previous and future literature.
 
-The minimum jerk and minimum torque change trajectory models have been developed to answer the fundamental questions of how humans plan their reaching movements.
-The validation of these models to experimental data in the literature supports these theories.
-As opposed to matching experimental data with theory, our approach will utilize the minimum jerk and minimum torque change models to evaluate the performance, or ``task familiarity'' of subjects.
-This leads to a quantifiable metric of the pilots' familiarity with the cockpit under review, which would be an invaluable new tool for cockpit designers.
+\tinytodo{paragraph summary for de experiment}
 
 \section{Research Questions}
 \label{hypotheses}
@@ -401,13 +406,14 @@ The questions are further detailed in their respective experiment chapters.
 
 \begin{itemize}
     \item Can the technical approach of a mockup providing passive haptics with a visual-virtual overlay using a head mounted display be used successfully?
-    \item Can a user select a button in the R3C prototype with the passive haptics and hand tracker as accuractely as one in the real world?
+    \item Can a user select a button in the R3C prototype with the passive haptics and hand tracker as accurately as one in the real world?
     \item Does the use of passive haptics change the performance of a subject targetting a button in the virtual environment?
     \item Does the use of passive haptics increase the presence of subjects using the virtual environment?
     \item Can the R3C prototype be used effectively as a design evaluation tool?
     \item How does the R3C prototype compare to other design evaluation tools?
 \end{itemize}
 
+\tinytodo{summary of lit review and upcoming work}
 
 %\section{Experimental Methods}
 %\label{experimental-methods}
