@@ -6,16 +6,24 @@ This initial experiment aimed to provide our first quantitative look at how the 
 
 \section{Introduction}
 
-We have developed a proof of concept of the R3C system, which was used to perform an initial targeting study to validate our approach, and provide a basis for future work.
+We have developed a proof of concept of the Rapidly Reconfigurable Research Cockpit (R3C) system, which was used to perform an initial targeting study to validate our approach, and provide a basis for future work.
 %Figure \ref{fig:pe_prototype} shows an over-the-shoulder view of a user of the R3C prototype with annotations to call out the major components of our current technical approach.
-The user is wearing an immersive virtual reality head mounted display (Oculus Rift Development Kit 2), which presents them a virtual scene that is spatially stabilized with respect to the physical instrument panel.
-As the user reaches out toward the inert 3D printed instruments, a LeapMotion hand tracker reads the position of each finger and the pose (attitude and configuration) of the hand.
-A simple collision detection algorithm, described below, uses this information to determine when a user has touched a button.
+In this experiment, the subjects were asked to target a set of buttons multiple times in various levels of virtual reality and the real world.
+
+The R3C prototype used in this experiment contains several components.
+The user wears an immersive virtual reality head mounted display (Oculus Rift Development Kit 2), which presents a virtual scene that is spatially stabilized with respect to a physical instrument panel.
+The physical instrument panel is made of non-functioning 3D printed instruments.
+As the user reaches out toward the panel of instruments, a LeapMotion hand tracker reads the position of each finger and the pose (attitude and configuration) of the hand.
+A simple collision detection algorithm uses this information to determine when a user has touched a button.
 Since it is important for the user to visually track their own hand during pointing and actuation tasks, we also use the hand tracker to render the dynamic position of the hand in the virtual scene.
-On certain buttons we have added copper pads that are connected to a capacitive touch sensor as a secondary sensor for button actuation.
-The camera mounted above the panel is an infrared camera that senses the position of the HMD.
-The display on the screen can be configured as desired; it is currently showing an external camera view.
-The behaviors of each button are controlled in software, and can be easily reconfigured.
+To aid with the validation and performance measures, the buttons are outfitted with a capacitive touch sensor as a secondary sensor for button actuation.
+
+This study aims to validate the technical approach by having new users attempt to perform a button targeting task in the new virtual environment.
+We also record their performance to understand the effect of the visuals, haptics, and hand tracking on their time and accuracy of button targeting.
+
+%The camera mounted above the panel is an infrared camera that senses the position of the HMD.
+%The display on the screen can be configured as desired; it is currently showing an external camera view.
+%The behaviors of each button are controlled in software, and can be easily reconfigured.
 
 The use of virtual or augmented reality in aerospace has been extensive, starting with the first flight simulators, and even in the cockpit in research studies \citep{foyle_taxiway_1996, bachelder_fused_2013}.
 Significant recent work investigates virtual reality tools in a simulator \citep{wan_mrstudio:_2011, yavrucuk_low_2011, aslandere_virtual_2015}.
