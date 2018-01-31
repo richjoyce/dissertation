@@ -19,6 +19,17 @@ Both groups evaluated the same two instrument designs, and subjects were asked t
 We hypothesize that the R3C system could be used in place of a traditional simulator if the two groups provide similar responses to the designs.
 Additionally, we utilized common quantitative metrics to evaluate performance to determine if the conclusions that would be drawn from these change between groups.
 
+\subsection{Workload}
+
+\tinytodo{working on this...}
+Workload is a term used to describe the amount of work an individual has to do.
+For aviation and space cockpit design, managing the amount of workload of the pilot is paramount.
+``construct that represents the cost incurred by a human operator to achieve a particular level of performance''.
+It is an important measure of a design evaluation study of any cockpit.
+It can be measured many ways.
+In this work, NASA-TLX is used as it is the most used.
+
+
 \section{Methods}
 
 \subsection{Simulator Setup}
@@ -100,7 +111,7 @@ The flight dynamics model of the simulator was a stability derivative based mode
 The block diagram of the dynamics is shown in Figure \ref{fig:de_block_diagram}.
 The dynamics model was updated and recorded at a rate of 125Hz.
 The output of the joystick, $r_{js}$, varies from $-1.0$ to $1.0$, and the gain of $10^{\circ}$ was chosen to ensure the pilot had enough control authority to complete the task.
-The flight condition is listed as ``Flight Condition 2'' in NASA CR-2144\cite{heffley_aircraft_1972}.
+The flight condition is listed as ``Flight Condition 2'' in NASA CR-2144 \cite{heffley_aircraft_1972}.
 This dynamics model was chosen due to availability.
 The specifics of the dynamical model were not important other than providing a response similar to an aircraft in flight.
 The model was linearized from sea-level flight at an airspeed of 335 ft/s.
