@@ -3,18 +3,55 @@
 \section{Overview}
 \label{overview}
 
-The motivation for the research presented stems from the design of complex human-machine interfaces, particularly cockpits for spacecraft and high performance aircraft.
+The ``Rapidly Reconfigurable Research Cockpit'' (R3C) is an innovative design tool for human-systems integration and testing of next generation spacecraft or aircraft cockpits.
+The overall objective is to provide an unprecedented ability to optimize a new spacecraft cockpit layout via rapid, low-cost design iterations by integrating state-of-the-art technologies in virtual reality, hand tracking and 3D printing.
+The work presented in this dissertation reports on the design and integration of the R3C prototype, as well as a number of experimental results to understand how humans perform in the virtual environment of the prototype, and an evaluation of the performance of the prototype as a design tool.
+
+The motivation for the research presented stems from the design of complex human-machine interfaces such as cockpits for spacecraft and high performance aircraft.
 A common problem is that the design (or modernization) of a cockpit will go into flight before evaluation pilots are completely satisfied with the design process, due to time and budget concerns.
 The remaining deficiencies of the cockpit design are expected to be overcome through additional crew training.
-These deficiencies represent a cost throughout the lifetime of the vehicle in training, and ``unknown'' deficiencies of the human-machine system are often discovered too late in accident reports.
+These deficiencies represent a cost in training throughout the lifetime of the vehicle (typically measured in decades), and ``unknown'' deficiencies of the human-machine system are often discovered too late in accident reports.
 To address these issues, we have designed and prototyped a virtual environemnt which allows pilot evaluations to occur earlier and more frequently in the design process.
 The aim of our virtual environment is to add the immersion and interactivity benefits of a more functional simulator to a non-functioning geometric mockup.
 Mockups are typically used in the early stages of a design process, where large scale changes are more frequent and exact sizing of components are not complete.
-With this system, an evaluator can wear a head-mounted display while seated in the mockup to provide an immersive visual layer registered with the physical world that can be touched and felt.
+With this system, an evaluator can wear a head-mounted display while seated in the mockup to provide an immersive visual layer registered with the physical world, while still retaining their ability to touch and feel the cockpit.
 The mockup can then be used for more extensive and realistic cockpit evaluations.
 This brings the accompanying benefits of a full simulator with the benefits of early stage design mockups: faster and more drastic redesign iterations.
 
-\tinytodo{pp on mockups,design cycle}
+Specifically, the R3C combines the traditionally separate roles of mockup and simulator.
+To achieve this, we use an immersive head mounted display that provides a high fidelity and dynamic view of the cockpit panel, interior, and exterior window views.
+The head mounted display is tracked and registered, enabling the cockpit visuals to be overlaid on the low fidelity physical mockup.
+The motion and gestures of the cockpit evaluator are tracked using new hand tracker technologies to provide control inputs on the non-functioning cockpit panels.
+The low fidelity physical mockup will have a rapidly evolvable cockpit layout with 3-D printed cockpit elements, while still providing an accurate tactile feel.
+
+Human-Systems Integration principles are not sufficiently advanced to reliably design the layout of next generation cockpits without testing.
+Thus any new flight deck must undergo crew evaluation and acceptance testing of panel/cockpit human-interface designs.
+These evaluations generally result in lengthy and expensive re-design and re-testing cycles.
+As a result, a non-optimum design is often accepted in the face of cost and schedule pressures.
+In addition, the human factors evaluations are generally done in non-functioning static mockups, which call into question the fidelity of the final, evolved design.
+
+Although many design standards exist for aerospace crew-systems interface design, they mostly serve to guide the technical requirements of the displays, controls, etc. \citep{nasa_human_2010,nasa_nasa_2015,us_department_of_defense_department_1999}.
+The cockpit layout and design choices are guided by mission parameters and crew input from mockups \citep{sexton_cockpitcrew_1988,jacobsen_crew_2010,zea_development_2012}.
+The importance of the iterative process has been highlighted in many design approaches.
+For example, quoting from \citet{nasa_nasa_2015}:
+\begin{displayquote}
+Human-centered design \textelp is characterized by early and frequent user involvement, performance assessment, and an iterative design-test-redesign process.
+\end{displayquote}
+Our work does not aim to supersede any existing process or design philosophy, but rather provides a generic tool that all human systems integration engineers can use to enhance their process.
+Specifically, we aim to improve the iterative process by reducing cost and time for the redesign cycles.
+
+Another goal of the R3C system is to not only increase the number of iterations, but to improve the feedback from the evaluations.
+The use of a mockup for design evaluation is standard in the industry.
+\citet{zea_development_2012} reported on design of a cockpit architecture for the then in-development DreamChaser spacecraft.
+Three mockup versions were constructed and they found ``a significant amount of knowledge acquired from the mockups was not attainable through computer models''.
+A physical mockup that also acts as a simulator will help to improve the feedback of the cockpit evaluations.
+Quoting from \citet{sexton_cockpitcrew_1988}:
+\begin{displayquote}
+\textins{The test pilots} must consider the design in a mission context, as if they are using the systems while flying -- the more realistic the testing environment, the more meaningful the findings.
+\end{displayquote}
+By allowing the cockpit evaluators to use the mockup as a functioning simulator, the feedback will be more effective in the context of the mission.
+A more optimized cockpit will not only reduce pilot workload and increase safety, but also long term cost savings.
+When the human-systems integration is performed poorly, the resulting deficiencies can necessitate additional crew-training over the lifetime of the vehicle \citep{jacobsen_crew_2010}.
 
 The prototype system, called the ``Rapidly Reconfigurable Research Cockpit'', consists of a virtual reality (VR) headset, an optical hand tracking device, and 3D printed cockpit surfaces (Figure \ref{fig:intro_r3c}).
 The VR head-mounted display (HMD) provides a virtual-visual view of the cockpit environment.
@@ -29,9 +66,6 @@ The hand tracker also displays the hand in the virtual world for the user, as th
 Additionally, the use of the hand tracker allows for a more thorough examination of the hand movement of evaluation pilots in a new cockpit design than is typically possible.
 %Measurements from the hand tracker are used to display the essential visual feedback of hand position in the virtual world, as normally the use of an HMD blocks the view of one's own body.
 
-The combination of these technologies allow an existing mockup to be used as a functioning simulator with visuals overlaid on top of screens and/or out-the-window views, and with functioning buttons on the instrument.
-\tinytodo{pp on r3c benefits}
-
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{r3c_no_callout.png}
@@ -39,10 +73,12 @@ The combination of these technologies allow an existing mockup to be used as a f
     \label{fig:intro_r3c}
 \end{figure}
 
-This prototype has been the technical base for the research performed in this work.
+The combination of these technologies allow an existing mockup to be used as a functioning simulator with visuals overlaid on top of screens and/or out-the-window views, and with functioning buttons on the instrument.
+With merged mockup and simulator functions, adjustment of the developing flight-deck can be made simpler, cheaper, and more quickly turned around.
+The end result of employing this virtually-enhanced mockup/simulator should be a human interface that is truly optimized, which can result in increased flight deck safety and efficiency, as well as reduced crew workload/fatigue.
+
+The R3C prototype has been the technical base for the research performed in this work.
 The three main tracks of the research can be summarized in these aims:
-
-
 \begin{enumerate}
     \item Create a virtual reality system with passive haptics and hand tracking that allows for evaluation of early design cockpits (Chapter \ref{chap:prototype}).
     \item Validate the technical approach and evaluate the performance of subjects in the virtual reality environment with passive haptics (Chapter \ref{chap:pointing} and \ref{chap:ph_exp}).
@@ -76,6 +112,37 @@ Next input device evaluation research such as Fitts' Law is discussed, highlight
 %The final section discusses the trajectory models that we propose using as% a basis for extension into a ``task familiarity''
 %metric.
 
+\subsection{Virtual Environments for Design}
+
+Recent advancements in virtual reality technology has renewed interest in the benefits of virtual prototyping, and its use has been increasing across industries - manufacturing \citep{choi_virtual_2015}, assembly \citep{pontonnier_designing_2014}, automotive \citep{bordegoni_mixed_2012,lawson_future_2016}, and medicine \citep{nagendran_virtual_2013}.
+The term virtual prototyping (VP) is an encompassing term for a variety of virtual interfaces and/or interactions, and any virtual environment can exist on a spectrum from full virtuality to full reality \citep{milgram_taxonomy_1994}.
+The use of virtual environments in design processes is well established.
+%Virtual manufacturing was described by \citet{shukla_virtual_1994} as ``the use of computer models and simulations of manufacturing processes to aid in the design and production of manufactured products.''
+Many design and engineering teams adopted virtual reality early in order to enhance their prototyping process.
+\citet{brooks_jr_whats_1999} reviewed the (at the time) current use of virtual reality applications in industry.
+A number of engineering design firms had already seen the potential for using virtual whatsity set ups in design reviews, though display applications were typically wall-projections instead of a head mounted display.
+John Deere claimed \$80K of savings from preliminary mockup costs from using the VR system and Chrysler performed some ergonomic reviews using a head mounted system, though the HMDs at the time were very heavy and low resolution \citep{brooks_jr_whats_1999}.
+\citet{abate_haptic-based_2009} investigated the use of haptic interactions for virtual reality training of assembly and maintenance task, and performed a usability assessment which found technicians preferred the use of haptics in a virtual maintenence task.
+
+Flight simulation was one of the first applications of virtual environments, and the use of virtual environments for training and development of new cockpits has persisted throughout the years \citep{hancock_human_2008}.
+Virtual reality simulators for aviation have recently become a track of research.
+\citet{wan_mrstudio:_2011} used an augmented reality approach to register a virtual-visual layer on top of a mockup of a commerical aircraft cockpit for design and evaluation.
+\citet{yavrucuk_low_2011} combined an immersive head-mounted display with hand tracking gloves to provide a virtual simulator of a helicoptor.
+They did not use any haptic feedback and users interacted with the instruments using the hand tracking, with no physical mockup.
+\citet{aslandere_virtual_2015} had a similar technical setup and focused on the virtual button interaction.
+They found that the collision volume for a virtual button interaction did not impact the interaction, but a more realistic hand avatar increased effeciency.
+The first appearance of work similar to ours was by \citet{schiefele_simple_1998} in Germany, which also used a head-mounted display (HMD) to replace the visuals of a flight simulator (though technology has drastically changed in HMD's since their work).
+They recreated only the positions of the panels with a flat plate and then used a magnetic hand tracker for reading the pilot input.
+A short usability study was presented, and they found that users could activate switches, knobs and dials in less time with the physical panel than without (i.e.\ reaching into mid-air).
+
+\citet{aromaa_suitability_2016} reviewed the use of virtual prototypes for human factors/ergonomics (HFE) evaluation.
+They found that the fidelity of a VP may not affect subjective results, but that task performance can be affected, hindering the utility of the evaluation itself.
+This is supported by findings that decreased presence (the feeling that the simulation is real) can negatively affect task performance \citep{youngblut_relationship_2003}.
+Presence is discussed in more detail in a later section.
+\citet{lawson_future_2016} provided recommendations for incorporating VP in the automotive industry for HFE evaluation, including using haptic feedback and marker-less body tracking.
+They found that the use of markers can encumber the participant, affecting evaluation results.
+
+
 \subsection{Virtual Tactile Environments}
 \label{virtual-tactile-environments}
 
@@ -91,11 +158,6 @@ This approach quickly becomes complicated and expensive.
 Others have tried approaches to morph the virtual world to adapt to a generic passive haptic device \citep{kohli_exploiting_2009,kohli_redirected_2012}, which can work only for small discrepancies.
 Fortunately, the adaptability during a simulation of the passive haptic environment is not a requirement for the use case of a pilot evaluating a new cockpit interface.
 We still retain the ability to quickly change the environment in between simulation sessions via 3D printing new parts.
-
-The first appearance of work similar to ours was by \citet{schiefele_simple_1998} in Germany, which also used a head-mounted display (HMD) to replace the visuals of a flight simulator (though technology has drastically changed in HMD's since their work).
-They recreated only the positions of the panels with a flat plate and then used a magnetic hand tracker for reading the pilot input.
-A short usability study was presented, and they found that users could activate switches, knobs and dials in less time with the physical panel than without (i.e.\ reaching into mid-air).
-\tinytodo{not sure if have more aviation refs}
 
 Previous work with passive haptics, though limited, have shown it to provide benefits.
 \citet{insko_passive_2001} investigated the impact of passive haptics on generic virtual environments.
@@ -116,14 +178,16 @@ One can report on quantitative measures of the virtual reality (VR) setup such a
 This can also change depending on the user -- one user could find a VE convincing while another finds it intolerable.
 The effectiveness of a VE is often linked to the sense of \emph{presence}, defined ``as the subjective experience of being in one place or environment, even when one is physically situated in another''\citep{witmer_measuring_1998}.
 \citet{sheridan_musings_1992} argued that presence is a subjective sensation that necessitates a subjective measure.
-It is important to quantify this as increased presence has been shown to improve task performance \citep{youngblut_relationship_2003}
 Two of the more popular post-questionnaires that have been developed are the Presence Questionnaire (PQ) \citep{witmer_measuring_1998} and the Slater-Usoh-Steed (SUS) questionnaire \citep{slater_depth_1994}.
 The former (PQ) consists of 32 questions that cover various factors of presence such as sensory, control, distraction and realism.
 The SUS questionnaire consists of only 6 questions and is focused on the feeling of presence.
 \citet{nystad_comparison_2004} found the PQ to be more sensitive to technology and interaction methods, while the SUS fits better to the definition of presence.
 This suggests PQ may be better suited for our work when comparing between conditions, but SUS could be useful as a general evaluation of the overall system.
 The increased presence with passive haptics found by \citet{insko_passive_2001} is an important finding we aim to replicate for our virtual environment.
-\tinytodo{expand on why presence is important}
+
+Presence is an important measure as it has been shown to correlate with performance in the virtual environment \citep{youngblut_relationship_2003}.
+A high sense of presence increases the feeling that the objects shown in the virtual environment are real and the interactions are the same as they would be in the real world.
+It also provides the user with a better memory of the environment \citep{dinh_evaluating_1999}.
 
 We also hypothesize that our system will reduce the amount of arm fatigue experienced by the operator compared to a mid-air pointing virtual environment (i.e.\ no tactile workstation present).
 This common phenomenon in virtual environments is often called gorilla arms, as people feel that their arms are too heavy to support after prolonged use reaching out into the void.
@@ -136,7 +200,13 @@ Adapting their software to our system would be out of scope (and requires more u
 
 \subsection{Workload}
 
-\todo{this section}
+\tinytodo{working on this...}
+Workload is a term used to describe the amount of work an individual has to do.
+For aviation and space cockpit design, managing the amount of workload of the pilot is paramount.
+``construct that represents the cost incurred by a human operator to achieve a particular level of performance''.
+It is an important measure of a design evaluation study of any cockpit.
+It can be measured many ways.
+In this work, NASA-TLX is used as it is the most used.
 
 \subsection{Input Device Evaluation}
 \label{input-device-evaluation}
@@ -235,8 +305,9 @@ Throughput (TP) is defined as the index of difficulty (ID) over the movement tim
 \begin{equation}
     \mathrm{TP} = \frac{\text{ID}}{\text{MT}}
 \end{equation}
-The units of throughput are bits per second, and it represents the information capacity of the input device.\tinytodo{add importance sentence}
-A higher throughput indicates that the human is able to convey more information through one input device versus another.
+The units of throughput are bits per second, and it represents the information capacity of the input device.
+A higher throughput indicates that the human is able to convey more information (\emph{bits}) through one input device versus another in a given time (\emph{per second}).
+\citet{soukoreff_towards_2004} recommend the use of throughput as the measure for comparing experimental conditions as well.
 One of the advantages of using throughput is that it combines speed and accuracy requirements through the use of the index of difficulty.
 Throughput has been validated to be invariant to subjects prioritizing speed or accuracy \citep{mackenzie_fitts_2008}.
 
@@ -378,8 +449,6 @@ Other metrics have been developed in the literature to evaluate the trajectory o
 They were developed to compliment a Fitts' input device evaluation.
 The measures are named target re-entry, task axis crossing, movement direction change, orthogonal direction change, movement variability, movement error, and movement offset.
 They quantify types of movement that are not along the ideal straight-line path from start to goal.
-
-\tinytodo{ve evaluation environments}
 
 \subsection{Summary}
 \label{summary}

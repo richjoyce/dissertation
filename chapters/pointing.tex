@@ -18,7 +18,7 @@ The display on the screen can be configured as desired; it is currently showing 
 The behaviors of each button are controlled in software, and can be easily reconfigured.
 
 The use of virtual or augmented reality in aerospace has been extensive, starting with the first flight simulators, and even in the cockpit in research studies \citep{foyle_taxiway_1996, bachelder_fused_2013}.
-Significant recent work investigates virtual reality tools in a simulator \citep{h._wan_mrstudio:_2011, i._yavrucuk_low_2011, t._aslandere_virtual_2015}.
+Significant recent work investigates virtual reality tools in a simulator \citep{wan_mrstudio:_2011, yavrucuk_low_2011, aslandere_virtual_2015}.
 However, our concept of merging an accurate but low-cost tactile environment with the high-fidelity virtual view is so far untested.
 Accurate haptic feedback has been a goal of virtual reality (VR) researchers since the emergence of VR.
 Providing dynamic haptic feedback, however, still proves challenging to date \citep{stone_haptic_2001,lecuyer_simulating_2009}.
@@ -66,14 +66,14 @@ The start pads were capacitive touch copper tape electrodes, also $1^{\prime\pri
     \label{fig:pe_capacitive}
 \end{figure}
 
-As previously described (Chapter \ref{sec:proto_button_detection}), the hand tracker mounted above the panel enables detection of when the user presses a button without need for a touch sensor.
+As previously described (Chapter \ref{sec:proto_button_input}), the hand tracker mounted above the panel enables detection of when the user presses a button without need for a touch sensor.
 For this experiment, both sensors were utilized to compare the performance of subjects with both.
 The optical tracking button detection uses a simple collision detection box to determine when a subject has pressed a button.
 When the finger of the user enters the detection box and remains inside for 50 milliseconds, the button press even is activated.
 The purpose of the small delay is to reject false positives if a user moves quickly through the detection box of a button they are not pressing.
 The color of the button changes when they enter this detection box to indicate to the user that they are about to register a button press.
 For this experiment, the collision detection box was set to extend 0.5 inches inward and outward from the button, including a 0.1-inch tolerance on all dimensions.
-\citet{t._aslandere_virtual_2015} found no significant effect with button selection ability based on changing this volume in a purely virtual environment, so we determined an approriate size in pilot studies and did not include the size of the detection box as a variable.
+\citet{aslandere_virtual_2015} found no significant effect with button selection ability based on changing this volume in a purely virtual environment, so we determined an approriate size in pilot studies and did not include the size of the detection box as a variable.
 
 \subsection{Experiment Task}
 
