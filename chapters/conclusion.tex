@@ -9,20 +9,71 @@ The capacitive touch sensors provided a useful countermeasure to the initially i
 As the technology matured and with the development of the calibration algorithm, the original goal of non-functioning geometric mockups could be realized.
 The development of the calibration mechanism proved to be an important step in the development process, as an accurate registration between the physical components and the visual virtual world provided a much more convincing simulation to new and experienced users alike.
 
+\section{Future Work}
+
+%Although this initial application of the R3C system is to aviation and space vehicle cockpits, any sufficiently complex human-system interface could be designed with this system, such as telerobotics, air traffic control, other transportation domains (nautical, rail), or robotic surgery.
+
+Early in the work, it was decided to focus to only allow for push button interaction based on the technology level of the hand tracker and development time required for more interactions.
+An extension of this work could address other types of interactions, such as dials or toggle switches.
+Similarly, the button detection for the push buttons use a naive yet effective algorithm for determining when the user is pushing on a button.
+The collision detection model could be enhanced to predict when a user is actually moving in to push a button or if they are accidentally moving through the collision volume.
+
+The capacitive touch sensors were removed as a need for our prototype as the hand tracker data and calibration improved.
+Recently research has been performed that allows for capacitive sensors to be printed directly into a 3D printed object \citep{shemelya_3d_2013,kwok_electrically_2017}.
+As this technology matures, it could be used to rapidly prototype instrument designs with a highly-reliable method of button detection.
+
+Future virtual reality and augmented reality technologies will also allow for further innovations on the R3C method.
+Currently, the most promising augmented reality headset is the Microsoft HoloLens, though there are a number of limitations.
+Most notably, the field of view is drastically smaller (about 40 degrees) and the hand tracking would not work in the HoloLens.
+The use of augmented reality instead of a fully virtual setup would provide a drastically different experience as the visuals would not be as immersive.
+Newer virtual reality headsets are already available that provide small upgrades to the display quality and optics.
+The most important technical upgrade for the current R3C system would be a more robust hand tracker, as many of the problems experienced were related to the hand tracking quality.
+
+%For future experimental work:
+%Hand tracking data!!!
+%fitts law with more haptic feedback
+
+
 \section{Experimental Findings}
 
-The first experiment (Chapter \ref{chap:pointing}: \nameref{chap:pointing}) provided an initial 
+The first experiment (Chapter \ref{chap:pointing}: \nameref{chap:pointing}) provided an initial study into targeting performance in various fidelities of the prototype technical approach.
+Eight subjects were tasked with targeting buttons on a four-button keypad, repeating the same task for four conditions.
+The conditions varied three independent variables: the use of virtual reality (VR and real world), haptics (passive haptics and no haptics), and button detection method (hand tracker and capactive touch).
+The effect of each independent variable was determined on the time, accuracy, and success rate of targeting a button.
+It was found that the subjects could perform the targeting task almost twice as fast in the real world (1.57 seconds to 3.15 seconds) than in the virtual reality environment.
+The center of pressure of the touch was within error between conditions, but the virtual reality condition had a slighty larger distribution.
+There was a significant effect on the button detection method, with the capacitive touch taking an average of 3.15 seconds to the hand tracker method taking an average of 3.78 seconds.
+There was no effect due to the passive haptics.
+In all conditions, the selection task was performed nearly without error (98.4\% correct) and no difference was found between conditions.
 
 The second experiment (Chapter \ref{chap:ph_exp}: \nameref{chap:ph_exp}) performed a Fitts' Law analysis of the technology, and characterized the differences between using the passive haptics and not using any haptic feedback.
+Twenty subjects performed a Fitts' circle ISO-9241-9 task using a virtual reality HMD and activating the button targets with a hand tracker.
+The subjects repeated the task for a variety of indices of difficulty and also for two haptic conditions: passive haptics and no haptics.
 It was found that the Fitts' throughput was significantly higher when using the passive haptics (4.25 bps) compared to no haptics (3.76 bps).
 Subjects spent significantly more time in the corrective phase of their trajectory without passive haptics, indicating that the passive haptics helps with the final phases of targeting movements.
 Self-reported arm fatigue was also found to be lower for subjects who completed the first condition as passive haptics, though scores converged for the second conditions.
 The presence survey found a marginally significant increase in presence using passive haptics.
-Subjects did strongly indicate their preference for using the passive haptics.
+Subjects did strongly indicate their preference for using the passive haptics, despite the small difference found in the presence survey results.
 
-\section{Discusssion}
+The third experiment (Chapter \ref{chap:de_exp}: \nameref{chap:de_exp}) had subjects perform a mock design evaluation using one of two simulators: an R3C based virtual reality simulator or a touchscreen based simulator.
+The 23 subjects were assigned one simulator technology and then evaluated two designs of an instrument, performing a flight task and working memory prompting task using the instrument.
+The two instrument designs were the same for each group, and subjects gave their subjective feedback after they went through a series of tasks on each design.
+The instrument designs placed buttons for the prompting task response in two different layouts, an ``Edgekey'' design and a ``Keypad'' design.
+The results were analyzed for interaction effects between group and design for the dependent measures.
+This would highlight the possible differences for an evaluator if the virtual reality (VR) group evaluation led to a different outcome than the touchscreen (TS) group.
+The subjective feedback was also categorized and compared to see how the two groups differed in response.
 
-\section{Future Work}
+There was no significant interaction for the root mean square error (RMSE) of the tracking task.
+The VR group had worse tracking performance (1.97 degrees vs.\ 1.28 degrees for the TS group), but the differences between instrument design were the same.
+The prompting task response time had no effect for design or group, but the amount of correct prompts between designs was significantly different for each group.
+The VR group had significantly fewer correct prompts with the Edgekey design (44.0\%) than with the Keypad design (67.5\%).
+The TS group had only a marginally significant difference between designs, with 88.3\% and 81.8\% in the Keypad and Edgekey designs, respectively.
+Similarly, the workload scores (NASA TLX) had a significant difference in both designs, but the effect was stronger in the VR group.
+The Edgekey design had a higher workload score than Keypad in both groups.
 
-Although this initial application of the R3C system is to aviation/space vehicle cockpits, any sufficiently complex human-system interface could be designed with this system, such as telerobotics, air traffic control, robotic surgery, etc.
-The technology that supports our proof of concept system is rapidly improving, and further iterations of our technology integration will provide higher fidelity and an easier user experience.
+Finally, the subjects were asked for the opinions on each design.
+The responses from the subjective feedback questions found that both groups were able to identify the same major categories, for both positive and negative comments on the designs.
+Some issues were not noted as much in one group or the other, but major issues were noted by both groups.
+For example, 13 comments were made in the TS group noting that the flight task being centered in the Edgekey design was helpful, but only 3 subjects noted this in the VR group.
+However, both groups noted at about the same frequency that the switch key in the Edgekey design was troublesome (14 comments in VR, 12 in TS).
+Overall the feedback received is encouraging that the R3C system would highlight the same usability issues in a design being considered.
