@@ -5,29 +5,30 @@
 
 The ``Rapidly Reconfigurable Research Cockpit'' (R3C) is an innovative design tool for human-systems integration and testing of next generation spacecraft or aircraft cockpits.
 The overall objective is to provide an unprecedented ability to optimize a new spacecraft cockpit layout via rapid, low-cost design iterations by integrating state-of-the-art technologies in virtual reality, hand tracking and 3D printing.
-The work presented in this dissertation reports on the design and integration of the R3C prototype, as well as a number of experimental results to understand how humans perform in the virtual environment of the prototype, and an evaluation of the performance of the prototype as a design tool.
+The work presented in this dissertation reports on the design and integration of the R3C prototype, experimental results both to understand how humans perform with the prototype and to evaluate the performance of the prototype as a design tool.
 
 The motivation for the research presented stems from the design of complex human-machine interfaces such as cockpits for spacecraft and high performance aircraft.
 A common problem is that the design (or modernization) of a cockpit will go into flight before evaluation pilots are completely satisfied with the design process, due to time and budget concerns.
 The remaining deficiencies of the cockpit design are expected to be overcome through additional crew training.
 These deficiencies represent a cost in training throughout the lifetime of the vehicle (typically measured in decades), and ``unknown'' deficiencies of the human-machine system are often discovered too late in accident reports.
-To address these issues, we have designed and prototyped a virtual environemnt which allows pilot evaluations to occur earlier and more frequently in the design process.
-The aim of our virtual environment is to add the immersion and interactivity benefits of a more functional simulator to a non-functioning geometric mockup.
-The R3C system combines the traditionally separate roles of mockup and simulator.
+The cost savings and safety benefits of a more optimized design can be enormous.
+To address this issue, we have designed and built a prototype of a virtual environment which allows pilot evaluations to occur earlier and more frequently in the design process.
+The aim of our virtual environment is to add the immersion and interactivity benefits of a more functional simulator to a non-functional geometric mockup.
+This virtual environment, or R3C system, combines the traditionally separate roles of mockup and simulator.
 To achieve this, we use an immersive head mounted display that provides a high fidelity and dynamic view of the cockpit panel, interior, and exterior window views.
-The head mounted display is tracked and registered, enabling the cockpit visuals to be overlaid on the low fidelity physical mockup.
-The motion and gestures of the cockpit evaluator are tracked using new hand tracker technologies to provide control inputs on the non-functioning cockpit panels.
-The low fidelity physical mockup will have a rapidly evolvable cockpit layout with 3D printed cockpit elements, while still providing an accurate tactile feel.
+The head mounted display is tracked and gaze-registered, enabling the cockpit visuals to be overlaid on the low fidelity physical mockup.
+The motion and gestures of the cockpit evaluator are tracked using new hand tracker technologies to provide the users' inputs on the non-functioning cockpit panels.
+The low fidelity physical mockup uses 3D printed cockpit instruments which enables a rapidly evolvable cockpit layout with an accurate tactile feel for the user.
 
-Instead of a fully functioning simulator, the mockup is built to provide designers a physical representation of the cockpit or flight deck in design to find flaws that may not be revealed in virtual models.
-Mockups are typically used in the early stages of a design process, where large scale changes are more frequent and exact sizing of components are not complete.
-With this system, an evaluator can wear a head-mounted display to provide an immersive visual layer registered with the physical world while seated in the mockup and still retain their ability to touch and feel the cockpit.
-As opposed to a full simulator the behavior and the interaction is defined in software, and does not require an expensive integration with simulation hardware.
-Similarly, as opposed to using a virtual reality simulator without any physical representation, combining with the mockup provides a more realistic simulation.
-The mockup can then be used for more extensive and realistic cockpit evaluations.
+Mockups are built to provide designers a physical representation of the cockpit or flight deck in design instead of committing to building a fully functioning simulator.
+Mockups are typically used in the early stages of a design process, where large scale changes are more frequent and exact sizing and placement of components may not be complete.
+With the R3C system, an evaluator can wear a head-mounted display to provide an immersive virtual-visual layer registered with the physical world while seated in the mockup and still retain their ability to touch and feel the cockpit.
+As opposed to a full simulator it does not require a time and cost expensive hardware integration, instead it can be defined in software.
+Similarly, as opposed to using a virtual reality simulator without any physical representation, combining with the mockup provides a more realistic simulation since it becomes coupled with the tactile sense.
+The mockup with the R3C system used ``on top'' can then be used for more extensive and realistic cockpit evaluations.
 This combines the accompanying benefits of a full simulator with the benefits of early stage design mockups: faster and more drastic redesign iterations.
 
-Although many design standards exist for aerospace crew-systems interface design, they mostly serve to guide the technical requirements of the displays, controls, etc. \citep{nasa_human_2010,nasa_nasa_2015,us_department_of_defense_department_1999}.
+Although many design standards exist for aerospace crew-systems interface design, they mostly serve to guide the technical requirements of the displays and controls \citep{nasa_human_2010,nasa_nasa_2015,us_department_of_defense_department_1999}.
 The cockpit layout and design choices are guided by mission parameters and crew input from mockups \citep{sexton_cockpitcrew_1988,jacobsen_crew_2010,zea_development_2012}.
 Human-Systems Integration principles are not sufficiently advanced to reliably design the layout of next generation cockpits without testing.
 Thus any new flight deck must undergo crew evaluation and acceptance testing of panel/cockpit human-interface designs.
@@ -45,26 +46,26 @@ Specifically, we aim to improve the iterative process by reducing cost and time 
 Another goal of the R3C system is to not only increase the number of iterations, but to improve the feedback from the evaluations.
 The use of a mockup for design evaluation is standard in the industry.
 \citet{zea_development_2012} reported on design of a cockpit architecture for the then in-development DreamChaser spacecraft.
-Three mockup versions were constructed and they found ``a significant amount of knowledge acquired from the mockups was not attainable through computer models''.
-A physical mockup that also acts as a simulator will help to improve the feedback of the cockpit evaluations.
+Three mockup versions were constructed and they found that ``a significant amount of knowledge acquired from the mockups was not attainable through computer models''.
+A physical mockup that also acts as a functioning simulator will help to improve the feedback of the cockpit evaluations.
 Quoting from \citet{sexton_cockpitcrew_1988}:
 \begin{displayquote}
 \textins{The test pilots} must consider the design in a mission context, as if they are using the systems while flying -- the more realistic the testing environment, the more meaningful the findings.
 \end{displayquote}
 By allowing the cockpit evaluators to use the mockup as a functioning simulator, the feedback will be more effective in the context of the mission.
-A more optimized cockpit will not only reduce pilot workload and increase safety, but also long term cost savings.
-When the human-systems integration is performed poorly, the resulting deficiencies can necessitate additional crew-training over the lifetime of the vehicle \citep{jacobsen_crew_2010}.
+%A more optimized cockpit will not only reduce pilot workload and increase safety, but also long term cost savings.
+%When the human-systems integration is performed poorly, the resulting deficiencies can necessitate additional crew-training over the lifetime of the vehicle \citep{jacobsen_crew_2010}.
 
 The prototype system of the ``Rapidly Reconfigurable Research Cockpit'' (R3C) that has been developed consists of a virtual reality (VR) headset, an optical hand tracking device, and 3D printed cockpit surfaces (Figure \ref{fig:intro_r3c}).
 The VR head-mounted display (HMD) provides a virtual-visual view of the cockpit environment.
-A challenging aspect of immersive VR simulations, however, is to provide a sense of touch.
+A challenging aspect of immersive VR simulations is to provide a sense of touch.
 %an appropriate tactile feel of the objects being interacted with (in our case, the instruments of a cockpit).
 We solve this by using 3D-printed instruments co-located with the virtual environment, a technique commonly called ``passive haptics''.
 The instruments remain inert and non-functioning in the real world, but appear fully functional in the virtual world presented to the user.
-They can be modelled to the exact shape of a cockpit instrument being designed, and printed within a matter of hours.
+They can be modeled to the exact shape of a cockpit instrument being designed, and printed within a matter of hours.
 Instead of requiring the mockup instruments to have functioning buttons, the input of the pilot is read using the hand tracker to provide the interaction with the cockpit.
-The optical based hand tracker measures the real-time position of the pilots' hand which is used to determine if the user is touching a button.
-The hand tracker also displays the hand in the virtual world for the user, as the use of an HMD blocks the view of one's own limbs.
+The optical based hand tracker measures the real-time position of the pilots' hand to determine if they are touching a button.
+The hand tracker also displays their hand in the virtual world for the user, as the use of an HMD blocks the view of one's own limbs.
 Additionally, the use of the hand tracker allows for a more thorough examination of the hand movement of evaluation pilots in a new cockpit design than is typically possible.
 %Measurements from the hand tracker are used to display the essential visual feedback of hand position in the virtual world, as normally the use of an HMD blocks the view of one's own body.
 
@@ -83,8 +84,8 @@ The R3C prototype has been the technical base for the research performed in this
 The three main tracks of the research can be summarized in these aims:
 \begin{enumerate}
     \item Create a virtual reality system with passive haptics and hand tracking that allows for evaluation of early design cockpits (Chapter \ref{chap:prototype}).
-    \item Validate the technical approach and evaluate the performance of subjects in the virtual reality environment with passive haptics (Chapter \ref{chap:pointing} and \ref{chap:ph_exp}).
-    \item Evaluate the use of the prototype in a mock design evaluation study to determine the differences in standard performance metrics and subject feedback from using our system (Chapter \ref{chap:de_exp})
+    \item Validate the technical approach and evaluate the performance of subjects in the virtual reality environment with passive haptics (Chapters \ref{chap:pointing} and \ref{chap:ph_exp}).
+    \item Evaluate the use of the prototype in a mock design evaluation study to determine differences in standard performance metrics and subject feedback from using the R3C system (Chapter \ref{chap:de_exp})
 \end{enumerate}
 The technical approach and development of the prototype is described in Chapter \ref{chap:prototype}.
 Three experiments with human subjects have been performed and are reported on to support these aims in Chapters \ref{chap:pointing}, \ref{chap:ph_exp}, \ref{chap:de_exp}.
@@ -95,9 +96,10 @@ We recorded time to completion and accuracy to the button center.
 The second experiment (Chapter \ref{chap:ph_exp}) had subjects perform a Fitts' Law task in different conditions to further characterize the difference between using passive haptics and mid-air reaching.
 %The recorded 3D hand trajectory data will also be used to develop the metric for Aim 3 (which is being called the ``task familiarity'' metric or model in this report).
 %By using the Fitts' circle for Experiment 2, we can use the Fitts' throughput as a truth measure of familiarity to train and test the model upon.
-Additionally, this experiment had a more extensive subject survey to collect the opinions of the subjects, especially their opinion on the differences between passive haptics and mid-air reaching.
-The final experiment (Chapter \ref{chap:de_exp}) compared the performance of the R3C prototype as a design evaluation tool against an evaluation using a more traditional simulation.
-Subjects were split into two groups, one using the R3C, the other a touchscreen simulator.
+Additionally, this experiment had a more extensive subject survey to collect the opinions of the subjects, especially on the differences between using passive haptics and mid-air reaching.
+The final experiment (Chapter \ref{chap:de_exp}) performed the same design evaluation study using the R3C system and a traditional simulator.
+This was done to compare the results to determine where, if any, differences were obtained from the evaluation results.
+Subjects were split into two groups, one using the R3C and the other a touchscreen simulator.
 Two instrument designs were presented to each subject and they were asked to perform the same task on both.
 Afterwards, their comments about the two designs were collected.
 Performance measures of the task were also recorded and analyzed.
@@ -107,9 +109,9 @@ The differences found were described and discussed.
 
 \section{Background}
 
-To frame this research, this section will summarize relevant previous work and background on the dependent measures used in the experimental work.
-The first few sections summarize a few tracks of virtual reality research: it's use in design and prototyping, different haptic environments, and the evaluation of virtual environments.
-Next input device evaluation research such as Fitts' Law is discussed, highlighting work that has been performed evaluations in virtual environments.
+To frame this research, this section will summarize relevant previous work as well as background on the dependent measures used in the experimental work.
+The first few sections summarize different tracks of virtual reality research: it's use in design and prototyping, different haptic environments, and the evaluation of virtual environments.
+Next, input device evaluation research such as Fitts' Law is discussed, highlighting work that has been performed in virtual environments.
 Finally, a summary of various human reaching trajectory research is given to understand how the human formulates trajectories in a virtual environment.
 
 \subsection{Virtual Environments for Design}
@@ -123,24 +125,23 @@ Many design and engineering teams adopted virtual reality early in order to enha
 \citet{brooks_jr_whats_1999} reviewed the (at the time) current use of virtual reality applications in industry.
 A number of engineering design firms had already seen the potential for using virtual reality set ups in design reviews, though display applications were typically wall-projections instead of a head mounted display.
 John Deere claimed \$80K of savings from preliminary mockup costs from using a VR system and Chrysler performed ergonomic reviews using a head mounted system, though the HMDs at the time were very heavy and low resolution \citep{brooks_jr_whats_1999}.
-\citet{abate_haptic-based_2009} investigated the use of haptic interactions for virtual reality training of assembly and maintenance task, and performed a usability assessment which found technicians preferred the use of haptics in a virtual maintenence task.
+\citet{abate_haptic-based_2009} investigated the use of haptic interactions for virtual reality training of assembly and maintenance task, and performed a usability assessment which found technicians preferred the use of haptics in a virtual maintenance task.
 
 \citet{aromaa_suitability_2016} reviewed the use of virtual prototypes for human factors/ergonomics (HFE) evaluation.
 They found that the fidelity of a VP may not affect subjective results, but that task performance can be affected, hindering the utility of the evaluation itself.
 This is supported by findings that decreased presence (the feeling that the simulation is real) can negatively affect task performance \citep{youngblut_relationship_2003}.
-Presence is discussed in more detail in a later section.
 \citet{lawson_future_2016} provided recommendations for incorporating VP in the automotive industry for HFE evaluation, including using haptic feedback and marker-less body tracking.
 They found that the use of markers can encumber the participant, affecting evaluation results.
 
 Flight simulation was one of the first applications of virtual environments, and the use of virtual environments for training and development of new cockpits has persisted throughout the years \citep{hancock_human_2008}.
-Virtual reality simulators for aviation have recently become a track of research.
-\citet{wan_mrstudio:_2011} used an augmented reality approach to register a virtual-visual layer on top of a mockup of a commerical aircraft cockpit for design and evaluation but did not describe any interaction methods.
-\citet{yavrucuk_low_2011} combined an immersive head-mounted display with hand tracking gloves to provide a virtual simulator of a helicoptor.
+Virtual reality simulators for aviation have recently become a more active track of research.
+\citet{wan_mrstudio:_2011} used an augmented reality approach to register a virtual-visual layer on top of a mockup of a commercial aircraft cockpit for design and evaluation but did not describe any interaction methods.
+\citet{yavrucuk_low_2011} combined an immersive head-mounted display with hand tracking gloves to provide a virtual simulator of a helicopter.
 They did not use any haptic feedback and users interacted with the instruments using the hand tracking, with no physical mockup.
 \citet{aslandere_virtual_2015} had a similar technical setup with a head-mounted display and tracked gloves.
 Their report focused on the virtual button interaction using a hand tracker.
-They found that the collision volume for a virtual button interaction did not impact the interaction, but a more realistic hand avatar increased effeciency.
-The first appearance of work similar to ours was by \citet{schiefele_simple_1998} in Germany, which also used a head-mounted display (HMD) to replace the visuals of a flight simulator (though technology has drastically changed in HMD's since their work).
+They found that the collision volume for a virtual button interaction did not impact the interaction, but a more realistic hand avatar increased efficiency.
+The first appearance of work similar to ours was by \citet{schiefele_simple_1998} in Germany, which also used a head-mounted display (HMD) to replace the visuals of a flight simulator (though technology has drastically changed in HMDs since their work).
 They recreated only the positions of the panels with a flat plate and then used a magnetic hand tracker for reading the pilot input.
 A short usability study was presented, and they found that users could activate switches, knobs and dials in less time with the physical panel than without (i.e.\ reaching into mid-air).
 
@@ -155,7 +156,7 @@ Another technique is using a stylus mounted to a 6-DOF actuator that can simulat
 These have been used for many studies with the application of surgical tasks, when a tool would be used in the real scenario as well.
 The focus of this work is the idea of \emph{passive haptics}, whereby the tactile environment is recreated to provide the sense of touch, including external forces.
 The disadvantage is that the tactile environment cannot dynamically change during the simulation.
-Some researchers have attempted to create robotic passive haptics \citep{mcneely_robotic_1993, tachi_construction_1994}, which use a robotic arm to deliver the appropriate tactile experience to the user as they reach into the virtual world.
+Some researchers have attempted to create dynamic passive haptics \citep{mcneely_robotic_1993, tachi_construction_1994}, which use a robotic arm to deliver the appropriate tactile experience to the user as they reach into the virtual world.
 This approach quickly becomes complicated and expensive.
 Others have tried approaches to morph the virtual world to adapt to a generic passive haptic device \citep{kohli_exploiting_2009,kohli_redirected_2012}, which can work only for small discrepancies.
 Fortunately, the adaptability during a simulation of the passive haptic environment is not a requirement for the use case of a pilot evaluating a new cockpit interface.
@@ -165,12 +166,12 @@ Previous work with passive haptics, though limited, have shown it to provide ben
 \citet{insko_passive_2001} investigated the impact of passive haptics on generic virtual environments.
 It was found that the passive haptics increased the sense of presence felt by users.
 An experiment had two groups complete a maze in a virtual environment, one group with passive haptics on boundaries, and one without.
-After training the passive haptic group bumped into far fewer obstacles than the group without.
+After training, the passive haptic group bumped into far fewer obstacles than the group without.
 
 \citet{borst_evaluation_2005} created a ``mixed'' haptic virtual environment, whereby they combined an active haptic glove with a passive haptic panel.
 The panel provided the stopping force and depth location of the interface, while the glove haptics provided the finer details of the buttons, switches and dials.
-They compared subjects performing tasks on the panel using the glove by itself (no panel), the passive haptics by itself, as well as their mixed condition.
-They found the glove by itself consistently performed worse than the other two, but overall no significant difference existed between passive haptics and their mixed haptics.
+They compared subjects performing tasks on the panel using the glove by itself (no panel), the passive haptics by itself (no glove), as well as their mixed condition (panel and glove).
+They found the glove by itself consistently performed worse than the other two, but overall no significant difference existed between passive haptics and their mixed haptic condition.
 
 An important reason for the use of haptic feedback is that co-located haptic feedback has been shown to increase performance of tasks in a virtual environment \citep{swapp_interaction_2006}.
 \citet{bouguila_effect_2000} found that haptic feedback improved the perception of depth in a stereoscopic virtual environment.
@@ -180,26 +181,26 @@ The ability to perceive depth would be an important factor for the use of a virt
 \label{virtual-environment-evaluation}
 
 It is notoriously hard to quantify the effectiveness of a virtual environment (VE).
-One can report on quantitative measures of the virtual reality (VR) setup such as latency, field of view, resolution and others, but in the end the only useful measure is whether the user finds the virtual environment convincing.
+One can report on quantitative measures of the virtual reality (VR) setup such as latency, field of view, resolution and others, but in the end the only important measure is whether the user finds the virtual environment convincing.
 This can also change depending on the user -- one user could find a VE convincing while another finds it intolerable.
-The effectiveness of a VE is often linked to the sense of \emph{presence}, defined ``as the subjective experience of being in one place or environment, even when one is physically situated in another'' \citep{witmer_measuring_1998}.
+The effectiveness of a VE is often linked to the sense of \emph{presence}, defined by \citet{witmer_measuring_1998} as ``the subjective experience of being in one place or environment, even when one is physically situated in another.''
 \citet{sheridan_musings_1992} argued that presence is a subjective sensation that necessitates a subjective measure.
 Two of the more popular post-questionnaires that have been developed are the Presence Questionnaire (PQ) \citep{witmer_measuring_1998} and the Slater-Usoh-Steed (SUS) questionnaire \citep{slater_depth_1994}.
 The former (PQ) consists of 32 questions that cover various factors of presence such as sensory, control, distraction and realism.
 The SUS questionnaire consists of only 6 questions and is focused on the feeling of presence.
 \citet{nystad_comparison_2004} found the PQ to be more sensitive to technology and interaction methods, while the SUS fits better to the definition of presence.
 This suggests PQ may be better suited for our work when comparing between conditions, but SUS could be useful as a general evaluation of the overall system.
-The increased presence with passive haptics found by \citet{insko_passive_2001} is an important finding we aim to replicate for our virtual environment.
+The increased presence with passive haptics found by \citet{insko_passive_2001} previously mentioned is an important finding we aim to replicate for our virtual environment.
 
 Presence is an important measure as it has been shown to correlate with performance in the virtual environment \citep{youngblut_relationship_2003}.
 A high sense of presence increases the feeling that the objects shown in the virtual environment are real and the interactions are the same as they would be in the real world.
 It also provides the user with a better memory of the environment \citep{dinh_evaluating_1999}.
 
 We also hypothesize that our system will reduce the amount of arm fatigue experienced by the operator compared to a mid-air pointing virtual environment (i.e.\ no tactile workstation present).
-This common phenomenon in virtual environments is often called gorilla arms, as people feel that their arms are too heavy to support after prolonged use reaching out into the void.
+This common phenomenon in virtual environments is often called ``gorilla arms'', as people feel that their arms are too heavy to support after prolonged use reaching out into the void.
 A measure of this arm fatigue is not included in the standard presence questionnaire.
 The literature does not contain a large volume of experiments that measure arm fatigue.
-Qualitative measures include the Likert scale, NASA Task Load Index (NASA TLX), the ISO-9241-9 ``Assessment of Comfort and Fatigue'' and the Borg scales (RPE and CR10).
+Qualitative measures include a Likert scale, the ISO-9241-9 ``Assessment of Comfort and Fatigue'' and the Borg scales (RPE and CR10).
 The Borg CR10 performs favorably to the other scales for measures of exertion \citep{grant_comparison_1999}.
 Recently, a quantitative approach has been proposed that uses optical tracking of the arm and wrist which validated well against a Borg CR10 scale \citep{hincapie-ramos_consumed_2014}.
 Adapting their software to our system would be out of scope (and requires more upper-limb measurement than we are currently capable of) but the validation against the Borg CR10 scale is promising.
@@ -209,7 +210,7 @@ Adapting their software to our system would be out of scope (and requires more u
 
 For decades one of the most important empirical models in the Human-Computer Interface (HCI) community has been Fitts' Law.
 The basis of the model is a method to predict the movement time of a user towards a target.
-Using just the size and distance to the target, the average movement time can be accurately predicted after emperically determining the model parameters.
+The average movement time can be accurately predicted using just the size and distance to the target after empirically determining the model parameters.
 It has been used to evaluate new input devices to determine how fast a user can move to a target (e.g.\ mice, trackballs, joysticks), as well as a guideline for interface designs (ensuring that target areas are the right size).
 A summary of the field is presented here, with notable contributions and similar work following.
 Fitts' Law used in the context of virtual environments and our work is then discussed.
@@ -217,9 +218,9 @@ Fitts' Law used in the context of virtual environments and our work is then disc
 \subsubsection{Fitts' Law}
 \label{fitts-law}
 
-\citet{fitts_information_1954} originally reported on his experiments of targeted reaching movements between varying target sizes, and compared the linear trend he discovered to information theory models.
+\citet{fitts_information_1954} originally reported on his experiments of targeted reaching movements between varying target sizes, and compared the correlated he discovered to information theory models.
 He postulated that the entire control system of the human, from motor control to visual and proprioceptive feedback, can process information at a certain maximum rate, and the bandwidth of the channel must be derivable from the physical parameters of the target.
-Fitts' adapted Shannons' Theorem \citep{shannon_communication_1949} from information theory for the bandwidth of a channel in the presence of a signal and noise.
+Fitts' adapted Shannons' Theorem from information theory for the bandwidth of a channel in the presence of a signal and noise \citep{shannon_communication_1949}.
 The distance to the target (\emph{D}) is considered the signal, and the width of the target (\emph{W}) is considered to be the noise (Figure \ref{fig:intro_fitts}).
 This analogy allowed Fitts' to create a formula for the \emph{index of difficulty} (\(\text{ID}\)) of a target:
 
@@ -235,8 +236,8 @@ This leads to the equation that is now known as Fitts' Law:
     \mathrm{MT} = a + b \cdot \mathrm{ID}
 \end{equation}
 where \emph{a} and \emph{b} are the parameters of the linear regression, which are determined experimentally.
-A typical experiment consists of subjects performing movements to a range of targets with varying index of difficulty, and recording their movement time.
-The data is then fit to a linear regression.
+A typical experiment consists of subjects performing movements to a range of targets with varying indices of difficulty, and recording their movement time.
+The data is then fit to a linear regression to find \emph{a} and \emph{b}.
 
 \begin{figure}
     \centering
@@ -253,12 +254,11 @@ The adjustment for accuracy replaces the width, \(W\), with the \emph{effective 
 The basis for this adjustment is that the information theory basis for Fitts' Law expects that the ``noise'' of the target width induces a 4\% error rate \citep{mackenzie_fitts_1992}.
 If more or less than 96\% of the target hits are successfully within the target, then the target width is adjusted with the adjustment for accuracy to fit the target error rate of 4\%.
 Motor tasks have been shown to be a Gaussian distribution \citep{crossman_feedback_1983,woodworth_accuracy_1899}, thus 96\% of target endpoints will be within 4.133 standard deviations (\(\sigma\)).
-
+The effective width is thus calculated with the standard deviation from the endpoint data:
 \begin{equation}
 W_{e} = 4.133\sigma
 \end{equation}
-
-It is recommended to calculate the effective width for each subject in each condition as it is sensitive to both between and within subject variability.
+It is recommended to calculate the effective width for each subject in each condition as it is sensitive to both between and within subject variability \citep{soukoreff_towards_2004}.
 The effective width can then be used to calculate an \emph{effective index of difficulty}, \(\text{ID}_{e}\).
 The effective width described here is for one dimensional targets, but there are extensions to 2D targets as well \citep{murata_extending_2001}.
 
@@ -268,32 +268,30 @@ The Welford modification simply adds
 \begin{equation}
     \mathrm{ID} = \left( \frac{D}{W} + 0.5 \right).
 \end{equation}
-A more recent variation noted by \citet{mackenzie_note_1989} suggests that by comparing to Shannons' Theorem, as Fitts originally proposed as the theoritical basis for his work, then the form should be,
+A more recent variation proposed by \citet{mackenzie_note_1989} suggests that by comparing to Shannons' Theorem, as Fitts originally proposed as the theoretical basis for his work, then the form should be,
 \begin{equation}
     \mathrm{ID} = \left( \frac{D + W}{W} \right) = \left( \frac{D}{W} + 1 \right)
 \end{equation}
 which has been widely adopted in literature as the Shannon's Formulation.
-The mathematical structure of this formulation, unlike the original equation, will not produce a negative index of difficulty with real, positive dimensions.
-
+As well as being based in the original theoretical underpinnings of Fitts' Law, the mathematical structure of this formulation will not produce a negative index of difficulty with real, positive dimensions, unlike the original equation.
 
 The first use of Fitts' Law in the human-computer interface (HCI) community was with \citet{card_evaluation_1978}, comparing the use of a mouse, joystick and keys for text selection.
 This led to an extensive use of Fitts' Law in the HCI field, both as a way to evaluate input devices and a design law for user interfaces.
-
 Best practices of using Fitts' Law have been developed, and the standard ISO-9241-9:2000 provided guidelines for the use of Fitts' Law in evaluation of input devices \citep{international_organization_for_standardization_iso_2000}.
 Most notably, it was suggested to use the ISO-9241 ``Fitts' circle'' for evaluations of 2D tasks (Figure \ref{fig:intro_fitts_circle}).
-This input pattern has been adopted widely in literature, and provides a standard for comparing across studies.
+This input pattern has been widely adopted in literature, and provides a standard for comparing across studies.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{fitts_circle.png}
-    \caption{ISO-9241 Fitts' Circle or multidirectional tapping task.}
+    \caption{ISO-9241 Fitts' Circle or multi-directional tapping task.}
     \label{fig:intro_fitts_circle}
 \end{figure}
 
 \citet{soukoreff_towards_2004} present a review of the best practices for designing and performing a Fitts' law experiment, including the use of the Shannon Formulation and the ISO-9241 ``Fitts' circle''.
 They also advise the use a large range of ID values, ideally from 2 to 8 bits.
 
-When used to evaluate input devices, the metric of comparison is often \emph{throughput}.
+When Fitts' Law is used to evaluate input devices, the metric of comparison is often \emph{throughput}.
 Throughput (TP) is defined as the index of difficulty (ID) over the movement time (MT).
 \begin{equation}
     \mathrm{TP} = \frac{\text{ID}}{\text{MT}}
@@ -310,44 +308,47 @@ Since no form of the equations have been rejected outright in the literature, it
 
 \subsubsection{Dimensionality of Fitts' Law}\label{dimensionality-of-fitts-law}
 
-Throughout the Fitts' Law literature one of the differences between experiments is how many dimensions the subjects can move (or move their cursor).
-There are two dimensionalities to consider when discussing Fitts' Law experiments: the dimensionality of the targets or task, and the dimensionality of the movement.
+Throughout the Fitts' Law literature one of the differences between experiments is how many dimensions the subjects can move their targeting device (hand, stylus, cursor).
+There are two dimensionalities to consider when discussing Fitts' Law experiments: the dimensionality of the task, and the dimensionality of the movement.
+The dimensionality of the task refers to the number of dimensions the targets are placed in.
 A 1D task means the targets are aligned along a single axis, whereas a 2D task has them located on a plane (such as the Fitts' circle in Figure \ref{fig:intro_fitts_circle}).
 The dimensionality of the movement refers to how many dimensions the subjects need to move when moving between the targets.
-For example, the original Fitts' Law task was a 1D task as the targets were varied in width along the movement direction, but sufficiently long in the perpindicular dimension, removing that dimension as a variable.
+For example, the original Fitts' Law task was a 1D task as the targets were varied in width along the movement direction, but sufficiently long in the perpendicular dimension, removing that dimension as a variable.
 The movement however was effectively 2D, as the subjects could (and needed to) lift up from the table to move between targets.
 
 The popularity of Fitts' Law in the HCI field has led many researchers to focus on the use of Fitts' Law on a 2D computer screen controlled by a mouse.
 This is a 2D task, with a constrained 2D movement.
-For our application, the movement we are insterested in is a 2D task with 3D movement since the buttons on a cockpit panel are configured in approximately a single plane, with pilots reaching towards them in uncontrained 3D movement.
-There are some newer HCI studies that present this task and movement dimensionality, as it is analogous to the use of a touchscreen device.
+For our application, the movement we are interested in is a 2D task with 3D movement since the buttons on a cockpit panel are configured in approximately a single plane, with pilots reaching towards them in unconstrained 3D movement.
+There are some newer studies that present this task and movement dimensionality, as it is analogous to the use of a touchscreen device.
 Some have proposed minor variations to the formulation of Fitts' law to adjust for touchscreens \citep{bi_ffitts_2013,sears_high_1991}, but others have found the original formulation to perform well \citep{mackenzie_fitts_2015}.
 There are also studies discussed in the next section that perform this task in a virtual environment.
 
 Refinements have been proposed to account for the possible effects of extending the task dimensionality to 2D, such as the bivariate target model \citep{accot_refining_2003, mackenzie_extending_1992, wobbrock_error_2008}.
 Some work has also explored this for 3D tasks, introducing a trivariate model \citep{grossman_pointing_2004} and corrections for 3D placement of targets \citep{cha_extended_2013, murata_extending_2001}.
 These experiments place targets in a truly 3D space, with of course 3D motion required of the user.
-The use of a Fitts' circle on the 2D plane removes the need for these accomodations, as the targets are symmetric and have the same width when approached from any direction.
+The use of a Fitts' circle on the 2D plane effectively removes the need for these accommodations, as the targets are symmetric and have the same width when approached from any direction.
 
 \subsubsection{Fitts' Law in Virtual Environments}\label{applying-fitts-to-virtual-environment}
 
 Fitts' Law has been used in evaluating virtual environments and their input devices.
 \citet{chun_evaluating_2004} evaluated a set of 3D stereo displays with a single haptic-enabled stylus using a Fitts' tapping task.
-They did not have well-fit regressions, but this could have been due to a small range of ID values used (2-3), targets being placed in 3D space (a 3D task with 3D movement) with random order (making the sequence of the task unlearnable), and averaging across subjects before completing the regression.
-\citet{teather_evaluating_2010} performed a similar task and also found an underperformance of the regression in the fully 3D task.
+They did not have well-fit regressions, but this could have been due to a small range of ID values used (2-3), targets being placed in 3D space (a 3D task with 3D movement), with random order (making the sequence of the task un\-learn\-able), and averaging across subjects before completing the regression.
+\citet{teather_evaluating_2010} performed a similar task and also found a poor fit of the regression in the fully 3D task.
 One condition performed a mid-air 2D planar task with 3D movement, and no significant difference in throughput was found compared to the same task with constrained 2D motion.
 \citet{liu_comparing_2009} performed a planar multi-directional Fitts' task with a stereoscopic display, and compared virtual world to real world results, finding movement time twice as long in the virtual condition.
 The trajectories were analyzed to determine where the extra movement time was spent, which is discussed in the next section (\nameref{human-targeting-motion}).
 \citet{teather_pointing_2011} performed an ISO-9241 Fitts' circle task in a CAVE virtual environment (stereoscopic projection on walls) with a motion tracked stylus, comparing performance with and without a passive haptic on the plane of the targets.
 They found increased throughput with the passive haptics, but throughput performance was lower than they had expected.
 
-One of the few experiments that utilize Fitts' Law in an immersive HMD was performed by \citet{kohli_redirected_2012} who were focused on evaluating discrepant (warped virtual space) virtual environments to fool the user of the nature of the physical world.
-They had the subjects perform an ISO-9241 Fitts' circle on a panel placed in front of them, and in some conditions the panel was rotated in the virtual world but not in the real world to create the discrepancy.
+One of the few experiments that utilize Fitts' Law in an immersive HMD was performed by \citet{kohli_redirected_2012} who focused on evaluating ``discrepant'' (warped virtual space) virtual environments to fool the user of the nature of the physical world.
+They had the subjects perform an ISO-9241 Fitts' circle on a panel placed in front of them, and in some conditions the panel was rotated in the virtual world but not in the real world or vice-versa to create the discrepancy.
 The subjects' hand movement was warped to compensate for this.
+Their non-discrepant condition (when virtual and real were at the same angle) should compare to our results with passive haptics.
 
 \citet{coelho_pointing_2014} evaluated the LeapMotion hand tracker (the same technology we are using) in a 3D Fitts' task (with visual feedback on a computer screen), but did not perform a Fitts' model analysis, comparing only time.
 \citet{seixas_one_2015} performed an ISO 9241-9 Fitts' circle task with the LeapMotion.
 Their goal was to compare a gesture based selection technique, and they provide a Fitts' throughput comparison between that and direct mid-air selection.
+Ours is the first work to perform a Fitts' Law evaluation with a passive haptic, immersive VR, and the LeapMotion.
 
 \subsection{Human Targeting Motion}
 \label{human-targeting-motion}
@@ -356,7 +357,7 @@ In one of the earliest experiments to measure trajectories of human targeting mo
 Subjects typically perform the bulk of their movement in the ballistic phase, often considered more of an open-loop or feed-forward mechanism, and as they near the target switch to a feedback, closed-loop, corrective phase \citep{elliott_control_1999}.
 
 Experiments in virtual environments have shown that users typically spend more time in the corrective movement phase than when performing the same task in a non-virtual environment \citep{liu_comparing_2009}.
-However, this work was completed for a mid-air interaction, so it is an open question whether the introduction of passive haptics would reduce the corrective phase penalty for operating in a virtual environment.
+However, this work was completed for a mid-air interaction, so it is an open question whether the introduction of passive haptics would reduce the corrective phase `penalty' for targeting motions in a virtual environment.
 We can quantitatively investigate this question with the use of our virtual environment.
 \citet{mackenzie_three-dimensional_1987} showed that there was correlation between the target size and the time of the deceleration phase for a Fitts' task, suggesting that subjects will adapt their trajectory for accuracy requirements.
 Our application to a cockpit environment is one where accuracy demands are often more important than time demands for manipulation of instruments.
@@ -373,7 +374,7 @@ They quantify types of movement that are not along the ideal straight-line path 
 
 The combination of immersive virtual reality simulator with an inert passive haptic has not been extensively tested in the virtual reality literature.
 Other approaches at immersive haptics have focused on creating a dynamic environment, but our application of a static cockpit does not need to change geometrically during the simulation (not to be confused with our re-configurability between simulations).
-Unobtrusive hand tracking (no gloves) like the one we are using has been highlighted as important for human factors evaluations.
+Unobtrusive hand tracking (requiring no gloves on the user) like the one we are using has been highlighted as important for human factors evaluations.
 The integration of these new hand tracking technologies is a further innovation, allowing us to provide interactivity with the passive haptics.
 
 To evaluate this new virtual environment, we use two validated measures -- presence and Fitts' Law.
@@ -385,7 +386,7 @@ Additionally, the trajectories of the targeting motions can be used to further a
 Past research has found that the use of a virtual environment affects the trajectory but no work has investigated the effect of passive haptics.
 
 Virtual environments have found a lot of use in design and prototyping.
-Some research has started to investigate the use of various forms of augmented and virtual reality.
+Some research has started to investigate the use of various forms of augmented and virtual reality for these tasks.
 Our combination of technology has not been tested in the context of a design evaluation tool.
 
 \section{Research Questions}
@@ -398,10 +399,10 @@ The questions are further detailed in their respective experiment chapters.
 
 \begin{itemize}
     \item Can the technical approach of a mockup providing passive haptics with a visual-virtual overlay using a head mounted display be used successfully?
-    \item Can a user select a button in the R3C prototype with the passive haptics and hand tracker as accurately as one in the real world?
-    \item Does the use of passive haptics change the performance of subjects targetting a button in the virtual environment?
+    \item Can a user select a button in the R3C prototype with the passive haptics and hand tracker as quickly and accurately as one in the real world?
+    \item Does the use of passive haptics change the performance of subjects targeting a button in the virtual environment?
     \item Does the use of passive haptics increase the presence of subjects using the virtual environment?
-    \item Does the use of passive haptics change the trajectory formation of subjects targetting a button in the virtual environment?
+    \item Does the use of passive haptics change the trajectory formation of subjects targeting a button in the virtual environment?
     \item Can the R3C prototype be used effectively as a design evaluation tool?
     \item How does the R3C prototype compare to other design evaluation tools?
 \end{itemize}

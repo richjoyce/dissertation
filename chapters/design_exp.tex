@@ -7,14 +7,14 @@ The final experiment combines the lessons of the previous experiment to investig
 The goal of this experiment is to determine if the R3C system can be used in the place of a more traditional evaluation tool.
 As previous chapters have discussed, there are a number of self-evident advantages to using the R3C system.
 However, there remain some technical limitations to the technology that could hinder adoption.
-We found that a button targetting task took more time in our virtual environment than in the real world (Chapter \ref{chap:pointing}).
-The following experiment (Chapter \ref{chap:ph_exp}) found that a Fitts' Law task produced a higher throughput using a passive haptics layer, mitigating some of the time increase of targeting buttons in a cirtual environment.
+We found that a button targeting task took more time in our virtual environment than in the real world (Chapter \ref{chap:pointing}).
+The following experiment (Chapter \ref{chap:ph_exp}) found that a Fitts' Law task produced a higher throughput using a passive haptics layer, mitigating some of the time increase of targeting buttons in a virtual environment.
 In the experiment described in this chapter, we used the R3C system as the simulation tool for a design evaluation study of a cockpit instrument.
 The purpose in undergoing this evaluation study is to understand if these limitations would interfere with the metrics that might be used in evaluating a new cockpit design.
 
 We designed an experiment which asks for feedback from subjects who take the role of design evaluators for a cockpit instrument.
 The subjects were divided into two groups: one group used an R3C setup to operate the instrument, while the other used a more traditional setup: a touchscreen simulator of the instrument.
-This seperation of groups will allow a comparison of the feedback from subjects between groups.
+This separation of groups will allow a comparison of the feedback from subjects between groups.
 Both groups evaluated the same two instrument designs, and subjects were asked to provide feedback using the same questionnaires.
 We hypothesize that the R3C system could be used in place of a traditional simulator if the two groups provide similar responses to the designs.
 Additionally, we utilized common quantitative metrics to evaluate performance to determine if the conclusions that would be drawn from these change between groups.
@@ -77,7 +77,7 @@ Both groups had an aural indication (a click noise of a button being pressed) wh
 \end{figure}
 
 Beyond the VR group using a virtual reality headset for the visuals, the main difference between the two groups was the method for pressing the buttons on the instruments.
-The VR group used the hand tracker activated system previously described in Chapter \autoref{chap:prototype}.
+The VR group used the hand tracker activated system previously described in Chapter \ref{chap:prototype}.
 For this experiment, the buttons were configured to highlight a blue color when the hand tracker registered a finger within the zone.
 The zones were extended 0.1in around the border of the button, raised a height of 0.5in above the surface of the button.
 When the button was activated after the 150 millisecond delay, the highlight would disappear and the button in the virtual world would move inwards as if it were being pushed in\footnote{Of course, the physical button could not and did not move.}, the press sound would play, and the behavior on the instrument associated with pressing that button would occur.
@@ -178,7 +178,7 @@ The transfer function of the aircraft dynamics is given as:
 \end{align}
 
 The disturbance model is based off the model developed in \citet{sweet_identification_1999}.
-It is designed to provide a broad spectrum of frequencies for human pilot freqeuncy response identifications \citep{mcruer_mathematical_1974}.
+It is designed to provide a broad spectrum of frequencies for human pilot frequency response identifications \citep{mcruer_mathematical_1974}.
 The disturbance is a sum of sines described by:
 
 \begin{align}
@@ -194,7 +194,7 @@ The $k_i$ terms are given as,
 \end{align*}
 The amplitude terms are $a_i=0.5$ for $i <= 6$ and $a_i=0.05$ otherwise.
 The phase terms, $\phi_i$, were randomly selected on the $(-\pi, \pi)$ interval ensuring a uniform distribution.
-This random selection was pre-calculated for each trial, however the order was repeated for each subject so there was no between subject variance in the disturbance signal.
+This random selection was precalculated for each trial, however the order was repeated for each subject so there was no between subject variance in the disturbance signal.
 Furthermore, each subject received the same sequence of disturbance signals for each instrument design.
 The disturbance amplitude, $K$, was chosen such that the root-mean square (RMS) of the signal was $3.5$ degrees.
 The value of the was chosen through pilot studies to ensure the task was challenging but not overwhelming.
@@ -322,7 +322,7 @@ There was no guarantee that the next prompt would start with the instrument in t
 
     \end{tikzpicture}
     \medskip
-    \caption{Prompting Task Flowchart of Cognitive Work for Each Design. Extra work of Edgekey design encolsed in dashed line box.}
+    \caption{Prompting Task Flowchart of Cognitive Work for Each Design. Extra work of Edgekey design enclosed in dashed line box.}
     \label{fig:de_flowchart}
 \end{figure}
 
@@ -333,7 +333,7 @@ The overall sequence of the experiment started with a training session on the si
 The timeline of the experiment was the same for each subject, except for counterbalancing the order that the designs were evaluated.
 The training portion started with a slide deck explaining the tasks, the simulator that the subject was using (depending on which group they were in), and the functionality of the two designs they were to evaluate.
 Next, they performed practice trials with just the tracking task and then just the prompting task.
-The practice trials of the tracking task were 60 seconds long and repeated until the subjects' performance had flatlined.
+The practice trials of the tracking task were 60 seconds long and repeated until the subjects' performance had flat-lined.
 This took between three to six trials for each subject.
 %After basic familiarity with the technology
 
@@ -423,10 +423,10 @@ We do expect that some of the dependent measures may have a significant differen
 The more important measure for us, however, is the interaction effect.
 This will test if the change between Designs is similar for the two Groups.
 If this is the case, then it may indicate that an evaluation study using one of these simulators could draw differing conclusions of an evaluation study using the other.
-Statistically, we will test the hyptothesis that there exists no interaction effect between Group and Design for any of our dependent measures.
+Statistically, we will test the hypothesis that there exists no interaction effect between Group and Design for any of our dependent measures.
 
 Additionally, the two tracking only trials performed at the end of each evaluation session, as well as the final tracking only training trial, will be used to investigate if the subjects were still learning the tracking task.
-The concern if subjects became more trained in the tracking task is that it could lower their attentual needs to that portion of the task, causing a change in performance on the prompting task that was not due to the design change.
+The concern if subjects became more trained in the tracking task is that it could lower their amount of attention to that portion of the task, causing a change in performance on the prompting task that was not due to the design change.
 These hypotheses are enumerated here:
 
 \begin{enumerate}[label={H\arabic*.}]
@@ -716,7 +716,7 @@ In the other designs and groups this happened to only one or two subjects.
 The motivation of this experiment was to determine the differences between using an R3C simulator system and a traditional simulator system to perform a design evaluation experiment.
 We had two groups of subjects perform the same evaluation task on two different designs of a cockpit instrument, one group using the R3C system and the other a touchscreen system.
 The evaluation task included a pitch disturbance tracking task and a call and response prompting task.
-In addition to the quantative performance measures of the task, subjects were asked for their feedback on the two designs at the conclusion of the experiment.
+In addition to the quantitative performance measures of the task, subjects were asked for their feedback on the two designs at the conclusion of the experiment.
 
 The results are summarized using their two independent variables: Group and Design.
 Group, a between subjects factor, refers to the technology the subject used: either Virtual Reality/R3C (VR) or Touchscreen (TS).
@@ -732,7 +732,7 @@ While the TS Group was able to complete significantly more prompts correctly ove
 This interaction can be clearly seen in the factor plot of correct prompts (Figure \ref{fig:de_factor_correct}).
 The NASA TLX workload scores also had an interaction effect between Group and Design.
 The TLX scores for the VR group had a significant effect in Design, with subjects rating the Edgekey design over 30 points higher than the Keypad design (averages of 54.4 to 85.6, respectively).
-However, like the number of prompts correct measure, the TLX score was found to be only marginally significant for the TS group, rating the Keypad at 61.5 to the Edgekey's 69.2.
+However, like the number of prompts correct measure, the TLX score was found to be only marginally significant for the TS group, rating the Keypad at 61.5 compared to the Edgekey at 69.2.
 
 %The effect of Group on the tracking task performance was expected as the visual resolution of the tracking display was diminished in the VR head-mounted display.
 
@@ -752,7 +752,7 @@ First, since our subjects were not subject domain experts or experienced evaluat
 Second, the primary goal of the design feedback for this experiment was not to evaluate the designs, but rather to compare evaluations.
 The use of a proctor interviewing the subjects could introduce accidental bias into the responses of the subjects.
 This can often be useful when evaluating a new interface, for example, an interviewer could ask subjects about a flaw they had not mentioned yet to determine if they did not notice it or did not care about it.
-However, in our case, we forgoed this additional information to ensure no bias was introduced in the collection of their opinions.
+However, in our case, we omitted this additional information to ensure no bias was introduced in the collection of their opinions.
 
 This was a limited study of the utility of VR/R3C for design evaluation purposes.
 The task and instrument design was kept simple in nature for this study in order to limit the amount of confounding variables as well as keep it easy to learn for the subject population.
