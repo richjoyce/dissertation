@@ -19,22 +19,39 @@ Both groups evaluated the same two instrument designs, and subjects were asked t
 We hypothesize that the R3C system could be used in place of a traditional simulator if the two groups provide similar responses to the designs.
 Additionally, we utilized common quantitative metrics to evaluate performance to determine if the conclusions that would be drawn from these change between groups.
 
-\subsection{Workload}
+\subsection{Background}
 
-\tinytodo{working on this...}
-Workload is a term used to describe the amount of work an individual has to do.
-For aviation and space cockpit design, managing the amount of workload of the pilot is paramount.
-``construct that represents the cost incurred by a human operator to achieve a particular level of performance''.
-It is an important measure of a design evaluation study of any cockpit.
-It can be measured many ways.
-In this work, NASA-TLX is used as it is the most used.
+\subsubsection{Virtual Prototyping}
 
+Recent advancements in virtual reality technology has renewed interest in the benefits of virtual prototyping, and its use has been increasing across industries - manufacturing \citep{choi_virtual_2015}, assembly \citep{pontonnier_designing_2014}, automotive \citep{bordegoni_mixed_2012,lawson_future_2016}, and medicine \citep{nagendran_virtual_2013}.
+The use of virtual environments in design processes is well established.
+\citet{aromaa_suitability_2016} reviewed the use of virtual prototypes for human factors/ergonomics (HFE) evaluation.
+They found that the fidelity of a VP may not affect subjective results, but that task performance can be affected, hindering the utility of the evaluation itself.
+\citet{lawson_future_2016} provided recommendations for incorporating VP in the automotive industry for HFE evaluation, including using haptic feedback and marker-less body tracking.
+They found that the use of markers can encumber the participant, affecting evaluation results.
+
+Flight simulation was one of the first applications of virtual environments, and the use of virtual environments for training and development of new cockpits has persisted throughout the years \citep{hancock_human_2008}.
+Recent work has investigated augmented reality for cockpit design \citep{wan_mrstudio:_2011}.
+The use of virtual reality head-mounted displays have also been studied \citep{yavrucuk_low_2011,aslandere_virtual_2015}.
+They did not use any haptic feedback and users interacted with the instruments using hand tracked gloves.
+We add to this work with both a unique technical approach and the comparison of performance between a virtual reality design evaluation and a more traditional approach.
+
+\subsubsection{Workload}
+
+Workload is a term that describes the \emph{amount of work} an individual has to do to accomplish a task.
+It can refer to the actual amount of work, but typically in the context of aviation and spaceflight it refers to the pilot's perception of the workload.
+\citet{hart_development_1988} describes workload as a ``construct that represents the cost incurred by a human operator to achieve a particular level of performance''.
+Workload is an important measure for cockpit design as a higher workload can lead to degraded performance or increased errors.
+An important factor in the design of cockpit instruments is to reduce the amount of workload.
+The workload is measured in this experiment using the NASA Task Load Index (NASA TLX) survey \citep{hart_development_1988}.
+The TLX survey asks for a rating of the perceived workload on a number of subscales: Mental Demand, Physical Demand, Temporal Demand, Performance, Effort, and Frustration.
+The NASA TLX survey has been widely adopted as a standard for measuring workload \citep{hart_nasa-task_2006}.
 
 \section{Methods}
 
 \subsection{Simulator Setup}
 
-The simulator workstation as configured for each group is \tinytodo{this is not done yet}shown and annotated in Figure \ref{fig:de_simgroups}.
+The simulator workstation as configured for each group is shown and annotated in Figure \ref{fig:de_simgroups}.
 It was designed to have as much as possible to be the same between the two configurations.
 The joystick and instrument were positioned in the same location for each group.
 Neither group had out the window visuals, relying only on the attitude indicator on the instrument.
@@ -61,7 +78,6 @@ Both groups had an aural indication (a click noise of a button being pressed) wh
 
 Beyond the VR group using a virtual reality headset for the visuals, the main difference between the two groups was the method for pressing the buttons on the instruments.
 The VR group used the hand tracker activated system previously described in Chapter \autoref{chap:prototype}.
-\todo[inline]{Include a short overview of the hand tracker system}
 For this experiment, the buttons were configured to highlight a blue color when the hand tracker registered a finger within the zone.
 The zones were extended 0.1in around the border of the button, raised a height of 0.5in above the surface of the button.
 When the button was activated after the 150 millisecond delay, the highlight would disappear and the button in the virtual world would move inwards as if it were being pushed in\footnote{Of course, the physical button could not and did not move.}, the press sound would play, and the behavior on the instrument associated with pressing that button would occur.
@@ -111,7 +127,7 @@ The flight dynamics model of the simulator was a stability derivative based mode
 The block diagram of the dynamics is shown in Figure \ref{fig:de_block_diagram}.
 The dynamics model was updated and recorded at a rate of 125Hz.
 The output of the joystick, $r_{js}$, varies from $-1.0$ to $1.0$, and the gain of $10^{\circ}$ was chosen to ensure the pilot had enough control authority to complete the task.
-The flight condition is listed as ``Flight Condition 2'' in NASA CR-2144 \cite{heffley_aircraft_1972}.
+The flight condition is listed as ``Flight Condition 2'' in NASA CR-2144 \citep{heffley_aircraft_1972}.
 This dynamics model was chosen due to availability.
 The specifics of the dynamical model were not important other than providing a response similar to an aircraft in flight.
 The model was linearized from sea-level flight at an airspeed of 335 ft/s.
@@ -188,7 +204,8 @@ The value of the was chosen through pilot studies to ensure the task was challen
 The prompting task was designed to be both a realistic task for a cockpit as well as a demanding task when done in addition with the tracking task.
 The task developed required the subjects to read and memorize a short string of characters and enter it back using the buttons on the instrument.
 To limit the task physically (by number of buttons) and mentally, the characters used were the number 1 through 6 and the letters A through F.
-The prompts were 4 characters long and once the subject started entry the prompt would disappear, forcing them to hold it in short term memory.
+The prompts were 4 characters long and once the subject started entry the prompt would disappear, forcing them to hold it in working memory.
+It has been well established that humans are capable of holding about seven digits in working memory \citep{miller_magical_1956,baddeley_working_1992}.
 
 The sequence of the prompts was separated into 10 second ``windows''.
 The prompt would appear randomly between 2 and 3 seconds of the start of the window.
@@ -352,7 +369,7 @@ The Design is a within subjects factor, the two instrument designs that every su
 \label{sec:de_dependent}
 
 The dependent measures were chosen to evaluate the performance of each task individually as well as the workload of the subject.
-For the tracking task, the root-mean square error (RMSE) was calculated for each trial.
+For the tracking task, the root-mean square error (RMSE) was calculated for each trial \citep{harris_human_2011}.
 The error in this case is simply the pitch shown to the subject, the output of the flight model described in Section \ref{sec:de_fdm}.
 
 The prompting task has two dependent measures, for speed and accuracy.
@@ -737,12 +754,24 @@ The use of a proctor interviewing the subjects could introduce accidental bias i
 This can often be useful when evaluating a new interface, for example, an interviewer could ask subjects about a flaw they had not mentioned yet to determine if they did not notice it or did not care about it.
 However, in our case, we forgoed this additional information to ensure no bias was introduced in the collection of their opinions.
 
-\todo[inline]{Compare to other literature}
-%\todo[inline]{Consider alternative explanations}
-
 This was a limited study of the utility of VR/R3C for design evaluation purposes.
 The task and instrument design was kept simple in nature for this study in order to limit the amount of confounding variables as well as keep it easy to learn for the subject population.
 Future studies could investigate this system in a more involved design study, with multiple instruments or designs, or more complex behavior in the cockpit.
 At this point, it would become more essential to use subject domain experts (i.e.\ experienced pilots) in order to validate these results.
 
 %\section{Conclusion}
+%
+%We found that although some performance measures were lower in the R3C environment
+%There was no significant interaction for the root mean square error (RMSE) of the tracking task.
+%The VR group had worse tracking performance (1.97 degrees vs.\ 1.28 degrees for the TS group), but the differences between instrument design were not significantly different.
+%The prompting task response time had no effect for design or group, but the amount of correct prompts between designs was significantly different for each group.
+%The VR group had significantly fewer correct prompts with the Edgekey design (44.0\%) than with the Keypad design (67.5\%).
+%The TS group had only a marginally significant difference between designs, with 88.3\% and 81.8\% in the Keypad and Edgekey designs, respectively.
+%Similarly, the workload scores (NASA TLX) had a significant difference in both designs, but the effect was stronger in the VR group.
+%The Edgekey design had a higher workload score than Keypad in both groups.
+%
+%The responses from the subjective feedback questions found that both groups were able to identify the same major categories, for both positive and negative comments on the designs.
+%Some issues were not noted as much in one group or the other, but major issues were noted by both groups.
+%For example, 13 comments were made in the TS group noting that the flight task being centered in the Edgekey design was helpful, but only 3 subjects noted this in the VR group.
+%However, both groups noted at about the same frequency that the switch key in the Edgekey design was troublesome (14 comments in VR, 12 in TS).
+%Overall the feedback received is encouraging that the R3C system would highlight the same usability issues in a design being considered.
