@@ -29,6 +29,11 @@
 % in every figure and table right after the \begin{figure}
 % \def\figsp{\ssp}
 %\def\figsp{}
+\usepackage{setspace}
+\makeatletter
+\let\@currsize\normalsize
+\makeatother
+\setstretch{1.667}
 
 
 % useful for drafts
@@ -198,6 +203,9 @@
 \makeatother
 
 \usepackage{booktabs}
+\usepackage{dcolumn}
+\newcolumntype{.}{D{.}{.}{-1}}
+
 % more space between table rows
 \renewcommand{\arraystretch}{1.2}
 
