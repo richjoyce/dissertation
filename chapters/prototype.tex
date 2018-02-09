@@ -20,10 +20,10 @@ These requirements guided the development of the prototypes, based on the techno
     \item [Minimal setup and calibration.]
         Our motivation to use this system in early design stages means that we require it be able to be used ``on top'' of existing mockup systems.
         One consequence of this means that as much as possible, the hardware used must be easy to set up and able to use in constrained spaces.
-        This eliminates some of the high-end head mounted displays that use complicated head tracker systems requiring precise calibration.
+        This eliminates some of the high-end head-mounted displays that use complicated head tracker systems requiring precise calibration.
         Additionally, this eliminates many of the past approaches to hand tracking which use multiple precisely calibrated cameras, or magnetic sensors in a well-defined magnetic field.
         The minimal setup also leads to the need for hand tracking, as the recognition of the user input must be done without outfitting the mockup with working input actuators (i.e.\ buttons).
-    \item [Immersive head mounted display.]
+    \item [Immersive head-mounted display.]
         The need for an immersive HMD with a large field of view is based on the need to use the system as a design evaluation tool.
         Without the ability to place visuals on the screens or create out-the-window views, design evaluations may not be as useful.
         Current augmented reality or mixed reality goggles do not provide the same level of immersion that a fully-virtual HMD provides.
@@ -80,9 +80,9 @@ The field of view is approximately $110^{\circ}$.
 \subsubsection{3D Printed Instruments}
 
 A central tenant of our technical approach is to use physical, geometrically accurate instrument shapes that provide tactile feedback to the fingertips, but no functionality (i.e.\ no screens, no working buttons, etc.).
-In order to achieve this, we have produced 3D-printed ``instruments'' that can be easily rearranged on a panel mount (pegboard).
+In order to achieve this, we have produced 3D printed ``instruments'' that can be easily rearranged on a panel mount (pegboard).
 Since the devices are rapidly prototyped, they can be redesigned much more rapidly than functioning simulator instruments.
-By placing the geometrically accurate 3D-printed instruments at the correct cockpit locations, the user is provided with accurate tactile feedback without the need for stimulating true touch with virtual haptic feedback.
+By placing the geometrically accurate 3D printed instruments at the correct cockpit locations, the user is provided with accurate tactile feedback without the need for stimulating true touch with virtual haptic feedback.
 
 To use an instrument in the R3C system, it requires two versions of the 3D model.
 The first is the version for the rendering engine, which requires textures and possible work to reduce the number of polygons so that rendering is not slowed down by model complexity.
@@ -94,7 +94,7 @@ The difficulty of the conversion from CAD to 3D model mesh can depend on the mod
 For this initial prototype, a demonstration instrument was developed based on a large multi-function display with edge keys.
 This design was chosen based on their standard use in current aircraft and spacecraft cockpits (e.g.\ see \citet{us_department_of_defense_department_1999}).
 The instrument model as viewed in the rendering engine is shown in Figure \ref{fig:proto_mfd_render}.
-The 3D-printed version is shown pictured in Figure \ref{fig:proto_mfd_print}.
+The 3D printed version is shown pictured in Figure \ref{fig:proto_mfd_print}.
 Since it is only used for the tactile feel, it can have a plain aesthetic.
 It was also printed in segments due to the limitations of the printer used.
 The instrument mounted on a panel and being used is shown in Figure \ref{fig:proto_first_panel}.
@@ -158,8 +158,8 @@ The tracking rate is approximately 120Hz, with an advertised latency of under 10
 \subsubsection{Button Input Recognition}
 \label{sec:proto_button_input}
 
-Since the 3D-printed buttons on the instruments are non-functioning by design, the hand tracker data needs to be used to determine when a user is ``pushing'' a button.
-The 3D-printed instruments do not have any movement when the buttons are pushed, so the action of pushing the button is the same as touching it.
+Since the 3D printed buttons on the instruments are non-functioning by design, the hand tracker data needs to be used to determine when a user is ``pushing'' a button.
+The 3D printed instruments do not have any movement when the buttons are pushed, so the action of pushing the button is the same as touching it.
 The users still feel the tactile feedback of the button location as they are ``pushing'' the button, and with a working button press recognition method the button would appear to work when the user touches it.
 
 The next step was to develop the method to determine when users were pushing a button using the hand tracking data from the LeapMotion.
