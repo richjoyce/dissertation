@@ -152,14 +152,18 @@
 
 % PDF formatting options, indexing, hyperlinking, with control over link style
 %Set PDF Metadata
+\title{Performance of a Novel Virtual Environment for Cockpit Evaluation}
+\author{Richard D. Joyce}
+\makeatletter
 \usepackage[pdftex,
-            pdfauthor={Author Name},
-            pdftitle={Title Here},
-            pdfsubject={Subject},
-            pdfkeywords={Comma, List, Keywords},
+            pdfauthor={\@author},
+            pdftitle={\@title},
+            %pdfsubject={Subject},
+            %pdfkeywords={Comma, List, Keywords},
             %pdfproducer={Latex with hyperref, or other system},
             %pdfcreator={pdflatex, or other tool}
             ]{hyperref}
+\makeatother
 \hypersetup{
 	%driver=pdftex,
 	colorlinks=true,
