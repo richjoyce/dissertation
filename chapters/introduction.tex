@@ -1,73 +1,82 @@
 \chapter{Introduction}
 
+
 \section{Overview}
 \label{overview}
 
-The ``Rapidly Reconfigurable Research Cockpit'' (R3C) is an innovative design tool for human-systems integration and testing of next generation spacecraft or aircraft cockpits.
-The overall objective is to provide an unprecedented ability to optimize a new spacecraft cockpit layout via rapid, low-cost design iterations by integrating state-of-the-art technologies in virtual reality, hand tracking and 3D printing.
-The work presented in this dissertation reports on the design and integration of the R3C prototype, experimental results both to understand how humans perform with the prototype and to evaluate the performance of the prototype as a design tool.
+The design of a cockpit is a complex and lengthy process.
+The engineering team must constantly manage a variety of complex design constraints, requirements, human factors, mission context, and technical limitations.
+To manage the complexity of the project, the design is reviewed throughout the process to ensure requirements are being met.
+ One important part of these reviews is an evaluation from the future users of the cockpit -- i.e.\ the pilots or astronauts.
+Feedback from pilots can validate the current design, highlight potential issues, or even discover major design flaws.
+The tools used for the pilot evaluations evolve as the design matures, becoming more and more realistic to the eventual flight mission.
+Initially, evaluations may be done from paper studies of the design, progressing to engineering mockups, then flight simulators, and finally flight tests.
+These are the typical tools used throughout the design of a cockpit, though the specifics of each can depend on the project and resources available.
+For example, a flight simulator can range in fidelity from a desktop simulator to a motion-base simulator.
+Just as with the simulator, the mockup can range in fidelity from as simple as a foamboard structure with printouts of cockpit instruments to a machined, full scale construction of the size and layout of the craft in design.
+The distinguishing feature between a mockup and a simulator is that a mockup is non-functional.
+The mockup is typically built early in the design process, before a full simulator can be developed.
+Often, the main purpose of a mockup is for ergonomic studies and it is not as effective of a tool for pilot evaluations as a simulator.
 
-The motivation for the research presented stems from the design of complex human-machine interfaces such as cockpits for spacecraft and high performance aircraft.
-A common problem is that the design (or modernization) of a cockpit will go into flight before evaluation pilots are completely satisfied with the design process, due to time and budget concerns.
-The remaining deficiencies of the cockpit design are expected to be overcome through additional crew training.
-These deficiencies represent a cost in training throughout the lifetime of the vehicle (typically measured in decades), and ``unknown'' deficiencies of the human-machine system are often discovered too late in accident reports.
-The cost savings and safety benefits of a more optimized design can be enormous.
-To address this issue, we have designed and built a prototype of a virtual environment which allows pilot evaluations to occur earlier and more frequently in the design process.
-The aim of our virtual environment is to add the immersion and interactivity benefits of a more functional simulator to a non-functional geometric mockup.
-This virtual environment, or R3C system, combines the traditionally separate roles of mockup and simulator.
-To achieve this, we use an immersive head-mounted display that provides a high fidelity and dynamic view of the cockpit panel, interior, and exterior window views.
-The head-mounted display is tracked and gaze-registered, enabling the cockpit visuals to be overlaid on the low fidelity physical mockup.
-The motion and gestures of the cockpit evaluator are tracked using new hand tracker technologies to provide the users' inputs on the non-functioning cockpit panels.
-The low fidelity physical mockup uses 3D printed cockpit instruments which enables a rapidly evolvable cockpit layout with an accurate tactile feel for the user.
+The simulator can provide a mission context to the evaluation pilots, and with a functioning simulation they can determine the workload of their flight tasks and identify any potential issues.
+However, this comes at a cost of significant time and money to develop the flight simulator.
+Additionally, by the time the cockpit design is ready for the development of a simulator it can be no longer feasible to undertake large design changes.
+If the pilots are unsatisfied with the design at this stage, the deficiencies risk being ignored under pressure of schedule and cost.
+Instead, the remaining deficiencies of the cockpit are expected to be overcome through additional crew training.
+This represents a cost in training throughout the lifetime of the vehicle, typically measured in decades, and ``unknown'' deficiencies of the human-machine system are often discovered too late in accident reports.
 
+As opposed to the simulator, mockups are more likely to be developed during the early stages of the design process where large scale changes are more frequent and exact sizing and placement of components may not be complete.
 Mockups are built to provide designers a physical representation of the cockpit or flight deck in design instead of committing to building a fully functioning simulator.
-Mockups are typically used in the early stages of a design process, where large scale changes are more frequent and exact sizing and placement of components may not be complete.
-With the R3C system, an evaluator can wear a head-mounted display to provide an immersive virtual-visual layer registered with the physical world while seated in the mockup and still retain their ability to touch and feel the cockpit.
+The mockup as a pilot evaluation tool is limited, and the reason for this is the same reason it is adaptable to large changes: the components are non-functional.
+Mockups are built without functioning instruments or displays so that changes can be made more rapidly.
+
+In this work, we describe a tool named the ``Rapidly Reconfigurable Research Cockpit'' (R3C) created to bridge the gap between mockup and simulator.
+To achieve this, we have designed and built a prototype of a virtual environment that adds the immersion and interactivity benefits of a more functional simulator to a non-functional geometric mockup.
+ Evaluation pilots, while seated in the mockup, wear an immersive head-mounted display that provides a high fidelity and dynamic virtual view of the cockpit panel, interior, and exterior window views.
+The head-mounted display is tracked and gaze-registered, enabling the cockpit visuals to be overlaid on the low fidelity physical mockup.
+The motion and gestures of the cockpit evaluator are tracked using an unobtrusive hand tracker to read the users' inputs on the non-functioning cockpit instruments.
+This provides the essential interactivity to turn the mockup from a non-functioning device into a functioning simulator.
+With the R3C system, an evaluator can wear a head-mounted display to provide an immersive virtual-visual layer registered with the physical world in the mockup and still retain their ability to touch and feel the cockpit.
 As opposed to a full simulator it does not require a time and cost expensive hardware integration, instead it can be defined in software.
 Similarly, as opposed to using a virtual reality simulator without any physical representation, combining with the mockup provides a more realistic simulation since it becomes coupled with the tactile sense.
-The mockup with the R3C system used ``on top'' can then be used for more extensive and realistic cockpit evaluations.
-This combines the accompanying benefits of a full simulator with the benefits of early stage design mockups: faster and more drastic redesign iterations.
+This virtual environment combines the roles of mockup and simulator, bringing the accompanying benefits of a full simulator to the benefits of early stage design mockups: faster and more drastic redesign iterations.
 
-Although many design standards exist for aerospace crew-systems interface design, they mostly serve to guide the technical requirements of the displays and controls \citep{nasa_human_2010,nasa_nasa_2015,us_department_of_defense_department_1999}.
-The cockpit layout and design choices are guided by mission parameters and crew input from mockups \citep{sexton_cockpitcrew_1988,jacobsen_crew_2010,zea_development_2012}.
-Human-Systems Integration principles are not sufficiently advanced to reliably design the layout of next generation cockpits without testing.
-Thus any new flight deck must undergo crew evaluation and acceptance testing of panel/cockpit human-interface designs.
-These evaluations generally result in lengthy and expensive re-design and re-testing cycles.
-As a result, a non-optimum design is often accepted in the face of cost and schedule pressures.
-%In addition, the human factors evaluations are generally done in non-functioning static mockups, which call into question the fidelity of the final, evolved design.
+Our work does not aim to supersede any existing process or design philosophy, but rather provides a tool that human systems integration engineers can use to enhance their process.
+Specifically, we aim to improve the iterative design process of cockpit design by reducing cost and time for the redesign cycles by bringing a more functional tool to the early stages of design.
 The importance of the iterative process has been highlighted in many design approaches.
 For example, quoting from \citet{nasa_nasa_2015}:
 \begin{displayquote}
 Human-centered design \textelp is characterized by early and frequent user involvement, performance assessment, and an iterative design-test-redesign process.
 \end{displayquote}
-Our work does not aim to supersede any existing process or design philosophy, but rather provides a tool that all human systems integration engineers can use to enhance their process.
-Specifically, we aim to improve the iterative process by reducing cost and time for the redesign cycles.
-
 Another goal of the R3C system is to not only increase the number of iterations, but to improve the feedback from the evaluations.
 The use of a mockup for design evaluation is standard in the industry.
 \citet{zea_development_2012} reported on design of a cockpit architecture for the then in-development DreamChaser spacecraft.
-Three mockup versions were constructed and they found that ``a significant amount of knowledge acquired from the mockups was not attainable through computer models''.
+Three mockup versions were constructed, and they found that ``a significant amount of knowledge acquired from the mockups was not attainable through computer models''.
 A physical mockup that also acts as a functioning simulator will help to improve the feedback of the cockpit evaluations.
 Quoting from \citet{sexton_cockpitcrew_1988}:
 \begin{displayquote}
 \textins{The test pilots} must consider the design in a mission context, as if they are using the systems while flying -- the more realistic the testing environment, the more meaningful the findings.
 \end{displayquote}
-By allowing the cockpit evaluators to use the mockup as a functioning simulator, the feedback will be more effective in the context of the mission.
-%A more optimized cockpit will not only reduce pilot workload and increase safety, but also long term cost savings.
-%When the human-systems integration is performed poorly, the resulting deficiencies can necessitate additional crew-training over the lifetime of the vehicle \citep{jacobsen_crew_2010}.
+By allowing the cockpit evaluators to use the mockup as a functioning simulator, the feedback will be more effective with the context of the mission being provided with the virtual layer.
+The R3C system will allow for more iterative cycles with more meaningful feedback from pilots early in the design process.
+This combination will lead to a more optimized cockpit design.
+Eliminating the design deficiencies early will not only lead to cost savings in the design process, but the eventual design will reach a more optimized state.
+This will reduce crew training and errors throughout the life of the vehicle.
+The cost savings and safety benefits of a more optimized design can be enormous, both during the design stage and beyond.
+
+The overall objective is to provide an unprecedented ability to optimize a new spacecraft cockpit layout via rapid, low-cost design iterations by integrating state-of-the-art technologies in virtual reality, hand tracking and 3D printing.
+The work presented in this dissertation reports on the design and integration of the R3C prototype, experimental results both to understand how humans perform with the prototype and to evaluate the performance of the prototype as a design tool.
 
 The prototype system of the ``Rapidly Reconfigurable Research Cockpit'' (R3C) that has been developed consists of a virtual reality (VR) headset, an optical hand tracking device, and 3D printed cockpit surfaces (Figure \ref{fig:intro_r3c}).
 The VR head-mounted display (HMD) provides a virtual-visual view of the cockpit environment.
 A challenging aspect of immersive VR simulations is to provide a sense of touch.
-%an appropriate tactile feel of the objects being interacted with (in our case, the instruments of a cockpit).
 We solve this by using 3D printed instruments co-located with the virtual environment, a technique commonly called ``passive haptics''.
-The instruments remain inert and non-functioning in the real world, but appear fully functional in the virtual world presented to the user.
+ The instruments remain inert and non-functioning in the real world, but appear fully functional in the virtual world presented to the user.
 They can be modeled to the exact shape of a cockpit instrument being designed, and printed within a matter of hours.
 Instead of requiring the mockup instruments to have functioning buttons, the input of the pilot is read using the hand tracker to provide the interaction with the cockpit.
 The optical based hand tracker measures the real-time position of the pilots' hand to determine if they are touching a button.
 The hand tracker also displays their hand in the virtual world for the user, as the use of an HMD blocks the view of one's own limbs.
 Additionally, the use of the hand tracker allows for a more thorough examination of the hand movement of evaluation pilots in a new cockpit design than is typically possible.
-%Measurements from the hand tracker are used to display the essential visual feedback of hand position in the virtual world, as normally the use of an HMD blocks the view of one's own body.
 
 \begin{figure}
     \centering
@@ -76,9 +85,9 @@ Additionally, the use of the hand tracker allows for a more thorough examination
     \label{fig:intro_r3c}
 \end{figure}
 
-The combination of these technologies allow an existing mockup to be used as a functioning simulator with visuals overlaid on top of screens and/or out-the-window views, and with functioning buttons on the instrument.
-With merged mockup and simulator functions, adjustment of the developing flight-deck can be made simpler, cheaper, and more quickly turned around.
-The end result of employing this virtually-enhanced mockup/simulator should be a human interface that is truly optimized, which can result in increased flight deck safety and efficiency, as well as reduced crew workload/fatigue.
+The combination of these technologies allows an existing mockup to be used as a functioning simulator with visuals overlaid on top of screens and/or out-the-window views, and with functioning buttons on the instrument.
+With merged mockup and simulator functions, adjustment of the developing cockpit can be made simpler, cheaper, and more quickly turned around.
+The result of employing this virtually-enhanced mockup should be a human interface that is truly optimized, which can result in increased safety and efficiency, as well as reduced crew workload/fatigue.
 
 The R3C prototype has been the technical base for the research performed in this work.
 The three main tracks of the research can be summarized in these aims:
@@ -105,7 +114,6 @@ Afterwards, their comments about the two designs were collected.
 Performance measures of the task were also recorded and analyzed.
 The goal of the experiment was to determine where subject feedback and performance may differ between an evaluation study using R3C and one using a touchscreen.
 The differences found were described and discussed.
-
 
 \section{Background}
 
