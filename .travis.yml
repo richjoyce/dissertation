@@ -3,7 +3,7 @@ branches:
   - master
 before_install:
 - sudo apt-get update
-- sudo apt-get install make texlive-latex-extra texlive-bibtex-extra texlive-humanities latexmk
+- sudo apt-get install make texlive-latex-extra texlive-bibtex-extra texlive-humanities texlive-science latexmk
 script:
 - make
 deploy:
