@@ -44,9 +44,10 @@ There were three main independent variables under study in this experiment:
 \end{itemize}
 The use of the virtual reality headset also implies that subjects have to rely on the visual feedback from the hand tracker virtual hand to target the button.
 
-We were concerned about the effect of both touch-selection accuracy and movement time, but the context for our design is an aerospace cockpit, where accuracy in selecting the intended button is typically paramount over movement time.
-Previous research in targeting tasks in virtual environments has not always reported on success rates, indicating incorrect trials were discarded or redone.
-We did not do this, as we wanted to ensure we recorded the success rate.
+We were concerned about the effect of both touch-selection accuracy and movement time, but the context for our design is an aerospace cockpit where accuracy in selecting the intended button is typically paramount over movement time.
+Success rates of targeting tasks in virtual environment have not been consistently reported in previous research studies.
+Often, the researchers indicate that incorrect trials were discarded or redone without noting the frequency of errors.
+We are specifically interested in the success rate so incorrect trials were recorded.
 
 Previous work has investigated various 3D pointing tasks in the real and virtual world without tactile feedback \citep{liu_comparing_2009}, or with tactile feedback but no immersive virtual reality \citep{teather_evaluating_2010}, or with virtual haptic feedback \citep{chun_evaluating_2004}, or pure virtual worlds \citep{bruder_touch_2013,grossman_pointing_2004}.
 Our work differs in the use of the tactile feedback provided by the panel combined with an immersive virtual world.
@@ -59,10 +60,10 @@ The panel was configured with a single four-button keypad, arranged in a 2x2 gri
 Three different starting pads were placed on the desk near the edge.
 
 To measure the accuracy of the subject on the keypad buttons, each of the buttons were equipped with the capacitive touch sensor previously described in Chapter \ref{sec:proto_cap_touch}.
-These sensors have an electrode array of 5 rows and columns over the $1^{\prime\prime} \times 1^{\prime\prime}$ square.
-This provides a position accuracy of under 0.1-inch when a user contacts the button.
+These sensors have an electrode array of 5 rows and columns over the \SI{1 x 1}{\inch} square.
+This provides a position accuracy of under \SI{0.1}{\inch} when a user contacts the button.
 A view of this circuit board mounted on the button is shown in Figure \ref{fig:pe_capacitive}.
-The start pads were capacitive touch copper tape electrodes, also $1^{\prime\prime} \times 1^{\prime\prime}$, but had no position detection capability.
+The start pads were capacitive touch copper tape electrodes, also \SI{1 x 1}{\inch}, but had no position detection capability.
 
 \begin{figure}
     \centering
@@ -74,7 +75,7 @@ The start pads were capacitive touch copper tape electrodes, also $1^{\prime\pri
 As previously described (Chapter \ref{sec:proto_button_input}), the hand tracker mounted above the panel enables detection of when the user presses a button without need for a touch sensor.
 For this experiment, both sensors were utilized to compare the performance of subjects with both.
 The optical tracking button detection uses a simple collision detection box to determine when a subject has pressed a button.
-When the finger of the user enters the detection box and remains inside for 50 milliseconds, the button press even is activated.
+When the finger of the user enters the detection box and remains inside for \SI{50}{\milli\second}, the button press even is activated.
 The purpose of the small delay is to reject false positives if a user moves quickly through the detection box of a button they are not pressing.
 The color of the button changes when they enter this detection box to indicate to the user that they are about to register a button press.
 For this experiment, the collision detection box was set to extend 0.5 inches inward and outward from the button, including a 0.1-inch tolerance on all dimensions.
@@ -181,7 +182,7 @@ Observations made during the experiment indicate that at least some of the wrong
 
 The accuracy of the button press itself was also measured, and Figure \ref{fig:pe_accuracy} shows the distribution of the locations registered by the capacitive touch sensors.
 In the plots, (X,Y) = (0,0) corresponds to the bottom left corner of the button.
-The two conditions shown (1 and 4) were the two trials where capacitive touch registered the button selection.
+The two conditions shown (1 and 4) were the two conditions where capacitive touch registered the button selection.
 There is a smaller distribution for the no HMD condition (Figure \ref{fig:pe_accuracy}(b)), but with the HMD (Figure \ref{fig:pe_accuracy}(a)) subjects were still within error to the center of the button.
 It should be noted again here that in the HMD condition, subjects had to rely on the virtual hand from the hand tracker for any visual feedback of hand position.
 
@@ -195,7 +196,7 @@ It should be noted again here that in the HMD condition, subjects had to rely on
 A Fitts’ law analysis of the data was not the goal with the experiment design, and since we did not vary the button width a Fitts’ analysis could only be performed with varying distance.
 The index of difficulty would only range from 4.0 to 4.5, providing an insufficient range for a proper Fitts’ analysis.
 Including extra parameters for the 3D nature of the task \citep{murata_extending_2001, cha_extended_2013} did not improve the fit, especially considering the symmetry of the setup.
-Furthermore the time recorded of the tasks were typically more than in a Fitts' task, since many subjects spent time honing based on the accuracy instructions.
+Furthermore, the time recorded of the tasks were typically more than in a Fitts' task, since many subjects spent time honing based on the accuracy instructions.
 
 %The hand tracker was recording the trajectory in every condition.
 %Figure 7 shows representative trajectories of a movement from the left start pad to the top right panel button.
@@ -216,14 +217,14 @@ Furthermore the time recorded of the tasks were typically more than in a Fitts' 
 
 The start pads and hand tracker were located relative to each other in such a way that the hand would not be in view of the tracker at the beginning of the task, thus the user would have to wait for the hand tracker to acquire the hand when in view.
 This meant for the trials using the HMD the subject would typically have an open loop (blind) ballistic phase followed by the closed loop homing phase once the virtual hand appeared.
-Across subjects for all HMD conditions this hand acquisition by the tracker took on average 660ms ($\sigma = 649$ms) from leaving the start pad.
-An expert user who performed the experiment was able to get the hand to appear in the tracker in 330ms ($\sigma = 133$ms) on average.
+Across subjects for all HMD conditions, this hand acquisition by the tracker took on average \SI{660}{\milli\second} ($\sigma = \SI{649}{\milli\second}$) from leaving the start pad.
+An expert user who performed the experiment was able to get the hand to appear in the tracker in \SI{330}{\milli\second} ($\sigma = \SI{133}{\milli\second}$) on average.
 This could indicate that training on how to get the best hand tracker performance could improve results.
-The same expert also only experienced a 416ms slowdown between using the HMD and not using the HMD (conditions 1 and 4), compared to the 1.58s slowdown measured across the 8 new subjects.
+The same expert also only experienced a \SI{416}{\milli\second} slowdown between using the HMD and not using the HMD (conditions 1 and 4), compared to the \SI{1580}{\milli\second} slowdown measured across the 8 new subjects.
 
 We had originally hypothesized that having the panel would improve the selection performance of the button, but for this task it had no effect.
 There are two possible contributing factors that reduced the effect of the panel on the performance of the subjects.
-First, in the instructions given to subject they were told to target the center of the button.
+First, the subjects were instructed to target the center of the button.
 Some subjects spent time ensuring they were centered over the button before they even entered the zone in front of the button, thus eliminating the need for the panel to provide location.
 Secondly, this task was a discrete pointing task, where the subject would `reset' to the starting position on the desk between each movement.
 It is possible that the panel being in position would help the subject build a better sense of the location of the buttons when moving between buttons on the panel (a serial task).
@@ -247,7 +248,7 @@ The results indicate that this problem has been mitigated at least as much to pr
 %    \label{fig:pe_future}
 %\end{figure}
 
-We have showed that new users can accurately select buttons in a simple targeting task in our system.
+We have shown that new users can accurately select buttons in a simple targeting task in our system.
 All of our independent variables showed no significance on correct button selection.
 The use of the head-mounted display to provide visuals of hand position provides a small time penalty in button selection.
 The use of the physical panel provided no significant effect in time compared to having the subjects target purely virtual buttons.
