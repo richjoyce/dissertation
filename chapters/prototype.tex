@@ -23,15 +23,15 @@ These requirements guided the development of the prototypes, based on the techno
         This requirement eliminates some of the high-end head-mounted displays that use complicated head tracker systems requiring precise calibration.
         Additionally, this eliminates many of the past approaches to hand tracking which use multiple precisely calibrated cameras, or magnetic sensors in a well-defined magnetic field.
         The minimal setup also leads to the need for hand tracking, as the recognition of the user input must be done without outfitting the mockup with working input actuators (i.e.\ buttons).
-    \item [Immersive head-mounted display.]
-        The need for an immersive HMD with a large field of view is based on the need to use the system as a design evaluation tool.
-        Without the ability to place visuals on the screens or create out-the-window views, design evaluations may not be as useful.
-        Current augmented reality or mixed reality goggles do not provide the same level of immersion that a fully-virtual HMD provides.
     \item [Unobtrusive hand tracking.]
         For a realistic design evaluation, it is important that the hand tracker does not modify the users behavior or inhibit their tactile sense.
         Many hand trackers use a glove or other marker worn on the hand to provide the tracking ability.
         Wearing a glove to achieve hand tracking would remove one of the benefits of the R3C system -- providing a realistic tactile sensory input.
         Newer optical-based hand trackers allow this requirement to be fulfilled.
+    \item [Immersive head-mounted display.]
+        The need for an immersive HMD with a large field of view is based on the need to use the system as a design evaluation tool.
+        Without the ability to place visuals on the screens or create out-the-window views, design evaluations may not be as useful.
+        Current augmented reality or mixed reality goggles do not provide the same level of immersion that a fully-virtual HMD provides.
 \end{description}
 
 \section{Prototype Development}
@@ -99,9 +99,8 @@ Since it is only used for the tactile feel, it has a plain aesthetic.
 The color and visual detail of the instrument are only on the rendered model in the virtual world, simplifying the physical prototyping process.
 This instrument was also 3D printed in segments due to the limitations of the printer used, but this did not affect the virtual representation.
 Figure~\ref{fig:proto_first_panels} shows the instrument mounted on a panel and being used.
-This instrument provided a base for the demos, though the specific design was not used in a research study.
-%awk
-The workflow learned to create this demo instrument was used for future instruments utilized in the research studies.
+This instrument provided a base for the demos.
+Although this specific design was not used in a research study, the workflow learned to create this demo instrument was used for future instruments utilized in the research studies.
 
 \mbox{}\hfill
 \begin{figure}
@@ -136,7 +135,8 @@ The LeapMotion hand tracker was selected as it provided an unobtrusive method fo
 The device itself is small (\SI{3.0 x 1.2 x 0.5}{\inch}), allowing it to be used in constrained environments (pictured in Figure~\ref{fig:proto_leap_device}).
 It uses two infrared cameras to feed its proprietary tracking algorithm, and requires no gloves to be worn by the user.
 The tracking volume extends rougly \num{2}~feet above the controller, and \num{2}~feet about the center on the other two axes.
-This large field of view is shown in Figure~\ref{fig:proto_leap_fov} and can easily cover the working area of a cockpit panel.
+This large, roughly hemispherical, field of view is shown in Figure~\ref{fig:proto_leap_fov} and can easily cover the working area of our research cockpit panel.
+A larger cockpit could be supported with multiple devices.
 The original version of the software, used in this prototype, provided real-time location and orientation of each fingertip.
 It also gave the position and orientation of the palm, but did not provide any details on the joints or which finger of the hand the fingertip belonged to.
 The tracking rate is approximately \SI{120}{\hertz}, with an advertised latency of under \num{10}~milliseconds.
@@ -165,10 +165,10 @@ The tracking rate is approximately \SI{120}{\hertz}, with an advertised latency 
 \label{sec:proto_button_input}
 
 Since the 3D printed buttons on the instruments are non-functioning by design, the hand tracker data needs to be used to determine when a user is ``pushing'' a button.
-The 3D printed instruments do not have any movement when the buttons are pushed, so the action of pushing the button is the same as touching it.
-The users still feel the tactile feedback of the button location as they are ``pushing'' the button, and with a working button press recognition method the button would appear to work when the user touches it.
+The 3D printed instruments do not have any movement when the buttons are pushed, so the button or key is considered activated as soon as it is touched by the users' fingertip.
+The users feel the tactile feedback of the button location as they are ``pushing'' the button, and with a working button press recognition method the button would appear to work when the user touches it.
 
-The next step was to develop the method to determine when users were pushing a button using the hand tracking data from the LeapMotion.
+The next step was to develop the method to determine when users were touching a button using the hand tracking data from the LeapMotion.
 The button recognition system was developed within the EDGE engine independent of the specific hand tracker, so that future prototypes could use a different hand tracking technology if a new device became available.
 
 The button detection algorithm is a simple collision detection model.
@@ -200,9 +200,9 @@ Most noticeable in the yaw, it would cause the panel to become misaligned and re
 \subsection{Second Prototype}
 
 A number of improvements were made in the second generation of the prototype.
-Due to software upgrades, the hand tracking became more robust and provided more complete information about the entire hand position.
-The visuals were upgraded with the second Development Kit of the Oculus Rift, which provided improved visual resolution, but, more importantly, an external head tracker (using an infrared camera) which enabled accurate detection of head movement and virtually eliminated drift of the internal sensors.
-A major focus of this version of the development work for this prototype was to improve reliability and registration.
+Due to vendor provided software upgrades, the hand tracking became more robust and provided more complete information about the entire hand position.
+The visuals were upgraded with the second Development Kit of the Oculus Rift, which provided improved visual resolution, but, more importantly, an external head tracker (using an infrared camera) which enabled accurate detection of head movement and virtually eliminated drift of the internal intertial sensors.
+A major focus of this version of the prototype was to improve reliability and registration.
 The reliability was partially improved with the new hand tracking software, but other countermeasures developed are described as well.
 Registration, which refers to the alignment between the physical world and the virtual world, was improved with the use of a new calibration mechanism described in this section.
 
