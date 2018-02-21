@@ -3,12 +3,13 @@
 
 The first experiment, described in the previous chapter, provided validation that the R3C technology could be used for interacting with a non-functioning mockup.
 We found that subjects had a near-perfect success rate using the hand tracking sensor to activate buttons, with accuracy comparable to their performance in a non-virtual environment.
+There was a difference in time, with the subjects performing faster in the real, non-virtual environment, and slower in all the virtual environment conditions.
 One of the unanswered questions was the effect of the panel as passive haptics on the movement time and accuracy.
 The difference in movement time between the subjects using the passive haptics and those without were insignificant.
 The main focus of this experiment is the independent variable of passive haptics.
 The experimental conditions are reduced from the last experiment to just two: one with passive haptics and one without.
 Both conditions are performed with the use of the head-mounted display and the hand tracker.
-A more thorough examination of movement time and accuracy is performed with the use of Fitts' Law, and additional dependent measures are also investigated, including presence, learning rate, and trajectory metrics.
+A more thorough examination of movement time and accuracy is provided by the use of Fitts' Law, and additional dependent measures are also investigated, including presence, learning rate, and trajectory metrics.
 This experiment aims to provide a more complete understanding on how the use of passive haptics affects the interaction of a subject with a virtual cockpit panel.
 A version of this chapter was presented at the 2017 AIAA Modeling and Simulation Technologies \citep{joyce_passive_2017}.
 
@@ -25,7 +26,7 @@ In our paper, we utilize a simple colocated passive haptic device and measure it
 The advantages to using a simple passive haptic can be easily understood: less cost and complexity compared to most active haptic solutions.
 However, the disadvantage comes with its inflexibility.
 Due to their nature, passive haptics often have to be purpose built for a single or limited experience.
-While past research has aimed to address this, by either actively positioning a proxy object or simplifying the proxy object to fool the user, our application does not suffer from this limitation.
+While past research has aimed to address this, by either actively positioning a proxy object or simplifying the proxy object to fool the user, our application suffers only minimally from this limitation.
 The motivation for our research comes from the application of designing aerospace cockpits, complex human-machine interfaces where the user is stationed at their workspace.
 For the purpose of evaluating a cockpit design, the user does not need a dynamic tactile environment.
 Furthermore, many cockpit design processes already create a physical mockup which can provide the passive haptics for this evaluation.
@@ -41,8 +42,9 @@ Their performance on the Fitts' task was recorded as well as their responses to 
 
 Passive haptics has been a topic of research since the first immersive virtual environments.
 Robotic passive haptics were used to ameliorate the inflexibility of a proxy object by utilizing a robotic arm to position the proxy object in the virtual environment where the user was reaching \citep{tachi_construction_1994,mcneely_robotic_1993}.
-\citet{insko_passive_2001} found increased presence using passive haptics for a maze, and also found that subjects trained with the passive haptics performed better after they were removed than the group that never used them.
-Another track of work combined active haptics with passive haptics, using a haptic glove with a physical panel to create mixed haptics \citep{borst_evaluation_2005}.
+%awk
+\citet{insko_passive_2001} found that subjects reported increased presence using passive haptics for a maze, and also found that subjects trained with the passive haptics performed better after they were removed than the group that never used them.
+Another track of research combined active haptics with passive haptics, using a haptic glove with a physical panel to create mixed haptics \citep{borst_evaluation_2005}.
 Again, performance was increased with the haptics, but minimal differences were found between using the mixed haptics and the passive haptics alone.
 Similar to our motivation and work, \citet{schiefele_simple_1998} replaced a cockpit panel with a flat panel in an immersive head-mounted virtual environment, and found that users could activate buttons and switches in less time with the panel present than without.
 While much of the research involving passive haptics indicates an increase in the presence of the user, some have questioned whether active haptics provides benefits.
@@ -110,7 +112,7 @@ A definition from \citet{witmer_measuring_1998} reads:
 \citet{sheridan_musings_1992} argued that presence is a subjective sensation that necessitates a subjective measure.
 Increased presence has been shown to lead to increased performance in a virtual environment task \citep{youngblut_relationship_2003}.
 We use a version of the Presence Questionnaire (PQ) proposed by \citet{witmer_measuring_1998}.
-The post-questionnaire consists of 16 questions with a seven-point Likert scale.
+The post-questionnaire consists of 16~questions with a seven-point Likert scale.
 \citet{nystad_comparison_2004} found the PQ to be sensitive to technology and interaction methods, so it was chosen to investigate the differences between the two conditions.
 
 \subsection{Arm Fatigue}
@@ -118,7 +120,7 @@ The post-questionnaire consists of 16 questions with a seven-point Likert scale.
 Despite the concern of arm fatigue in virtual environments \citep{burdea_virtual_2003}, it was surprising that most results in literature were anecdotal or for mitigation without quantification of the fatigue.
 Since fatigue is a subjective quantity, it can be hard to measure it between subjects, and sometimes even within.
 The negative impact of arm fatigue on using virtual environments makes it worth investigating.
-The arm fatigue scale used within this experiment is a Borg Rating of Perceived Exertion (RPE) scale that ranges from 6-20 \citep{borg_borgs_1998}.
+The arm fatigue scale used within this experiment is a Borg Rating of Perceived Exertion (RPE) scale that ranges from \numrange{6}{20} \citep{borg_borgs_1998}.
 \citet{hincapie-ramos_consumed_2014} proposed a model for quantifying and predicting the amount of arm fatigue that correlated well with a Borg scale.
 Although there does not exist a standard for arm fatigue measurements in virtual environments, we hope that future researchers will consider including arm fatigue ratings in their experiments.
 
@@ -128,9 +130,9 @@ The purpose of the experiment described within this paper is to answer the follo
 
 \begin{enumerate}
     \item Will Fitts' throughput be higher with passive haptics?
-    \item Do subjects learn the task quicker with passive haptics?
+    \item Do subjects learn the task more quickly with passive haptics?
     \item What are the differences between the formation of reaching motion trajectories with passive haptics?
-    \item Do subjects have lower arm fatigue with passive haptics?
+    \item Do subjects report less arm fatigue with passive haptics?
     \item Do subjects feel more presence with passive haptics?
 \end{enumerate}
 
@@ -154,7 +156,7 @@ Our pilot studies (Section \ref{sec:proto-hand-tracking}) indicated that hand tr
 However, the hand tracker could not be mounted on the head-mounted display as it required a fixed position relative to the passive haptics to maintain appropriate registration between the virtual world and the passive haptics.
 
 A custom calibration scheme (Section \ref{sec:proto-calibration}) was developed for the hand tracker as the initial registration between physical and virtual worlds was not very accurate.
-Despite the inaccuracy, the LeapMotion software was very precise, so after performing the calibration the registration was kept stable.
+Despite the pre-calibration inaccuracy, the LeapMotion software was very precise, so after performing the calibration, the registration was kept stable.
 The calibration performed a least squares calculation to solve for a transformation matrix between known real world locations and the reported location from the LeapMotion.
 
 \subsection{Experimental Task}
@@ -163,7 +165,7 @@ The experimental task was a Fitts' circle in the virtual environment, performed 
 The subjects were seated at a desk for the experimental task, and the circle was located on a panel mounted on the desk.
 The two haptic conditions were ``No Haptics (NH)'' and ``Passive Haptics (PH).''
 These conditions are pictured in Figure \ref{fig:ph_conditions}.
-For the ``Passive Haptics'' condition a physical panel was co-located with the panel in the virtual world, which was removed for the ``No Haptics'' condition.
+For the ``Passive Haptics'' condition a physical panel was co-located with the panel in the virtual world, and it was removed for the ``No Haptics'' condition.
 
 \mbox{}\hfill
 \begin{figure}
@@ -191,7 +193,7 @@ For the ``Passive Haptics'' condition a physical panel was co-located with the p
 \end{figure}
 \hfill\mbox{}
 
-There were no differences to the task itself or the method of button activation.
+With the two haptic conditions, there were no differences in the task itself or in the method of button activation.
 The only difference between the conditions was the removal of the physical panel.
 The hand tracker remained in the same location, preserving the location of the buttons in the virtual environment.
 The dimensions of the virtual world were no different for either condition.
@@ -208,13 +210,13 @@ This set of 15 trials was repeated for each haptics condition and the order was 
 The sequence that the two conditions were presented to each subject was also counterbalanced.
 The dependent measures will be tested for interaction with sequence to determine if the results were affected by condition order.
 
-\subsection{Experimental Design}
+\subsection{Experiment Design}
 
 As described in the previous section, the experiment was performed with a within-subjects design.
 Subjects were asked to complete the same experimental task for both conditions of haptics: Passive Haptics (PH) and No Haptics (NH).
 The two different haptic conditions are the main independent variables.
 
-It was expected we would find a large amount of skill transfer between the two conditions, so the order in which subjects performed the two conditions was counterbalanced.
+We expected significant skill transfer between the two conditions, so the order in which subjects performed the two conditions was counterbalanced.
 This created a second independent variable that is between subjects.
 The subjects who performed the conditions with the PH being their first condition were one group, and the subjects who performed NH as their first condition were a second group.
 We call this grouping ``sequence'' and refer to the two groups as ``PH First'' and ``NH First''.
@@ -279,7 +281,7 @@ All subjects indicated either less than one hour or no prior experience with vir
 \subsection{Throughput}
 
 The throughput is calculated per movement using Equation \ref{eq:throughput} and meaned per trial before being meaned per subject and condition.
-Throughput is used to investigate the first two research questions: do the subjects learn quicker and does their throughput performance improve with passive haptics?
+Throughput is used to investigate the first two research questions: do the subjects learn more quickly and does their throughput performance improve with passive haptics?
 
 \subsubsection{Rate of Learning}
 
@@ -298,12 +300,12 @@ The equation used is given as:
     \label{eq:ph_learning}
 \end{equation}
 where $T$ is the trial number, $\mathrm{TP}_{\infty}$ is the asymptotic learned value of throughput, $\mathrm{TP}_0$ is the initial value at $T=0$ and $\tau$ is the time constant.
-The time constant is the amount of trials for the throughput to rise 36\% of the difference between the fully learned throughput ($\mathrm{TP}_{\infty}$) and the initial throughput ($\mathrm{TP}_0$).
+The time constant is defined as the number of trials for the throughput to rise 36\% of the difference between the fully learned throughput ($\mathrm{TP}_{\infty}$) and the initial throughput ($\mathrm{TP}_0$).
 The parameters of the fit for each condition is shown in Table \ref{tab:ph_tp_regression}, as well as the standard error of the estimate (SEE).
 The value of throughput from the regression fit as a percentage of the fully learned value ($\mathrm{TP}_{\infty}$) for representative trials are listed in Table \ref{tab:ph_tp_regression_values}.
 
 The rate of learning is very similar among both groups in the first condition.
-For the first condition it can appear that the subjects performing NH learned quicker than their counterparts performing PH by looking at the time constants.
+For the first condition it can appear that the subjects performing NH learned more quickly than their counterparts performing PH by looking at the time constants.
 However, as the values in Table \ref{tab:ph_tp_regression_values} show, the NH First group started their first trial at a lower percentage of their learned state.
 The shape of the learning curves are very similar and both groups reached approximately 90\% of their fully learned state by the 5\textsuperscript{th} trial.
 
@@ -329,15 +331,18 @@ Their initial performance of PH did start out at a slightly higher level than th
 
 These results indicate that subjects did not learn faster with Passive Haptics.
 The only differences between learning rates is the positive transfer of training from performing Passive Haptics first followed by No Haptics second.
-The answer to the research question \textit{Do subjects learn the task quicker with passive haptics?}\ appears to be that the passive haptics does not make subjects learn faster, but they are able to learn the task quicker without passive haptics afterward.
-It does appear that the fully learned state is different between the haptic conditions, which is investigated further in the next sections.
+The answer to the research question \textit{Do subjects learn the task more quickly with passive haptics?}\ appears to be that the passive haptics does not make subjects learn faster, but they are able to learn the task more quickly without passive haptics afterward.
+It does appear that the fully learned state is different between the haptic conditions, which is investigated through the use of throughput after discussing data filtering.
 
 \subsubsection{Ballistic Movement Filtering}
 \label{sec:ph_ballistic_filter}
 
 Before they could be used for the Fitts' Law analysis, the trajectories were filtered so that only movements which were direct to target were included.
 A well-learned movement appropriate for Fitts' Law is one which moves directly towards the target and does not have much extraneous movement or idle time beyond what is required to complete the task.
-A number of deviations from these well learned movements were observed in the dataset which we aimed to filter out for the final throughput calculations.
+As a result of the experiment design and questions requiring subjects to learn the task during the data collection, we expected many of the movements to deviate from a well-learned movement.
+% awk
+During the observation of subjects during the experiment, as well as post-hoc examination of the dataset, a number of common patterns were discovered and targetted by the filters in this section.
+The goal of this filtering is to produce a dataset that only includes the direct to target movements approriate for a Fitts' Law analysis for the final throughput calculations.
 We describe in this section the three metrics developed that were used to determine whether a movement was direct to target.
 
 %An inordinate amount of time was spent either in the reaction phase before the ballistic, or more typically, after the ballistic movement in the corrective phase.
@@ -448,7 +453,7 @@ These results indicate that subjects do have higher throughput with passive hapt
 \subsection{Trajectory Phases}
 
 As described in Section \ref{sec:ph_traj_phases}, each movement of the subjects can be dissected into three distinct phases: reaction time, ballistic phase, and corrective phase.
-We have already seen that, overall, the subjects took more time to complete a movement without the passive haptics in place with the results of throughput.
+We have already seen that, overall, the subjects took more time to complete a movement without the passive haptics in place.
 In this section we investigate the differences in time spent in the three phases.
 We report here the means of time spent in each of the three phases.
 Times reported are all milliseconds.
@@ -459,7 +464,7 @@ The time spent in each phase is listed in Table \ref{tab:ph_phases}.
 Each phase was tested for the effect of haptics and sequence through a mixed two-way ANOVA.
 The statistical tests reported here are for the filtered results, but the significance findings do not change between filtered and unfiltered.
 
-The reaction time had no effect by haptics ($F(1,18)=0.32, p=0.58$) or sequence ($F(1,18)=0.001, p=0.98$).
+The reaction time was not significantly affected by the presence of haptics ($F(1,18)=0.32, p=0.58$) or sequence ($F(1,18)=0.001, p=0.98$).
 However, for the interaction between the two a significant effect was found ($F(1,18)=18.56, p<0.001$).
 The interpretation of this interaction effect without main effect significance is that the first and second condition had a different reaction time, without dependence on the haptics condition or group.
 The mean reaction time in the first condition for both groups was \SI{130.9}{\milli\second} ($\sigma=\SI{41.0}{\milli\second}$), but in the second condition it was just over \SI{20}{\milli\second} faster, with an average of \SI{109.1}{\milli\second} ($\sigma=\SI{36.6}{\milli\second}$).
@@ -473,7 +478,7 @@ This interaction effect indicates that subjects did learn how to anticipate the 
 The ballistic phase time had a significant effect of haptics ($F(1, 18)=24.14, p<0.001$) between PH ($M=\SI{772.6}{\milli\second}, \sigma=\SI{67.7}{\milli\second}$) and NH ($M=\SI{719.5}{\milli\second}, \sigma=\SI{60.0}{\milli\second}$).
 There was no effect of sequence or the interaction effect between haptics and sequence.
 Since the ballistic phase should be mostly independent of the use of passive haptics, it was not expected to see the ballistic phase have an effect of haptics.
-It is unclear the exact mechanism that led to this, but it could be an artifact of the passive haptics causing the subjects to learn the movement, and thus allowing them to move quicker.
+It is unclear the exact mechanism that led to this, but it could be an artifact of the passive haptics causing the subjects to learn the movement, and thus allowing them to move more quickly.
 The difference between the two haptic conditions was small in magnitude (\SI{53}{\milli\second} or 7\%), so this may not be a practical significance.
 There is little difference between the filtered movements and unfiltered movements results, the difference of the means were within a few milliseconds.
 Although the ballistic phase had lower movement times with the unfiltered movements, this is due to including movements where the ballistic was not the complete movement, reducing the mean.
@@ -485,7 +490,7 @@ There was a more noticeable difference between the results of the unfiltered and
 The corrective phase time was much higher in both conditions for the unfiltered, with PH having a mean of \SI{564.7}{\milli\second} ($\sigma=\SI{253.6}{\milli\second}$) and NH having a mean of \SI{837.2}{\milli\second} ($\sigma=\SI{293.2}{\milli\second}$).
 
 This answers our third research question \emph{What are the differences between the formation of reaching motion trajectories with passive haptics?}.
-The analysis finds that the most notable difference is that subjects spend less time in the corrective phase with the passive haptics.
+The analysis finds that the most notable difference is that subjects spend significantly less time in the corrective phase with the passive haptics.
 
 \begin{table}
     \centering
@@ -557,7 +562,7 @@ There was no significant effect of sequence ($F(1,18)=4.01, p=0.58$) nor for the
     \label{tab:ph_presence}
 \end{sidewaystable}
 
-The questions that correlated the strongest with the presence score were questions 1, 2 and 7, which asked about control mechanisms and how natural they felt.
+The questions that correlated most strongly with the presence score were questions 1, 2 and 7, which asked about control mechanisms and how natural they felt.
 The PH condition found these to be significant ($p<0.001$).
 The question with the biggest difference between the two conditions was question 5 which asked directly about the tactile aspects of the environment.
 The PH condition scored 3 points higher on average on this question.
