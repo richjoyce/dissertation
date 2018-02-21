@@ -10,10 +10,11 @@ However, there remain some technical limitations to the technology that could hi
 We found that a button targeting task took more time in our virtual environment than in the real world (Chapter \ref{chap:pointing}).
 The following experiment (Chapter \ref{chap:ph_exp}) found that a Fitts' Law task produced a higher throughput using a passive haptics layer, mitigating some of the time increase of targeting buttons in a virtual environment.
 In the experiment described in this chapter, we used the R3C system as the simulation tool for a design evaluation study of a cockpit instrument.
-The purpose in undergoing this evaluation study is to understand if these limitations would interfere with the metrics that might be used in evaluating a new cockpit design.
+The purpose in undergoing this evaluation study is to understand if these limitations interfere with the metrics used in evaluating a new cockpit design.
 
-We designed an experiment which asks for feedback from subjects who take the role of design evaluators for a cockpit instrument.
-The subjects were divided into two groups: one group used an R3C setup to operate the instrument, while the other used a more traditional setup: a touchscreen simulator of the instrument.
+We designed an experiment which asks subjects for feedback on the design of a cockpit instrument.
+The subjects were divided into two groups.
+One group used an R3C setup to operate the instrument, while the other used a more traditional touchscreen simulator of the instrument.
 This separation of groups will allow a comparison of the feedback from subjects between groups.
 Both groups evaluated the same two instrument designs, and subjects were asked to provide feedback using the same questionnaires.
 We hypothesize that the R3C system could be used in place of a traditional simulator if the two groups provide similar responses to the designs.
@@ -43,18 +44,18 @@ It can refer to the actual amount of work, but typically in the context of aviat
 \citet{hart_development_1988} describes workload as a ``construct that represents the cost incurred by a human operator to achieve a particular level of performance''.
 Workload is an important measure for cockpit design as a higher workload can lead to degraded performance or increased errors.
 An important factor in the design of cockpit instruments is to reduce the amount of workload.
-The workload is measured in this experiment using the NASA Task Load Index (NASA TLX) survey \citep{hart_development_1988}.
+The workload is measured in this experiment using the NASA Task Load Index (NASA-TLX) survey \citep{hart_development_1988}.
 The TLX survey asks for a rating of the perceived workload on a number of subscales: Mental Demand, Physical Demand, Temporal Demand, Performance, Effort, and Frustration.
-The NASA TLX survey has been widely adopted as a standard for measuring workload \citep{hart_nasa-task_2006}.
+The NASA-TLX survey has been widely adopted as a standard for measuring workload \citep{hart_nasa-task_2006}.
 
 \section{Methods}
 
 \subsection{Simulator Setup}
 
-The simulator workstation as configured for each group is shown and annotated in Figure \ref{fig:de_simgroups}.
-It was designed to have as much as possible to be the same between the two configurations.
+The simulator workstation as configured for each group is shown and annotated in Figure~\ref{fig:de_simgroups}.
+It was designed to be as similar as possible between the two configurations.
 The joystick and instrument were positioned in the same location for each group.
-Neither group had out the window visuals, relying only on the attitude indicator on the instrument.
+Neither group had ``out the window'' visuals, and relied only on the attitude indicator on the instrument to judge the attitude of the plane.
 For the Virtual Reality (VR) group, the visuals showed a plain interior of a cockpit, but the out-the-window view was black.
 Both groups had an aural indication (a click noise of a button being pressed) when a button was activated on the instrument, using the speakers mounted behind the instrument panel.
 
@@ -79,12 +80,12 @@ Both groups had an aural indication (a click noise of a button being pressed) wh
 Beyond the VR group using a virtual reality headset for the visuals, the main difference between the two groups was the method for pressing the buttons on the instruments.
 The VR group used the hand tracker activated system previously described in Chapter \ref{chap:prototype}.
 For this experiment, the buttons were configured to highlight a blue color when the hand tracker registered a finger within the zone.
-The zones were extended 0.1in around the border of the button, raised a height of 0.5in above the surface of the button.
+The zones were extended \SI{0.1}{\inch} around the border of the button, raised a height of \SI{0.5}{\inch} above the surface of the button.
 When the button was activated after the 150 millisecond delay, the highlight would disappear and the button in the virtual world would move inwards as if it were being pushed in\footnote{Of course, the physical button could not and did not move.}, the press sound would play, and the behavior on the instrument associated with pressing that button would occur.
 A separate release sound would play when the finger left the zone after a successful press, and for the VR group the button would move back to its starting position.
 
-The Touchscreen (TS) group used a 10.1 inch capacitive touch screen with resolution of 1024x600.
-The active area of the screen was 8.8in by 5.1in, with outside dimensions of 10.4in by 6.7in.
+The Touchscreen (TS) group used a \SI{10.1}{\inch} capacitive touch screen with resolution of 1024x600.
+The active area of the screen was \SI{8.8}{\inch} by \SI{5.1}{\inch}, with outside dimensions of \SI{10.4}{\inch} by \SI{6.7}{\inch}.
 The two instruments were rendered in a web browser using standard HTML elements.
 Javascript press and release events were used to simulate the same behavior as described for the VR group, except for the highlighting before a button press.
 The visuals of the tracker were rendered on top of the browser window with the same OpenGL rendering code used for the VR group.
@@ -110,11 +111,11 @@ Ultimately, we designed a task that required number and letter inputs using the 
 \subsubsection{Tracking Task}
 \label{sec:de_fdm}
 
-The tracking task display was a standard attitude indicator display, shown in Figure \ref{fig:de_ai_display}.
-Each tick corresponds to 1 degree in the dynamics simulation, with major ticks at intervals of 5 degrees.
-The attitude indicator was rendered to the size of 3.4 inches square on the instrument.
+The tracking task display was a standard attitude indicator display, shown in Figure~\ref{fig:de_ai_display}.
+Each tick corresponds to 1~degree in the dynamics simulation, with major ticks at intervals of 5~degrees.
+The attitude indicator was rendered to the size of \SI{3.4}{\inch} square on the instrument.
 Subjects controlled the one-dimensional (pitch only) task using a joystick with their left hand.
-The joystick is pictured in Figure \ref{fig:de_simgroups}.
+The joystick is pictured in Figure~\ref{fig:de_simgroups}.
 
 \begin{figure}
     \centering
@@ -124,9 +125,9 @@ The joystick is pictured in Figure \ref{fig:de_simgroups}.
 \end{figure}
 
 The flight dynamics model of the simulator was a stability derivative based model for a Boeing 747 in low altitude flight.
-The block diagram of the dynamics is shown in Figure \ref{fig:de_block_diagram}.
-The dynamics model was updated and recorded at a rate of 125Hz.
-The output of the joystick, $r_{js}$, varies from $-1.0$ to $1.0$, and the gain of $10^{\circ}$ was chosen to ensure the pilot had enough control authority to complete the task.
+The block diagram of the dynamics is shown in Figure~\ref{fig:de_block_diagram}.
+The dynamics model was updated and recorded at a rate of \SI{125}{\hertz}.
+The output of the joystick, $r_{js}$, varies from $-1.0$ to $1.0$, and the gain of \ang{10} was chosen to ensure the pilot had enough control authority to complete the task.
 The flight condition is listed as ``Flight Condition 2'' in NASA CR-2144 \citep{heffley_aircraft_1972}.
 This dynamics model was chosen due to availability.
 The specifics of the dynamical model were not important other than providing a response similar to an aircraft in flight.
@@ -196,25 +197,26 @@ The amplitude terms are $a_i=0.5$ for $i <= 6$ and $a_i=0.05$ otherwise.
 The phase terms, $\phi_i$, were randomly selected on the $(-\pi, \pi)$ interval ensuring a uniform distribution.
 This random selection was precalculated for each trial, however the order was repeated for each subject so there was no between subject variance in the disturbance signal.
 Furthermore, each subject received the same sequence of disturbance signals for each instrument design.
-The disturbance amplitude, $K$, was chosen such that the root-mean square (RMS) of the signal was $3.5$ degrees.
+The disturbance amplitude, $K$, was chosen such that the root-mean square (RMS) of the signal was $3.5$~degrees.
 The value of the was chosen through pilot studies to ensure the task was challenging but not overwhelming.
 
 \subsubsection{Prompting Task}
 
-The prompting task was designed to be both a realistic task for a cockpit as well as a demanding task when done in addition with the tracking task.
-The task developed required the subjects to read and memorize a short string of characters and enter it back using the buttons on the instrument.
-To limit the task physically (by number of buttons) and mentally, the characters used were the number 1 through 6 and the letters A through F.
-The prompts were 4 characters long and once the subject started entry the prompt would disappear, forcing them to hold it in working memory.
+The prompting task was designed to be both a realistic task for a cockpit as well as a demanding task when done concurrently with the tracking task.
+The task required the subjects to read and memorize a short string of characters and enter it back using the buttons on the instrument.
+To limit the task physically (by number of buttons) and mentally, the characters used were the numbers 1 through 6 and the letters A through F.
+The prompts were 4 characters long.
+Once the subject started entry, the prompt would disappear, forcing them to hold it in working memory.
 It has been well established that humans are capable of holding about seven digits in working memory \citep{miller_magical_1956,baddeley_working_1992}.
 
-The sequence of the prompts was separated into 10 second ``windows''.
-The prompt would appear randomly between 2 and 3 seconds of the start of the window.
+The sequence of the prompts was separated into 10~second ``windows''.
+The prompt would appear randomly between 2 and 3~seconds of the start of the window.
 From the time of appearance, subjects were given seven seconds until timeout.
 When the subject pressed the first button of the prompt, the prompt itself was cleared and asterisk symbols ($*$) were shown in place of the prompt for each button entry by the subject.
 If the subject ran out of time, the text in entry area would return to black.
 Although subjects were briefed on the timeout and given practice to learn the pace, no warning or indication of time left was shown during the trials.
-Whether they completed the prompt within the time limit, or they timed-out, this process was repeated every 10 seconds.
-This meant that subjects had at least 3 seconds of time with no prompt.
+Whether they completed the prompt within the time limit, or they timed-out, this process was repeated every 10~seconds.
+%This meant that subjects had at least 3 seconds of time with no prompt.
 
 The prompts themselves were always composed of three numbers followed by a letter or three letters followed by a number.
 This structure was decided upon to provide a consistent pattern, yet still utilize both letters and numbers in every prompt.
@@ -231,12 +233,12 @@ The prompting task text font was approximately 0.62in tall.
 These were kept consistent to limit the number of possible variables between the two designs.
 The prominent difference is the placement and behavior of the buttons which is described in this section.
 
-The Keypad design is pictured in Figure \ref{fig:de_keypad_design}.
-The buttons are 1in by 0.75in, with about 0.26in between buttons horizontally and 0.38in vertically.
+The Keypad design is pictured in Figure~\ref{fig:de_keypad_design}.
+The buttons are \SI{1}{\inch} by \SI{0.75}{\inch}, with about \SI{0.26}{\inch} between buttons horizontally and \SI{0.38}{\inch} vertically.
 Each button has the label directly on the top of the button.
-The 3D printed instrument used for the VR group had the buttons raised a height of 0.31in from the surface of the instrument.
+The 3D printed instrument used for the VR group had the buttons raised a height of \SI{0.31}{\inch} from the surface of the instrument.
 The button labels were also raised to provide a tactile feedback.
-The font was approximately 0.36in tall, and the labels were embossed above the button surface 0.05in.
+The font was approximately \SI{0.36}{\inch} tall, and the labels were embossed above the button surface by \SI{0.05}{\inch}.
 
 \begin{figure}
     \centering
@@ -252,22 +254,22 @@ The font was approximately 0.36in tall, and the labels were embossed above the b
     \label{fig:de_edgekey_design}
 \end{figure}
 
-The Edgekey design is pictured in Figure \ref{fig:de_edgekey_design}.
+The Edgekey design is pictured in Figure~\ref{fig:de_edgekey_design}.
 In this design, there is not a single button for every number and letter.
 Instead, the bottom button on either side would switch the behavior (and labels) of the remaining six buttons from being 1 through 6 to A through F.
 In other words, the bottom ``switching'' buttons would change the rest of the buttons from the numbers to the letters, and vice-versa.
 The labels were placed offset from the button on the ``screen'' portion of the instrument, allowing them to change dynamically.
-The fonts were approximately 0.32in tall, and were blue on the screen.
-The buttons are slightly smaller in this design, at 0.76in by 0.55in.
+The fonts were approximately \SI{0.32}{\inch} tall, and were blue on the screen.
+The buttons are slightly smaller in this design, at \SI{0.76}{\inch} by \SI{0.55}{\inch}.
 A smaller button size was needed to fit the labels and the buttons side by side.
-The spacing between buttons vertically is the same as the Keypad design at 0.38in.
-The center to center distance between the two sides of the button rows is 7.3in.
-The 3D printed instrument version had raised nubs on each button covering half the width, 0.08in tall and raised 0.05in.
-As with the Keypad design, the buttons had the same height of 0.31in from the surface.
+The spacing between buttons vertically is the same as the Keypad design at \SI{0.38}{\inch}.
+The center to center distance between the two sides of the button rows is \SI{7.3}{\inch}.
+The 3D printed instrument version had raised nubs on each button covering half the width, \SI{0.08}{\inch} tall and raised \SI{0.05}{\inch}.
+As with the Keypad design, the buttons had the same height of \SI{0.31}{\inch} from the surface.
 
 While some of the more subtle differences were expected to be noted by the evaluation study (e.g.\ having smaller buttons, different position of the flight task), the major flaw designed into the Edgekey design was the switching key to change from letters to numbers and back.
 This additional action fundamentally changed the demands of the task, as the subjects now had to press this additional button to change labels at least once per prompt.
-The cognitive workflow of the subject is diagrammed in Figure \ref{fig:de_flowchart}.
+The cognitive workflow of the subject is diagrammed in Figure~\ref{fig:de_flowchart}.
 The additional mental effort of the Edgekey design is shown in the dashed box, where the subject has to verify the state of the instrument and possibly press the switch button before they press the buttons of the prompt.
 Since the prompts were kept as a consistent format of three of the same type and fourth of the other, this extra work was easily skipped for most buttons, and anticipated between the third and fourth button.
 There was no guarantee that the next prompt would start with the instrument in the correct state for the new prompt, so there was always an additional cognitive load in determining whether a switch was necessary at the beginning of the prompting window, which would be accompanied with the physical effort if the switch was needed.
@@ -333,7 +335,7 @@ The overall sequence of the experiment started with a training session on the si
 The timeline of the experiment was the same for each subject, except for counterbalancing the order that the designs were evaluated.
 The training portion started with a slide deck explaining the tasks, the simulator that the subject was using (depending on which group they were in), and the functionality of the two designs they were to evaluate.
 Next, they performed practice trials with just the tracking task and then just the prompting task.
-The practice trials of the tracking task were 60 seconds long and repeated until the subjects' performance had flat-lined.
+The practice trials of the tracking task were 60~seconds long and repeated until the subjects' performance had flat-lined.
 This took between three to six trials for each subject.
 %After basic familiarity with the technology
 
@@ -376,10 +378,11 @@ The prompting task has two dependent measures, for speed and accuracy.
 For speed we consider the \textit{response time}, defined as the time between when the prompt is first shown to the subject and when they press the first button of their response entry.
 The accuracy is measured by how many prompts they complete correctly.
 Twelve prompts are shown to the subject within each trial.
+The response time did not include trials which used the switch button of the Edgekey design, or trials where the first button pressed was incorrect.
 The response time was meaned per trial first and then per design for each subject, and the number of correct prompts is meaned per design for each subject.
 
 A NASA Task Load Index (TLX) survey was administered after they completed each design to measure the workload of the subject.
-The TLX survey asks for a rating of their workload between 0-100 for the following subscales: Mental Demand, Physical Demand, Temporal Demand, Performance, Effort, and Frustration.
+The TLX survey records a rating of workload between 0-100 for the following subscales: Mental Demand, Physical Demand, Temporal Demand, Performance, Effort, and Frustration.
 Our implementation allowed selection of the ratings within increments of 5, and included anchors of ``Low'' and ``High'' at the extrema of 0 and 100, respectively (except for Performance, which uses ``Good'' and ``Bad'').
 The midpoint was also visually indicated with a larger tick.
 The ranked pairs modification was used and completed for both times the subject took the survey.
@@ -403,7 +406,8 @@ Additionally, the following questions were asked:
 An open form text box was used for the response field for each of these questions.
 
 In a standard design evaluation study, the feedback received from the users in this questionnaire (and other debriefing interviews) would often be the main source for carrying out re-design.
-The purpose of this feedback in this experiment is to determine and document in which ways does this feedback differ.
+%awk
+The purpose of this feedback in this experiment is to determine and document in which ways does this feedback differ between groups.
 For example, if most subjects in one group noted issues with the size of a button, while no one in the other group found an issue with that button, this would indicate that using this VR system may not highlight the same issues regarding button sizes.
 The groups were purposely left ambiguous in the example, as it does not matter which group found the flaw and which group did not comment on it.
 Although we could postulate as to which group are ``correct'' in their evaluation of the instrument, it is not a useful exercise, as the only result is to document what potential differences could arise so that users of this system can be aware.
@@ -419,7 +423,7 @@ This will provide a summary of where the groups provide the same feedback and wh
 \subsection{Hypotheses}
 
 The main hypothesis of this experiment is that the use of a VR/R3C simulator will not affect the conclusions of a design evaluation study, compared to a traditional touchscreen simulator.
-We do expect that some of the dependent measures may have a significant difference in Group or a significant difference in Design.
+We do expect that some of the dependent measures may have a significant difference in Group (one Group will perform a task better overall, no matter the Design) or a significant difference in Design (subjects will perform better with one Design, no matter the Group).
 The more important measure for us, however, is the interaction effect.
 This will test if the change between Designs is similar for the two Groups.
 If this is the case, then it may indicate that an evaluation study using one of these simulators could draw differing conclusions of an evaluation study using the other.
@@ -433,7 +437,7 @@ These hypotheses are enumerated here:
     \item The tracking task RMSE will have no interaction effect between Group and Design
     \item The prompt response time will have no interaction effect between Group and Design
     \item The number of correct prompts will have no interaction effect between Group and Design
-    \item The NASA TLX scores will have no interaction effect between Group and Design
+    \item The NASA-TLX scores will have no interaction effect between Group and Design
     \item The tracking task RMSE for the last training trial and the tracking only trials will not change throughout the experiment
 \end{enumerate}
 
@@ -478,7 +482,7 @@ The task and experiment was designed with this in mind and mitigated through tra
 The performance of the tracking task was measured using the root-mean square error (RMSE) of the pitch.
 The effect of Group yielded an $F$ ratio of $F(1, 21) = 21.4, p < 0.001$ indicating a significant difference between VR ($M=1.28\mathrm{deg}, \sigma=0.38\mathrm{deg}$) and TS ($M=1.97\mathrm{deg}, \sigma=0.38\mathrm{deg}$).
 In both groups, subjects were performing the tracking task using the same joystick.
-The most direct factor that could contribute to the decreased performance in the tracking task for the VR group is the loss of visual acuity in the tracking task display due to the technical limitations of the VR head-mounted display.
+The most direct factor that could contribute to the decreased performance in the tracking task for the VR group is the loss of visual acuity in the tracking task display due to the resolution of the VR head-mounted display.
 Indirectly, the additional workload of the prompting task could be taking attention away from the tracking task.
 The effect of Design indicated a marginally significant difference ($F(1, 21) = 5.94, p=0.024$) for the tracking task RMSE between Keypad ($M=1.57\mathrm{deg}, \sigma=0.51\mathrm{deg}$) and Edgekey ($M=1.70\mathrm{deg}, \sigma=0.52\mathrm{deg}$).
 The only change in the tracking task display between the two instrument designs is a small change in position.
@@ -510,7 +514,7 @@ The factors leading to the added workload of the prompting task are investigated
 
 The first measure of the prompting task is the response time of the subject.
 The response time is defined as the time from the prompt is shown to each subject until they press the first button of the prompt.
-For the Edgekey design, it would be possible that the subject had to start with the switching button if the new prompt did not start with the same mode (letters or numbers) as the previous prompt (see Figure \ref{fig:de_flowchart}).
+For the Edgekey design, it would be possible that the subject had to start with the switching button if the new prompt did not start with the same mode (letters or numbers) as the previous prompt (see Figure~\ref{fig:de_flowchart}).
 Since this button would not clear the prompt when it was pressed, it is not considered the first button of their entry.
 However, this would still require an additional movement of the subject, adding additional time.
 For this reason, the prompts which required the subject to start with the switch key are filtered out of this analysis.
@@ -557,7 +561,7 @@ Both main effects were significant, the effect of group yielded an $F$ ratio of 
 For the effect of design on the VR group, the repeated measured t-test indicated a significant difference ($t(11) = 8.0, p < 0.001$) between the Keypad ($M = 8.11, \sigma = 1.62$) and the Edgekey ($M = 4.00, \sigma = 2.37$)
 The TS group had a marginally significant difference ($t(10) = 2.28, p = 0.045$) between Keypad ($M = 10.6, \sigma = 0.96$) and the Edgekey ($M = 9.82, \sigma = 1.38$).
 These results indicate that both groups had trouble with the additional time pressure caused by the Edgekey design requiring the use of the switch key.
-The TS group performed a lot closer to their performance in the Keypad design, however, only getting approximately 1 fewer prompt correct.
+The TS group performed closer to their performance in the Keypad design, however, with only about 1 fewer prompt correct on average.
 The VR group had much more difficulty in the Edgekey design, correctly completing about half as many as they completed in the Keypad design.
 However, they had more difficulty in both designs compared to the TS group.
 
@@ -572,7 +576,7 @@ This agrees with the post-hoc tests for differences between groups within each d
 These tests had significant effects for both the Keypad design ($t(21) = 4.44, p < 0.001$) between the VR group and the TS group, and the Edgekey design ($t(21) = 7.05, p < 0.001$) between the VR group and the TS group.
 The main effect of group clearly has a meaningful effect, which found the VR group ($M = 6.05, \sigma = 2.88$) had significantly fewer correct prompts than the TS group ($M = 10.2, \sigma = 1.2$).
 This difference is largely due to subjects not being able to complete the prompt.
-Figure \ref{fig:de_correct_stacked} shows the breakdown of the mean result of each trial for each group and design.
+Figure~\ref{fig:de_correct_stacked} shows the breakdown of the mean result of each trial for each group and design.
 
 Across all groups and designs, very few prompts were completed that were incorrect, and most of the difference in number completed correctly is due to the incomplete prompts.
 A contributing factor for this would be the method of button activation used for the VR group combined with the time pressure.
@@ -581,16 +585,16 @@ When the hand tracker lost tracking or gave bad information, it became hard or i
 When this happened in the middle of a prompt, the amount of time it took to recover from the bad tracking would lead to a timeout on the prompt entry, causing an incomplete prompt.
 The variance of number correct was also much larger in in the VR group, which could be caused by some subjects adapting to the unfamiliar VR environment more rapidly.
 
-\subsubsection{NASA TLX}
+\subsubsection{NASA-TLX}
 
 \begin{figure}
     \centering
     \includegraphics[width=4.0in]{{tlx.4.0x4.0}.png}
-    \caption{Factor Plot of NASA TLX}
+    \caption{Factor Plot of NASA-TLX}
     \label{fig:de_factor_tlx}
 \end{figure}
 
-After the subject completed their trials for each design, they filled out a NASA TLX workload survey.
+After the subject completed their trials for each design, they filled out a NASA-TLX workload survey.
 Their scores, weighted means by the pairwise comparisons, are used here as a measure of their self-reported workload.
 The interaction effect between group and design was found to be significant ($F(1, 21) = 8.25, p < 0.001$).
 The main effects showed a significant difference in design ($F(1, 21) = 23.6, p < 0.001$), but not in group ($F(1, 21) = 1.69, p = 0.21$).
@@ -600,7 +604,7 @@ The repeated measures t-tests indicated significance between designs for the VR 
 There was a marginally significant difference between designs for the TS group ($t(10) = -2.72, p = 0.02$) between the Keypad design ($M = 61.5, \sigma = 4.46$) and the Edgekey ($M = 69.2, \sigma = 10.1$).
 The effect of design was much stronger in the VR group, but both groups indicated respectively higher workload on the TLX scores for the Edgekey design.
 This follows from the experimental design which predicted that the Edgekey design would be more difficult.
-One factor that could have contributed to a larger difference in scores for the VR group could be the increased difficulty subjects had in completing the prompt, as seen in the results of the number of incorrect and incomplete prompts for the VR group using the Edgekey design (Figure \ref{fig:de_correct_stacked}).
+One factor that could have contributed to a larger difference in scores for the VR group could be the increased difficulty subjects had in completing the prompt, as seen in the results of the number of incorrect and incomplete prompts for the VR group using the Edgekey design (Figure~\ref{fig:de_correct_stacked}).
 The effect of group was not shown to be significant in the ANOVA analysis, but the independent samples t-test showed a significance for the Edgekey design ($t(21) = 3.69, p < 0.01$) between the VR Group ($M = 85.6, \sigma = 11.2$) and the TS Group ($M = 69.2, \sigma = 10.1$).
 With the Keypad design, The effect of group was not significant ($t(21) = -1.13, p=0.27$) between VR ($M = 54.4, \sigma = 20.4$) and TS ($M = 61.5, \sigma = 4.46$).
 These tests further illustrate that the VR group found a higher workload for the Edgekey design specifically, as both groups rated the workload in the Keypad design similarly.
@@ -611,6 +615,7 @@ Throughout the experiment the subjects did trials with only the tracking task, i
 Initially, they performed a number of training trials at the beginning with only the tracking task, and then after each evaluation session there was a single trial of just the tracking task.
 In this section we will test the RMSE of their final training trial and the two after-evaluation trials for any significant learning effects.
 The trial number is chronological throughout the timeline of the experiment for each subject.
+%awk confusing
 This means that due to the counterbalancing, the second and third trial are done with different designs based on the subject.
 Since the visual environment of the tracking task was quite different for each group, the Group factor is included as a between subjects factor.
 
@@ -624,7 +629,7 @@ Since the visual environment of the tracking task was quite different for each g
 The two-way ANOVA found Group to be a marginally significant factor ($F(1, 21) = 4.94, p=0.37$) between the VR Group ($M=1.36, \sigma=0.51$) and the TS Group ($M=0.94, \sigma=0.43$).
 The effect of group on the tracking task was already established, so the marginal significance found here is not unexpected.
 Trial number was found to have no significant effect ($F(1, 21)=3.65, p=0.069$) between the three trials.
-The means of the three trials, in order, are $1.23^{circ} (\sigma=0.54^{circ})$, $1.18^{circ} (\sigma=0.51^{circ})$, and $1.07^{circ} (\sigma=0.51^{circ})$.
+The means of the three trials, in order, are \ang{1.23} ($\sigma=\ang{0.54}$), \ang{1.18} ($\sigma=\ang{0.51}$), and \ang{1.07} ($\sigma=\ang{0.51}$).
 Even though the statistical test indicates no significance, the means do decrease as trial number increases.
 This combined with the large variance suggest that some subjects were experiencing some training effects, but overall the effect of training is not significant.
 The interaction effect of Group and trial number had no significance ($F(1, 21) = 0.16, p=0.69$).
@@ -701,7 +706,7 @@ For the TS Group, this was due to the touchscreen being too responsive to the bu
 \begin{displayquote}[TS Subject]
     \textins{S}ince I was able to go more quickly with this layout, I had more mistakes in the entry.
 \end{displayquote}
-One subject in VR who complained of more mistakes in the Keypad design, identified a common problem caused by the hand tracker.
+One subject in VR who complained of more mistakes in the Keypad design identified a common problem caused by the hand tracker.
 When the hand tracker was having registration issues it would sometimes mistakenly place the other fingers in the activation zone of the buttons underneath the one being targeted, causing multiple buttons to be pressed in a short period of time.
 \begin{displayquote}[VR Subject]
     There's more unintended register since other fingers might trigger the buttons.
@@ -729,8 +734,8 @@ The response time of the prompting task had no significant effect based on Group
 Neither of these two previous measures had interaction effects between Group and Design.
 The number of correct prompts had a significant interaction effect.
 While the TS Group was able to complete significantly more prompts correctly overall than the VR group (averages of 10.2 vs.\ 6.1, respectively) the VR group had a significant effect with the Design and the TS group only had marginal significance.
-This interaction can be clearly seen in the factor plot of correct prompts (Figure \ref{fig:de_factor_correct}).
-The NASA TLX workload scores also had an interaction effect between Group and Design.
+This interaction can be clearly seen in the factor plot of correct prompts (Figure~\ref{fig:de_factor_correct}).
+The NASA-TLX workload scores also had an interaction effect between Group and Design.
 The TLX scores for the VR group had a significant effect in Design, with subjects rating the Edgekey design over 30 points higher than the Keypad design (averages of 54.4 to 85.6, respectively).
 However, like the number of prompts correct measure, the TLX score was found to be only marginally significant for the TS group, rating the Keypad at 61.5 compared to the Edgekey at 69.2.
 
@@ -742,7 +747,7 @@ None of the effects reversed slope between designs, however, and the only change
 In fact, for both the number of prompts correct and the workload ratings, which had significant interaction effects, the use of the VR system amplified the effect of design within the groups from a marginally significant effect to a significant effect.
 
 The results of the subjective feedback analysis found that there was no omission of major feedback items on the design of the two instruments from either group.
-The only feedback comments that did not transfer were the fatigue issues, and of course technology-specific issues.
+The only feedback comments that did not transfer were the fatigue issues, and technology-specific issues.
 We did discover that some issues were mentioned at differing frequencies, which is to say, one group would have more subjects mention it than the other.
 These results suggest that the use of the R3C system for receiving feedback from a design would be appropriate.
 
@@ -767,7 +772,7 @@ At this point, it would become more essential to use subject domain experts (i.e
 %The prompting task response time had no effect for design or group, but the amount of correct prompts between designs was significantly different for each group.
 %The VR group had significantly fewer correct prompts with the Edgekey design (44.0\%) than with the Keypad design (67.5\%).
 %The TS group had only a marginally significant difference between designs, with 88.3\% and 81.8\% in the Keypad and Edgekey designs, respectively.
-%Similarly, the workload scores (NASA TLX) had a significant difference in both designs, but the effect was stronger in the VR group.
+%Similarly, the workload scores (NASA-TLX) had a significant difference in both designs, but the effect was stronger in the VR group.
 %The Edgekey design had a higher workload score than Keypad in both groups.
 %
 %The responses from the subjective feedback questions found that both groups were able to identify the same major categories, for both positive and negative comments on the designs.
