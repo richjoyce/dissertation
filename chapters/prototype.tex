@@ -11,27 +11,27 @@ The final prototype was used in the third experiment (Chapter~\ref{chap:de_exp})
 
 \section{Requirements}
 
-The following high level requirements for the Rapidly Reconfigurable Research Cockpit (R3C) prototype originated from the motivation described in Section \ref{intro:overview}.
+The following high level requirements for the Rapidly Reconfigurable Research Cockpit (R3C) prototype originated from the motivation described in Section \ref{sec:intro_overview}.
 These requirements guided the development of the prototypes, based on the technology available.
 
 \begin{description}
     \item [Rapid prototyping of physical mockup.]
-        Based on the motivation of enabling more rapid redesign iterations, the R3C system should allow for rapid changes in the physical representation of the cockpit (the mockup) without needing to reconfigure the software heavily, or reconfigure hardware for interaction.
-    \item [Minimal setup and calibration.]
-        Our motivation to use this system in early design stages means that we require it be able to be used ``on top'' of existing mockup systems.
-        One consequence of this means that as much as possible, the hardware used must be easy to set up and able to use in constrained spaces.
-        This requirement eliminates some of the high-end head-mounted displays that use complicated head tracker systems requiring precise calibration.
-        Additionally, this eliminates many of the past approaches to hand tracking which use multiple precisely calibrated cameras, or magnetic sensors in a well-defined magnetic field.
-        The minimal setup also leads to the need for hand tracking, as the recognition of the user input must be done without outfitting the mockup with working input actuators (i.e.\ buttons).
+        Based on the motivation of enabling more rapid redesign iterations, the R3C system should allow for rapid changes in the physical representation of the cockpit (the mockup) without needing to undertake large software or hardware reconfigurations.
+    \item [Immersive head-mounted display.]
+        The need for an immersive HMD with a large field of view is based on the need to use the system as a design evaluation tool.
+        Without the ability to place visuals on the screens or create out-the-window views, design evaluations may not be as useful.
+        Current augmented reality or mixed reality goggles do not provide the same level of immersion that a fully-virtual HMD provides.
     \item [Unobtrusive hand tracking.]
         For a realistic design evaluation, it is important that the hand tracker does not modify the users behavior or inhibit their tactile sense.
         Many hand trackers use a glove or other marker worn on the hand to provide the tracking ability.
         Wearing a glove to achieve hand tracking would remove one of the benefits of the R3C system -- providing a realistic tactile sensory input.
         Newer optical-based hand trackers allow this requirement to be fulfilled.
-    \item [Immersive head-mounted display.]
-        The need for an immersive HMD with a large field of view is based on the need to use the system as a design evaluation tool.
-        Without the ability to place visuals on the screens or create out-the-window views, design evaluations may not be as useful.
-        Current augmented reality or mixed reality goggles do not provide the same level of immersion that a fully-virtual HMD provides.
+    \item [Minimal setup and calibration.]
+        Our goal is to provide a system that can be used ``on top'' of existing mockup systems without extensive modifications.
+        One consequence of this means that as much as possible, the hardware used must be easy to set up and able to use in constrained spaces.
+        This requirement eliminates some of the high-end head-mounted displays that use complicated head tracker systems requiring precise calibration.
+        Our solution also proposes the use of hand tracking to recognize the pilots' input without the need for outfitting the mockup with working input actuators (i.e.\ buttons).
+        Past approaches to hand tracking which use multiple precisely calibrated cameras, or magnetic sensors in a well-defined magnetic field, will not satisfy this requirement.
 \end{description}
 
 \section{Prototype Development}
@@ -81,6 +81,8 @@ The field of view is approximately \ang{110}.
 
 A central tenant of our technical approach is to use physical, geometrically accurate instrument shapes that provide tactile feedback to the fingertips, but no functionality (i.e.\ no screens, no working buttons, etc.).
 In order to achieve this, we have produced 3D printed ``instruments'' that can be easily rearranged on a panel mount (pegboard).
+An instrument in a cockpit can be defined as any device that provides information about or provides control of the airplane and its flight situation.
+In our case, the instruments we prototype consist of a device with buttons and screens in a variety of geometrical configurations and layouts.
 Since the devices are rapidly prototyped, they can be redesigned much more rapidly than functioning simulator instruments.
 By placing the geometrically accurate 3D printed instruments at the correct cockpit locations, the user is provided with accurate tactile feedback without the need for stimulating true touch with virtual haptic feedback.
 
@@ -92,15 +94,22 @@ Often, the original version exists as a CAD (Computer-Aided Design) model which 
 The difficulty of the conversion from CAD to a surface mesh depends on the model and the requirements of the rendering engine.
 
 For this initial prototype, a demonstration instrument was developed based on a large multi-function display with edge keys.
-This design was chosen based on their standard use in current aircraft and spacecraft cockpits (e.g.\ see \citet{us_department_of_defense_department_1999}).
+This design was chosen based on their standard use in current aircraft and spacecraft cockpits (e.g.\ see \citet{us_department_of_defense_department_1999}) and was based off the current design for the NASA Orion spacecraft cockpit (Figure~\ref{fig:orion_sim}).
 The instrument model as viewed in the rendering engine is shown in Figure~\ref{fig:proto_mfd_render}.
 The 3D printed version is shown pictured in Figure~\ref{fig:proto_mfd_print}.
 Since it is only used for the tactile feel, it has a plain aesthetic.
 The color and visual detail of the instrument are only on the rendered model in the virtual world, simplifying the physical prototyping process.
 This instrument was also 3D printed in segments due to the limitations of the printer used, but this did not affect the virtual representation.
-Figure~\ref{fig:proto_first_panels} shows the instrument mounted on a panel and being used.
+Figure~\ref{fig:proto_first_panel} shows the instrument mounted on a panel and being used.
 This instrument provided a base for the demos.
 Although this specific design was not used in a research study, the workflow learned to create this demo instrument was used for future instruments utilized in the research studies.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{orionsim.jpg}
+    \caption{NASA JSC simulator of Orion cockpit instrument. The instrument design was the inspiration for our demo multifunction display instrument. Image by NASA JSC.}
+    \label{fig:orion_sim}
+\end{figure}
 
 \mbox{}\hfill
 \begin{figure}
@@ -182,8 +191,11 @@ If the user interactions with the panel can be determined solely by tracking his
 
 The hand tracking caused two major usability issues with the first prototype.
 The first was that the reliability of the tracking caused many instances of dropped tracking, causing virtual fingers as displayed to the user to disappear unexpectedly.
-The second was the conversion between hand tracker coordinates and instrument coordinates.
-The registration between the virtual and physical worlds was difficult to align with this configuration.
+The second was the conversion between hand tracker coordinates and instrument coordinates, a concept called registration.
+Registration refers to the alignment between a virtual world and the real world, a concept called registration.
+A well-registered virtual world will place the virutal image in a stable and precise location relative the real world.
+In our application, since the virtual world is colocated with the physical componenets, having accurate registration is important to the success of the prototype.
+This configuration of the prototype presented many challenges with achieving good registration.
 Even with precise alignment of the hand tracker, the fingertip positions did not always align properly with the buttons in the virtual world.
 Often, when a subject had their finger on a physical button their virtual finger was misaligned.
 Since the hand tracking was not very reliable, many users would almost completely ignore its input and find the buttons by tactile feedback.
@@ -204,7 +216,7 @@ Due to vendor provided software upgrades, the hand tracking became more robust a
 The visuals were upgraded with the second Development Kit of the Oculus Rift, which provided improved visual resolution, but, more importantly, an external head tracker (using an infrared camera) which enabled accurate detection of head movement and virtually eliminated drift of the internal intertial sensors.
 A major focus of this version of the prototype was to improve reliability and registration.
 The reliability was partially improved with the new hand tracking software, but other countermeasures developed are described as well.
-Registration, which refers to the alignment between the physical world and the virtual world, was improved with the use of a new calibration mechanism described in this section.
+Registration (the alignment between the physical world and the virtual world) was improved with the use of a new calibration mechanism described in this section.
 
 \begin{figure}
     \centering
@@ -222,9 +234,9 @@ The head positional tracking follows the movement of the head from side to side 
 This provides the user with additional parallax depth cues to better gauge the size and distance of objects.
 
 The position and orientation of the user's head is reported relative to the tracking camera which is placed facing the user.
-%awk passive?
-For our application, with a well known location of the camera relative to the panel, the head position can be placed in the virtual world at the precisely measured location of the user's actual head position.
-Unlike with the first version, the virtual components are now always rendered at the correct distance and with proper scale.
+The camera can be mounted in a well-known location relative to the panel which provides a head position in the virtual world precisely measured relative to the panel.
+This means the virtual world is rendered with a more correct eyepoint of the user compared to the first version.
+The virtual components are now always rendered at the correct distance and with proper scale.
 The head-tracking camera is shown mounted on the instrument panel in Figure~\ref{fig:r3c_callout}.
 
 
@@ -249,8 +261,8 @@ This provided a more immersive feeling than the floating fingers of the original
 
 At the same time of the tracking upgrade, a ``VR Mode'' was introduced to the LeapMotion software to provide hand tracking in a virtual environment by way of mounting it on the head-mounted display itself.
 Upon initial testing of this feature, two observations were made.
-%awk
-The tracking was much improved when the tracker was looking down at the hands and seemed to provide more robust and reliable tracking data.
+The tracking was improved with a perspective looking down at the hands, instead of being below looking up at the palms of the hands.
+This configuration seemed to provide more robust and reliable tracking data.
 Using it mounted to the head-mounted display, however, caused a large issue with the registration between the real and physical world.
 The registration between the hand tracker and the location of the instruments relies on a known, rigid connection.
 When the tracker was mounted on the head-mounted display, the transformation between LeapMotion coordinates and panel coordinates relied on knowing the location of the head.
