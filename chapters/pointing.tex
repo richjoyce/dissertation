@@ -185,8 +185,11 @@ Observations made during the experiment suggest that at least some of few incorr
 The accuracy of the button press itself was also measured, and Figure \ref{fig:pe_accuracy} shows the distribution of the locations registered by the capacitive touch sensors.
 In the plots, (X,Y) = (0,0) corresponds to the bottom left corner of the button.
 The two conditions shown (1 and 4) were the two conditions where capacitive touch registered the button selection.
-There is a smaller distribution for the no HMD condition (Figure \ref{fig:pe_accuracy}(b)), but with the HMD (Figure \ref{fig:pe_accuracy}(a)) subjects were still within error to the center of the button.
-It should be noted again here that in the HMD condition, subjects had to rely on the virtual hand from the hand tracker for any visual feedback of hand position.
+There is a smaller distribution for the no HMD condition (Figure \ref{fig:pe_accuracy}(b)) than with the HMD (Figure \ref{fig:pe_accuracy}(a)).
+The mean location of the two conditions were \SI{0.06}{\inch} apart, which is lower than the accuracy of the capacitive touch sensors (\SI{0.1}{\inch}).
+In the HMD conditions, the only visual feedback of the hand was the rendered model of the hand that used the hand tracker as the source data.
+The no HMD condition had a large benefit in this regard, as the subjects were operating with the normal visual feedback of their own hand in the real world -- using their normal hand-eye coordination they have trained since birth.
+These results suggest that even with the visual feedback only provided by the hand tracker data, subjects are able to select the buttons as accurately as they could for the same task in the non-virtual world.
 
 \begin{figure}
     \centering
@@ -230,8 +233,8 @@ First, the subjects were instructed to target the center of the button.
 Some subjects spent time ensuring they were centered over the button before they even entered the zone in front of the button, thus eliminating the need for the panel to provide location.
 Secondly, this task was a discrete pointing task, where the subject would `reset' to the starting position on the desk between each movement.
 It is possible that the panel being in position would help the subject build a better sense of the relative locations of the buttons when moving between buttons on the panel (a serial task).
-%awk af
-For this task the passive haptic may not provide a benefit when they only target one button on the panel before returning to the start pads.
+In this experiment, subjects only targetted one button on the panel before returning to the start pads.
+The passive haptics may not provide as strong of an effect in this type of movement.
 It is also possible that while the panel did not improve targeting performance in this task, it may provide a benefit to the subjective feeling of presence in the virtual world, which may be beneficial in a more demanding situation with multiple tasks.
 
 Another variable that was not measured was fatigue.
@@ -256,3 +259,4 @@ All of our independent variables showed no significance on correct button select
 The use of the head-mounted display to provide visuals of hand position provides a small time penalty in button selection.
 The use of the physical panel provided no significant effect in time compared to having the subjects target purely virtual buttons.
 Our optical tracking algorithm had a slight negative effect in time compared to using the capacitive touch sensors.
+Overall, subjects spend more time to select buttons in the virtual reality conditions, but just as accurately and successfully.
