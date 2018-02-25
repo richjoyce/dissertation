@@ -38,45 +38,44 @@ Their performance on the Fitts' task was recorded as well as their responses to 
 
 \section{Background}
 
-\subsection{Haptics}
+In this section, a brief summary of the relevant topics is given.
+A more thorough treatment of the background is in Chapter~\ref{sec:intro_background}.
 
-Passive haptics has been a topic of research since the first immersive virtual environments.
-Robotic passive haptics were used to ameliorate the inflexibility of a proxy object by utilizing a robotic arm to position the proxy object in the virtual environment where the user was reaching \citep{tachi_construction_1994,mcneely_robotic_1993}.
-%awk
-\citet{insko_passive_2001} found that subjects reported increased presence using passive haptics for a maze, and also found that subjects trained with the passive haptics performed better after they were removed than the group that never used them.
-Another track of research combined active haptics with passive haptics, using a haptic glove with a physical panel to create mixed haptics \citep{borst_evaluation_2005}.
+\subsection{Passive Haptics}
+
+Passive haptics have seen limited, but promising results in research.
+\citet{insko_passive_2001} had subjects navigate a maze in a virtual environment.
+They found that subjects reported increased presence using passive haptics, and also found that subjects trained with the passive haptics performed better after they were removed than a control group that never used passive haptics.
+\citet{borst_evaluation_2005} created a `mixed haptics' system, combining active haptic gloves with a physical panel for passive haptics.
 Again, performance was increased with the haptics, but minimal differences were found between using the mixed haptics and the passive haptics alone.
+\citet{kohli_redirected_2012} performed a Fitts' Law evaluation of passive haptics, but did not compare to a no haptics condition.
 Similar to our motivation and work, \citet{schiefele_simple_1998} replaced a cockpit panel with a flat panel in an immersive head-mounted virtual environment, and found that users could activate buttons and switches in less time with the panel present than without.
-While much of the research involving passive haptics indicates an increase in the presence of the user, some have questioned whether active haptics provides benefits.
-\citet{pontonnier_designing_2014} discovered that subjects had decreased presence ratings in a virtual assembly task when using a haptic glove, versus both a real environment and a virtual environment without haptics.
 We build on this previous work by investigating the effects of passive haptics with the latest virtual environment technology, as well as performing a complete Fitts' Law characterization between no haptics and passive haptics.
 
 \subsection{Fitts' Law}
 
-Fitts' originally devised a relationship between movement time and the distance and size of targets for a human performing rapid aimed movements \citep{fitts_information_1954}.
-This has since become known as Fitts' Law, and later work has refined the index of difficulty ($\mathrm{ID}$) as:
+Fitts' Law is a well established model of human movment that has been used extensively to measure the performance of input devices.
+We use the Fitts' throughput in this experiment to compare our experimental conditions.
+Throughput ($\mathrm{TP}$) is defined as:
 \begin{equation}
-    \mathrm{ID}=\log_2\left(\frac{D}{W}+1\right)
-    \label{eq:index_of_difficulty}
-\end{equation}
-where $D$ is the distance to the target from the starting location and $W$ is the width of the target.
-This formula for index of difficulty is known as the Shannons' formulation \citep{mackenzie_note_1989}.
-
-Commonly, the index of difficulty is related to movement time ($\mathrm{MT}$) through a linear regression.
-However, in this work we are concerned with the measurement known as throughput ($\mathrm{TP}$).
-Throughput has been recommended as the dependent measure for comparisons between experimental conditions \citep{soukoreff_towards_2004}.
-It can be thought of theoretically as the rate of information the human can input with the particular experimental setup or input device.
-It is defined mathematically as the index of difficulty over the movement time, and has the units of ``bits per second'' (\si{\bps}).
-\begin{equation}
-    \mathrm{TP}=\frac{ID}{MT}
+    \mathrm{TP}=\frac{\mathrm{ID}}{\mathrm{MT}}
     \label{eq:throughput}
 \end{equation}
+where $\mathrm{MT}$ is the movement time and $\mathrm{ID}$ is the index of difficulty.
+Index of difficulty is a property of the geometry of the targeting movement, combining the distance to the target from the starting location ($D$) and the width of the target ($W$).
+We use the Shannons' formulation of index of difficulty:
+\begin{equation}
+    \mathrm{ID}=\log_2\left(\frac{D}{W}+1\right)
+%    \label{eq:index_of_difficulty}
+\end{equation}
+The index of difficulty has units of bits, and the throughput has units of ``bits per second'' (\si{\bps}).
+Throughput can be thought of theoretically as the amount of information (`bits') the human can input with the particular input device or method per time (`per second').
+A higher throughput indicates that humans are able to use the input method more accurately and more quickly.
 
-The use of Fitts' Law as a tool for human-computer interface research began with the research of \citet{card_evaluation_1978} for the evaluation of different input devices for text entry.
-The ISO 9241-9 standard was published in 2000 with guidance on using Fitts' Law as an evaluation of pointing devices \citep{international_organization_for_standardization_iso_2000}.
-Along with the ISO standard, there have been calls to standardize the use of Fitts' Law so that results can be compared across literature \citep{soukoreff_towards_2004}.
-For a 2-dimensional task (where all the buttons exist on a single plane), it is recommended to use the circle layout as shown in Figure \ref{fig:ph_fitts_circle}.
-This layout is referred to as the ``Fitts' circle'' within this article.
+In this experiment, we use the ISO 9241-9 ``Fitts' circle'' standard (Figure~\ref{fig:ph_fitts_circle}).
+The adjustment for accuracy \citep{welford_fundamentals_1968} is used to calculate the effective width.
+The effective width, $W_e$, performs a correction for the performance of the subject based on the end point positions on the target for all their movements.
+The effective width is calculated as $W_d=4.1\sigma$, where $\sigma$ is the standard deviation of the endpoint positions.
 
 \begin{figure}
     \centering
@@ -84,19 +83,6 @@ This layout is referred to as the ``Fitts' circle'' within this article.
     \caption{Fitts' Circle diagram. $D$ is the distance between targets and $W$ is the width of the targets.}
     \label{fig:ph_fitts_circle}
 \end{figure}
-
-In this work, we use the effective width for the targets, which is defined as:
-\begin{equation}
-    W_e = 4.133\sigma
-\end{equation}
-where $\sigma$ is the standard deviation of the end point positions.
-This is known as the adjustment for accuracy \citep{welford_fundamentals_1968}.
-This correction accounts for the performance of the subject, especially on lower index of difficulty conditions where they may aim for the inside edge of a target.
-Hence, the use of the effective width provides the index of difficulty for the task that the subject performed, not the task presented to them.
-The effective width is calculated per subject per distance and width configuration, and subsequently used in the index of difficulty equation.
-\begin{equation}
-    {ID}_e=\log_2\left(\frac{D}{W_e}+1\right)
-\end{equation}
 
 Previous work of evaluating virtual environments and input devices with Fitts’ Law mostly consist of evaluating 3D tasks \citep{chun_evaluating_2004,liu_comparing_2009,teather_evaluating_2010}.
 \citet{kohli_redirected_2012} used a passive haptic environment with a head-mounted display, but evaluation focused on their warped virtual space technique.
@@ -109,7 +95,7 @@ A definition from \citet{witmer_measuring_1998} reads:
 \begin{displayquote}
 \textit{Presence} is defined as the subjective experience of being in one place or environment, even when one is physically situated in another.
 \end{displayquote}
-\citet{sheridan_musings_1992} argued that presence is a subjective sensation that necessitates a subjective measure.
+%\citet{sheridan_musings_1992} argued that presence is a subjective sensation that necessitates a subjective measure.
 Increased presence has been shown to lead to increased performance in a virtual environment task \citep{youngblut_relationship_2003}.
 We use a version of the Presence Questionnaire (PQ) proposed by \citet{witmer_measuring_1998}.
 The post-questionnaire consists of 16~questions with a seven-point Likert scale.
@@ -118,9 +104,9 @@ The post-questionnaire consists of 16~questions with a seven-point Likert scale.
 \subsection{Arm Fatigue}
 
 Despite the concern of arm fatigue in virtual environments \citep{burdea_virtual_2003}, it was surprising that most results in literature were anecdotal or for mitigation without quantification of the fatigue.
-Since fatigue is a subjective quantity, it can be hard to measure it between subjects, and sometimes even within.
-The negative impact of arm fatigue on using virtual environments makes it worth investigating.
-The arm fatigue scale used within this experiment is a Borg Rating of Perceived Exertion (RPE) scale that ranges from \numrange{6}{20} \citep{borg_borgs_1998}.
+%Since fatigue is a subjective quantity, it can be hard to measure it between subjects, and sometimes even within.
+%The negative impact of arm fatigue on using virtual environments makes it worth investigating.
+The arm fatigue scale used within this experiment is the Borg Rating of Perceived Exertion (RPE) scale that ranges from \numrange{6}{20} \citep{borg_borgs_1998}.
 \citet{hincapie-ramos_consumed_2014} proposed a model for quantifying and predicting the amount of arm fatigue that correlated well with a Borg scale.
 Although there does not exist a standard for arm fatigue measurements in virtual environments, we hope that future researchers will consider including arm fatigue ratings in their experiments.
 
@@ -148,23 +134,14 @@ The equipment used consists of an Oculus Rift DK2 (Development Kit 2) head-mount
 The low-persistence OLED display of the HMD has a resolution of 1920x1080, with a refresh rate of \SI{75}{\hertz}.
 The field of view is approximately \ang{100}.
 It utilizes internal sensors (accelerometers and gyros) and an external infrared camera for head tracking.
-
-The LeapMotion is a marker-less hand tracker which utilizes dual infrared cameras to calculate the position of hands and fingers in view.
-This position is used to provide an image of the hand position in the virtual environment, as well as for determining when a button is pressed.
-Instead of using the LeapMotion in its original face-up configuration, it was mounted above the working area and pointed down.
-Our pilot studies (Section \ref{sec:proto-hand-tracking}) indicated that hand tracking from the LeapMotion was improved utilizing this face-down setup with the software using the head-mounted configuration.
-However, the hand tracker could not be mounted on the head-mounted display as it required a fixed position relative to the passive haptics to maintain appropriate registration between the virtual world and the passive haptics.
-
-A custom calibration scheme (Section \ref{sec:proto-calibration}) was developed for the hand tracker as the initial registration between physical and virtual worlds was not very accurate.
-Despite the pre-calibration inaccuracy, the LeapMotion software was very precise, so after performing the calibration, the registration was kept stable.
-The calibration performed a least squares calculation to solve for a transformation matrix between known real world locations and the reported location from the LeapMotion.
+The configuration and calibration of the LeapMotion hand tracker is described in Chapter~\ref{chap:prototype}~(\ref{sec:proto-hand-tracking}-\ref{sec:proto-calibration}).
 
 \subsection{Experimental Task}
 
 The experimental task was a Fitts' circle in the virtual environment, performed by subjects in two haptic conditions.
 The subjects were seated at a desk for the experimental task, and the circle was located on a panel mounted on the desk.
 The two haptic conditions were ``No Haptics (NH)'' and ``Passive Haptics (PH).''
-These conditions are pictured in Figure \ref{fig:ph_conditions}.
+These conditions are pictured in Figure~\ref{fig:ph_conditions}.
 For the ``Passive Haptics'' condition a physical panel was co-located with the panel in the virtual world, and it was removed for the ``No Haptics'' condition.
 
 \mbox{}\hfill
@@ -233,7 +210,7 @@ Their development and parameter selection are discussed in the results.
 The main dependent measure is the Fitts' throughput, measured through the movement time between button presses.
 Additionally, the trajectory of each movement is recorded from the hand tracker for analysis.
 To determine the arm fatigue, subjects were asked to rate their arm fatigue on the Borg scale from \numrange{6}{20}.
-The scale was presented with anchors as shown in Appendix \ref{sec:app_ph_exp} (Table \ref{tab:ph_borg_scale}).
+The scale was presented with anchors as shown in Appendix~\ref{sec:app_ph_exp} (Table~\ref{tab:ph_borg_scale}).
 The arm fatigue rating was collected at the beginning of each condition, and then after every other configuration of distance and width combination (and after the final trial due to an odd number of trials).
 At the completion of each condition the subject was given a presence questionnaire.
 At the end of the experiment, an additional condition comparison survey was given to ask for opinions on the two haptic conditions.
@@ -248,7 +225,7 @@ First, the local minima are found throughout the velocity profile of the movemen
 The ``ballistic phase'' is then classified as the submovement which contains the peak velocity of the entire movement.
 The various submovements after the ballistic phase are classified as the ``corrective phase''.
 Any movement before the ballistic phase is classified as a ``reaction time''.
-An example of the results of this classification is shown in Figure \ref{fig:ph_trajectory_ballistic}.
+An example of the results of this classification is shown in Figure~\ref{fig:ph_trajectory_ballistic}.
 This mathematical definition does break down for certain cases where a subject might have two submovements in the ballistic phase due to a mid-course correction or similar, however one of the main purposes of this classification for this experiment was to find movements which are appropriate to use for the Fitts' Law calculations.
 Therefore, movements with multiple submovements are likely to not be ballistic, well-learned movements.
 
@@ -281,19 +258,20 @@ The total time spent in the experiment was under one hour, with a range of appro
 
 \subsection{Throughput}
 
-The throughput is calculated per movement using Equation \ref{eq:throughput} and meaned per trial before being meaned per subject and condition.
+The throughput is calculated per movement using Equation~\ref{eq:throughput} and averaged by trial before being averaged by subject and condition.
 Throughput is used to investigate the first two research questions: do the subjects learn more quickly and does their throughput performance improve with passive haptics?
+We first present the learning rate results, but before the effect of throughput performance on passive haptics is reported, our data reduction methods are discussed.
 
 \subsubsection{Rate of Learning}
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{{throughput_trials.8.0x4.0}.png}
-    \caption{Throughput per trial. The learning curve exponential fit is given by Eq.~\ref{eq:ph_learning} with parameters from Table \ref{tab:ph_tp_regression}.}
+    \caption{Throughput per trial. The learning curve exponential fit is given by Eq.~\ref{eq:ph_learning} with parameters from Table~\ref{tab:ph_tp_regression}.}
     \label{fig:ph_throughput_trials}
 \end{figure}
 
-The average throughput for each trial, separated by haptics condition, is shown in Figure \ref{fig:ph_throughput_trials}.
+The average throughput for each trial, separated by haptics condition, is shown in Figure~\ref{fig:ph_throughput_trials}.
 An exponential rise to a learned state is fit to each haptics condition to model the learning curve of the subjects.
 The equation used is given as:
 \begin{equation}
@@ -302,12 +280,12 @@ The equation used is given as:
 \end{equation}
 where $T$ is the trial number, $\mathrm{TP}_{\infty}$ is the asymptotic learned value of throughput, $\mathrm{TP}_0$ is the initial value at $T=0$ and $\tau$ is the time constant.
 The time constant is defined as the number of trials for the throughput to rise 36\% of the difference between the fully learned throughput ($\mathrm{TP}_{\infty}$) and the initial throughput ($\mathrm{TP}_0$).
-The parameters of the fit for each condition is shown in Table \ref{tab:ph_tp_regression}, as well as the standard error of the estimate (SEE).
-The value of throughput from the regression fit as a percentage of the fully learned value ($\mathrm{TP}_{\infty}$) for representative trials are listed in Table \ref{tab:ph_tp_regression_values}.
+The parameters of the fit for each condition is shown in Table~\ref{tab:ph_tp_regression}, as well as the standard error of the estimate (SEE).
+The value of throughput from the regression fit as a percentage of the fully learned value ($\mathrm{TP}_{\infty}$) for representative trials are listed in Table~\ref{tab:ph_tp_regression_values}.
 
 The rate of learning is very similar among both groups in the first condition.
 For the first condition it can appear that the subjects performing NH learned more quickly than their counterparts performing PH by looking at the time constants.
-However, as the values in Table \ref{tab:ph_tp_regression_values} show, the NH First group started their first trial at a lower percentage of their learned state.
+However, as the values in Table~\ref{tab:ph_tp_regression_values} show, the NH First group started their first trial at a lower percentage of their learned state.
 The shape of the learning curves are very similar and both groups reached approximately 90\% of their fully learned state by the 5\textsuperscript{th} trial.
 
 The learning curves are quite different for the second condition.
@@ -319,14 +297,14 @@ Their initial performance of PH did start out at a slightly higher level than th
 \begin{table}
     \centering
     \includetable{throughput_regressions.tex}
-    \caption{Exponential fit parameters of Eq. \ref{eq:ph_learning}. Curves are shown in Figure \ref{fig:ph_throughput_trials}. $\mathrm{TP}_{\infty}$ is the asymptotic learned value of throughput. $\mathrm{TP}_0$ is the initial value at trial~0. $\tau$ is the time constant of the exponential function. SEE is the standard error of the estimate for the fit.}
+    \caption{Exponential fit parameters of Eq.~\ref{eq:ph_learning}. Curves are shown in Figure~\ref{fig:ph_throughput_trials}. $\mathrm{TP}_{\infty}$ is the asymptotic learned value of throughput. $\mathrm{TP}_0$ is the initial value at trial~0. $\tau$ is the time constant of the exponential function. SEE is the standard error of the estimate for the fit.}
     \label{tab:ph_tp_regression}
 \end{table}
 
 \begin{table}
     \centering
     \includetable{throughput_regression_values.tex}
-    \caption{Percentage of fully learned state for various trials for each group and condition from learning model fit. $\mathrm{TP_i}$ is $\mathrm{TP}(i)/\mathrm{TP}_{\infty}$ using Eq. \ref{eq:ph_learning}. Trial 15 is the final trial for each condition.}
+    \caption{Percentage of fully learned state for various trials for each group and condition from learning model fit. $\mathrm{TP_i}$ is $\mathrm{TP}(i)/\mathrm{TP}_{\infty}$ using Eq.~\ref{eq:ph_learning}. Trial 15 is the final trial for each condition.}
     \label{tab:ph_tp_regression_values}
 \end{table}
 
@@ -340,22 +318,15 @@ It does appear that the fully learned state is different between the haptic cond
 
 Before they could be used for the Fitts' Law analysis, the trajectories were filtered so that only movements which were direct to target were included.
 A well-learned movement appropriate for Fitts' Law is one which moves directly towards the target and does not have much extraneous movement or idle time beyond what is required to complete the task.
-As a result of the experiment design and questions requiring subjects to learn the task during the data collection, we expected many of the movements to deviate from a well-learned movement.
-% awk
-During the observation of subjects during the experiment, as well as post-hoc examination of the dataset, a number of common patterns were discovered and targetted by the filters in this section.
+As a result of the experiment design and research questions requiring subjects to learn the task during the data collection, we expected many of the movements to deviate from a well-learned movement.
+A number of common reasons for deviation were observed during the experiment and post-hoc examination of the dataset.
 The goal of this filtering is to produce a dataset that only includes the direct to target movements approriate for a Fitts' Law analysis for the final throughput calculations.
-We describe in this section the three metrics developed that were used to determine whether a movement was direct to target.
+We describe in this section the three metrics developed based on these observed deviations that were used to determine whether a movement was direct to target.
 
-%An inordinate amount of time was spent either in the reaction phase before the ballistic, or more typically, after the ballistic movement in the corrective phase.
-%There were two common causes of a long time spent in the corrective phase, the first was that the subject had trouble finding the activation zone or holding it there for the 160 msec required.
-%The second cause was that the subject would have a false start and move towards the next target before their button press was activated.
-%For the former, this led to a increase in time for the corrective phase, but not neccesarily a large path distance increase.
-
-%To perform the filtering, three metrics were developed.
-The first metric was the ratio of path distance traveled in the ballistic phase to the distance between the targets for that movement (i.e. \SIlist{20;30;40}{\centi\meter}).
+The first metric was the ratio of path distance traveled in the ballistic phase to the distance between the targets for that movement (i.e.\ \SIlist{20;30;40}{\centi\meter}).
 Ideally, the ballistic portion would cover the majority of the distance between the targets.
 A movement which covered too little of the target distance could mean the subject slowed or stopped in the middle of movement, and one that covered more could mean the subject overshot or had an indirect trajectory.
-A sample movement that gets flagged by this filter is shown in Figure \ref{fig:ph_traj_filter_target}, which has a ratio of 1.49.
+A sample movement that gets flagged by this filter is shown in Figure~\ref{fig:ph_traj_filter_target}, which has a ratio of 1.49.
 This is an example of a movement that does seemingly have a direct movement toward the target, but includes a large deviation perpendicular to the movement axis.
 This deviation could mean the subject initially aimed their ballistic portion in the wrong direction but performed a correction during the movement.
 The limits for this filter were chosen as having a ratio between 0.90 and 1.10, i.e.\ within 10\% of the target distance.
@@ -371,7 +342,7 @@ This filtered out 4577 of the 17970 movements (25.5\%).
 The second filtering metric was also based on the ballistic phase path distance.
 For this metric the ballistic phase path distance was compared to the total path distance the subject traveled for their entire movement.
 This filter targeted movements where, after the ballistic phase, the subject moved away from the target, or had a smaller but significant movement before the main ballistic movement.
-An example is shown in Figure \ref{fig:ph_traj_filter_distance} which shows a movement which passed the first metric (the ballistic phase distance ratio to the target distance was 1.03), but the ballistic phase was only 56\% of the total distance traveled during that movement.
+An example is shown in Figure~\ref{fig:ph_traj_filter_distance} which shows a movement which passed the first metric (the ballistic phase distance ratio to the target distance was 1.03), but the ballistic phase was only 56\% of the total distance traveled during that movement.
 This was a common problem where a subject would have a false start for the next target and move away from the current target before their button press was activated.
 The threshold for the filter was set at 0.80, which rejects 4264 movements that are lower than the threshold.
 Of the rejected movements, only 1675 were unique from the rejected movements of the previous target distance filter.
@@ -389,7 +360,7 @@ The last filter took a time based approach, and looked at the ratio of the time 
 This filter removed movements where the subject spent an inordinate amount of time either before or after the ballistic phase.
 If they were not moving during the non-ballistic phases, it would not have been caught by the distance-based filters either.
 The threshold of 0.40 meant that 4496 movements were filtered, however only 873 of those are unique of the other two filters.
-Figure \ref{fig:ph_traj_filter_time} illustrates a movement where the subject waited before initiating the ballistic movement.
+Figure~\ref{fig:ph_traj_filter_time} illustrates a movement where the subject waited before initiating the ballistic movement.
 Since the subject did not move during this idle time, the other two filters did not flag this movement.
 
 \begin{figure}
@@ -401,6 +372,9 @@ Since the subject did not move during this idle time, the other two filters did 
 
 The combination of these three filters led to 7125 of 18000 movements being filtered out, leaving 60.4\% of the movements.
 For each of the metrics, the threshold was determined by investigating the distribution and looking at sample movements on either end of the threshold to determine if it was an appropriate value.
+The histograms of these metrics as well as more sample movements are shown in Appendix~\ref{sec:app_ph_metrics}.
+The major conclusions in the following sections do not change with different choices in the thresholds (i.e.\ the statistical effects are not sensitive to the threshold choices).
+%However, the use of these filters provides a
 
 The final check before performing the Fitts' calculation was to ensure that each trial had enough data for the adjustment for accuracy calculation.
 The adjustment for accuracy is based on the distribution of endpoint data from a single trial (which is one distance and width configuration).
@@ -414,18 +388,12 @@ For the remaining sections, unless otherwise noted, the results were based on us
 
 \subsubsection{Throughput}
 
-The throughput was found to be higher in the PH condition, at \SI{4.25}{\bps} compared to the \SI{3.76}{\bps} of the NH condition.
-A two-way mixed ANOVA was performed to determine the effect of haptics condition.
-Since we expected order effects, and have seen them with the transfer of training seen in the Rate of Learning section, the sequence the subjects performed the haptic conditions was included as a between subjects factor.
-The effect of haptics was found to have a significant effect on the throughput ($F(1,18)=35.59, p<0.001$) between the PH condition ($M=\SI{4.25}{\bps}, \sigma=\SI{0.44}{\bps}$) and the NH condition ($M=\SI{3.76}{\bps}, \sigma=\SI{0.38}{\bps}$).
-There was no effect on throughput based solely on sequence group ($F(1,18)=0.53, p=0.47$), but there was a marginally significant interaction effect between the sequence and haptics ($F(1,18)=4.48, p=0.048$).
-
-As can be seen in Figure \ref{fig:ph_throughput}, this marginal interaction effect appears to indicate that both groups had improved performance but that the PH First group performed better at the NH condition.
-A post-hoc repeated measures t-test between haptic conditions for the subjects who performed PH First was significant ($t(9)=4.62, p<0.001$), with the PH condition ($M=\SI{4.23}{\bps}, \sigma=\SI{0.34}{\bps}$) outperforming the NH condition ($M=\SI{3.91}{\bps}, \sigma=\SI{0.40}{\bps}$).
-The mean of the differences between subjects was \SI{0.32}{\bps}.
-The group of subjects who performed NH first also had a significant effect in the t-test ($t(9)=3.96, p<0.001$) between the PH condition ($M=\SI{4.28}{\bps}, \sigma=\SI{0.54}{\bps}$) and the NH condition ($M=\SI{3.62}{\bps}, \sigma=\SI{0.32}{\bps}$).
-There was a higher mean of differences (\SI{0.66 }{\bps}) with the NH First group than the PH First group.
-These post-hoc tests confirm that both groups had a significant effect of haptics, though the NH First group had a larger difference between the conditions.
+\begin{table}
+    \centering
+    \includetable{throughput_fulltable.tex}
+    \caption{Throughput scores by haptics condition. Results are shown for the dataset before (Unfiltered) and after (Filtered) the ballistic filtering.}
+    \label{tab:ph_throughput_fulltable}
+\end{table}
 
 \begin{figure}
     \centering
@@ -434,36 +402,49 @@ These post-hoc tests confirm that both groups had a significant effect of haptic
     \label{fig:ph_throughput}
 \end{figure}
 
+In this section, we investigate the first research question, \textit{Will Fitts' throughput be higher with passive haptics?}.
+The throughput results are listed by haptic condition in Table~\ref{tab:ph_throughput_fulltable}.
+Figure~\ref{fig:ph_throughput} shows the throughput seperated by haptics and sequence (the order the subjects performed the haptic conditions).
+
+Throughput was found to be higher in the PH condition, at \SI{4.25}{\bps} compared to the \SI{3.76}{\bps} of the NH condition.
+A two-way mixed ANOVA was performed to determine the effect of haptics condition.
+Since we expected order effects, and have seen them with the transfer of training seen in the Rate of Learning section, the sequence the subjects performed the haptic conditions was included as a between subjects factor.
+The effect of haptics was found to have a significant effect on the throughput ($F(1,18)=35.59, p<0.001$) between the PH condition ($M=\SI{4.25}{\bps}, \sigma=\SI{0.44}{\bps}$) and the NH condition ($M=\SI{3.76}{\bps}, \sigma=\SI{0.38}{\bps}$).
+There was no effect on throughput based solely on sequence group ($F(1,18)=0.53, p=0.47$), but there was a marginally significant interaction effect between the sequence and haptics ($F(1,18)=4.48, p=0.048$).
+
+As can be seen in Figure~\ref{fig:ph_throughput}, this marginal interaction effect appears to indicate that both groups had improved performance but that the PH First group performed better at the NH condition.
+A post-hoc repeated measures t-test between haptic conditions for the subjects who performed PH First was significant ($t(9)=4.62, p<0.001$), with the PH condition ($M=\SI{4.23}{\bps}, \sigma=\SI{0.34}{\bps}$) outperforming the NH condition ($M=\SI{3.91}{\bps}, \sigma=\SI{0.40}{\bps}$).
+The mean of the differences between subjects was \SI{0.32}{\bps}.
+The group of subjects who performed NH first also had a significant effect in the t-test ($t(9)=3.96, p<0.001$) between the PH condition ($M=\SI{4.28}{\bps}, \sigma=\SI{0.54}{\bps}$) and the NH condition ($M=\SI{3.62}{\bps}, \sigma=\SI{0.32}{\bps}$).
+There was a higher mean of differences (\SI{0.66 }{\bps}) with the NH First group than the PH First group.
+These post-hoc tests confirm that both groups had a significant effect of haptics, though the NH First group had a larger difference between the conditions.
+
 It is worth noting that without using the ballistic filter, the major conclusions found do not change.
 The only major difference is the magnitude of the throughput and size of the differences.
-The statistical tests have the same results as well.
-The results by haptics for both filtered and unfiltered are shown in Table \ref{tab:ph_throughput_fulltable}.
+The statistical tests have the same results (these are shown in Appendix~\ref{sec:app_ph_throughput_unfiltered}).
+The results by haptics for both filtered and unfiltered are shown in Table~\ref{tab:ph_throughput_fulltable}.
 These results indicate that subjects do have higher throughput with passive haptics, answering our first research question.
-
-\begin{table}
-    \centering
-    \includetable{throughput_fulltable.tex}
-    \caption{Throughput scores by haptics condition.}
-    \label{tab:ph_throughput_fulltable}
-\end{table}
-
-% Factors causing this.
-
-% Counts of the filters
 
 \subsection{Trajectory Phases}
 
-As described in Section \ref{sec:ph_traj_phases}, each movement of the subjects can be dissected into three distinct phases: reaction time, ballistic phase, and corrective phase.
+As described in Section~\ref{sec:ph_traj_phases}, each movement of the subjects can be dissected into three distinct phases: reaction time, ballistic phase, and corrective phase.
 We have already seen that, overall, the subjects took more time to complete a movement without the passive haptics in place.
 In this section we investigate the differences in time spent in the three phases.
 We report here the means of time spent in each of the three phases.
 Times reported are all milliseconds.
-The results are shown for the filtered and unfiltered results, where the filtered results only include movements that were deemed primarily ballistic by the filtering methods in Section \ref{sec:ph_ballistic_filter}.
+The results are shown in Table~\ref{tab:ph_phases} for the filtered and unfiltered results, where the filtered results only include movements that were deemed primarily ballistic by the filtering methods in Section~\ref{sec:ph_ballistic_filter}.
 The unfiltered results include all movements.
-The phases were meaned per subject first, and then by condition.
-The time spent in each phase is listed in Table \ref{tab:ph_phases}.
+The phases were averaged by subject first, and then by condition.
+The time spent in each phase by haptic condition is shown in Figure~\ref{fig:ph_phases}.
 Each phase was tested for the effect of haptics and sequence through a mixed two-way ANOVA.
 The statistical tests reported here are for the filtered results, but the significance findings do not change between filtered and unfiltered.
+
+\begin{table}
+    \centering
+    \includetable{phases_fulltable.tex}
+    \caption{Time in each movement phase by haptics conditions.}
+    \label{tab:ph_phases}
+\end{table}
 
 The reaction time was not significantly affected by the presence of haptics ($F(1,18)=0.32, p=0.58$) or sequence ($F(1,18)=0.001, p=0.98$).
 However, for the interaction between the two a significant effect was found ($F(1,18)=18.56, p<0.001$).
@@ -487,26 +468,24 @@ Although the ballistic phase had lower movement times with the unfiltered moveme
 The corrective phase time also had a significant effect of haptics ($F(1, 18)=22.46, p<0.001$) between NH ($M=\SI{256.6}{\milli\second}, \sigma=\SI{42.1}{\milli\second}$) and PH ($M=\SI{199.1}{\milli\second}, \sigma=\SI{48.1}{\milli\second}$).
 There was no effect of sequence or the interaction effect between haptics and sequence.
 This result was expected as one of the main benefits of the passive haptics is that the subject does not have to `find' the target along one dimension.
+With the Passive Haptics condition, the subjects can rely on the backstop of the passive haptics to stop their movement normal to the target.
+This allows them to focus their corrective phase on finding the button in the plane of the target.
+In the No Haptics conditions, the subject must slow to a stop at the button and find the button in all three dimensions without the backstop to aid them.
+
 There was a more noticeable difference between the results of the unfiltered and filtered movements for the corrective phase.
 The corrective phase time was much higher in both conditions for the unfiltered, with PH having a mean of \SI{564.7}{\milli\second} ($\sigma=\SI{253.6}{\milli\second}$) and NH having a mean of \SI{837.2}{\milli\second} ($\sigma=\SI{293.2}{\milli\second}$).
+This was expected as many of the non-ballistic movements had to spend more time in the corrective phase to recover.
 
-This answers our third research question \emph{What are the differences between the formation of reaching motion trajectories with passive haptics?}.
+These results provide insight into our third research question \textit{What are the differences between the formation of reaching motion trajectories with passive haptics?}.
 The analysis finds that the most notable difference is that subjects spend significantly less time in the corrective phase with the passive haptics.
-
-\begin{table}
-    \centering
-    \includetable{phases_fulltable.tex}
-    \caption{Time in each movement phase by haptics conditions.}
-    \label{tab:ph_phases}
-\end{table}
 
 \subsection{Arm Fatigue}
 
 The subjects were asked for a rating of their arm fatigue every other trial, as well as before the first trial and after the last trial of each condition.
 One trial lasted for 30~movements and consisted of a single distance and width configuration.
 The scale ranged from \numrange{6}{20}, and subjects were allowed to record decimal ratings.
-The full scale with anchors are shown in Appendix \ref{sec:app_ph_exp} (Table \ref{tab:ph_borg_scale}).
-The average rating at each trial, separated by haptics condition, is shown in Figure \ref{fig:ph_armfatigue_trials}.
+The full scale with anchors are shown in Appendix~\ref{sec:app_ph_exp} (Table~\ref{tab:ph_borg_scale}).
+The average rating at each trial, separated by haptics condition, is shown in Figure~\ref{fig:ph_armfatigue_trials}.
 
 \begin{figure}
     \centering
@@ -522,16 +501,21 @@ Both groups have a similar rate of recovery, but the second condition quickly co
 A within-subjects repeated measure (haptics) with two between-subjects measures (sequence and trial) ANOVA was performed to test the significance of haptics and the interaction effect of haptics and sequence.
 The interaction effect of haptics and sequence was found to be significant ($F(1, 18)=22.6, p<0.001$) as well as the main effect of haptics ($F(1, 18)=5.47, p=0.03$).
 As a result of the significant interaction effect, a post-hoc ANOVA with haptics and trial as the two within subjects repeated measures was run on both sequence groups.
-The NH First group had no effect due to haptics ($F(1, 9)=2.08, p=0.18$), consistent with the observations from Figure \ref{fig:ph_armfatigue_trials}.
+The NH First group had no effect due to haptics ($F(1, 9)=2.08, p=0.18$), consistent with the observations from Figure~\ref{fig:ph_armfatigue_trials}.
 The subjects rated the same trial between conditions an average of only 0.69~points ($\sigma=2.1$) higher for the PH condition, which was their second condition.
 The PH First group did have a significant effect due to haptics ($F(1, 9)=42.37, p<0.001$).
 This group rated the PH condition an average of 2.0~points ($\sigma=2.0$) lower within trials.
-%As expected, the effect of trial number was significant for all of these tests ($p<0.0001$).
+There are two factors that could contribute to the subjects experiencing less fatigue in the first condition with passive haptics.
+The first is that with the help of the passive haptics, the subjects spent less time with their hand extended unsupported.
+The second factor is that the passive haptics condition took less time than the no haptics conditions for the subjects to complete (this can be seen with the higher throughput result).
+In the second condition, both NH and PH experienced similar levels of fatigue.
+This suggests that by this point in the experiment, the subjects had accumulated too much fatigue to see any benefit from the passive haptics.
+
 
 These results show that the subjects only had reduced arm fatigue using the passive haptics for the first condition.
 For all other conditions the arm fatigue ratings reached the same level by the end of the condition.
-This provides an answer to our fourth research question, \emph{Do subjects have lower arm fatigue with passive haptics?}.
-% Why is this
+This provides an answer to our fourth research question, \textit{Do subjects have lower arm fatigue with passive haptics?}.
+Subjects reported lower arm fatigue using passive haptics for the first condition, but the cumulative fatigue negated the effect by the second condition.
 
 \subsection{Presence}
 
@@ -540,7 +524,7 @@ The questions had a 7-point Likert scale response with anchors at either end and
 The score given in this section is a sum of the responses, on a scale of \numrange{1}{7}, where a higher score indicates higher presence.
 A few questions were asked with an inverted scale (i.e.\ a score of 1 indicated higher presence) and were reversed before the score was calculated.
 The internal consistency of the presence questionnaire was tested per condition using Cronbachs' alpha, and was found to be consistent in both conditions ($\alpha=0.72$ and $\alpha=0.71$ for PH and NH, respectively).
-The full survey questions and average responses per condition are listed in Table \ref{tab:ph_presence}.
+The full survey questions and average responses per condition are listed in Table~\ref{tab:ph_presence}.
 The item total correlation (the correlation between the questions' score and the total score) is also listed for each question.
 
 \begin{table}
@@ -551,7 +535,7 @@ The item total correlation (the correlation between the questions' score and the
     \label{tab:ph_presence_scores}
 \end{table}
 
-The average scores per condition are given in Table \ref{tab:ph_presence_scores}.
+The average scores per condition are given in Table~\ref{tab:ph_presence_scores}.
 The presence scores were tested with a mixed within subjects repeated measures (haptics) and between subjects measures (sequence) ANOVA.
 The score had a marginally significant effect between haptics conditions ($F(1,18)=6.08, p=0.024$), with Passive Haptics having a slightly higher mean ($M=77.7, \sigma=9.56$) than No Haptics ($M=71.0, \sigma=9.70$).
 There was no significant effect of sequence ($F(1,18)=4.01, p=0.58$) nor for the interaction effect between sequence and haptics ($F(1,18)=0.71, p=0.41$).
@@ -569,7 +553,8 @@ The question with the biggest difference between the two conditions was question
 The PH condition scored 3 points higher on average on this question.
 After that, the questions with the largest difference were questions 1, 2, 10 and 15: all questions asking about control mechanisms again, and all providing a larger score with the PH condition.
 
-The fifth research question, \emph{Do subjects feel more presence with passive haptics?} can be answered that between similar virtual environments, passive haptics appears to provide a slight benefit in presence.
+The fifth research question, \textit{Do subjects feel more presence with passive haptics?}, can be answered with these results.
+Subjects reported a marginally significant increase in presence for the passive haptics condition.
 
 \subsection{Condition Comparison}
 
@@ -581,7 +566,7 @@ The fifth research question, \emph{Do subjects feel more presence with passive h
 \end{table}
 
 The condition comparison survey asked the subjects five questions directly comparing the two conditions.
-The questions and a summary of the responses are shown in Table \ref{tab:ph_comparison}.
+The questions and a summary of the responses are shown in Table~\ref{tab:ph_comparison}.
 The subjects overwhelmingly responded that they preferred the Passive Haptics (PH) condition (Q5), with all but two subjects choosing it.
 In fact, no subject preferred the No Haptics (NH) condition.
 The two subjects who did not choose PH responded that neither was more preferred.
@@ -617,7 +602,7 @@ Both of these could be the reason for their higher throughput.
 \citet{seixas_one_2015} performed a similar condition to our NH condition, using a LeapMotion to perform a Fitts' circle.
 The major difference was the visual feedback was given on a computer monitor, and offset from the physical location of the hand.
 Their results found a throughput of \SI{2.9}{\bps}, much lower than our \SI{3.76}{\bps}.
-This performance improvement in our experiment is likely due to the additional immersion of having a head-mounted display.
+This performance improvement in our experiment is likely due to the additional immersion of having a head-mounted display and the colocation of the visual feedback with the hand movement.
 
 \section{Conclusion}
 
