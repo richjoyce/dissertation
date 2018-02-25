@@ -163,20 +163,18 @@ The transfer function of the aircraft dynamics is given as:
     \label{fig:de_block_diagram}
 \end{figure}
 
-\begin{align}
-    \mathclap{ % This ignores align for this equation
+\begin{gather}
         \frac{\theta}{\theta_{el}}
         =
         \frac{
-            -0.572 (s+0.553) (s+0.0396)
+            -0.572 (s+0.553) (s + 0.0396)
         }{
             (s^2 + 2\zeta_1 \omega_1 + {\omega_1}^2)
             (s^2 + 2\zeta_2 \omega_2 + {\omega_2}^2)
-        }
-    }\\
-    \omega_1 &= 0.0578 & \zeta_1 &= 0.0160 \nonumber \\
-    \omega_2 &= 1.12 & \zeta_2 &= 0.798 \nonumber
-\end{align}
+        }\\
+    \omega_1 = 0.0578, \quad \zeta_1 = 0.0160 \nonumber \\
+    \omega_2 = 1.12, \quad \zeta_2 = 0.798 \nonumber
+\end{gather}
 
 The disturbance model is based on the model developed in \citet{sweet_identification_1999}.
 It is designed to provide a broad spectrum of frequencies for human pilot frequency response identifications \citep{mcruer_mathematical_1974}.
