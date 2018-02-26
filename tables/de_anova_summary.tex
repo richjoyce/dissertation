@@ -1,12 +1,18 @@
 \begin{tabular}{@{}lcccc@{}}
 \toprule
                 & \multicolumn{4}{c}{ANOVA} \\
-                & Group & Design & \multicolumn{2}{c}{Group:Design (Interaction)}\\
+                %& Group & Design & \multicolumn{2}{c}{Group:Design (Interaction)}\\
+                & Group & Design & Group:Design & Hypothesis\\
+                & & & (Interaction) & \\
 \midrule
-Tracking RMSE   & $*$ &  +  & \multicolumn{2}{c}{ - } \\
-Response Time   &  -  &  -  & \multicolumn{2}{c}{ - } \\
-Prompts Correct & $*$ & $*$ & \multicolumn{2}{c}{$*$} \\
-NASA-TLX        &  -  & $*$ & \multicolumn{2}{c}{$*$} \\
+%Tracking RMSE   & $*$ &  +  & \multicolumn{2}{c}{ - } \\
+%Response Time   &  -  &  -  & \multicolumn{2}{c}{ - } \\
+%Prompts Correct & $*$ & $*$ & \multicolumn{2}{c}{$*$} \\
+%NASA-TLX        &  -  & $*$ & \multicolumn{2}{c}{$*$} \\
+Tracking RMSE   & $*$ &  +  &  -  & H1 Supported\\
+Response Time   &  -  &  -  &  -  & H2 Supported\\
+Correct Prompts & $*$ & $*$ & $*$ & H3 Rejected\\
+NASA-TLX        &  -  & $*$ & $*$ & H4 Rejected\\
 \midrule
                 & \multicolumn{4}{c}{t-tests} \\
                 & \multicolumn{2}{c}{Design} & \multicolumn{2}{c}{Group} \\
