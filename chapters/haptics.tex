@@ -126,15 +126,15 @@ The purpose of the experiment described within this paper is to answer the follo
 
 For the experimental setup, subjects were seated at a desk with a blank panel mounted on an angle in front of them.
 The plywood panel (square with length of \SI{18}{\inch}) was used to provide only the backstop of the virtual buttons for the ``Passive Haptics'' condition.
-The button selection is registered by the subject moving their index finger into a detection zone (cylinder for the circle buttons) in front of the button that extends outward 0.5in.
+The button selection is registered by the subject moving their index finger into a detection zone (cylinder for the circle buttons) in front of the button that extends outward \SI{0.5}{\inch}.
 Their entrance into the hover zone is indicated to them by the button changing color.
-A successful button press is registered after 150ms, and is indicated by the color turning off and a button click noise being played over speakers.
+A successful button press is registered after \SI{150}{\milli\second}, and is indicated by the color turning off and a button click noise being played over speakers.
 
 The equipment used consists of an Oculus Rift DK2 (Development Kit 2) head-mounted display (HMD) and a LeapMotion hand tracker.
 The low-persistence OLED display of the HMD has a resolution of 1920x1080, with a refresh rate of \SI{75}{\hertz}.
 The field of view is approximately \ang{100}.
 It utilizes internal sensors (accelerometers and gyros) and an external infrared camera for head tracking.
-The configuration and calibration of the LeapMotion hand tracker is described in Chapter~\ref{chap:prototype}~(\ref{sec:proto-hand-tracking}-\ref{sec:proto-calibration}).
+The configuration and calibration of the LeapMotion hand tracker is described in Chapter~\ref{sec:proto-hand-tracking}.
 
 \subsection{Experimental Task}
 
@@ -397,8 +397,8 @@ For the remaining sections, unless otherwise noted, the results were based on us
 
 \begin{figure}
     \centering
-    \includegraphics{{throughput.4.0x4.0}.png}
-    \caption{Throughput boxplot by haptics and sequence.}
+    \includegraphics[width=5.0in]{{throughput.3.0x1.5}.png}
+    \caption{Throughput results by haptics and sequence.}
     \label{fig:ph_throughput}
 \end{figure}
 
@@ -445,6 +445,13 @@ The statistical tests reported here are for the filtered results, but the signif
     \caption{Time in each movement phase by haptics conditions.}
     \label{tab:ph_phases}
 \end{table}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=5.0in]{{phases.4.0x2.0}.png}
+    \caption{Time spent in each trajectory phase by haptics.}
+    \label{fig:ph_phases}
+\end{figure}
 
 The reaction time was not significantly affected by the presence of haptics ($F(1,18)=0.32, p=0.58$) or sequence ($F(1,18)=0.001, p=0.98$).
 However, for the interaction between the two a significant effect was found ($F(1,18)=18.56, p<0.001$).
