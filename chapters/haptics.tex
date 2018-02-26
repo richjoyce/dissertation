@@ -54,7 +54,7 @@ We build on this previous work by investigating the effects of passive haptics w
 
 \subsection{Fitts' Law}
 
-Fitts' Law is a well established model of human movment that has been used extensively to measure the performance of input devices.
+Fitts' Law is a well established model of human movement that has been used extensively to measure the performance of input devices.
 We use the Fitts' throughput in this experiment to compare our experimental conditions.
 Throughput ($\mathrm{TP}$) is defined as:
 \begin{equation}
@@ -320,7 +320,7 @@ Before they could be used for the Fitts' Law analysis, the trajectories were fil
 A well-learned movement appropriate for Fitts' Law is one which moves directly towards the target and does not have much extraneous movement or idle time beyond what is required to complete the task.
 As a result of the experiment design and research questions requiring subjects to learn the task during the data collection, we expected many of the movements to deviate from a well-learned movement.
 A number of common reasons for deviation were observed during the experiment and post-hoc examination of the dataset.
-The goal of this filtering is to produce a dataset that only includes the direct to target movements approriate for a Fitts' Law analysis for the final throughput calculations.
+The goal of this filtering is to produce a dataset that only includes the direct to target movements appropriate for a Fitts' Law analysis for the final throughput calculations.
 We describe in this section the three metrics developed based on these observed deviations that were used to determine whether a movement was direct to target.
 
 The first metric was the ratio of path distance traveled in the ballistic phase to the distance between the targets for that movement (i.e.\ \SIlist{20;30;40}{\centi\meter}).
@@ -404,7 +404,7 @@ For the remaining sections, unless otherwise noted, the results were based on us
 
 In this section, we investigate the first research question, \textit{Will Fitts' throughput be higher with passive haptics?}.
 The throughput results are listed by haptic condition in Table~\ref{tab:ph_throughput_fulltable}.
-Figure~\ref{fig:ph_throughput} shows the throughput seperated by haptics and sequence (the order the subjects performed the haptic conditions).
+Figure~\ref{fig:ph_throughput} shows the throughput separated by haptics and sequence (the order the subjects performed the haptic conditions).
 
 Throughput was found to be higher in the PH condition, at \SI{4.25}{\bps} compared to the \SI{3.76}{\bps} of the NH condition.
 A two-way mixed ANOVA was performed to determine the effect of haptics condition.
@@ -610,6 +610,13 @@ Both of these could be the reason for their higher throughput.
 The major difference was the visual feedback was given on a computer monitor, and offset from the physical location of the hand.
 Their results found a throughput of \SI{2.9}{\bps}, much lower than our \SI{3.76}{\bps}.
 This performance improvement in our experiment is likely due to the additional immersion of having a head-mounted display and the colocation of the visual feedback with the hand movement.
+
+\citet{insko_passive_2001} found that passive haptics provided a transfer of training.
+Their experiment found that subjects who performed the task with passive haptics before they performed it with no haptics could perform better than the control group who were never exposed to passive haptics.
+We did find that subjects who performed no haptics after passive haptics did better in throughput than those who started with no haptics.
+This is shown in Figure~\ref{fig:ph_throughput} comparing the NH results in PH First and NH First.
+However, a group that performed NH twice would provide a better control group as there may have been training unrelated to the haptics that caused better performance in the second condition.
+This interpretation relies on comparing performance from the second condition of one sequence group to the first condition of the other.
 
 \section{Conclusion}
 
