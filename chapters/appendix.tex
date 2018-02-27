@@ -3,6 +3,32 @@
 \section{Passive Haptics Experiment}
 \label{sec:app_ph_exp}
 
+\subsection{Ballistic Filter Histograms}
+\label{sec:app_ph_metrics}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{target_histogram.png}
+    \caption{Ballistic Filter Histogram: Ballistic Distance over Target Distance. Movements below 0.90 and above 1.10 were filtered out.}
+    \label{fig:ph_histogram_target}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{distance_histogram.png}
+    \caption{Ballistic Filter Histogram: Ballistic Distance over Movement Distance. Movements below 0.80 were filtered out.}
+    \label{fig:ph_histogram_distance}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{time_histogram.png}
+    \caption{Ballistic Filter Histogram: Ballistic Time over Movement Time. Movements below 0.40 were filtered out.}
+    \label{fig:ph_histogram_time}
+\end{figure}
+
+\subsection{Statistical Tables}
+
 \begin{table}[H]
     \centering
     \includetable{throughput_means.tex}
@@ -86,6 +112,8 @@
     \caption{Arm Fatigue Ratings t-tests}
     \label{tab:ph_armfatigue_ttest}
 \end{table}
+
+\subsection{Questionnaires}
 
 \begin{table}[H]
     \centering
