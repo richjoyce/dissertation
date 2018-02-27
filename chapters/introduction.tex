@@ -134,9 +134,15 @@ The differences found were described and discussed.
 \label{sec:intro_background}
 
 To frame this research, this section will summarize relevant previous work as well as background on the dependent measures used in the experimental work.
+The motivation for our virtual environment is to be used for the design of a cockpit --- a safety-critical human-machine interface.
+The most important performance measures in the human-cockpit interaction are the time and accuracy of the pilot, as well as their workload.
+A major focus of the experimental work is on characterizing the changes in these measures due to the use of the R3C system.
+
 The first few sections summarize different tracks of virtual reality research: it's use in design and prototyping, different haptic environments, and the evaluation of virtual environments.
 Next, input device evaluation research such as Fitts' Law is discussed, highlighting work that has been performed in virtual environments.
 Finally, a summary of various human reaching trajectory research is given to understand how the human formulates trajectories in a virtual environment.
+
+
 
 \subsection{Virtual Environments for Design}
 
@@ -222,6 +228,8 @@ Since this is a major component of our approach, we aim to study the difference 
 Since we are building a unique virtual environment, it is important to evaluate the effectiveness of our prototype.
 In addition to the quantitative metrics we discuss later, in this section we investigate the various qualitative measures used to evaluate virtual environments.
 
+\subsubsection{Presence}
+
 It is notoriously hard to quantify the effectiveness of a virtual environment (VE).
 One can report on quantitative measures of the virtual reality (VR) setup such as latency, field of view, resolution and others, but in the end the only important measure is whether the user finds the virtual environment convincing.
 This can also change depending on the user -- one user could find a VE convincing while another finds it intolerable.
@@ -240,6 +248,8 @@ For this reason, we chose to work with the PQ as it should be more sensitive to 
 In the second experiment (Chapter~\ref{chap:ph_exp}) we use the PQ to compare between the use of no haptics and passive haptics.
 The possibility of increased presence with passive haptics found by \citet{insko_passive_2001} previously mentioned is an important finding we aim to replicate for our virtual environment.
 
+\subsubsection{Arm Fatigue}
+
 We also hypothesize that our system will reduce the amount of arm fatigue experienced by the operator compared to a mid-air pointing virtual environment (i.e.\ no tactile workstation present).
 This common fatigue phenomenon in virtual environments is often called ``gorilla arms'', as people feel that their arms are too heavy to support after prolonged use reaching out into the void.
 A measure of this arm fatigue is not included in the standard presence questionnaire.
@@ -249,6 +259,20 @@ The Borg scale performs favorably to the other scales for measures of exertion \
 Recently, a quantitative approach has been proposed that uses optical tracking of the arm and wrist which validated well against a Borg scale \citep{hincapie-ramos_consumed_2014}.
 Adapting their software to our system would be out of scope (and requires more upper-limb measurement than we are currently capable of) but the validation against the Borg scale is promising.
 We use the Borg scale to measure the arm fatigue in the second experiment (Chapter~\ref{chap:ph_exp}).
+
+\subsection{Workload}
+
+Workload is an important measure for cockpit design as a higher workload can lead to degraded performance or increased errors.
+During the design of a cockpit, it is important to measure the workload of a pilot to ensure that they are given managable tasks to perform.
+In our work, we investigate workload to understand how the use of the R3C system might affect the measurement of workload.
+The third experiment (Chapter~\ref{chap:de_exp}) compares the workload of subjects using the R3C system to subjects doing the same task in a more traditional simulator.
+
+Workload is a term that describes the \emph{amount of work} an individual has to do to accomplish a task.
+It can refer to the actual amount of work, but typically in the context of aviation and spaceflight it refers to the pilot's perception of the workload.
+\citet{hart_development_1988} describes workload as a ``construct that represents the cost incurred by a human operator to achieve a particular level of performance''.
+The subject perceived workload is measured in our work using the NASA Task Load Index (NASA-TLX) survey \citep{hart_development_1988}.
+The TLX survey asks for a rating of the perceived workload on a number of subscales: Mental Demand, Physical Demand, Temporal Demand, Performance, Effort, and Frustration.
+The NASA-TLX survey has been widely adopted as a standard for measuring workload \citep{hart_nasa-task_2006}.
 
 \subsection{Input Device Evaluation}
 \label{input-device-evaluation}
@@ -444,7 +468,7 @@ The use of virtual environments in design and prototyping is well established, b
 Some research has started to investigate the use of various forms of augmented and virtual reality for design tasks, but our combination of technology has not been tested in the context of a design evaluation tool.
 
 \section{Research Questions}
-\label{hypotheses}
+\label{sec:intro_questions}
 
 The research presented in this work consists of three experiments with human subjects to answer our fundamental research questions.
 As is natural with research work, our research questions and motivations evolved with the findings of the previous experiment.

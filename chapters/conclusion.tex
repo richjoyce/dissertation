@@ -1,38 +1,13 @@
 \chapter{Conclusion}
 \label{chap:conclusion}
 
-\section{Rapidly Reconfigurable Research Cockpit Prototype}
+\section{Prototype Development}
 
 The creation of the Rapidly Reconfigurable Research Cockpit prototype represented a large amount of integration work.
 The use of the hand tracker in the virtual environment was a novel use at the beginning of the project, but now LeapMotion (the company behind the hand tracker) has changed focus to develop for the specific use case of hand tracking in virtual reality.
 The capacitive touch sensors provided a useful countermeasure to the initially inaccurate registration between the virtual world and real world.
 As the technology matured, and with the development of the calibration algorithm, the original goal of non-functioning geometric mockups was realized.
 The development of the calibration mechanism proved to be an important step in the development process, as an accurate registration between the physical components and the virtual-visual world provided a much more convincing simulation to new and experienced users alike.
-
-\section{Future Work}
-
-%Although this initial application of the R3C system is to aviation and space vehicle cockpits, any sufficiently complex human-system interface could be designed with this system, such as telerobotics, air traffic control, other transportation domains (nautical, rail), or robotic surgery.
-
-Early in the work, it was decided to focus to only allow for push button interaction based on the technology level of the hand tracker and development time required for more interactions.
-An extension of this work could address other types of interactions, such as dials or toggle switches.
-Similarly, the button detection for the push buttons use a naive yet effective algorithm for determining when the user is pushing on a button.
-The collision detection model could be enhanced to predict when a user is actually moving in to push a button or if they are accidentally moving through the collision volume.
-
-The capacitive touch sensors were removed as a need for our prototype as the hand tracker data and calibration improved.
-Recently research has been performed that allows for capacitive sensors to be printed directly into a 3D printed object \citep{shemelya_3d_2013,kwok_electrically_2017}.
-As this technology matures, it could be used to rapidly prototype instrument designs with a highly-reliable method of button detection.
-
-Future virtual reality and augmented reality technologies will also allow for further innovations on the R3C method.
-Currently, the most promising augmented reality headset is the Microsoft HoloLens, though there are a number of limitations.
-Most notably, the field of view is drastically smaller (about 40 degrees) and the hand tracking would not work in the HoloLens.
-The use of augmented reality instead of a fully virtual setup would provide a drastically different experience as the visuals would not be as immersive.
-Newer virtual reality headsets are already available that provide small upgrades to the display quality and optics.
-The most important technical upgrade for the current R3C system would be a more robust hand tracker, as many of the problems experienced were related to the hand tracking quality.
-
-%For future experimental work:
-%Hand tracking data!!!
-%fitts law with more haptic feedback
-
 
 \section{Experimental Findings}
 
@@ -64,7 +39,7 @@ This would highlight the possible differences for an evaluator if the virtual re
 The subjective feedback was also categorized and compared to see how the two groups differed in response.
 
 There was no significant interaction for the root mean square error (RMSE) of the tracking task.
-The VR group had worse tracking performance (1.97 degrees vs.\ 1.28 degrees for the TS group), but the differences between instrument design were the same.
+The VR group had worse tracking performance (\ang{1.97} vs.\ \ang{1.28} for the TS group), but the differences between instrument design were the same.
 The prompting task response time had no effect for design or group, but the amount of correct prompts between designs was significantly different for each group.
 The VR group had significantly fewer correct prompts with the Edgekey design (44.0\%) than with the Keypad design (67.5\%).
 The TS group had only a marginally significant difference between designs, with 88.3\% and 81.8\% in the Keypad and Edgekey designs, respectively.
@@ -77,3 +52,59 @@ Some issues were not noted as much in one group or the other, but major issues w
 For example, 13 comments were made in the TS group noting that the flight task being centered in the Edgekey design was helpful, but only 3 subjects noted this in the VR group.
 However, both groups noted at about the same frequency that the switch key in the Edgekey design was troublesome (14 comments in VR, 12 in TS).
 Overall the feedback received is encouraging that the R3C system would highlight the same usability issues in a design being considered.
+
+\section{Research Questions}
+
+In Chapter~\ref{sec:intro_questions}, we listed seven research questions that we aimed to answer by this research.
+Here we summarize our answers to these questions.
+
+\paragraph{Can the technical approach of a mockup providing passive haptics with a virtual-visual overlay using a head-mounted display be used successfully?}
+Yes, it can be used successfully, and this answer is supported by all three experiments, but most notably the first and last experiment.
+The first experiment (Chapter~\ref{chap:pointing}) found that subjects could select buttons in the R3C system just as successfully as in the real world.
+The third experiment (Chapter~\ref{chap:de_exp}) had subjects successfully use the R3C system in a more realistic flight task, using 3D printed instruments.
+
+\paragraph{Can a user select a button in the R3C prototype with the passive haptics and hand tracker as quickly and accurately as one in the real world?}
+Yes, they can select a button as accurately, but not as quickly.
+In the first experiment (Chapter~\ref{chap:pointing}) it was shown that the subjects could target a button as accurately as in the real world, but they took more time to accomplish this.
+
+\paragraph{Does the use of passive haptics change the performance of subjects targeting a button in the virtual environment?}
+Yes, subjects were able to target buttons with a higher throughput with the passive haptics than without (Chapter~\ref{chap:ph_exp}).
+
+\paragraph{Does the use of passive haptics increase the presence of subjects using the virtual environment?}
+In Chapter~\ref{chap:ph_exp} we found that the presence was marginally higher with the use of passive haptics.
+
+\paragraph{Does the use of passive haptics change the trajectory formation of subjects targeting a button in the virtual environment?}
+The trajectory phase analysis in Chapter~\ref{chap:ph_exp} found that the use of passive haptics had the largest change to the corrective phase of the trajectory.
+Subjects spent more time in the corrective phase without the passive haptics.
+
+\paragraph{Can the R3C prototype be used effectively as a design evaluation tool?}
+The third experiment (Chapter~\ref{chap:de_exp}) performed a design evaluation of two mock instrument designs.
+Subjects were able to learn and use the R3C system to test the instrument designs and provide feedback.
+
+\paragraph{How does the R3C prototype compare to other design evaluation tools?}
+In the third experiment (Chapter~\ref{chap:de_exp}) a design evaluation study was performed with both a R3C simulator and a touchscreen simulator.
+We found that some performance measures (tracking task performance and response time to a memorization task) provided similar results in both simulators.
+Tasks which were time pressured provided some difficulties to the R3C group.
+The most promising result was that the subjective feedback from both simulator groups provided the same conclusions about the designs being evaluated.
+
+\section{Future Work}
+
+Early in the research, it was decided to focus to only allow for push button interaction based on the technology level of the hand tracker and development time required for more interactions.
+An extension of this work could address other types of interactions, such as dials or toggle switches.
+Similarly, the button detection for the push buttons use a naive yet effective algorithm for determining when the user is pushing on a button.
+The collision detection model could be enhanced to predict when a user is actually moving in to push a button or if they are accidentally moving through the collision volume.
+
+The capacitive touch sensors were removed as a need for our prototype as the hand tracker data and calibration improved.
+Recently research has been performed that allows for capacitive sensors to be printed directly into a 3D printed object \citep{shemelya_3d_2013,kwok_electrically_2017}.
+As this technology matures, it could be used to rapidly prototype instrument designs with a highly-reliable method of button detection.
+
+Future virtual reality and augmented reality technologies will also allow for further innovations on the R3C method.
+Currently, the most promising augmented reality headset is the Microsoft HoloLens, though there are a number of limitations.
+Most notably, the field of view is drastically smaller than our current setup (about 40 degrees) and the hand tracker we used can not work with the HoloLens.
+The use of augmented reality instead of a fully virtual setup would provide a drastically different experience as the visuals would not be as immersive.
+Newer virtual reality headsets are already available that provide small upgrades to the display quality and optics.
+The most important technical upgrade for the current R3C system would be a more robust hand tracker, as many of the problems experienced were related to the hand tracking reliability.
+
+%There are a number of extensions to the 
+%The next steps in experimental work would be to validate the results of Chapter~\ref{chap:de_exp} with subjects who are trained pilots.
+%There are more opportunities for 

@@ -528,7 +528,7 @@ The task and experiment was designed with this in mind and mitigated through tra
 \begin{figure}
     \centering
     \includegraphics[width=5.0in]{{rmse.3.0x1.5}.png}
-    \caption{Factor Plot of RMSE}
+    \caption{RMSE (root mean square error) of the tracking task by Group and Design.}
     \label{fig:de_factor_rmse}
 \end{figure}
 
@@ -560,7 +560,7 @@ This indicates that when the subjects were focused on the single task, they were
 \begin{figure}
     \centering
     \includegraphics[width=5.0in]{{rmse_tracking_trials.3.0x1.5}.png}
-    \caption{Factor Plot of RMSE for Tracking Only Trials}
+    \caption{RMSE of tracking task for tracking only trials by Group and Design.}
     \label{fig:de_factor_rmse_tracking_only}
 \end{figure}
 
@@ -584,7 +584,7 @@ After filtering, 885 of the total 1700 prompts recorded for the Edgekey design w
 \begin{figure}
     \centering
     \includegraphics[width=5.0in]{{reaction_time.3.0x1.5}.png}
-    \caption{Factor Plot of Response Time}
+    \caption{Prompt Response Time (milliseconds) by Group and Design.}
     \label{fig:de_factor_response}
 \end{figure}
 
@@ -616,7 +616,7 @@ This indicates that for a task that includes a large cognitive workload, the per
 \begin{figure}
     \centering
     \includegraphics[width=5.0in]{{correct_prompts.3.0x1.5}.png}
-    \caption{Factor Plot of Percent of Correct Prompts per Trial}
+    \caption{Percent of Correct Prompts per Trial by Group and Design.}
     \label{fig:de_factor_correct}
 \end{figure}
 
@@ -643,7 +643,7 @@ They also had more difficulty in both designs compared to the TS group.
 \begin{figure}
     \centering
     \includegraphics[width=6.0in]{{prompts_stacked.6.0x4.0}.png}
-    \caption{Average percent of correct, incorrect, and incomplete prompts.}
+    \caption{Average percent of correct, incorrect, and incomplete prompts by Group and Design.}
     \label{fig:de_correct_stacked}
 \end{figure}
 
@@ -673,7 +673,7 @@ The interaction effect existed because the VR group found the Edgekey design mor
 \begin{figure}
     \centering
     \includegraphics[width=5.0in]{{tlx.3.0x1.5}.png}
-    \caption{Factor Plot of NASA-TLX}
+    \caption{NASA-TLX workload scores by Group and Design.}
     \label{fig:de_factor_tlx}
 \end{figure}
 
@@ -711,11 +711,12 @@ The RMSE of the tracking only trials, by Group and trial number, is shown in Fig
 \begin{figure}
     \centering
     \includegraphics[width=5.0in]{{training_rmse.3.0x1.5}.png}
-    \caption{RMSE for Tracking Only Trials by Group and Design}
+    \caption{RMSE for Tracking Only Trials by Group and Trial.}
     \label{fig:de_factor_training}
 \end{figure}
 
-The two-way ANOVA found Group to be a marginally significant factor ($F(1, 21) = 4.94, p=0.037$) between the VR Group ($M=\ang{1.36}, \sigma=\ang{0.51}$) and the TS Group ($M=\ang{0.94}, \sigma=\ang{0.43}$).
+The two-way ANOVA found Group to be a marginally significant factor ($F(1, 21) = 4.94, p=0.037$).
+The TS Group ($M=\ang{0.94}, \sigma=\ang{0.43}$) had an RMSE \ang{0.42} lower than the VR Group ($M=\ang{1.36}, \sigma=\ang{0.51}$).
 The effect of group on the tracking task was already established, so the marginal significance found here is not unexpected.
 Trial number was found to have no significant effect ($F(1, 21)=3.65, p=0.069$) between the three trials.
 The means of the three trials, in order, are \ang{1.23} ($\sigma=\ang{0.54}$), \ang{1.18} ($\sigma=\ang{0.51}$), and \ang{1.07} ($\sigma=\ang{0.51}$).
@@ -870,19 +871,3 @@ The results of the subjective feedback analysis found that there was no omission
 The only feedback comments that did not transfer were the fatigue issues, and technology-specific issues.
 We did discover that some issues were mentioned at differing frequencies, which is to say, one group would have more subjects mention it than the other.
 These results suggest that the use of the R3C system for receiving feedback from a design would be appropriate.
-
-%
-%We found that although some performance measures were lower in the R3C environment
-%There was no significant interaction for the root mean square error (RMSE) of the tracking task.
-%The VR group had worse tracking performance (1.97 degrees vs.\ 1.28 degrees for the TS group), but the differences between instrument design were not significantly different.
-%The prompting task response time had no effect for design or group, but the amount of correct prompts between designs was significantly different for each group.
-%The VR group had significantly fewer correct prompts with the Edgekey design (44.0\%) than with the Keypad design (67.5\%).
-%The TS group had only a marginally significant difference between designs, with 88.3\% and 81.8\% in the Keypad and Edgekey designs, respectively.
-%Similarly, the workload scores (NASA-TLX) had a significant difference in both designs, but the effect was stronger in the VR group.
-%The Edgekey design had a higher workload score than Keypad in both groups.
-%
-%The responses from the subjective feedback questions found that both groups were able to identify the same major categories, for both positive and negative comments on the designs.
-%Some issues were not noted as much in one group or the other, but major issues were noted by both groups.
-%For example, 13 comments were made in the TS group noting that the flight task being centered in the Edgekey design was helpful, but only 3 subjects noted this in the VR group.
-%However, both groups noted at about the same frequency that the switch key in the Edgekey design was troublesome (14 comments in VR, 12 in TS).
-%Overall the feedback received is encouraging that the R3C system would highlight the same usability issues in a design being considered.
