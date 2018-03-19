@@ -165,7 +165,7 @@ The tracking rate is approximately \SI{120}{\hertz}, with an advertised latency 
         \caption{LeapMotion field of view.}
         \label{fig:proto_leap_fov}
     \end{subfigure}
-    \caption{The LeapMotion device and field of view. Images by LeapMotion. Interaction area is \num{2}~feet above the controller, by \num{2}~feet wide on each side (\ang{150} angle), by \num{2}~feet deep on each side (\ang{110} angle).}
+    \caption{The LeapMotion device and field of view. Interaction area is \num{2}~feet above the controller, by \num{2}~feet wide on each side (\ang{150} angle), by \num{2}~feet deep on each side (\ang{110} angle).}
     \label{fig:proto_leap}
 \end{figure}
 \hfill\mbox{}
@@ -214,9 +214,10 @@ Most noticeable in the yaw, it would cause the panel to become misaligned and re
 A number of improvements were made in the second generation of the prototype.
 Due to vendor provided software upgrades, the hand tracking became more robust and provided more complete information about the entire hand position.
 The visuals were upgraded with the second Development Kit of the Oculus Rift, which provided improved visual resolution, but, more importantly, an external head tracker (using an infrared camera) which enabled accurate detection of head movement and virtually eliminated drift of the internal intertial sensors.
-A major focus of this version of the prototype was to improve reliability and registration.
-The reliability was partially improved with the new hand tracking software, but other countermeasures developed are described as well.
-Registration (the alignment between the physical world and the virtual world) was improved with the use of a new calibration mechanism described in this section.
+A major focus of this version of the prototype was to improve hand tracking reliability and registration.
+The reliability was improved both with the updated hand tracking software, and with countermeasures we developed to guide users with the button activation.
+Registration (the alignment between the physical world and the virtual world) was improved with the use of a new calibration mechanism.
+These improvements are described in this section.
 
 \begin{figure}
     \centering
@@ -270,7 +271,7 @@ Although this information could be obtained from the newer model HMD which inclu
 For example, if a hand was placed resting on the panel and kept still, the virtual hand would appear to move relative to the virtual panel if the head were moved at even a moderate pace.
 The additional latency introduced by relying on the head tracking sensors simply would not keep accurate registration.
 This led us to develop a mount that would hold the LeapMotion upside down, looking down over the panel and instruments (Figure~\ref{fig:proto_leap_mount}).
-The software could still be configured to the ``VR Mode'', optimizing for face-down tracking, but with a rigid mount.
+The software could still be configured to the ``VR Mode'', optimizing for face-down tracking, but with a stationary mount.
 This provided the best of both worlds: the reliability of the camera down tracking, and a stable transformation between the tracker coordinates and the panel coordinates.
 
 \begin{figure}

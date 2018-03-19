@@ -5,35 +5,36 @@
 
 The final experiment combines the lessons of the previous experiment to investigate the use of the Rapidly Reconfigurable Research Cockpit (R3C) in a design evaluation study.
 The goal of this experiment is to determine if the R3C system can be used in the place of a more traditional evaluation tool.
-As previous chapters have discussed, there are a number of self-evident advantages to using the R3C system.
+As previous chapters have discussed, there are a number of advantages to using the R3C system.
 However, there remain some technical limitations to the technology that could hinder adoption.
 We found that a button targeting task took more time in our virtual environment than in the real world (Chapter \ref{chap:pointing}).
 The following experiment (Chapter \ref{chap:ph_exp}) found that a Fitts' Law task produced a higher throughput using a passive haptics layer, mitigating some of the time increase of targeting buttons in a virtual environment.
 In the experiment described in this chapter, we used the R3C system as the simulation tool for a design evaluation study of a cockpit instrument.
-The purpose in undergoing this evaluation study is to understand if these limitations interfere with the metrics used in evaluating a new cockpit design.
+The purpose in undergoing this evaluation study is to understand whether or not these limitations interfere with the metrics used in evaluating a new cockpit design.
 
-We designed an experiment which asks subjects for feedback on the design of a cockpit instrument.
+We designed an experiment which asked subjects to provide feedback on two different designs of a cockpit instrument.
 The subjects were divided into two groups.
 One group used an R3C setup to operate the instrument, while the other used a more traditional touchscreen simulator of the instrument without a head-mounted display.
-This separation of groups will allow a comparison of the feedback from subjects between groups.
+This separation of groups allowed for a comparison of the feedback from subjects between groups.
 Both groups evaluated the same two instrument designs, and subjects were asked to provide feedback using the same questionnaires.
-We hypothesize that the R3C system could be used in place of a traditional simulator if the two groups provide similar responses to the designs.
 Additionally, we utilized common quantitative metrics to evaluate performance in each group.
-The quantitative measures may change in magnitude between groups, but we need to determine if changes between designs are the same between groups.
+We hypothesize that the R3C system could be used in place of a traditional simulator if the two groups provide similar responses to the designs.
+We expect that the quantitative measures may change in magnitude between groups, but we need to determine if changes between designs are the same between groups.
+Statistically, we are investigating if an interaction effect occurs between simulator groups and instrument designs.
 %to determine if the conclusions that would be drawn from these change between groups.
 
 \section{Methods}
 
-For the mock design study we needed to define a task that the subjects could perform, that was analogous to flight tasks, and could be presented in two different designs for the comparison.
-We chose to have subjects fly a one dimensional flight simulator using a joystick and use their other hand to input text on an instrument.
+For the mock design study we needed to define a task that the subjects could perform that would be analogous to flight tasks and could be presented in two different designs for the comparison.
+We chose to have subjects fly a one dimensional flight simulator using a joystick while using their other hand to input text on an instrument.
 This is analogous to a common cockpit task where a pilot may have to enter information on an instrument (e.g.\ navigational waypoints or autopilots commands) while maintaining a flight path.
-The difference in the instrument design will primarily affect the text input task, as will be described below in the description of the designs.
+The difference in the instrument design will primarily affect the text input task, as will be outlined below in the description of the designs.
 However, the purpose of including the flight task is to provide an increase in workload to the subjects.
 This is in marked contrast to our previous experiments, which had subjects perform button pressing as the sole task.
 
 Subjects were divided into two groups based on which simulator setup they used: Touchscreen (TS) or Virtual Reality (VR).
-The TS group would use a touchscreen to input the text on the instruments, while the VR group used the R3C system (passive haptics, hand tracking and virtual reality).
-In this section, the hardware used and instrument designs that were developed are described.
+The TS group used a touchscreen to input the text on the instruments, while the VR group used the R3C system (passive haptics, hand tracking and virtual reality).
+This section describes the instrument designs and the hardware used.
 This is followed by a description of the task that the subjects performed.
 
 \subsection{Simulator Setup}
@@ -44,7 +45,7 @@ The joystick is mounted on the left side of the desk, and subjects used their le
 The instrument is mounted in front of the subject, at a height and position similar to an instrument in a cockpit.
 The buttons on the instrument were operated with the right hand of the subject.
 The hand tracker is mounted above the instrument looking down, a similar setup to the previous experiments.
-Both groups had an aural indication (a click noise of a button being pressed) when a button was pressed on the instrument, using speakers mounted behind the instrument panel.
+Both groups received an aural indication (a clicking sound through speakers mounted behind the instrument panel) when a button was pressed on the instrument.
 The joystick and instrument were positioned in the same location for each group.
 
 \begin{figure}
@@ -90,8 +91,8 @@ The Touchscreen (TS) group used a touchscreen which displayed the instrument but
 The VR group used the hand tracker activated system previously described in Chapter \ref{chap:prototype}.
 For this experiment, the buttons were configured to turn a blue color when the hand tracker registered a finger within the zone.
 The zones were extended \SI{0.1}{\inch} around the border of the button, raised a height of \SI{0.5}{\inch} above the surface of the button.
-When the button was activated after the 150~millisecond delay, the blue highlight would disappear and the button in the virtual world would move inwards as if it were being pushed in\footnote{Of course, the physical button could not and did not move.}, the press sound would play, and the response of the instrument associated with pressing that button would occur.
-A separate release sound would play when the finger left the zone after a successful press, and for the VR group the button would move back to its starting position.
+When the button was activated after the 150~millisecond delay, the blue highlight would disappear and the button in the virtual world would move inwards as if it were being pushed in\footnote{Of course, the physical button could not and did not move.}, the sound played, and the response of the instrument associated with pressing the button would occur.
+A separate release sound played when the finger left the zone after a successful press, and for the VR group the virtual button would move back to its starting position.
 
 The TS group used a \SI{10.1}{\inch} capacitive touch screen with resolution of 1024x600.
 The active area of the screen was \SI{8.8}{\inch} by \SI{5.1}{\inch}, with outside dimensions of \SI{10.4}{\inch} by \SI{6.7}{\inch}.
@@ -104,13 +105,13 @@ Javascript press and release events were used to simulate the same behavior as d
 %The visuals of the tracker were rendered on top of the browser window with the same OpenGL rendering code used for the VR group.
 \subsection{Instrument Designs}
 
-The two different designs used were developed to be both realistic as a cockpit instrument design that would be under consideration, yet still have one design with flaws that should be identified during a design evaluation.
+The two different designs used were developed to be realistic prospective cockpit design, yet still have design flaws that should be identified during a design evaluation.
 There were three major components of each design: the buttons for text input, a text display area, and an attitude indicator for the flight task.
 The major difference between our two designs is the location of the buttons and the logic of the text entry task.
-The `Keypad' design (Figure~\ref{fig:de_vr_instrument:keypad}) has the button keys on the right side and the attitude indicator on the left.
-The `Edgekey' design (Figure~\ref{fig:de_vr_instrument:edgekey}) has the button keys split on either side of the attitude indicator.
+The `Keypad' design (Figure~\ref{fig:de_vr_instrument:keypad}) has the buttons on the right side and the attitude indicator on the left.
+The `Edgekey' design (Figure~\ref{fig:de_vr_instrument:edgekey}) has the buttons split on either side of the attitude indicator.
 Both designs placed the text display area underneath the attitude indicator.
-The logic of the text entry task will be described in more detail in the next section, but to understand the two designs it is only necessary to know that the entries were limited to the letters `A' through `F' and the numbers `1' through `6'.
+The logic of the text entry task will be described in more detail in the next section, but to understand the two designs it is important to know that the entries were limited to the letters `A' through `F' and the numbers `1' through `6'.
 
 %The tracking task display was the same size on the display for both designs.
 %The prompting task text was placed below the tracking task display, and the same font, size and color was used for both designs.
@@ -118,7 +119,7 @@ The logic of the text entry task will be described in more detail in the next se
 %These were kept consistent to limit the number of possible variables between the two designs.
 %The prominent difference is the placement and behavior of the buttons which is described in this section.
 
-The two designs are pictured in three different versions developed for the experiment.
+The two designs are pictured in three different versions developed for the experiment in Figures~\ref{fig:de_vr_instrument},~\ref{fig:de_3d_instrument} and \ref{fig:de_ts_instrument}.
 Figure~\ref{fig:de_vr_instrument} shows the instruments as they were rendered in the virtual world for the VR group.
 The 3D printed versions that provided the passive haptics for the VR group are photographed in Figure~\ref{fig:de_3d_instrument}.
 The TS group used a fullscreen web browser to render the instrument elements on the touchscreen.
@@ -186,9 +187,9 @@ The button labels were also raised to provide a tactile feedback.
 The font was approximately \SI{0.36}{\inch} tall, and the labels were embossed above the button surface by \SI{0.05}{\inch}.
 
 In the Edgekey design, there is not a single button for every number and letter.
-Instead, the bottom button on either side would switch the behavior (and labels) of the remaining six buttons from being 1 through 6 to A through F.
-In other words, the bottom ``switching'' buttons would change the rest of the buttons from the numbers to the letters, and vice-versa.
-The labels were placed offset from the button on the ``screen'' portion of the instrument, allowing them to change dynamically.
+Instead, the bottom button on either side switches the behavior (and labels) of the remaining six buttons between 1 to 6 and A to F.
+In other words, the bottom ``switching'' buttons change the rest of the buttons from the numbers to the letters, and vice-versa.
+The labels were offset from the button on the ``screen'' portion of the instrument, allowing them to change dynamically.
 The fonts were approximately \SI{0.32}{\inch} tall, and were blue on the screen.
 The buttons are smaller in this design, at \SI{0.76}{\inch} by \SI{0.55}{\inch}.
 A smaller button size was needed to fit the labels and the buttons side by side.
@@ -213,10 +214,10 @@ As with the Keypad design, the buttons had the same height of \SI{0.31}{\inch} f
 %
 %Ultimately, we designed a task that required number and letter inputs using the buttons, while simultaneously flying a pitch disturbance profile.
 
-The subjects were performing two tasks simultaneously: a flight task with their left hand and a text entry task with their right hand.
+The subjects performed two tasks simultaneously: a flight task with their left hand and a text entry task with their right hand.
 The text entry task required subjects to read and memorize a short string of characters and enter it back using the buttons on the instrument.
-We call the text they read and enter the `prompt', and thus the text entry task is called the `prompting task'.
-For the flight task, the subjects were asked to fly in pitch only using an attitude indicator.
+We call the text they read and enter the `prompt', thus the text entry task is called the `prompting task'.
+For the flight task, the subjects were asked to fly in pitch only, using an attitude indicator.
 Their task was to keep the pitch at zero (level flight) while disturbances were introduced.
 This is a standard compensatory tracking task.
 The flight task is called the `tracking task'.
@@ -231,13 +232,13 @@ The prompts were 4 characters long.
 Once the subject started entry, the prompt would disappear, forcing them to hold it in working memory.
 It has been well established that humans are capable of holding about seven digits in working memory \citep{miller_magical_1956,baddeley_working_1992}.
 
-The sequence of the prompts was separated into 10~second ``windows''.
+The sequence of the prompts was separated into 10~second ``windows.''
 The prompt would appear randomly between 2 and 3~seconds of the start of the window.
 From the time of appearance, subjects were given seven seconds until timeout.
 When the subject pressed the first button of the prompt, the prompt itself was cleared and asterisk symbols ($*$) were shown in place of the prompt for each button entry by the subject.
-If the subject ran out of time, the text in entry area would return to black.
+If the subject ran out of time, the text in the entry area would return to black.
 Although subjects were briefed on the timeout and given practice to learn the pace, no warning or indication of time left was shown during the trials.
-Whether they completed the prompt within the time limit, or they timed-out, this process was repeated every 10~seconds.
+This process was repeated every 10~seconds whether they completed the prompt within the time limit, or timed-out.
 %This meant that subjects had at least 3 seconds of time with no prompt.
 
 The prompts themselves were always composed of three numbers followed by a letter or three letters followed by a number.
@@ -246,11 +247,11 @@ The prompts were randomly chosen but were not allowed to have repeat numbers or 
 The selection of letters or numbers as the first three characters was randomly chosen as well, with an equal weight to each.
 
 The Edgekey design had fewer buttons, but the logic of the buttons generated higher workload demands.
-While some of the more subtle differences were expected to be noted by the evaluation study (e.g.\ having smaller buttons, different position of the flight task), the major flaw designed into the Edgekey design was the requirement that the subject uses the switching key to change from letters to numbers and back.
+While some of the more subtle differences were expected to be noted by the evaluation study (e.g.\ having smaller buttons, different position of the flight task), the major flaw designed into the Edgekey design was that the subject was required to use the switching key to change from letters to numbers and back.
 This additional action fundamentally changed the demands of the prompting task, as the subjects now had to press this additional button to change labels at least once per prompt.
 The cognitive workflow of the subject is diagrammed in Figure~\ref{fig:de_flowchart}.
-The additional mental effort of the Edgekey design is shown in the dashed box, where the subject has to verify the state of the instrument and possibly press the switch button before they press the buttons of the prompt.
-Since the prompts were kept as a consistent format of three of the same type and fourth of the other, this extra work was easily skipped for most buttons, and anticipated between the third and fourth button.
+The additional mental effort of the Edgekey design is shown in the dashed box, where the subject had to verify the state of the instrument and possibly press the switch button before they press the buttons of the prompt.
+Since the prompts were kept at a consistent format of three of the same type and fourth of the other, this extra work was easily skipped for most buttons, and anticipated between the third and fourth button.
 There was no guarantee that the next prompt would start with the instrument in the correct state for the new prompt, so there was always an additional cognitive load in determining whether a switch was necessary at the beginning of the prompting window, which would be accompanied with the physical effort if the switch was needed.
 
 \begin{figure}
@@ -329,7 +330,7 @@ The output of the joystick, $r_{js}$, varies from $-1.0$ to $1.0$, and the gain 
 The flight dynamics model (Aircraft Dynamics) of the simulator was a stability derivative based model for a Boeing~747 from NASA CR-2144 \citep{heffley_aircraft_1972}, listed as ``Flight Condition 2''.
 The model was linearized from sea-level flight at an airspeed of 335~ft/s.
 The configuration of the airplane had the gear up, no flaps, total weight of \num{654000}~lbs, and an angle of attack of \ang{7.3}.
-This dynamics model was chosen due to availability and the specifics of the dynamical model were not important other than providing a response similar to an aircraft in flight.
+This dynamics model was chosen due to availability; the specifics of the dynamical model were not important other than to provide a response similar to an aircraft in flight.
 The transfer function of the aircraft dynamics is given as:
 
 \begin{figure}
@@ -394,7 +395,7 @@ The value of the RMS was chosen through pilot studies to ensure the task was cha
 \subsection{Experiment Design}
 
 Subjects were divided into the two groups, Touchscreen (TS) and Virtual Reality (VR).
-The overall sequence of the experiment started with a training session on the simulator and the task, followed by an evaluation session for each of the two designs, finishing with questionnaires asking subjects to evaluate the two designs.
+The overall sequence of the experiment started with a training session on the simulator and the task, followed by an evaluation session for each of the two designs, finishing with questionnaires which asked subjects to evaluate the two designs.
 The timeline of the experiment was the same for each subject, except for counterbalancing the order that the designs were evaluated.
 The training portion started with a slide deck explaining the tasks, the simulator that the subject was using (depending on which group they were in), and the functionality of the two designs.
 Next, they performed practice trials with just the tracking task and then just the prompting task.
@@ -402,14 +403,15 @@ The practice trials of the tracking task were 60~seconds long and repeated until
 This took between three to six trials for each subject.
 %After basic familiarity with the technology
 
-For the evaluation sessions with each design, they performed six trials with both tasks.
-The first three were a minute long, and were considered practice trials, and not included in the data analysis, though this was not communicated to the subjects.
+For the evaluation sessions with each design, subjects performed six trials with both tasks.
+The first three were a minute long.
+They were considered practice trials, and not included in the data analysis, though this was not communicated to the subjects.
 The following three trials were two minutes each, and were used for the analysis.
 Each evaluation session concluded with a two minute trial of just the tracking task without the prompting task.
 This was included to investigate if the subject had improved or fatigued at the tracking task throughout the experiment.
 
 Subjects spent between one to two hours in the experiment (typically longer for the VR group due to additional setup).
-The training and setup took approximately fifteen to thirty minutes, and each of the two evaluation sessions took about fifteen to twenty minutes to complete.
+The training and setup took between fifteen and thirty minutes, and each of the two evaluation sessions took about fifteen to twenty minutes to complete.
 The remainder of the time was spent on the subjects completing the questionnaires.
 
 The independent variables of the experiment are Group and Design.
@@ -425,10 +427,10 @@ The subjects performed a compensatory tracking task, attempting to keep the atti
 This means that the error is the pitch shown on the attitude indicator, since the goal at all times was zero pitch.
 %The error in this case is simply the pitch shown to the subject, the output of the flight model described in Section \ref{sec:de_fdm}.
 
-The prompting task has two dependent measures, for speed and accuracy.
+The prompting task has two dependent measures: speed and accuracy.
 For speed we consider the \textit{response time}, defined as the time between when the prompt is first shown to the subject and when they press the first button of their response entry.
 The accuracy is measured by how many prompts they complete correctly.
-Twelve prompts are shown to the subject within each trial.
+Twelve prompts are shown to the subject in each trial.
 The response time did not include trials which used the switch button of the Edgekey design, or trials where the first button pressed was incorrect.
 The response time was averaged per trial first and then per design for each subject, and the number of correct prompts is averaged per design for each subject.
 
@@ -438,7 +440,7 @@ Our implementation allowed selection of the ratings within increments of 5, and 
 The midpoint was also visually indicated with a larger tick.
 The ranked pairs modification was used and completed for both times the subject took the survey.
 This modification asks the subject, for each of the pairwise combinations of subscales, which they felt contributed more to their workload.
-The number of times they select each subscale is used a weight to calculate a weighted mean for the total TLX score.
+The number of times they select each subscale is used as a weight to calculate a weighted mean for the total TLX score.
 
 Finally, the subjects were given a questionnaire asking for their feedback on each instrument design.
 For each design, the subjects were asked the following questions:
@@ -458,10 +460,10 @@ An open form text box was used for the response field for each of these question
 
 In a standard design evaluation study, the feedback received from the users in this questionnaire (and other debriefing interviews) would often be the main source for carrying out re-design.
 %awk
-The purpose of this feedback in this experiment is to determine and document in which ways does this feedback differ between groups.
+The purpose of this feedback in this experiment is to determine and document in which ways this feedback differs between groups.
 For example, if most subjects in one group noted issues with the size of a button, while no one in the other group found an issue with that button, this would indicate that using this VR system may not highlight the same issues regarding button sizes.
 The groups were purposely left ambiguous in the example, as it does not matter which group found the flaw and which group did not comment on it.
-Although we could postulate as to which group are ``correct'' in their evaluation of the instrument, it is not a useful exercise, as the only result is to document what potential differences could arise so that users of this system can be aware.
+Although we could postulate as to which group is ``correct'' in their evaluation of the instrument, it is not a useful exercise, as the only result is to document what potential differences could arise so that users of this system can be aware.
 
 With that goal in mind, the analysis of the feedback questions seeks to identify differences between the groups.
 The sentences from the open form responses were first separated into single feedback comments, and summarized using common language.
@@ -495,7 +497,7 @@ These hypotheses are enumerated here:
 
 \subsection{Statistical Tests}
 
-The quantitative dependent measures are tested with a two-way ANOVA, with one within subjects factor (Design) and one between subjects factor (Group).
+The quantitative dependent measures are tested with a two-way analysis of variance (ANOVA), with one within subjects factor (Design) and one between subjects factor (Group).
 The Design factor contains two levels, the two designs each subject tested, Edgekey and Keypad.
 The Group factor also contains two levels, the VR (Virtual Reality) group and the TS (Touchscreen) group.
 When the ANOVA showed significance in the interaction test, post-hoc repeated measured t-tests were undertaken to determine the significance of Design within each Group.
