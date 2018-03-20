@@ -27,7 +27,7 @@ Statistically, we are investigating if an interaction effect occurs between simu
 
 For the mock design study we needed to define a task that the subjects could perform that would be analogous to flight tasks and could be presented in two different designs for the comparison.
 We chose to have subjects fly a one dimensional flight simulator using a joystick while using their other hand to input text on an instrument.
-This is analogous to a common cockpit task where a pilot may have to enter information on an instrument (e.g.\ navigational waypoints or autopilots commands) while maintaining a flight path.
+This is analogous to a common cockpit task where a pilot may have to enter information on an instrument (e.g.\ navigational waypoints or autopilot commands) while maintaining a flight path.
 The difference in the instrument design will primarily affect the text input task, as will be outlined below in the description of the designs.
 However, the purpose of including the flight task is to provide an increase in workload to the subjects.
 This is in marked contrast to our previous experiments, which had subjects perform button pressing as the sole task.
@@ -122,6 +122,7 @@ The logic of the text entry task will be described in more detail in the next se
 The two designs are pictured in three different versions developed for the experiment in Figures~\ref{fig:de_vr_instrument},~\ref{fig:de_3d_instrument} and \ref{fig:de_ts_instrument}.
 Figure~\ref{fig:de_vr_instrument} shows the instruments as they were rendered in the virtual world for the VR group.
 The 3D printed versions that provided the passive haptics for the VR group are photographed in Figure~\ref{fig:de_3d_instrument}.
+The buttons on the 3D printed instruments had embossed labels, providing extra tactile feedback to the subject.
 The TS group used a fullscreen web browser to render the instrument elements on the touchscreen.
 Screenshots of each design are shown in Figure~\ref{fig:de_ts_instrument}.
 
@@ -403,14 +404,15 @@ The practice trials of the tracking task were 60~seconds long and repeated until
 This took between three to six trials for each subject.
 %After basic familiarity with the technology
 
-For the evaluation sessions with each design, subjects performed six trials with both tasks.
-The first three were a minute long.
-They were considered practice trials, and not included in the data analysis, though this was not communicated to the subjects.
-The following three trials were two minutes each, and were used for the analysis.
-Each evaluation session concluded with a two minute trial of just the tracking task without the prompting task.
+For the evaluation sessions, subjects performed six trials with both tasks for each design.
+The first three were a minute long, followed by three two minute long trials.
+Only the second set, the longer two minute trial, were used for the data analysis.
+The first three were considered practice trials and not included in the data analysis, though this was not communicated to the subjects.
+Each evaluation session concluded with an additional two minute trial of just the tracking task without the prompting task.
 This was included to investigate if the subject had improved or fatigued at the tracking task throughout the experiment.
 
-Subjects spent between one to two hours in the experiment (typically longer for the VR group due to additional setup).
+Subjects spent between one to two hours in the experiment.
+The VR group subjects typically spent longer in the experimental room due to additional setup (calibration of the head-mounted display), but the amount of time spent on the experimental portion was kept constant between groups.
 The training and setup took between fifteen and thirty minutes, and each of the two evaluation sessions took about fifteen to twenty minutes to complete.
 The remainder of the time was spent on the subjects completing the questionnaires.
 
@@ -427,10 +429,10 @@ The subjects performed a compensatory tracking task, attempting to keep the atti
 This means that the error is the pitch shown on the attitude indicator, since the goal at all times was zero pitch.
 %The error in this case is simply the pitch shown to the subject, the output of the flight model described in Section \ref{sec:de_fdm}.
 
-The prompting task has two dependent measures: speed and accuracy.
-For speed we consider the \textit{response time}, defined as the time between when the prompt is first shown to the subject and when they press the first button of their response entry.
-The accuracy is measured by how many prompts they complete correctly.
-Twelve prompts are shown to the subject in each trial.
+The prompting task had two dependent measures: speed and accuracy.
+For speed we considered the \textit{response time}, defined as the time between when the prompt is first shown to the subject and when they press the first button of their response entry.
+The accuracy was measured by how many prompts they complete correctly.
+Twelve prompts were shown to the subject in each trial.
 The response time did not include trials which used the switch button of the Edgekey design, or trials where the first button pressed was incorrect.
 The response time was averaged per trial first and then per design for each subject, and the number of correct prompts is averaged per design for each subject.
 
@@ -458,7 +460,7 @@ Additionally, the following questions were asked:
 \end{itemize}
 An open form text box was used for the response field for each of these questions.
 
-In a standard design evaluation study, the feedback received from the users in this questionnaire (and other debriefing interviews) would often be the main source for carrying out re-design.
+%In a standard design evaluation study, the feedback received from the users in this questionnaire (and other debriefing interviews) would often be the main source for carrying out re-design.
 %awk
 The purpose of this feedback in this experiment is to determine and document in which ways this feedback differs between groups.
 For example, if most subjects in one group noted issues with the size of a button, while no one in the other group found an issue with that button, this would indicate that using this VR system may not highlight the same issues regarding button sizes.

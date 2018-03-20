@@ -115,8 +115,8 @@ Although there does not exist a standard for arm fatigue measurements in virtual
 The purpose of the experiment described within this paper is to answer the following research questions:
 
 \begin{enumerate}
-    \item Will Fitts' throughput be higher with passive haptics?
     \item Do subjects learn the task more quickly with passive haptics?
+    \item Is the Fitts' throughput higher with passive haptics?
     \item What are the differences between the formation of reaching motion trajectories with passive haptics?
     \item Do subjects report less arm fatigue with passive haptics?
     \item Do subjects feel more presence with passive haptics?
@@ -185,7 +185,7 @@ The distances were presented in either smallest to largest or vice versa, which 
 
 This set of 15 trials was repeated for each haptics condition and the order was kept the same within subjects.
 The sequence that the two conditions were presented to each subject was also counterbalanced.
-The dependent measures will be tested for interaction with sequence to determine if the results were affected by condition order.
+The dependent measures were tested for interaction with sequence to determine if the results had a condition order effect.
 
 \subsection{Experiment Design}
 
@@ -253,8 +253,8 @@ The cut-off frequency was chosen as voluntary hand movements have been shown to 
 Twenty (20) subjects were recruited from the UC Davis engineering student population, both undergraduate and graduate students.
 The age range was \numrange{19}{29} ($M=23.0, \sigma=3.0$) with 16 males and 4 females.
 The genders were balanced among the counterbalanced sequence groups.
-All subjects indicated either less than one hour or no prior experience with virtual reality.
 The total time spent in the experiment was under one hour, with a range of approximately ten to twenty minutes performing each of the two conditions in virtual reality.
+Prior to the experiment, all subjects indicated either no prior experience with virtual reality or less than one hour of use of virtual reality.
 
 \subsection{Throughput}
 
@@ -267,11 +267,13 @@ We first present the learning rate results, but before the effect of throughput 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{{throughput_trials.8.0x4.0}.png}
-    \caption{Throughput per trial. The learning curve exponential fit is given by Eq.~\ref{eq:ph_learning} with parameters from Table~\ref{tab:ph_tp_regression}. Error bars are standard error of the mean.}
+    \caption{Throughput per trial. The learning curve exponential fit is given by Eq.~\ref{eq:ph_learning} with parameters from Table~\ref{tab:ph_tp_regression}. Error bars are standard error of the mean. Each line represents one of the counterbalanced sequence groups (those who did NH as their frist condition versus those who did PH as their first condition).}
     \label{fig:ph_throughput_trials}
 \end{figure}
 
 The average throughput for each trial, separated by haptics condition, is shown in Figure~\ref{fig:ph_throughput_trials}.
+The two lines represent the counterbalanced sequence groups.
+For the first condition (the first 15 trials), the NH First group performed the No Haptics condition before switching to the Passive Haptics condition for the remaining trials.
 An exponential rise to a learned state is fit to each haptics condition to model the learning curve of the subjects.
 The equation used is given as:
 \begin{equation}
@@ -285,8 +287,9 @@ The value of throughput from the regression fit as a percentage of the fully lea
 
 The rate of learning is very similar among both groups in the first condition.
 For the first condition it can appear that the subjects performing NH learned more quickly than their counterparts performing PH by looking at the time constants.
-However, as the values in Table~\ref{tab:ph_tp_regression_values} show, the NH First group started their first trial at a lower percentage of their learned state.
-The shape of the learning curves are very similar and both groups reached approximately 90\% of their fully learned state by the 5\textsuperscript{th} trial.
+However, as the values in Table~\ref{tab:ph_tp_regression_values} show, the NH First group started their first trial at a lower percentage of their final throughput value.
+Both groups reached approximately 90\% of their fully learned state by the 5\textsuperscript{th} trial.
+This means that the NH First group had a bigger change in performance in the first 5 trials, but both groups reached their learned state by the same trial.
 
 The learning curves are quite different for the second condition.
 The NH condition does not have a learning curve at all, with a straight line being a better fit than the exponential function.
@@ -297,20 +300,20 @@ Their initial performance of PH did start out at a slightly higher level than th
 \begin{table}
     \centering
     \includetable{throughput_regressions.tex}
-    \caption{Exponential fit parameters of Eq.~\ref{eq:ph_learning}. Curves are shown in Figure~\ref{fig:ph_throughput_trials}. $\mathrm{TP}_{\infty}$ is the asymptotic learned value of throughput. $\mathrm{TP}_0$ is the initial value at trial~0. $\tau$ is the time constant of the exponential function. SEE is the standard error of the estimate for the fit.}
+    \caption{Exponential fit parameters of Eq.~\ref{eq:ph_learning}. Curves are shown in Figure~\ref{fig:ph_throughput_trials}. $\mathrm{TP}_{\infty}$ is the asymptotic learned value of throughput. $\mathrm{TP}_0$ is the initial value at trial~0. $\tau$ is the time constant of the exponential function. SEE is the standard error of the estimate for the fit. Sequence refers to the counterbalancing order group. Condition indicates the temporal order. Haptics is the haptic used for that condition.}
     \label{tab:ph_tp_regression}
 \end{table}
 
 \begin{table}
     \centering
     \includetable{throughput_regression_values.tex}
-    \caption{Percentage of fully learned state for various trials for each group and condition from learning model fit. $\mathrm{TP_i}$ is $\mathrm{TP}(i)/\mathrm{TP}_{\infty}$ using Eq.~\ref{eq:ph_learning}. Trial 15 is the final trial for each condition.}
+    \caption{Percentage of fully learned state for various trials for each group and condition from learning model fit. $\mathrm{TP_i}$ is $\mathrm{TP}(i)/\mathrm{TP}_{\infty}$ using Eq.~\ref{eq:ph_learning}. Trial 15 is the final trial for each condition. Sequence refers to the counterbalancing order group. Condition indicates the temporal order. Haptics is the haptic used for that condition.}
     \label{tab:ph_tp_regression_values}
 \end{table}
 
 These results indicate that subjects did not learn faster with Passive Haptics.
 The only differences between learning rates is the positive transfer of training from performing Passive Haptics first followed by No Haptics second.
-The answer to the research question \textit{Do subjects learn the task more quickly with passive haptics?}\ appears to be that the passive haptics does not make subjects learn faster, but they are able to learn the task more quickly without passive haptics afterward.
+The answer to the first research question \textit{Do subjects learn the task more quickly with passive haptics?}\ appears to be that the passive haptics does not make subjects learn faster, but they are able to learn the task more quickly without passive haptics afterward.
 It does appear that the fully learned state is different between the haptic conditions, which is investigated through the use of throughput after discussing data filtering.
 
 \subsubsection{Ballistic Movement Filtering}
@@ -320,6 +323,8 @@ Before they could be used for the Fitts' Law analysis, the trajectories were fil
 A well-learned movement appropriate for Fitts' Law is one which moves directly towards the target and does not have much extraneous movement or idle time beyond what is required to complete the task.
 As a result of the experiment design and research questions requiring subjects to learn the task during the data collection, we expected many of the movements to deviate from a well-learned movement.
 A number of common reasons for deviation were observed during the experiment and post-hoc examination of the dataset.
+These reasons are the basis of the three filters described below.
+They include undershooting the target, extra movement away from the target after the ballistic portion, and time spent not moving.
 The goal of this filtering is to produce a dataset that only includes the direct to target movements appropriate for a Fitts' Law analysis for the final throughput calculations.
 We describe in this section the three metrics developed based on these observed deviations that were used to determine whether a movement was direct to target.
 
@@ -370,7 +375,8 @@ Since the subject did not move during this idle time, the other two filters did 
     \label{fig:ph_traj_filter_time}
 \end{figure}
 
-The combination of these three filters led to 7125 of 18000 movements being filtered out, leaving 60.4\% of the movements.
+The combination of these three filters flags 7125 of 18000 movements as non-ballistic.
+This leaves 60.4\% of the movements to be included in the ballistic movement dataset.
 For each of the metrics, the threshold was determined by investigating the distribution and looking at sample movements on either end of the threshold to determine if it was an appropriate value.
 The histograms of these metrics across all movements are shown in Appendix~\ref{sec:app_ph_metrics}.
 The major conclusions in the following sections do not change with different choices in the thresholds (i.e.\ the statistical effects are not sensitive to the threshold choices).
@@ -402,7 +408,7 @@ For the remaining sections, unless otherwise noted, the results were based on us
     \label{fig:ph_throughput}
 \end{figure}
 
-In this section, we investigate the first research question, \textit{Will Fitts' throughput be higher with passive haptics?}.
+In this section, we investigate the second research question, \textit{Is the Fitts' throughput higher with passive haptics?}.
 The throughput results are listed by haptic condition in Table~\ref{tab:ph_throughput_fulltable}.
 Figure~\ref{fig:ph_throughput} shows the throughput separated by haptics and sequence (the order the subjects performed the haptic conditions).
 
@@ -419,11 +425,11 @@ The group of subjects who performed NH first also had a significant effect in th
 There was a higher mean of differences (\SI{0.66 }{\bps}) with the NH First group than the PH First group.
 These post-hoc tests confirm that both groups had a significant effect of haptics, though the NH First group had a larger difference between the conditions.
 
-It is worth noting that without using the ballistic filter, the major conclusions found do not change.
+It is worth noting that if the original dataset is used without the ballistic filters described in the previous section, the major conclusions found do not change.
 The only major difference is the magnitude of the throughput and size of the differences.
 The statistical tests have the same results (these are shown in Appendix~\ref{sec:app_ph_exp}: Tables~\ref{tab:ph_throughput_unfiltered_means}-\ref{tab:ph_throughput_unfiltered_ttest}).
 The results by haptics for both filtered and unfiltered are shown in Table~\ref{tab:ph_throughput_fulltable}.
-These results indicate that subjects do have higher throughput with passive haptics, answering our first research question.
+These results indicate that subjects do have higher throughput with passive haptics, answering our research question.
 
 \subsection{Trajectory Phases}
 
@@ -493,12 +499,12 @@ The subjects were asked for a rating of their arm fatigue every other trial, as 
 One trial lasted for 30~movements and consisted of a single distance and width configuration.
 The scale ranged from \numrange{6}{20}, and subjects were allowed to record decimal ratings.
 The full scale with anchors are shown in Appendix~\ref{sec:app_ph_exp} (Table~\ref{tab:ph_borg_scale}).
-The average rating at each trial, separated by haptics condition, is shown in Figure~\ref{fig:ph_armfatigue_trials}.
+The average rating at each trial, separated by haptics condition and sequence group, is shown in Figure~\ref{fig:ph_armfatigue_trials}.
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{{armfatigue_trials.8.0x4.0}.png}
-    \caption{Arm Fatigue by Trial. Translucent bands are the standard error of the mean.}
+    \caption{Arm Fatigue by Trial. Translucent bands are the standard error of the mean. Each line represents one of the counterbalanced sequence groups (those who did NH as their frist condition versus those who did PH as their first condition).}
     \label{fig:ph_armfatigue_trials}
 \end{figure}
 
@@ -590,7 +596,7 @@ The arm fatigue question (Q3) was worded to ask which condition they felt provid
 The remaining were split between neither (3) and PH (4).
 The results of the arm fatigue questionnaire during the experiment found a similar result as the condition comparison survey.
 
-\section{Discussion}
+\subsection{Observational Data}
 
 After the subjects performed their first condition, the experimenter would re-position the panel and explain their next condition.
 This meant that subjects who started with the panel (PH) would then see the panel be removed and have the no panel (NH) condition explained to them, and vice-versa.
@@ -599,12 +605,14 @@ For example, one subject upon the placement of the panel commented ``this is def
 Another who was transitioning from PH to NH simply remarked, ``Oh, no!''
 One of the subjects who felt that they performed faster and more accurately without the panel (NH condition) in the final questionnaire explained afterward that this was due to often needing to press the button twice in the PH condition, which we believe was likely due to their difficulty learning the button detection algorithm.
 
+\section{Discussion}
+
 The throughput found in both conditions compares to the range found for a mouse input.
 A review of nine ISO 9241-9 style Fitts' Law studies by \citet{soukoreff_towards_2004} found that the range for a typical computer mouse was between \SIrange[range-phrase = {~and~}]{3.7}{4.9}{\bps}.
 The value of throughput for a touchscreen device (direct input) has been found to be much higher, with one study measuring \SI{6.95}{\bps} \citep{mackenzie_fitts_2015}.
 
 The PH condition is a similar setup to one condition tested in \citet{kohli_redirected_2012}.
-They found a throughput value of \SI{\sim 6}{\bps} for this condition, compared to our result of \SI{4.25}{\bps}, which was significantly lower.
+They found a throughput value of about \SI{6}{\bps}\footnote{The value was only shown in a bar graph and an exact number is not available.} for this condition, compared to our result of \SI{4.25}{\bps}, which was significantly lower.
 Their setup used a marked fingertip tracker instead of our marker-less approach, and the target activation occurred with low latency upon contacting their passive haptics.
 Both of these could be the reason for their higher throughput.
 \citet{seixas_one_2015} performed a similar condition to our NH condition, using a LeapMotion to perform a Fitts' circle.
