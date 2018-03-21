@@ -66,6 +66,12 @@ Eliminating the design deficiencies early will not only lead to cost savings in 
 This will reduce crew training and errors throughout the life of the vehicle.
 The cost savings and safety benefits of a more optimized design can be enormous, both during the design stage and beyond.
 
+Our motivation comes from the design of a cockpit, but the key motivating factors and solutions provided by our tool are not limited to the aerospace domain.
+Any safety-critical domain which requires a human-machine interface will necessitate the use of human-in-the-loop evaluations of the design of that interface.
+The R3C system could be used in the design process of many safety-critical interfaces such as those used for robotic surgery, nuclear control systems, air traffic control, or even cockpits for trains or ships.
+The use of the R3C system will enable human-in-the-loop evaluations to occur earlier and more cost effectively.
+The term cockpit, used throughout this work, could refer to any `safety-critical human-machine interface`.
+
 The overall objective is to provide an unprecedented ability to optimize a new spacecraft cockpit layout via rapid, low-cost design iterations by integrating state-of-the-art technologies in virtual reality, hand tracking and 3D printing.
 The work presented in this dissertation reports on the design and integration of the R3C prototype, experimental results both to understand how humans perform with the prototype and to evaluate the performance of the prototype as a design tool.
 
@@ -74,8 +80,10 @@ The work presented in this dissertation reports on the design and integration of
 The prototype system of the ``Rapidly Reconfigurable Research Cockpit'' (R3C) that has been developed consists of a virtual reality (VR) headset, an optical hand tracking device, and 3D printed cockpit surfaces (Figure~\ref{fig:intro_r3c}).
 The VR head-mounted display (HMD) provides a virtual-visual view of the cockpit environment.
 A challenging aspect of immersive VR simulations is to provide a sense of touch.
-We solve this by using 3D printed instruments co-located with the virtual environment, a technique commonly called ``passive haptics''.
- The instruments remain inert and non-functioning in the real world, but appear fully functional in the virtual world presented to the user.
+We solve this by providing the tactile feedback using 3D printed cockpit interfaces co-located with the virtual environment, a technique commonly called ``passive haptics''.
+Cockpit interfaces can be any instrument, control, button or switch.
+In this work, we refer to them generically as an `instrument'.
+The instruments remain inert and non-functioning in the real world, but appear fully functional in the virtual world presented to the user.
 They can be modeled to the exact shape of a cockpit instrument being designed, and printed within a matter of hours.
 Instead of requiring the mockup instruments to have functioning buttons, the pilots' touch of a button is read using the hand tracker to detect and display the interaction with the cockpit.
 The optical based hand tracker measures the real-time position of the pilots' hand to determine if they are touching a button of the cockpit.
@@ -180,7 +188,7 @@ Their tactile feedback was limited to the flat panel instead of having geometric
 
 Although many past research studies and industrial processes have used virtual environments in the design process, to our knowledge, a technical setup with a similar approach to ours has not been attempted.
 In this work, we aim to create a unique prototype of a new virtual environment for design.
-As well as the quantative measures of the performance of our system we investigate, we also aim to test our virtual environment as a design tool (Chapter~\ref{chap:de_exp}).
+As well as the quantitative measures of the performance of our system we investigate, we also aim to test our virtual environment as a design tool (Chapter~\ref{chap:de_exp}).
 
 \subsection{Virtual Tactile Environments}
 \label{virtual-tactile-environments}
@@ -263,7 +271,7 @@ We use the Borg scale to measure the arm fatigue in the second experiment (Chapt
 \subsection{Workload}
 
 Workload is an important measure for cockpit design as a higher workload can lead to degraded performance or increased errors.
-During the design of a cockpit, it is important to measure the workload of a pilot to ensure that they are given managable tasks to perform.
+During the design of a cockpit, it is important to measure the workload of a pilot to ensure that they are given manageable tasks to perform.
 In our work, we investigate workload to understand how the use of the R3C system might affect the measurement of workload.
 The third experiment (Chapter~\ref{chap:de_exp}) compares the workload of subjects using the R3C system to subjects doing the same task in a more traditional simulator.
 

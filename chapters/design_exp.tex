@@ -4,7 +4,7 @@
 \section{Introduction}
 
 The final experiment combines the lessons of the previous experiment to investigate the use of the Rapidly Reconfigurable Research Cockpit (R3C) in a design evaluation study.
-The goal of this experiment is to determine if the R3C system can be used in the place of a more traditional evaluation tool.
+The goal of this experiment is to determine if the R3C system can be used in the evaluation cycle of a cockpit and provide similar results to a tool that is typically used later in the design timeline.
 As previous chapters have discussed, there are a number of advantages to using the R3C system.
 However, there remain some technical limitations to the technology that could hinder adoption.
 We found that a button targeting task took more time in our virtual environment than in the real world (Chapter \ref{chap:pointing}).
@@ -231,7 +231,8 @@ The task required the subjects to read and memorize a short string of characters
 To limit the task physically (by number of buttons) and mentally, the characters used were the numbers 1 through 6 and the letters A through F.
 The prompts were 4 characters long.
 Once the subject started entry, the prompt would disappear, forcing them to hold it in working memory.
-It has been well established that humans are capable of holding about seven digits in working memory \citep{miller_magical_1956,baddeley_working_1992}.
+It has been well established that humans are capable of repeating a sequence of about seven digits \citep{miller_magical_1956}.
+This type of task, asking subjects to repeat a sequence after memorization, is called a digit-span task \citep{baddeley_working_1992}.
 
 The sequence of the prompts was separated into 10~second ``windows.''
 The prompt would appear randomly between 2 and 3~seconds of the start of the window.
@@ -538,28 +539,24 @@ The task and experiment was designed with this in mind and mitigated through tra
 
 The performance of subjects performing the tracking task was measured using the root-mean square error (RMSE) of the pitch.
 The RMSE of each Group and Design is shown in Figure~\ref{fig:de_factor_rmse}.
-The effect of Group yielded an $F$ ratio of $F(1, 21) = 21.4, p < 0.001$ indicating a significant difference between VR ($M=\ang{1.28}, \sigma=\ang{0.38}$) and TS ($M=\ang{1.97}, \sigma=\ang{0.38}$).
-In both groups, subjects were performing the tracking task using their left hand to control the same joystick.
-There are two potential factors that could contribute to the decreased performance in the tracking task for the VR group.
-The most direct factor is the loss of visual acuity in the tracking task display (attitude indicator) due to the resolution of the VR head-mounted display.
-Indirectly, the additional workload of the prompting task for the VR group could be taking attention away from the tracking task.
-The effect of Design indicated a marginally significant difference ($F(1, 21) = 5.94, p=0.024$) for the tracking task RMSE between Keypad ($M=\ang{1.57}, \sigma=\ang{0.51}$) and Edgekey ($M=\ang{1.70}, \sigma=\ang{0.52}$).
-The only change in the tracking task display between the two instrument designs is a small change in position.
-It moves from being on the left side for the Keypad to the middle for the Edgekey.
-Since there was no change otherwise, this suggests that any difference on the tracking task performance between the designs would be related to additional workload from the prompting task.
+The effect of Group yielded an $F$ ratio of $F(1, 21) = 21.4, p < 0.001$ indicating a significant difference between VR ($M=\ang{1.97}, \sigma=\ang{0.38}$) and TS ($M=\ang{1.28}, \sigma=\ang{0.38}$).
+The TS group had a lower RMSE for the tracking task.
+In both groups, subjects were performing the tracking task using their left hand to control the joystick.
+The effect of Design was marginally significant with an $F$ ratio of $F(1,21) = 5.94, p = 0.024$.
+The tracking task was performed better with the Keypad design ($M=\ang{1.57}, \sigma=\ang{0.51}$) than with the Edgekey design ($M=\ang{1.70}, \sigma=\ang{0.52}$).
+There was no difference between designs with the attitude indicator display, except for a small shift in location.
 
-The main hypothesis (H1.\ The tracking task will have no interaction effect between Group and Design) was supported by the statistical test.
+The main hypothesis (H1.~The tracking task will have no interaction effect between Group and Design) was supported by the statistical test.
 The interaction effect was not significant ($F(1, 21) = 0.17, p=0.69$).
 This indicates that even though the VR group had a higher RMSE overall, the difference between designs was consistent between the groups.
-An evaluation session performed with only the VR system would find the same difference between designs with the RMSE measure as a traditional simulator.
 
-If the visual acuity was the only factor affecting performance between groups, we would expect to see a similar effect for the trials where the subjects were only performing the tracking task.
-The subjects ran a single trial that was just the tracking task without the prompting task at the end of each evaluation session.
-The RMSE results for these tracking only trials are shown in Figure~\ref{fig:de_factor_rmse_tracking_only}
+We also report here the results of the subjects during the trials where they were only performing the tracking task.
+The subjects ran a single trial that consisted of just the tracking task without the prompting task at the end of each evaluation session.
+The RMSE results for these tracking only trials are shown in Figure~\ref{fig:de_factor_rmse_tracking_only}.
 The effect of group on RMSE for the tracking-only trials yielded a marginally significant difference ($F(1, 21) = 4.81, p = 0.039$) between the VR Group ($M=\ang{1.32}, \sigma=\ang{0.50}$) and the TS Group ($M=\ang{0.91}, \sigma=\ang{0.43}$).
 There was no significant difference for the effect of Design ($F(1,21) = 0.068, p=0.80$).
 The interaction effect between Group and Design was also not significant ($F(1,21) = 3.21, p=0.087$).
-This indicates that when the subjects were focused on the single task, they were able to mitigate most of the visual resolution differences between using a touchscreen and the virtual reality screen.
+These results highlight the difference in performance when the subject did not have the additional prompting task workload.
 
 \begin{figure}
     \centering
@@ -567,11 +564,6 @@ This indicates that when the subjects were focused on the single task, they were
     \caption{RMSE of tracking task for tracking only trials by Group and Design. Error bars are standard error of the mean.}
     \label{fig:de_factor_rmse_tracking_only}
 \end{figure}
-
-Although the tracking only trials found a marginally significant difference for the group, the difference was much more distinct for the trials with both tasks.
-Additionally, the marginally significant difference between the designs for the trials with both tasks was reduced to no significance when the additional prompting task was removed.
-This also points to the additional workload of the prompting task causing a performance drop on the tracking task.
-The factors leading to the added workload of the prompting task are investigated in the next performance measures discussed.
 
 \subsubsection{Prompt Response Time}
 
@@ -595,25 +587,9 @@ After filtering, 885 of the total 1700 prompts recorded for the Edgekey design w
 The response time by Group and Design is shown in Figure~\ref{fig:de_factor_response}.
 The response time was unique among the dependent measures, as all tests were insignificant.
 The effect of group yielded an $F$ ratio of $F(1, 21) = 1.19, p = 0.29$ indicating no significant difference between VR ($M = \SI{2812}{\milli\second}, \sigma = \SI{383}{\milli\second}$) and TS ($M = \SI{2594}{\milli\second}, \sigma = \SI{567}{\milli\second}$).
-One factor that could influence the response time between groups is the additional time to activate a button in the VR environment versus the touchscreen.
-The touchscreen subjects were using a familiar interface for activating the buttons, while the VR subjects needed to activate the button with the virtual hand.
-We previously saw the difference in performance between targeting buttons in the real world and virtual world in the first experiment (Chapter~\ref{chap:pointing}).
-However, a large portion of the response time for the subject is their cognitive processing of the prompt -- recognizing the new prompt has appeared, reading it, then memorizing it.
-Beyond potential differences in the visual environment, the cognitive portion should not take more time for one group or the other.
-A potential reason that there could be a lower than expected difference between the group means is that it was observed during the experiment that some VR subjects learned to keep their hand extended closer to the instrument so that the hand tracker could keep it in view.
-When the hand tracker lost view of the hand, the re-acquisition time could be significant, so holding it close to the instrument would prevent this from happening.
-This issue comes up again when looking at the subjects' response to questions about fatigue.
-
 The effect of design was also insignificant ($F(1, 21) = 0.68, p = 0.42$) between Keypad ($M=\SI{2728}{\milli\second}, \sigma=\SI{512}{\milli\second}$) and Edgekey ($M=\SI{2687}{\milli\second}, \sigma=\SI{471}{\milli\second}$).
-The biggest difference between the two designs is the switching key on the Edgekey design.
-As described above, the need for an additional switch press before the first prompt button was filtered out, so we are only comparing prompts where the first button was available right away to the subject.
-Even though the physical requirements were filtered out, subjects still need to verify that the labels are in the correct state for starting entry.
-Since the Edgekey design had more time pressure due to the need for the switch key, subjects could have learned to respond quicker to adapt for this.
-However, these differences in the design did not appear to have a significant effect on the response time.
-
-Finally, the interaction effect was not significant ($F(1, 21) = 0.001, p = 0.96$), supporting the hypothesis (H2.\ The prompt response time will have no interaction effect between Group and Design).
+Finally, the interaction effect was not significant ($F(1, 21) = 0.001, p = 0.96$), supporting the hypothesis (H2.~The prompt response time will have no interaction effect between Group and Design).
 Unlike with the RMSE, however, we did not see a difference between groups or designs.
-This indicates that for a task that includes a large cognitive workload, the performance measures may provide the same result with a VR system than would be expected with a traditional simulator.
 
 \subsubsection{Prompt Completion Accuracy}
 
@@ -629,16 +605,16 @@ The prompt task consists of two sequential components: memory and execution.
 First, they must remember the prompt as they enter it, and second, they must be able to physically press the buttons within the seven second response window.
 For the statistical test, we are using the percent of how many prompts each subject completed successfully per trial.
 Among the incorrect prompts, we can differentiate between whether the subject entered the prompt incorrectly (failure to remember the prompt) or whether the subject ran out of time (failure to physically press the buttons).
-These are reported to help analyze the results, but are not used in the statistical tests.
+These are reported to help understand the results, but are not used in the statistical tests.
 There were 12 prompts per trial, and every subject completed three trials for each design.
 
 The percent of correct prompts are reported on here, shown for each Group and Design in Figure~\ref{fig:de_factor_correct}.
 The percent of correct prompts had a significant interaction effect between group and design ($F(1, 21) = 27.8, p < 0.001$), meaning the main effects must be interpreted with the post-hoc tests as well.
-This is the first dependent measure that rejects the null hypothesis (H3.\ The percent of correct prompts will have no interaction effect between Group and Design).
+This is the first dependent measure that rejects the null hypothesis (H3.~The percent of correct prompts will have no interaction effect between Group and Design).
 Both main effects were significant, the effect of group yielded an $F$ ratio of $F(1, 21) = 43.9, p < 0.001$ while the effect of design yielded an $F$ ratio of $F(1, 21) = 64.1, p < 0.001$.
 
 For the effect of design on the VR group, the repeated measured t-test indicated a significant difference ($t(11) = 8.0, p < 0.001$) between the Keypad ($M = 67.6\%, \sigma = 13.47\%$) and the Edgekey ($M = 33.3\%, \sigma = 19.8\%$)
-The TS group had a marginally significant difference ($t(10) = 2.28, p = 0.045$) between Keypad ($M = 88.4\%, \sigma = 8.0\%$) and the Edgekey ($M = 81.6\%, \sigma = 11.7\%$).
+The TS group had a marginally significant difference ($t(10) = 2.28, p = 0.045$) between the Keypad ($M = 88.4\%, \sigma = 8.0\%$) and the Edgekey ($M = 81.6\%, \sigma = 11.7\%$).
 These results indicate that both groups had trouble with the additional time pressure caused by the Edgekey design requiring the use of the switch key.
 The TS group performed closer to their performance in the Keypad design, however, with only about 1 fewer prompts correct on average (6.8\%).
 The VR group had much more difficulty in the Edgekey design, correctly completing about half as many as they completed in the Keypad design.
@@ -654,23 +630,14 @@ They also had more difficulty in both designs compared to the TS group.
 The post-hoc test for differences between groups within each design also found that for both designs the VR group had more difficulty.
 These tests had significant effects for both the Keypad design ($t(21) = 4.44, p < 0.001$) between the VR group and the TS group, and the Edgekey design ($t(21) = 7.05, p < 0.001$) between the VR group and the TS group.
 The main effect of group clearly has a meaningful effect, which found the VR group ($M = 50.5\%, \sigma = 24.1\%$) had significantly fewer correct prompts than the TS group ($M = 85.0\%, \sigma = 10.4\%$).
-This difference is largely due to subjects not being able to complete the prompt.
-Figure~\ref{fig:de_correct_stacked} shows the breakdown of the mean result of each trial for each group and design.
 
+Figure~\ref{fig:de_correct_stacked} shows the breakdown of the mean result of each trial for each group and design.
+The difference between groups and designs is largely due to subjects not being able to complete the prompt.
 Across all groups and designs, between one and two prompts on average were incorrectly completed in each trial (between 9.4\% and 14.4\%).
 Most of the difference in number completed correctly is due to the incomplete prompts.
-A major contributing factor for this could be the method of button activation used for the VR group combined with the time pressure.
-Another contribution could be the limitations of the hand tracker.
-When the hand tracker lost tracking or gave bad information, it became hard or impossible for the subject to activate a button until the hand tracker returned to normal.
-When this happened in the middle of a prompt, the amount of time it took to recover from the bad tracking would lead to a timeout on the prompt entry, causing an incomplete prompt.
-The variance of number correct was also much larger in in the VR group, which could be caused by some subjects adapting to the unfamiliar VR environment more rapidly.
-
-For this dependent measure, the null interaction effect hypothesis was rejected.
-We expect that this was caused by the time pressure and the additional work required to activate the buttons in the VR system.
-This was not completely unexpected as we have seen in previous experiments time penalty of using the hand tracker for pressing buttons in the VR system.
-An evaluation study which requires time pressured button entry may not get the same results using a VR system due to this limitation.
-However, in our case the same effect was found between designs within each group.
-The interaction effect existed because the VR group found the Edgekey design more challenging compared to the Keypad than the TS group did.
+Within the VR group the Edgekey design caused 52.3\% of prompts to be incomplete before the timeout occured, compared to 18.8\% using the Keypad design.
+The TS group also had more incomplete prompts in the Edgekey design (9.4\%) than in the Keypad design (1.0\%).
+However, the Keypad design was performed with almost no incomplete prompts with the TS group.
 
 \subsubsection{NASA-TLX}
 
@@ -682,25 +649,22 @@ The interaction effect existed because the VR group found the Edgekey design mor
 \end{figure}
 
 After the subject completed their trials for each design, they filled out a NASA-TLX workload survey.
-Their scores, weighted means by the pairwise comparisons, are used here as a measure of their self-reported workload.
-The factor plot is shown in Figure~\ref{fig:de_factor_tlx}.
+Their scores, which are weighted means by the pairwise comparisons, are used here as a measure of their self-reported workload.
+The results by Group and Design are shown in Figure~\ref{fig:de_factor_tlx}.
 The interaction effect between group and design was found to be significant ($F(1, 21) = 8.25, p < 0.001$).
-The main effects showed a significant difference in design ($F(1, 21) = 23.6, p < 0.001$), but not in group ($F(1, 21) = 1.69, p = 0.21$).
+The main effects showed a significant difference in Design ($F(1, 21) = 23.6, p < 0.001$), but not in Group ($F(1, 21) = 1.69, p = 0.21$).
 This could mean that the group did not affect the TLX score, but in the presence of an interaction effect, the post-hoc tests guide the interpretation.
 
-The repeated measures t-tests indicated significance between designs for the VR group ($t(11) = -4.20, p = 0.001$) between the Keypad design ($M = 54.4, \sigma = 20.4$) and the Edgekey ($M = 85.6, \sigma = 11.2$)
+The repeated measures t-tests indicated significance between designs for the VR group ($t(11) = -4.20, p = 0.001$) between the Keypad design ($M = 54.4, \sigma = 20.4$) and the Edgekey design ($M = 85.6, \sigma = 11.2$)
 There was a marginally significant difference between designs for the TS group ($t(10) = -2.72, p = 0.02$) between the Keypad design ($M = 61.5, \sigma = 4.46$) and the Edgekey ($M = 69.2, \sigma = 10.1$).
 The effect of design was much stronger in the VR group, but both groups indicated respectively higher workload on the TLX scores for the Edgekey design.
-This follows from the experimental design which predicted that the Edgekey design would be more difficult.
-One factor that could have contributed to a larger difference in scores for the VR group could be the increased difficulty subjects had in completing the prompt, as seen in the results of the number of incorrect and incomplete prompts for the VR group using the Edgekey design (Figure~\ref{fig:de_correct_stacked}).
 The effect of group was not shown to be significant in the ANOVA analysis, but the independent samples t-test showed a significance for the Edgekey design ($t(21) = 3.69, p < 0.01$) between the VR Group ($M = 85.6, \sigma = 11.2$) and the TS Group ($M = 69.2, \sigma = 10.1$).
-With the Keypad design, The effect of group was not significant ($t(21) = -1.13, p=0.27$) between VR ($M = 54.4, \sigma = 20.4$) and TS ($M = 61.5, \sigma = 4.46$).
+With the Keypad design, the effect of group was not significant ($t(21) = -1.13, p=0.27$) between VR ($M = 54.4, \sigma = 20.4$) and TS ($M = 61.5, \sigma = 4.46$).
 These tests further illustrate that the VR group found a higher workload for the Edgekey design specifically, as both groups rated the workload in the Keypad design similarly.
 
-The subject perceived workload scores rejected the null interaction hypothesis (H4.\ The NASA-TLX scores will have no interaction effect between Group and Design).
+The subject perceived workload scores rejected the null interaction hypothesis (H4.~The NASA-TLX scores will have no interaction effect between Group and Design).
 In this case, the effects changed between the groups.
 The VR group reported significantly more workload for the Edgekey design, while the TS group reported only a marginal increase.
-We expect that this change was likely due to the increased work required to complete the prompt, the same reason for the change in the prompt accuracy measure which also rejected the null hypothesis.
 
 \subsubsection{Tracking Task Learning}
 
@@ -710,12 +674,13 @@ In this section we will test the RMSE of their final training trial and the two 
 The trial number is chronological throughout the timeline of the experiment for each subject.
 %This means that due to the counterbalancing, the second and third trial are done with different designs based on the subject.
 Since the visual environment of the tracking task was quite different for each group, the Group factor is included as a between subjects factor.
+However, within groups the tracking task display (attitude indicator) did not change between designs, so there is no Design factor in these results.
 The RMSE of the tracking only trials, by Group and trial number, is shown in Figure~\ref{fig:de_factor_training}.
 
 \begin{figure}
     \centering
     \includegraphics[width=5.0in]{{training_rmse.3.0x1.5}.png}
-    \caption{RMSE for Tracking Only Trials by Group and Trial. Error bars are standard error of the mean.}
+    \caption{RMSE for Tracking Only Trials by Group and Trial. Error bars are standard error of the mean. Trial 1 was final trial of RMSE training, Trial 2 was after first design evaluation, Trial 3 was after second design evaluation. Design was not included as the tracking task display did not change between designs.}
     \label{fig:de_factor_training}
 \end{figure}
 
@@ -724,9 +689,9 @@ The TS Group ($M=\ang{0.94}, \sigma=\ang{0.43}$) had an RMSE \ang{0.42} lower th
 The effect of group on the tracking task was already established, so the marginal significance found here is not unexpected.
 Trial number was found to have no significant effect ($F(1, 21)=3.65, p=0.069$) between the three trials.
 The means of the three trials, in order, are \ang{1.23} ($\sigma=\ang{0.54}$), \ang{1.18} ($\sigma=\ang{0.51}$), and \ang{1.07} ($\sigma=\ang{0.51}$).
-Even though the statistical test indicates no significance, the means do decrease as trial number increases.
-This combined with the large variance suggest that some subjects were potentially experiencing some training effects, but overall the effect of training is not statistically significant.
 The interaction effect of Group and trial number had no significance ($F(1, 21) = 0.16, p=0.69$).
+%Even though the statistical test indicates no significance, the means do decrease as trial number increases.
+%This combined with the large variance suggest that some subjects were potentially experiencing some training effects, but overall the effect of training is not statistically significant.
 
 The final hypothesis (H5.\ The tracking task RMSE for the last training trial and the tracking only trials will not change throughout the experiment) was supported by these results.
 We found that the subjects did not experience significant training in the tracking task throughout the experiment.
@@ -820,6 +785,73 @@ In the other designs and groups this happened to only one or two subjects.
 \section{Discussion}
 \label{sec:de_discussion}
 
+
+It was found that while the hypothesis of no interaction effect was supported for the tracking task RMSE results, the TS group  had an overall lower RMSE.
+There are two potential factors that could contribute to the decreased performance in the tracking task for the VR group.
+A direct factor is the loss of visual acuity in the tracking task display (attitude indicator) due to the resolution of the VR head-mounted display.
+Indirectly, the additional workload of the prompting task for the VR group could be taking attention away from the tracking task.
+If the visual acuity was the only factor affecting performance between groups, we would expect to see a similar effect for the trials where the subjects were only performing the tracking task.
+However, it was found that the effect between groups was reduced for the tracking only trials.
+The tracking only trials found a marginally significant difference for the group, but the difference was much more distinct for the trials with both tasks.
+This indicates that when the subjects were focused on the single task, they were able to mitigate most of the visual resolution differences between using a touchscreen and the virtual reality screen.
+
+The effect of Design was also found to be marginally significant for the tracking task RMSE.
+The only change in the tracking task display between the two instrument designs is a small change in position.
+It moves from being on the left side for the Keypad to the middle for the Edgekey.
+Since there was no change otherwise, this suggests that any difference on the tracking task performance between the designs would be related to additional workload from the prompting task.
+This is supported by the tracking only trial results, which found no effect due to Design.
+The marginally significant difference between the designs for the trials with both tasks was reduced to no significance when the additional prompting task was removed.
+This also points to the additional workload of the prompting task causing a performance drop on the tracking task.
+The factors leading to the added workload of the prompting task are discussed with the prompting task performance measures.
+
+%An evaluation session performed with only the VR system would find the same difference between designs with the RMSE measure as a traditional simulator.
+
+
+The response time to the prompt was found to be insignificant across Group and Design, as well as the interaction effect.
+One factor that could influence the response time between groups is the additional time to activate a button in the VR environment versus the touchscreen.
+The touchscreen subjects were using a familiar interface for activating the buttons, while the VR subjects needed to activate the button with the virtual hand.
+We previously saw the difference in performance between targeting buttons in the real world and virtual world in the first experiment (Chapter~\ref{chap:pointing}).
+However, a large portion of the response time for the subject is their cognitive processing of the prompt -- recognizing the new prompt has appeared, reading it, then memorizing it.
+Beyond potential differences in the visual environment, the cognitive portion should not take more time for one group or the other.
+A potential reason that there could be a lower than expected difference between the group means is that it was observed during the experiment that some VR subjects learned to keep their hand extended closer to the instrument so that the hand tracker could keep it in view.
+When the hand tracker lost view of the hand, the re-acquisition time could be significant, so holding it close to the instrument would prevent this from happening.
+This issue also could have contributed to subjects indicating higher fatigue in the VR group.
+The biggest difference between the two designs is the switching key on the Edgekey design.
+As described above, the need for an additional switch press before the first prompt button was filtered out, so we are only comparing prompts where the first button was available right away to the subject.
+Even though the physical requirements were filtered out, subjects still need to verify that the labels are in the correct state for starting entry.
+Since the Edgekey design had more time pressure due to the need for the switch key, subjects could have learned to respond quicker to adapt for this.
+However, these differences in the design did not appear to have a significant effect on the response time.
+This indicates that for a task that includes a large cognitive workload, the performance measures may provide the same result with a VR system than would be expected with a traditional simulator.
+
+
+The prompt completion accuracy was found to be significant in Group and Design.
+A major contributing factor for the Group effect could be the method of button activation used for the VR group combined with the time pressure.
+Another contribution could be the limitations of the hand tracker.
+When the hand tracker lost tracking or gave bad information, it became hard or impossible for the subject to activate a button until the hand tracker returned to normal.
+When this happened in the middle of a prompt, the amount of time it took to recover from the bad tracking would lead to a timeout on the prompt entry, causing an incomplete prompt.
+The variance of number correct was also much larger in in the VR group, which could be caused by some subjects adapting to the unfamiliar VR environment more rapidly.
+The Design effect for this measure was expected, as it was one of the goals of our instrument design.
+Subjects did not correctly complete as many prompts with the Edgekey design as they did with the Keypad design.
+This was likely caused by the requirement that subjects use the switching key in the Edgekey design, resulting in more time pressure and additional work to complete each prompt.
+This effect of Design held across both Groups, but it was stronger for the VR group, leading to the interaction effect.
+
+The null interaction effect hypothesis was rejected for the prompt completion accuracy.
+We expect that this was caused by the time pressure and the additional work required to activate the buttons in the VR system.
+This was not completely unexpected as we have seen in previous experiments time penalty of using the hand tracker for pressing buttons in the VR system.
+An evaluation study which requires time pressured button entry may not get the same results using a VR system due to this limitation.
+However, in our case the same effect was found between designs within each group.
+The interaction effect existed because the VR group found the Edgekey design more challenging compared to the Keypad than the TS group did.
+
+The results of the NASA-TLX subject perceived workload score found an effect in Design, but no effect in Group.
+The Design effect again follows from the experimental design which predicted that the Edgekey design would be more difficult.
+It is an encouraging result that the workload scores did not change between Groups, suggesting that workload scores are consistent between our VR system and a touchscreen simulator.
+The workload had no Group effect even though the VR group subjects performed worse in two of our performance measures (RMSE and prompt completion accuracy).
+The workload score also had an interaction effect between Group and Design.
+Similar to the prompt completion accuracy, the interaction effect exists due to the VR group indicating a larger difference between designs than the TS group.
+Both groups found a higher workload with the Edgekey design.
+One factor that could have contributed to a larger difference in workload scores for the VR group could be the increased difficulty subjects had in completing the prompt, as seen in the results of the number of incorrect and incomplete prompts for the VR group using the Edgekey design (Figure~\ref{fig:de_correct_stacked}).
+We expect that this change was likely due to the increased work required to complete the prompt, the same reason for the change in the prompt accuracy measure which also rejected the null hypothesis.
+
 %The effect of Group on the tracking task performance was expected as the visual resolution of the tracking display was diminished in the VR head-mounted display.
 
 Our results suggest that tasks or performance measures which are dominated by a cognitive portion, such as the prompt response time, provide similar results.
@@ -857,10 +889,12 @@ In addition to the quantitative performance measures of the task, subjects were 
 The results are summarized using their two independent variables: Group and Design.
 Group, a between subjects factor, refers to the technology the subject used: either Virtual Reality/R3C (VR) or Touchscreen (TS).
 Design is a within subjects factor, and is the instrument design the subject was evaluation: Edgekey or Keypad.
+Table~\ref{tab:de_anova} presents a summary of the statistical results of the quantitative dependent measures.
 
 The VR Group had worse performance than the TS Group with the RMSE of the tracking task.
 Subjects from both groups had a marginally significant difference in tracking task performance due to Design, with subjects performing better with the Keypad design.
 It was also shown that, on control trials that had only the tracking task (no prompting task), the effect of Group was reduced to marginally significant.
+This verified that the visual resolution differences between VR and TS caused some of the performance difference, but that the second prompting task amplified this difference.
 The response time of the prompting task had no significant effect based on Group nor Design.
 Neither the RMSE nor the response time had interaction effects between Group and Design.
 This indicates that the differences in these two dependent measures would be found whether the evaluation was performed using the VR/R3C system or the touchscreen system.
@@ -872,6 +906,15 @@ However, like the percent of correct prompts, the TLX score was found to be only
 We attribute the rejection of the null interaction hypotheses to the increased workload of activating buttons in the R3C system coupled with the time pressures of the prompting task.
 
 The results of the subjective feedback analysis found that there was no omission of major feedback items on the design of the two instruments from either group.
-The only feedback comments that did not transfer were the fatigue issues, and technology-specific issues.
+The only feedback comments that did not transfer were fatigue and technology-specific issues.
 We did discover that some issues were mentioned at differing frequencies, which is to say, one group would have more subjects mention it than the other.
-These results suggest that the use of the R3C system for receiving feedback from a design would be appropriate.
+For example, almost all subjects in the TS group noted the Keypad design felt familiar, while only half of the subjects noted this in the VR group.
+This could affect the prioritization of issues found in a design study.
+
+Overall, the R3C system compared favorably to the baseline touchscreen system for a design study.
+Our goal was not to replace the traditional simulator, but to provide an additional design evaluation tool that would be able to provide the same feedback earlier in the design cycle.
+The results show that quantified performance of the subjects may be worse overall in the R3C system, but the difference in performance due to the design was consistent between groups.
+It was found that the R3C system had a larger performance drop for the more difficult design for two of our measures: workload and a time pressured task.
+The flight task (pitch disturbance tracking task) and a digit-span memory task response time found no interaction effect between group and design.
+Subject evaluations of the designs was consistent between groups, highlighting all the major design issues in the R3C system that were found in the baseline system.
+These results suggest that an R3C system can be used to find and highlight major design issues.
