@@ -23,6 +23,14 @@ We expect that the quantitative measures may change in magnitude between groups,
 Statistically, we are investigating if an interaction effect occurs between simulator groups and instrument designs.
 %to determine if the conclusions that would be drawn from these change between groups.
 
+The choice of a touchscreen-based simulator as the baseline tool was motivated by two reasons: feasibility and appropriateness.
+For feasibility, we wanted to ensure the simulation could be kept as similar as possible to the interactions possible with the R3C system.
+A touchscreen device maps well to the current R3C capabilities.
+For appropriateness, we wanted to use an evaluation tool that would target the level of simulation fidelity that occurs after a physical mockup has been built.
+If our R3C evaluation performs similarly to the baseline system, then design issues can be identified before investments are made in a higher fidelity system.
+%Touchscreen devices have been used 
+%The goal is not to necessarily replace , but to provide an alternative tool.
+
 \section{Methods}
 
 For the mock design study we needed to define a task that the subjects could perform that would be analogous to flight tasks and could be presented in two different designs for the comparison.
@@ -635,7 +643,7 @@ Figure~\ref{fig:de_correct_stacked} shows the breakdown of the mean result of ea
 The difference between groups and designs is largely due to subjects not being able to complete the prompt.
 Across all groups and designs, between one and two prompts on average were incorrectly completed in each trial (between 9.4\% and 14.4\%).
 Most of the difference in number completed correctly is due to the incomplete prompts.
-Within the VR group the Edgekey design caused 52.3\% of prompts to be incomplete before the timeout occured, compared to 18.8\% using the Keypad design.
+Within the VR group the Edgekey design caused 52.3\% of prompts to be incomplete before the timeout occurred, compared to 18.8\% using the Keypad design.
 The TS group also had more incomplete prompts in the Edgekey design (9.4\%) than in the Keypad design (1.0\%).
 However, the Keypad design was performed with almost no incomplete prompts with the TS group.
 
@@ -703,7 +711,7 @@ The significance is indicated by `$*$' for $p<0.01$, `+' for $0.01<p<0.05$, and 
 For the measures with significant interaction effect, the post-hoc t-tests are shown per group and per design.
 We found no interaction effect with the tracking task RMSE and prompting task Response Time, supporting the first two hypotheses from Section~\ref{sec:de_hypotheses} (H1 and H2).
 The prompting task accuracy (Correct Prompts) and the workload (NASA-TLX) both rejected the no interaction effect hypotheses (H3 and H4).
-We attribute the interaction effects found in those two dependent measures to be related to the increase in difficulty to activate buttons using the hand tracker.
+%We attribute the interaction effects found in those two dependent measures to be related to the increase in difficulty to activate buttons using the hand tracker.
 The results will be discussed further (Section~\ref{sec:de_discussion}) after reporting on the results of the feedback questions.
 
 \begin{table}
@@ -764,6 +772,18 @@ Some of this additional effort was due to subjects learning to hold their prompt
 This was done to keep the hand in view of the hand tracker as when the hand leaves the field of view, the re-acquisition will slow down the entry of first button.
 Many subjects organically learned this, and kept their arm in front of the instrument between prompts.
 
+Motion sickness was not noted by any of the subjects.
+Subjects were briefed at the beginning about potential side effects including simulator sickness, such as nausea or fatigue.
+The VR group were asked after every VR session if they felt any motion sickness symptoms, reminding them they could take a break or withdraw from the study.
+No subjects indicated that they felt any symptoms beyond mild discomfort levels.
+Three subjects in the VR group did note eye fatigue in the survey.
+All of the comments on eye fatigue mentioned that they had difficultly maintaining focus.
+The most unique comment mentioned the graphics were hard to see:
+\begin{displayquote}[VR Subject]
+    Graphics was fuzzy at times, leading to eye strain and forced more mental effort into trying to see the flight display and numbers/letters.
+\end{displayquote}
+They were, however, the only subject to mention difficulty seeing the graphics in the VR group.
+
 Similar to the fatigue issues being different, there were some comments that were due to the technology being used more-so than the designs themselves.
 Obviously, the subjects who noted difficulty using the hand tracker, or the one subject who mentioned touchscreen issues, are specific to the simulator technology the used.
 However, some of the other categories had comments that may have been indirectly caused by the different technologies and their limitations.
@@ -794,6 +814,9 @@ If the visual acuity was the only factor affecting performance between groups, w
 However, it was found that the effect between groups was reduced for the tracking only trials.
 The tracking only trials found a marginally significant difference for the group, but the difference was much more distinct for the trials with both tasks.
 This indicates that when the subjects were focused on the single task, they were able to mitigate most of the visual resolution differences between using a touchscreen and the virtual reality screen.
+It should be noted that due to the technical limitations of the head-mounted display meant we needed to simplify the design of the attitude indicator and increase the size of the ticks.
+The size was kept constant between groups, but the lower limit was chosen to ensure that the users in the VR group could comfortably see the display from the seated position.
+This problem should improve as the head-mounted display technology improves the resolution of the device, but may still limit the amount of visual information subjects can process efficiently.
 
 The effect of Design was also found to be marginally significant for the tracking task RMSE.
 The only change in the tracking task display between the two instrument designs is a small change in position.
@@ -858,6 +881,15 @@ Our results suggest that tasks or performance measures which are dominated by a 
 Tasks which rely on visual resolution or time pressured responses may not produce the same results between designs using the R3C system.
 None of the effects reversed slope between designs, however, and the only change is in magnitude of the effect.
 In fact, for both the number of prompts correct and the workload ratings, which had significant interaction effects, the use of the VR system amplified the effect of design within the groups from a marginally significant effect to a significant effect.
+
+The fatigue issues were quite different between groups.
+The VR group noted fatigue with their right arm (the prompting task arm) while the TS group noted fatigue with their left arm (the tracking task/joystick arm).
+As previously described, the fatigue with the VR group was attributable to difficulty working with the hand tracker.
+The TS group fatigue noting the joystick arm fatigue but not the VR group may be a result of the VR group feeling more significant fatigue with their non-joystick arm.
+This may have caused them to note their non-joystick arm fatigue despite also having joystick arm fatigue.
+No VR group subjects noted any motion sickness.
+Our task required little head movement, which may have helped with reducing the amount of motion sickness reported.
+
 
 Many design evaluation studies would be concluded with both paper questionnaires as well as open interviews to receive the feedback from the subject.
 Our experimental design avoided the use of the interview for two reasons.

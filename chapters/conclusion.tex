@@ -25,7 +25,7 @@ The second experiment (Chapter \ref{chap:ph_exp}: \nameref{chap:ph_exp}) perform
 Twenty subjects performed a Fitts' circle ISO-9241-9 task using a virtual reality HMD and activating the button targets with a hand tracker.
 The subjects repeated the task for a variety of indices of difficulty and also for two haptic conditions: passive haptics and no haptics.
 It was found that the Fitts' throughput was significantly higher when using the passive haptics (4.25 bps) compared to no haptics (3.76 bps).
-Subjects spent significantly more time in the corrective phase of their trajectory without passive haptics, indicating that the passive haptics helps with the final phases of targeting movements.
+Subjects spent significantly more time in the corrective phase of their trajectory without passive haptics, indicating that the passive haptics help with the final phases of targeting movements.
 Self-reported arm fatigue was also found to be lower for subjects who completed the first condition with passive haptics, though scores converged for the second conditions.
 The presence survey found a marginally significant increase in presence using passive haptics.
 Subjects did strongly indicate their preference for using the passive haptics, despite the small difference found in the presence survey results.
@@ -49,9 +49,9 @@ The Edgekey design had a higher workload score than Keypad in both groups.
 Finally, the subjects were asked for the opinions on each design.
 The responses from the subjective feedback questions found that both groups were able to identify the same major categories, for both positive and negative comments on the designs.
 Some issues were not noted as much in one group or the other, but major issues were noted by both groups.
-For example, 13 comments were made in the TS group noting that the flight task being centered in the Edgekey design was helpful, but only 3 subjects noted this in the VR group.
-However, both groups noted at about the same frequency that the switch key in the Edgekey design was troublesome (14 comments in VR, 12 in TS).
-Overall the feedback received is encouraging that the R3C system would highlight the same usability issues in a design being considered.
+For example, 13 comments were made by the TS group noting that the flight task being centered in the Edgekey design was helpful, but only 3 subjects noted this in the VR group.
+Both groups noted at about the same frequency that the switch key in the Edgekey design was troublesome (14 comments in VR, 12 in TS).
+Overall, the feedback received is encouraging that the R3C system would highlight the same usability issues in a design being considered.
 
 \section{Research Questions}
 
@@ -89,9 +89,10 @@ The most promising result was that the subjective feedback from both simulator g
 
 \section{Future Work}
 
-Early in the research, it was decided to focus on only allowing for push button interaction based on the technology level of the hand tracker and development time required for more interactions.
+This research focused on one type of interaction: pushing a button.
+This was based on the technology level of the hand tracker and development time required for more interactions.
 An extension of this work could address other types of interactions, such as dials or toggle switches.
-Similarly, the button detection for the push buttons use a naive yet effective algorithm for determining when the user is pushing on a button.
+Additionally, the button detection for the push buttons use a naive yet effective algorithm for determining when the user is pushing on a button.
 The collision detection model could be enhanced to predict when a user is actually moving in to push a button or if they are accidentally moving through the collision volume.
 
 The capacitive touch sensors were removed as a need for our prototype as the hand tracker data and calibration improved.
@@ -102,8 +103,26 @@ Future virtual reality and augmented reality technologies will also allow for fu
 Currently, the most promising augmented reality headset is the Microsoft HoloLens, though there are a number of limitations.
 Most notably, the field of view is drastically smaller than our current setup (about 40 degrees) and the hand tracker we used can not work with the HoloLens.
 The use of augmented reality instead of a fully virtual setup would provide a drastically different experience as the visuals would not be as immersive.
-Newer virtual reality headsets are already available that provide small upgrades to the display quality and optics.
+Newer virtual reality headsets are already available that provide small upgrades to display quality and optics.
 The most important technical upgrade for the current R3C system would be a more robust hand tracker, as many of the problems experienced were related to the hand tracking reliability.
+
+This work has focused on the use of the system for design evaluation.
+The use of an R3C simulator could have further applications in training.
+The combination of simple passive haptics with hand tracking could be used where a full simulator is not practicable.
+Deployed pilots can set up an immersive simulator in the field.
+A low-cost simulator can be provided to pilots at their home station, where it may have been prohibitive previously.
+The re-configurability of the cockpit can also be leveraged to provide customization to simulators more rapidly than in a full simulator.
+Pilots can recreate the flight deck that they use in flight, or reconfigure between flight sessions to fly the same mission using the different flight decks they may be exposed to in flight.
+
+%Similarly, this work is not limited to the aerospace domain.
+%The motivation 
+
+% Our validation study used a touchscreen simulator as the baseline comparison.
+% This was chosen as a 
+
+% Variety of domains
+
+% Validation with experts
 
 %There are a number of extensions to the 
 %The next steps in experimental work would be to validate the results of Chapter~\ref{chap:de_exp} with subjects who are trained pilots.
