@@ -143,7 +143,7 @@ Although this specific design was not used in a research study, the workflow lea
 The LeapMotion hand tracker was selected as it provided an unobtrusive method for hand tracking.
 The device itself is small (\SI{3.0 x 1.2 x 0.5}{\inch}), allowing it to be used in constrained environments (pictured in Figure~\ref{fig:proto_leap_device}).
 It uses two infrared cameras to feed its proprietary tracking algorithm, and requires no gloves to be worn by the user.
-The tracking volume extends rougly \num{2}~feet above the controller, and \num{2}~feet about the center on the other two axes.
+The tracking volume extends roughly \num{2}~feet above the controller, and \num{2}~feet about the center on the other two axes.
 This large, roughly hemispherical, field of view is shown in Figure~\ref{fig:proto_leap_fov} and can easily cover the working area of our research cockpit panel.
 A larger cockpit could be supported with multiple devices.
 The original version of the software, used in this prototype, provided real-time location and orientation of each fingertip.
@@ -193,14 +193,14 @@ The hand tracking caused two major usability issues with the first prototype.
 The first was that the reliability of the tracking caused many instances of dropped tracking, causing virtual fingers as displayed to the user to disappear unexpectedly.
 The second was the conversion between hand tracker coordinates and instrument coordinates, a concept called registration.
 Registration refers to the alignment between a virtual world and the real world, a concept called registration.
-A well-registered virtual world will place the virutal image in a stable and precise location relative the real world.
-In our application, since the virtual world is colocated with the physical componenets, having accurate registration is important to the success of the prototype.
+A well-registered virtual world will place the virtual image in a stable and precise location relative the real world.
+In our application, since the virtual world is colocated with the physical components, having accurate registration is important to the success of the prototype.
 This configuration of the prototype presented many challenges regarding registration.
 Even with precise alignment of the hand tracker, the fingertip positions did not always align properly with the buttons in the virtual world.
 Often, when a subject had their finger on a physical button their virtual finger was misaligned.
 Since the hand tracking was not very reliable, many users would almost completely ignore its input and find the buttons by tactile feedback.
 This then led to confusion when the button would not register a button press despite the strong tactile feedback.
-When this occured, users would not leave the physical button to hunt for the virtual button location.
+When this occurred, users would not leave the physical button to hunt for the virtual button location.
 
 Another challenging portion of the registration was that the original version of the Oculus Rift could not measure the position of the users head relative to the real world.
 This meant that the head position of the user in the virtual world was set manually.
@@ -213,7 +213,7 @@ Most noticeable in the yaw, it would cause the panel to become misaligned and re
 
 A number of improvements were made in the second generation of the prototype.
 Due to vendor provided software upgrades, the hand tracking became more robust and provided more complete information about the entire hand position.
-The visuals were upgraded with the second Development Kit of the Oculus Rift, which provided improved visual resolution, but, more importantly, an external head tracker (using an infrared camera) which enabled accurate detection of head movement and virtually eliminated drift of the internal intertial sensors.
+The visuals were upgraded with the second Development Kit of the Oculus Rift, which provided improved visual resolution, but, more importantly, an external head tracker (using an infrared camera) which enabled accurate detection of head movement and virtually eliminated drift of the internal inertial sensors.
 A major focus of this version of the prototype was to improve hand tracking reliability and registration.
 The reliability was improved both with the updated hand tracking software, and with countermeasures we developed to guide users with the button activation.
 Registration (the alignment between the physical world and the virtual world) was improved with the use of a new calibration mechanism.
