@@ -1,74 +1,30 @@
----
-layout: default
----
-<div class="home">
-	<section class="site-header">
-		<h1 class="smallcap"><a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
-		{% include intro.html %}
-	</section>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Performance of a Novel Virtual Environment for Cockpit Evaluation</title>
+  <meta name="description" content="Richard Joyce dissertation">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div id="page-content">
+  <div id="header">
+    <h3><a href="http://rjoyce.me/">Joyce, Richard.</a></h3>
+    <h1>Performance of a Novel Virtual Environment for Cockpit Evaluation.</h1>
+    <h2>PhD Dissertation, University of California, Davis, 2018.</h2>
+    <a href="/dissertation/dissertation.pdf">PDF</a> <!-- | <a href="scholar.google.com">Google Scholar</a> -->
+  </div>
+  <div id="page-text">
+    <div class="abstract">
+      <h2>Abstract.</h2>
+      <p>The design and development of any complex, safety-critical, human-machine interface is a complex and lengthy process. A major requirement of the development process is the human-in-the-loop evaluation of the design. A novel virtual environment was developed using passive haptics, hand tracking, and an immersive head mounted display to provide a new design evaluation tool for cockpit designers. Instead of requiring an expensive simulator to be designed and developed, the &ldquo;Rapidly Reconfigurable Research Cockpit&rdquo; (R3C) prototype can be used inside of an existing engineering mockup, allowing design evaluations to occur more rapidly and earlier in the design process. The R3C prototype uses a hand tracker to determine when the user is pressing a button on a non-functional geometrical mockup of an instrument (known as passive haptics). The user wears a virtual reality head mounted display that provides an immersive visual-virtual layer over the mockup, enabling the instruments to respond to the inputs read from the hand tracked movements of the user. The unique technical approach of the R3C prototype is described and compared to previous work.</p>
 
-<div class="build">
-    <h2><span>Latest Stable Build</span></h2>
-    {% for post in site.categories.stable limit:1 %}
-    <div class="meta">
-        <div class="pdf-links">
-            <a href="{{ site.baseurl }}/assets/draft-{{ post.sha }}.pdf">Draft PDF</a>
-            | <a href="{{ site.baseurl }}/assets/thesis-{{ post.sha }}.pdf">Full PDF</a>
-        </div>
-        <time datetime="{{ post.date | date_to_xmlschema }}">Built on {{ post.date | date: "%b %d, %Y" }}</time>
-        <span class="tag"><a href="https://github.com/richjoyce/dissertation/commit/{{ post.sha }}">{{ post.gittag }}</a></span>
-        <span class="tag"><a href="https://github.com/richjoyce/dissertation/commit/{{ post.sha }}">{{ post.sha }}</a></span>
-        <span class="tag">{{ post.wordcount | default: "N/A" }} words</span>
+      <p>Three human subject experiments were performed to evaluate the use of the R3C prototype. The first experiment validated the technical approach, finding that subjects could accurately and successfully target buttons in the R3C virtual environment. The second experiment focused on characterizing the effect of the passive haptics on the Fitts&rsquo; throughput. Subjects performed a Fitts&rsquo; ISO-9241 circle task in the virtual environment with and without the passive haptics. Passive haptics was found to have a significant effect on Fitts&rsquo; throughput (<em>p&thinsp;<&thinsp;0.01</em>). The third experiment compared the performance of the R3C prototype as a design evaluation tool to a traditional touchscreen based simulator. Subjects were split into two groups to perform a design evaluation of two cockpit instruments, one group using the R3C simulator and the other the touchscreen simulator. It was found that tracking task and a response task had similar performance between simulators, but time pressured tasks performed worse in the R3C simulator. Subjective feedback about the designs being evaluated was analyzed from both groups. All major usability issues were identified by both groups. The R3C system provides a promising platform for design evaluation of a cockpit in the early stages of design.</p>
     </div>
-    <p class="description">
-    {{ post.content }}
-    </p>
-    {% endfor %}
+  </div>
 </div>
-
-<div class="build">
-    <h2><span>Most Recent Build</span></h2>
-    {% for post in site.categories.commit limit:1 %}
-    <div class="meta">
-        <div class="pdf-links">
-            <a href="{{ site.baseurl }}/assets/draft-{{ post.sha }}.pdf">Draft PDF</a>
-            | <a href="{{ site.baseurl }}/assets/thesis-{{ post.sha }}.pdf">Full PDF</a>
-        </div>
-        <time datetime="{{ post.date | date_to_xmlschema }}">Built on {{ post.date | date: "%b %d, %Y" }}</time>
-        <span class="tag"><a href="https://github.com/richjoyce/dissertation/commit/{{ post.sha }}">{{ post.sha }}</a></span>
-        <span class="tag">{{ post.wordcount | default: "N/A" }} words</span>
-    </div>
-    <p class="description">
-    {{ post.content }}
-    </p>
-    {% endfor %}
-</div>
-
-	<section class="build">
-        <h2><span>Full Build History</span></h2>
-        <p></p>
-		<ul class="post-list">
-			{% for post in site.posts %}
-			<li>
-                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
-                <a href="{{ site.baseurl }}/assets/draft-{{ post.sha }}.pdf">Draft</a>
-                |
-                <a href="{{ site.baseurl }}/assets/thesis-{{ post.sha }}.pdf">Full</a>
-                |
-                <span class="words">{{ post.wordcount | default: "N/A" }}</span>
-                |
-                {{ post.title }}
-                {% if post.categories contains 'stable' %}
-                <span class="stable">{{ post.gittag }}</span>
-                {% endif %}
-                {% comment %}
-                |
-                <a href="http://github.com/richjoyce/dissertation/commit/{{ post.sha }}">Changes</a>
-                {% endcomment %}
-                |
-                <a href="{{ post.url | prepend: site.baseurl }}">More...</a>
-			</li>
-			{% endfor %}
-		</ul>
-	</section>
-</div>
+</body>
+</html>
